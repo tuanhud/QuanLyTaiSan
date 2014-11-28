@@ -118,6 +118,7 @@
             this.xrTableCell57 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell58 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell59 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrTableCell_SUM_NguyenGiaTang = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell61 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell_SUM_SoTienHM = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell_SUM_SoHMNam = new DevExpress.XtraReports.UI.XRTableCell();
@@ -144,7 +145,7 @@
             this.xrControlStyle_Middle = new DevExpress.XtraReports.UI.XRControlStyle();
             this.xrControlStyle_Left = new DevExpress.XtraReports.UI.XRControlStyle();
             this.xrControlStyle_Right = new DevExpress.XtraReports.UI.XRControlStyle();
-            this.xrTableCell_SUM_NguyenGiaTang = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrTableCell60 = new DevExpress.XtraReports.UI.XRTableCell();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable_Detail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable_Header)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable_SUM)).BeginInit();
@@ -194,104 +195,104 @@
             // 
             this.xrTableCell_SoThe.Name = "xrTableCell_SoThe";
             this.xrTableCell_SoThe.StyleName = "xrControlStyle_Left";
-            this.xrTableCell_SoThe.Weight = 0.53124988555908192D;
+            this.xrTableCell_SoThe.Weight = 0.41666656494140619D;
             // 
             // xrTableCell_SoHieuTang
             // 
             this.xrTableCell_SoHieuTang.Name = "xrTableCell_SoHieuTang";
             this.xrTableCell_SoHieuTang.StyleName = "xrControlStyle_Left";
-            this.xrTableCell_SoHieuTang.Weight = 0.51953121185302742D;
+            this.xrTableCell_SoHieuTang.Weight = 0.37369796752929696D;
             // 
             // xrTableCell_NgayThangTang
             // 
             this.xrTableCell_NgayThangTang.Name = "xrTableCell_NgayThangTang";
             this.xrTableCell_NgayThangTang.StyleName = "xrControlStyle_Middle";
-            this.xrTableCell_NgayThangTang.Weight = 0.52994808197021448D;
+            this.xrTableCell_NgayThangTang.Weight = 0.62369792938232382D;
             // 
             // xrTableCell_TenTSCD
             // 
             this.xrTableCell_TenTSCD.Name = "xrTableCell_TenTSCD";
             this.xrTableCell_TenTSCD.StyleName = "xrControlStyle_Left";
-            this.xrTableCell_TenTSCD.Weight = 0.52994798660278308D;
+            this.xrTableCell_TenTSCD.Weight = 1.1028650093078611D;
             // 
             // xrTableCell_NuocSX
             // 
             this.xrTableCell_NuocSX.Name = "xrTableCell_NuocSX";
             this.xrTableCell_NuocSX.StyleName = "xrControlStyle_Left";
-            this.xrTableCell_NuocSX.Weight = 0.47786420822143577D;
+            this.xrTableCell_NuocSX.Weight = 0.37267164230346705D;
             // 
             // xrTableCell_NamSD
             // 
             this.xrTableCell_NamSD.Multiline = true;
             this.xrTableCell_NamSD.Name = "xrTableCell_NamSD";
             this.xrTableCell_NamSD.StyleName = "xrControlStyle_Middle";
-            this.xrTableCell_NamSD.Weight = 0.47135478973388678D;
+            this.xrTableCell_NamSD.Weight = 0.42029693603515639D;
             // 
             // xrTableCell_SoHieuTSCD
             // 
             this.xrTableCell_SoHieuTSCD.Name = "xrTableCell_SoHieuTSCD";
             this.xrTableCell_SoHieuTSCD.StyleName = "xrControlStyle_Left";
-            this.xrTableCell_SoHieuTSCD.Weight = 0.42838468551635744D;
+            this.xrTableCell_SoHieuTSCD.Weight = 0.4075513648986816D;
             // 
             // xrTableCell_NguyenGia
             // 
             this.xrTableCell_NguyenGia.Name = "xrTableCell_NguyenGia";
             this.xrTableCell_NguyenGia.StyleName = "xrControlStyle_Right";
-            this.xrTableCell_NguyenGia.Weight = 0.75130286216735742D;
+            this.xrTableCell_NguyenGia.Weight = 0.78255225181579491D;
             // 
             // xrTableCell_TyLeHaoMon
             // 
             this.xrTableCell_TyLeHaoMon.Name = "xrTableCell_TyLeHaoMon";
             this.xrTableCell_TyLeHaoMon.StyleName = "xrControlStyle_Right";
-            this.xrTableCell_TyLeHaoMon.Weight = 0.520833373069764D;
+            this.xrTableCell_TyLeHaoMon.Weight = 0.50000092983245925D;
             // 
             // xrTableCell_SoTienHaoMon
             // 
             this.xrTableCell_SoTienHaoMon.Name = "xrTableCell_SoTienHaoMon";
             this.xrTableCell_SoTienHaoMon.StyleName = "xrControlStyle_Right";
-            this.xrTableCell_SoTienHaoMon.Weight = 0.55208222150802544D;
+            this.xrTableCell_SoTienHaoMon.Weight = 0.74999878644943152D;
             // 
             // xrTableCell_SoHMChuyenGiao
             // 
             this.xrTableCell_SoHMChuyenGiao.Name = "xrTableCell_SoHMChuyenGiao";
             this.xrTableCell_SoHMChuyenGiao.StyleName = "xrControlStyle_Right";
-            this.xrTableCell_SoHMChuyenGiao.Weight = 0.74043748080730443D;
+            this.xrTableCell_SoHMChuyenGiao.Weight = 0.73002114474773416D;
             // 
             // xrTableCell_SoHMNamNay
             // 
             this.xrTableCell_SoHMNamNay.Name = "xrTableCell_SoHMNamNay";
             this.xrTableCell_SoHMNamNay.StyleName = "xrControlStyle_Right";
-            this.xrTableCell_SoHMNamNay.Weight = 0.90331113040447231D;
+            this.xrTableCell_SoHMNamNay.Weight = 0.7887273901700973D;
             // 
             // xrTableCell_SoHMLuyKe
             // 
             this.xrTableCell_SoHMLuyKe.Name = "xrTableCell_SoHMLuyKe";
             this.xrTableCell_SoHMLuyKe.StyleName = "xrControlStyle_Right";
-            this.xrTableCell_SoHMLuyKe.Weight = 0.81458607852458953D;
+            this.xrTableCell_SoHMLuyKe.Weight = 0.87708607852458953D;
             // 
             // xrTableCell_SoHieuGiam
             // 
             this.xrTableCell_SoHieuGiam.Name = "xrTableCell_SoHieuGiam";
             this.xrTableCell_SoHieuGiam.StyleName = "xrControlStyle_Left";
-            this.xrTableCell_SoHieuGiam.Weight = 0.58536790177226061D;
+            this.xrTableCell_SoHieuGiam.Weight = 0.48120118424296376D;
             // 
             // xrTableCell_NgayThangGiam
             // 
             this.xrTableCell_NgayThangGiam.Name = "xrTableCell_NgayThangGiam";
             this.xrTableCell_NgayThangGiam.StyleName = "xrControlStyle_Middle";
-            this.xrTableCell_NgayThangGiam.Weight = 0.90421326920390122D;
+            this.xrTableCell_NgayThangGiam.Weight = 0.63337998673319817D;
             // 
             // xrTableCell_LyDoGiam
             // 
             this.xrTableCell_LyDoGiam.Name = "xrTableCell_LyDoGiam";
             this.xrTableCell_LyDoGiam.StyleName = "xrControlStyle_Left";
-            this.xrTableCell_LyDoGiam.Weight = 0.66666688248515127D;
+            this.xrTableCell_LyDoGiam.Weight = 0.51041688248515127D;
             // 
             // xrTableCell_GiaTriConLai
             // 
             this.xrTableCell_GiaTriConLai.Name = "xrTableCell_GiaTriConLai";
             this.xrTableCell_GiaTriConLai.StyleName = "xrControlStyle_Right";
-            this.xrTableCell_GiaTriConLai.Weight = 0.57291795060038564D;
+            this.xrTableCell_GiaTriConLai.Weight = 0.72916795060038564D;
             // 
             // TopMargin
             // 
@@ -331,6 +332,7 @@
             this.xrTableCell1,
             this.xrTableCell2,
             this.xrTableCell3,
+            this.xrTableCell60,
             this.xrTableCell5});
             this.xrTableRow1.Name = "xrTableRow1";
             this.xrTableRow1.Weight = 1D;
@@ -338,25 +340,24 @@
             // xrTableCell1
             // 
             this.xrTableCell1.Name = "xrTableCell1";
-            this.xrTableCell1.Weight = 0.53124999999999978D;
+            this.xrTableCell1.Weight = 0.416666679382324D;
             // 
             // xrTableCell2
             // 
             this.xrTableCell2.Name = "xrTableCell2";
             this.xrTableCell2.Text = "Ghi tăng tài sản cố định";
-            this.xrTableCell2.Weight = 3.7083334350585937D;
+            this.xrTableCell2.Weight = 4.083332710266113D;
             // 
             // xrTableCell3
             // 
             this.xrTableCell3.Name = "xrTableCell3";
             this.xrTableCell3.Text = "Hao mòn tài sản cố đinh";
-            this.xrTableCell3.Weight = 3.5312509155273437D;
+            this.xrTableCell3.Weight = 3.6458349609375D;
             // 
             // xrTableCell5
             // 
             this.xrTableCell5.Name = "xrTableCell5";
-            this.xrTableCell5.Text = "Ghi giảm TSCD";
-            this.xrTableCell5.Weight = 2.7291656494140621D;
+            this.xrTableCell5.Weight = 0.72916687011718728D;
             // 
             // xrTableRow2
             // 
@@ -381,75 +382,75 @@
             // xrTableCell11
             // 
             this.xrTableCell11.Name = "xrTableCell11";
-            this.xrTableCell11.Weight = 0.53124988555908192D;
+            this.xrTableCell11.Weight = 0.41666656494140614D;
             // 
             // xrTableCell6
             // 
             this.xrTableCell6.Name = "xrTableCell6";
             this.xrTableCell6.Text = "Chứng từ";
-            this.xrTableCell6.Weight = 1.0494793128967288D;
+            this.xrTableCell6.Weight = 0.99739599227905307D;
             // 
             // xrTableCell43
             // 
             this.xrTableCell43.Name = "xrTableCell43";
-            this.xrTableCell43.Weight = 0.52994812965393068D;
+            this.xrTableCell43.Weight = 1.1028653049468995D;
             // 
             // xrTableCell44
             // 
             this.xrTableCell44.Name = "xrTableCell44";
-            this.xrTableCell44.Weight = 0.47786484241485594D;
+            this.xrTableCell44.Weight = 0.37267204761505124D;
             // 
             // xrTableCell45
             // 
             this.xrTableCell45.Name = "xrTableCell45";
-            this.xrTableCell45.Weight = 0.47135406732559193D;
+            this.xrTableCell45.Weight = 0.42029632806777939D;
             // 
             // xrTableCell46
             // 
             this.xrTableCell46.Name = "xrTableCell46";
-            this.xrTableCell46.Weight = 0.42838516354560846D;
+            this.xrTableCell46.Weight = 0.40755157589912405D;
             // 
             // xrTableCell7
             // 
             this.xrTableCell7.Name = "xrTableCell7";
-            this.xrTableCell7.Weight = 0.75130218625068657D;
+            this.xrTableCell7.Weight = 0.7825517284870146D;
             // 
             // xrTableCell8
             // 
             this.xrTableCell8.Name = "xrTableCell8";
             this.xrTableCell8.Text = "Hao mòn 1 năm";
-            this.xrTableCell8.Weight = 1.0729160308837891D;
+            this.xrTableCell8.Weight = 1.2500003051757811D;
             // 
             // xrTableCell12
             // 
             this.xrTableCell12.Name = "xrTableCell12";
-            this.xrTableCell12.Weight = 0.74043762207031238D;
+            this.xrTableCell12.Weight = 0.73002113342285158D;
             // 
             // xrTableCell13
             // 
             this.xrTableCell13.Name = "xrTableCell13";
-            this.xrTableCell13.Weight = 0.903311767578125D;
+            this.xrTableCell13.Weight = 0.78872802734375D;
             // 
             // xrTableCell9
             // 
             this.xrTableCell9.Name = "xrTableCell9";
-            this.xrTableCell9.Weight = 0.81458412170410166D;
+            this.xrTableCell9.Weight = 0.87708412170410166D;
             // 
             // xrTableCell15
             // 
             this.xrTableCell15.Name = "xrTableCell15";
             this.xrTableCell15.Text = "Chứng từ";
-            this.xrTableCell15.Weight = 1.48958251953125D;
+            this.xrTableCell15.Weight = 1.11458251953125D;
             // 
             // xrTableCell14
             // 
             this.xrTableCell14.Name = "xrTableCell14";
-            this.xrTableCell14.Weight = 0.66666748046875013D;
+            this.xrTableCell14.Weight = 0.51041748046875013D;
             // 
             // xrTableCell10
             // 
             this.xrTableCell10.Name = "xrTableCell10";
-            this.xrTableCell10.Weight = 0.5729168701171875D;
+            this.xrTableCell10.Weight = 0.7291668701171875D;
             // 
             // xrTableRow5
             // 
@@ -479,103 +480,103 @@
             this.xrTableCell28.Multiline = true;
             this.xrTableCell28.Name = "xrTableCell28";
             this.xrTableCell28.Text = "Số thẻ";
-            this.xrTableCell28.Weight = 0.53124988555908192D;
+            this.xrTableCell28.Weight = 0.41666656494140614D;
             // 
             // xrTableCell42
             // 
             this.xrTableCell42.Name = "xrTableCell42";
             this.xrTableCell42.Text = "Số hiệu";
-            this.xrTableCell42.Weight = 0.51953123569488524D;
+            this.xrTableCell42.Weight = 0.37369795322418209D;
             // 
             // xrTableCell40
             // 
             this.xrTableCell40.Name = "xrTableCell40";
             this.xrTableCell40.Text = "Ngày tháng";
-            this.xrTableCell40.Weight = 0.52994810581207275D;
+            this.xrTableCell40.Weight = 0.62369791507720951D;
             // 
             // xrTableCell41
             // 
             this.xrTableCell41.Name = "xrTableCell41";
             this.xrTableCell41.Text = "Tên TSCĐ";
-            this.xrTableCell41.Weight = 0.52994795322418209D;
+            this.xrTableCell41.Weight = 1.1028652811050415D;
             // 
             // xrTableCell4
             // 
             this.xrTableCell4.Name = "xrTableCell4";
             this.xrTableCell4.Text = "Nước SX";
-            this.xrTableCell4.Weight = 0.47786482334136959D;
+            this.xrTableCell4.Weight = 0.37267202854156489D;
             // 
             // xrTableCell29
             // 
             this.xrTableCell29.Name = "xrTableCell29";
             this.xrTableCell29.Text = "Năm SD";
-            this.xrTableCell29.Weight = 0.47135422706603997D;
+            this.xrTableCell29.Weight = 0.42029633522033683D;
             // 
             // xrTableCell39
             // 
             this.xrTableCell39.Name = "xrTableCell39";
             this.xrTableCell39.Text = "Số hiệu TSCĐ";
-            this.xrTableCell39.Weight = 0.42838509082794191D;
+            this.xrTableCell39.Weight = 0.40755173206329348D;
             // 
             // xrTableCell30
             // 
             this.xrTableCell30.Name = "xrTableCell30";
             this.xrTableCell30.Text = "Nguyên giá";
-            this.xrTableCell30.Weight = 0.75130245685577379D;
+            this.xrTableCell30.Weight = 0.78255192279815655D;
             // 
             // xrTableCell31
             // 
             this.xrTableCell31.Name = "xrTableCell31";
             this.xrTableCell31.Text = "Tỷ lệ %";
-            this.xrTableCell31.Weight = 0.52083267211914075D;
+            this.xrTableCell31.Weight = 0.50000000000000011D;
             // 
             // xrTableCell47
             // 
             this.xrTableCell47.Name = "xrTableCell47";
             this.xrTableCell47.Text = "Số tiền";
-            this.xrTableCell47.Weight = 0.55208343505859359D;
+            this.xrTableCell47.Weight = 0.75D;
             // 
             // xrTableCell32
             // 
             this.xrTableCell32.Name = "xrTableCell32";
             this.xrTableCell32.Text = "Số HM năm trước chuyển sang";
-            this.xrTableCell32.Weight = 0.74043651580810543D;
+            this.xrTableCell32.Weight = 0.73002044677734368D;
             // 
             // xrTableCell33
             // 
             this.xrTableCell33.Name = "xrTableCell33";
             this.xrTableCell33.Text = "Số HM năm nay";
-            this.xrTableCell33.Weight = 0.90331237792968766D;
+            this.xrTableCell33.Weight = 0.78872859954834D;
             // 
             // xrTableCell34
             // 
             this.xrTableCell34.Name = "xrTableCell34";
             this.xrTableCell34.Text = "Số HM lũy kế";
-            this.xrTableCell34.Weight = 0.81458435058593759D;
+            this.xrTableCell34.Weight = 0.87708435058593759D;
             // 
             // xrTableCell35
             // 
             this.xrTableCell35.Name = "xrTableCell35";
             this.xrTableCell35.Text = "Số hiệu";
-            this.xrTableCell35.Weight = 0.58536865234375D;
+            this.xrTableCell35.Weight = 0.48120178222656246D;
             // 
             // xrTableCell36
             // 
             this.xrTableCell36.Name = "xrTableCell36";
             this.xrTableCell36.Text = "Ngày tháng";
-            this.xrTableCell36.Weight = 0.90421508789062521D;
+            this.xrTableCell36.Weight = 0.63338195800781272D;
             // 
             // xrTableCell37
             // 
             this.xrTableCell37.Name = "xrTableCell37";
             this.xrTableCell37.Text = "Lý do ghi giảm";
-            this.xrTableCell37.Weight = 0.666666259765625D;
+            this.xrTableCell37.Weight = 0.510416259765625D;
             // 
             // xrTableCell38
             // 
             this.xrTableCell38.Name = "xrTableCell38";
             this.xrTableCell38.Text = "Giá trị còn lại";
-            this.xrTableCell38.Weight = 0.57291687011718762D;
+            this.xrTableCell38.Weight = 0.72916687011718762D;
             // 
             // xrTableRow3
             // 
@@ -604,103 +605,103 @@
             // 
             this.xrTableCell17.Name = "xrTableCell17";
             this.xrTableCell17.Text = "A";
-            this.xrTableCell17.Weight = 0.53125D;
+            this.xrTableCell17.Weight = 0.41666667938232421D;
             // 
             // xrTableCell18
             // 
             this.xrTableCell18.Name = "xrTableCell18";
             this.xrTableCell18.Text = "1";
-            this.xrTableCell18.Weight = 0.51953117370605462D;
+            this.xrTableCell18.Weight = 0.37369785308837888D;
             // 
             // xrTableCell19
             // 
             this.xrTableCell19.Name = "xrTableCell19";
             this.xrTableCell19.Text = "2";
-            this.xrTableCell19.Weight = 0.52994789123535158D;
+            this.xrTableCell19.Weight = 0.62369789123535158D;
             // 
             // xrTableCell20
             // 
             this.xrTableCell20.Name = "xrTableCell20";
             this.xrTableCell20.Text = "3";
-            this.xrTableCell20.Weight = 0.5299481201171875D;
+            this.xrTableCell20.Weight = 1.1028652954101563D;
             // 
             // xrTableCell21
             // 
             this.xrTableCell21.Name = "xrTableCell21";
             this.xrTableCell21.Text = "4";
-            this.xrTableCell21.Weight = 0.47786422729492195D;
+            this.xrTableCell21.Weight = 0.37267143249511725D;
             // 
             // xrTableCell22
             // 
             this.xrTableCell22.Name = "xrTableCell22";
             this.xrTableCell22.Text = "5";
-            this.xrTableCell22.Weight = 0.47135498046875024D;
+            this.xrTableCell22.Weight = 0.4202972412109377D;
             // 
             // xrTableCell23
             // 
             this.xrTableCell23.Name = "xrTableCell23";
             this.xrTableCell23.Text = "6";
-            this.xrTableCell23.Weight = 0.42838439941406264D;
+            this.xrTableCell23.Weight = 0.40755096435546889D;
             // 
             // xrTableCell24
             // 
             this.xrTableCell24.Name = "xrTableCell24";
             this.xrTableCell24.Text = "7";
-            this.xrTableCell24.Weight = 0.75130294799804653D;
+            this.xrTableCell24.Weight = 0.78255233764648391D;
             // 
             // xrTableCell25
             // 
             this.xrTableCell25.Name = "xrTableCell25";
             this.xrTableCell25.Text = "8";
-            this.xrTableCell25.Weight = 0.52083221435546845D;
+            this.xrTableCell25.Weight = 0.49999969482421852D;
             // 
             // xrTableCell26
             // 
             this.xrTableCell26.Name = "xrTableCell26";
             this.xrTableCell26.Text = "9";
-            this.xrTableCell26.Weight = 0.5520846557617185D;
+            this.xrTableCell26.Weight = 0.7500012207031248D;
             // 
             // xrTableCell48
             // 
             this.xrTableCell48.Name = "xrTableCell48";
             this.xrTableCell48.Text = "10";
-            this.xrTableCell48.Weight = 0.74043701171875D;
+            this.xrTableCell48.Weight = 0.730020751953125D;
             // 
             // xrTableCell16
             // 
             this.xrTableCell16.Name = "xrTableCell16";
             this.xrTableCell16.Text = "11";
-            this.xrTableCell16.Weight = 0.90331054687500023D;
+            this.xrTableCell16.Weight = 0.78872680664062522D;
             // 
             // xrTableCell49
             // 
             this.xrTableCell49.Name = "xrTableCell49";
             this.xrTableCell49.Text = "12";
-            this.xrTableCell49.Weight = 0.81458602905273425D;
+            this.xrTableCell49.Weight = 0.87708602905273425D;
             // 
             // xrTableCell52
             // 
             this.xrTableCell52.Name = "xrTableCell52";
             this.xrTableCell52.Text = "13";
-            this.xrTableCell52.Weight = 0.58536741256713865D;
+            this.xrTableCell52.Weight = 0.48120058059692378D;
             // 
             // xrTableCell50
             // 
             this.xrTableCell50.Name = "xrTableCell50";
             this.xrTableCell50.Text = "14";
-            this.xrTableCell50.Weight = 0.90421438217163086D;
+            this.xrTableCell50.Weight = 0.63338121414184567D;
             // 
             // xrTableCell51
             // 
             this.xrTableCell51.Name = "xrTableCell51";
             this.xrTableCell51.Text = "15";
-            this.xrTableCell51.Weight = 0.66666601181030272D;
+            this.xrTableCell51.Weight = 0.51041601181030272D;
             // 
             // xrTableCell27
             // 
             this.xrTableCell27.Name = "xrTableCell27";
             this.xrTableCell27.Text = "16";
-            this.xrTableCell27.Weight = 0.57291799545288091D;
+            this.xrTableCell27.Weight = 0.72916799545288091D;
             // 
             // ReportFooter
             // 
@@ -749,98 +750,104 @@
             this.xrTableCell53.Name = "xrTableCell53";
             this.xrTableCell53.StyleName = "xrControlStyle_Middle";
             this.xrTableCell53.Text = "Cộng";
-            this.xrTableCell53.Weight = 0.53124988555908192D;
+            this.xrTableCell53.Weight = 0.41666656494140619D;
             // 
             // xrTableCell54
             // 
             this.xrTableCell54.Name = "xrTableCell54";
             this.xrTableCell54.StyleName = "xrControlStyle_Left";
-            this.xrTableCell54.Weight = 0.51953121185302742D;
+            this.xrTableCell54.Weight = 0.37369796752929696D;
             // 
             // xrTableCell55
             // 
             this.xrTableCell55.Name = "xrTableCell55";
             this.xrTableCell55.StyleName = "xrControlStyle_Middle";
-            this.xrTableCell55.Weight = 0.52994808197021448D;
+            this.xrTableCell55.Weight = 0.62369792938232382D;
             // 
             // xrTableCell56
             // 
             this.xrTableCell56.Name = "xrTableCell56";
             this.xrTableCell56.StyleName = "xrControlStyle_Left";
-            this.xrTableCell56.Weight = 0.52994798660278308D;
+            this.xrTableCell56.Weight = 1.1028650093078611D;
             // 
             // xrTableCell57
             // 
             this.xrTableCell57.Name = "xrTableCell57";
             this.xrTableCell57.StyleName = "xrControlStyle_Left";
-            this.xrTableCell57.Weight = 0.47786420822143577D;
+            this.xrTableCell57.Weight = 0.37267164230346705D;
             // 
             // xrTableCell58
             // 
             this.xrTableCell58.Multiline = true;
             this.xrTableCell58.Name = "xrTableCell58";
             this.xrTableCell58.StyleName = "xrControlStyle_Middle";
-            this.xrTableCell58.Weight = 0.47135478973388678D;
+            this.xrTableCell58.Weight = 0.42029693603515639D;
             // 
             // xrTableCell59
             // 
             this.xrTableCell59.Name = "xrTableCell59";
             this.xrTableCell59.StyleName = "xrControlStyle_Left";
-            this.xrTableCell59.Weight = 0.42838468551635744D;
+            this.xrTableCell59.Weight = 0.4075513648986816D;
+            // 
+            // xrTableCell_SUM_NguyenGiaTang
+            // 
+            this.xrTableCell_SUM_NguyenGiaTang.Name = "xrTableCell_SUM_NguyenGiaTang";
+            this.xrTableCell_SUM_NguyenGiaTang.StyleName = "xrControlStyle_Right";
+            this.xrTableCell_SUM_NguyenGiaTang.Weight = 0.78255218744277932D;
             // 
             // xrTableCell61
             // 
             this.xrTableCell61.Name = "xrTableCell61";
             this.xrTableCell61.StyleName = "xrControlStyle_Right";
-            this.xrTableCell61.Weight = 0.52083343744277955D;
+            this.xrTableCell61.Weight = 0.50000091791152967D;
             // 
             // xrTableCell_SUM_SoTienHM
             // 
             this.xrTableCell_SUM_SoTienHM.Name = "xrTableCell_SUM_SoTienHM";
             this.xrTableCell_SUM_SoTienHM.StyleName = "xrControlStyle_Right";
-            this.xrTableCell_SUM_SoTienHM.Weight = 0.55208222150802544D;
+            this.xrTableCell_SUM_SoTienHM.Weight = 0.74999878644943152D;
             // 
             // xrTableCell_SUM_SoHMNam
             // 
             this.xrTableCell_SUM_SoHMNam.Name = "xrTableCell_SUM_SoHMNam";
             this.xrTableCell_SUM_SoHMNam.StyleName = "xrControlStyle_Right";
-            this.xrTableCell_SUM_SoHMNam.Weight = 0.74043748080730443D;
+            this.xrTableCell_SUM_SoHMNam.Weight = 0.73002122104167944D;
             // 
             // xrTableCell64
             // 
             this.xrTableCell64.Name = "xrTableCell64";
             this.xrTableCell64.StyleName = "xrControlStyle_Right";
-            this.xrTableCell64.Weight = 0.90331113040447231D;
+            this.xrTableCell64.Weight = 0.7887273901700973D;
             // 
             // xrTableCell_SUM_SoHMLuyKe
             // 
             this.xrTableCell_SUM_SoHMLuyKe.Name = "xrTableCell_SUM_SoHMLuyKe";
             this.xrTableCell_SUM_SoHMLuyKe.StyleName = "xrControlStyle_Right";
-            this.xrTableCell_SUM_SoHMLuyKe.Weight = 0.81458607852458953D;
+            this.xrTableCell_SUM_SoHMLuyKe.Weight = 0.87708607852458953D;
             // 
             // xrTableCell66
             // 
             this.xrTableCell66.Name = "xrTableCell66";
             this.xrTableCell66.StyleName = "xrControlStyle_Left";
-            this.xrTableCell66.Weight = 0.58536790177226061D;
+            this.xrTableCell66.Weight = 0.48120118424296376D;
             // 
             // xrTableCell67
             // 
             this.xrTableCell67.Name = "xrTableCell67";
             this.xrTableCell67.StyleName = "xrControlStyle_Middle";
-            this.xrTableCell67.Weight = 0.90421326920390122D;
+            this.xrTableCell67.Weight = 0.63337998673319817D;
             // 
             // xrTableCell68
             // 
             this.xrTableCell68.Name = "xrTableCell68";
             this.xrTableCell68.StyleName = "xrControlStyle_Left";
-            this.xrTableCell68.Weight = 0.66666688248515127D;
+            this.xrTableCell68.Weight = 0.51041688248515127D;
             // 
             // xrTableCell69
             // 
             this.xrTableCell69.Name = "xrTableCell69";
             this.xrTableCell69.StyleName = "xrControlStyle_Right";
-            this.xrTableCell69.Weight = 0.57291795060038564D;
+            this.xrTableCell69.Weight = 0.72916795060038564D;
             // 
             // xrLabel_NguoiLapBieu
             // 
@@ -1043,12 +1050,11 @@
             this.xrControlStyle_Right.Name = "xrControlStyle_Right";
             this.xrControlStyle_Right.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             // 
-            // xrTableCell_SUM_NguyenGiaTang
+            // xrTableCell60
             // 
-            this.xrTableCell_SUM_NguyenGiaTang.Name = "xrTableCell_SUM_NguyenGiaTang";
-            this.xrTableCell_SUM_NguyenGiaTang.StyleName = "xrControlStyle_Right";
-            this.xrTableCell_SUM_NguyenGiaTang.Text = "0";
-            this.xrTableCell_SUM_NguyenGiaTang.Weight = 0.751302797794342D;
+            this.xrTableCell60.Name = "xrTableCell60";
+            this.xrTableCell60.Text = "Ghi giảm TSCD";
+            this.xrTableCell60.Weight = 1.6249987792968748D;
             // 
             // XtraReport_SoTaiSanCoDinh
             // 
@@ -1197,5 +1203,6 @@
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell68;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell69;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell_SUM_NguyenGiaTang;
+        private DevExpress.XtraReports.UI.XRTableCell xrTableCell60;
     }
 }
