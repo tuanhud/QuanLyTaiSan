@@ -27,21 +27,13 @@ namespace TSCD.Entities
         public String ten { get; set; }
 
         /// <summary>
-        /// Số năm sử dụng
+        /// Phần trăm hao mòn/năm
         /// </summary>
-        public int sonamsudung { get; set; }
-        /// <summary>
-        /// Số năm sử dụng (Theo quyet dinh moi T32)
-        /// </summary>
-        public int sonamsudung_2 { get; set; }
+        public double phantramhaomon_351 { get; set; }
         /// <summary>
         /// Phần trăm hao mòn/năm
         /// </summary>
-        public int phantramhaomon { get; set; }
-        /// <summary>
-        /// Phần trăm hao mòn/năm
-        /// </summary>
-        public int phantramhaomon_2 { get; set; }
+        public double phantramhaomon_32 { get; set; }
         /*
          * FK
          */
@@ -61,6 +53,28 @@ namespace TSCD.Entities
         #endregion
 
         #region Nghiệp vụ
+        /// <summary>
+        /// Số năm sử dụng theo quyết định 351 (auto)
+        /// </summary>
+        [NotMapped]
+        public int sonamsudung_351
+        {
+            get
+            {
+                return (int)(100 / phantramhaomon_351);
+            }
+        }
+        /// <summary>
+        /// Số năm sử dụng theo quyết định 351 (auto)
+        /// </summary>
+        [NotMapped]
+        public int sonamsudung_32
+        {
+            get
+            {
+                return (int)(100 / phantramhaomon_32);
+            }
+        }
         /// <summary>
         /// Lấy tất cả đám con cháu Đơn vị dưới root
         /// </summary>

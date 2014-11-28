@@ -29,6 +29,131 @@ namespace TSCD.DataFilter
         public String dvsudung { get; set; }
         public ICollection<CTTaiSan> childs { get; set; }
         public CTTaiSan obj { get; set; }
+        
+        /// <summary>
+        /// phan tram hao mon theo QD 351
+        /// </summary>
+        public double phantramhaomon {
+            get
+            {
+                try
+                {
+                    return (double)obj.taisan.loaitaisan.phantramhaomon_351;
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex);
+                    return -1;
+                    
+                }
+            }
+        }
+        /// <summary>
+        /// phan tram hao mon theo QD 32
+        /// </summary>
+        public double phantramhaomon_2
+        {
+            get
+            {
+                try
+                {
+                    return obj.taisan.loaitaisan.phantramhaomon_32;
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex);
+                    return -1;
+                    
+                }
+            }
+        }
+        /// <summary>
+        /// Lay YEAR cua ngay su dung
+        /// </summary>
+        public int namsudung
+        {
+            get
+            {
+                return ngay==null?0:ngay.Value.Year;
+            }
+        }
+        /// <summary>
+        /// Số năm đã sử dụng tính đến cuối 2008
+        /// </summary>
+        public int sonamdasudung_cuoi2008
+        {
+            get
+            {
+                try
+                {
+                    return (2008 - namsudung < 0 ? 0 : 2008 - namsudung);
+                }catch(Exception ex)
+                {
+                    Debug.WriteLine(ex);
+                    return 0;
+                }
+            }
+        }
+        /// <summary>
+        /// so nam su dung theo quyet dinh 351
+        /// </summary>
+        public int sonamsudung_351
+        {
+            get
+            {
+                return obj.taisan.loaitaisan.sonamsudung_351;
+            }
+        }
+        /// <summary>
+        /// so nam su dung theo quyet dinh 32
+        /// </summary>
+        public int sonamsudung_32
+        {
+            get
+            {
+                return obj.taisan.loaitaisan.sonamsudung_32;
+            }
+        }
+        /// <summary>
+        /// so nam su dung con lai theo quyet dinh 351
+        /// </summary>
+        public int sonamsudungconlai_351
+        {
+            get
+            {
+                return sonamsudung_351 - sonamdasudung_cuoi2008;
+            }
+        }
+        /// <summary>
+        /// so nam su dung con lai theo quyet dinh 32
+        /// </summary>
+        public int sonamsudungconlai_32
+        {
+            get
+            {
+                return sonamsudung_32 - sonamdasudung_cuoi2008;
+            }
+        }
+        /// <summary>
+        /// so nam su dung con lai theo quyet dinh 32
+        /// </summary>
+        public long giatriconlai_351
+        {
+            get
+            {
+                return (long)(thanhtien * phantramhaomon * sonamsudung_351);
+            }
+        }
+        /// <summary>
+        /// so nam su dung con lai theo quyet dinh 32
+        /// </summary>
+        public long giatriconlai_32
+        {
+            get
+            {
+                return (long)(thanhtien * phantramhaomon_2 * sonamsudung_32);
+            }
+        }
 
         public static List<TaiSanHienThi> Convert(ICollection<CTTaiSan> list)
         {
