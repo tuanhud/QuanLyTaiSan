@@ -61,7 +61,7 @@ namespace TSCD.Entities
         {
             get
             {
-                return (int)(100 / phantramhaomon_351);
+                return (int)(1 / phantramhaomon_351);
             }
         }
         /// <summary>
@@ -72,7 +72,7 @@ namespace TSCD.Entities
         {
             get
             {
-                return (int)(100 / phantramhaomon_32);
+                return (int)(1 / phantramhaomon_32);
             }
         }
         /// <summary>

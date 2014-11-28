@@ -33,7 +33,8 @@ namespace TSCD.DataFilter
         /// <summary>
         /// phan tram hao mon theo QD 351
         /// </summary>
-        public double phantramhaomon {
+        public double phantramhaomon_351
+        {
             get
             {
                 try
@@ -51,7 +52,7 @@ namespace TSCD.DataFilter
         /// <summary>
         /// phan tram hao mon theo QD 32
         /// </summary>
-        public double phantramhaomon_2
+        public double phantramhaomon_32
         {
             get
             {
@@ -141,7 +142,7 @@ namespace TSCD.DataFilter
         {
             get
             {
-                return (long)(thanhtien * phantramhaomon * sonamsudung_351);
+                return (long)(thanhtien * phantramhaomon_351 * sonamsudungconlai_351);
             }
         }
         /// <summary>

@@ -196,7 +196,7 @@ namespace TSCD_GUI.QLLoaiTaiSan
                 objLoaiTaiSan.ten = txtTen.Text;
                 objLoaiTaiSan.mota = txtMoTa.Text;
                 objLoaiTaiSan.phantramhaomon_351 = spinHaoMon351.EditValue != null ? double.Parse(spinHaoMon351.EditValue.ToString()) : 0;
-                objLoaiTaiSan.phantramhaomon_32 = spinHaoMon32.EditValue != null ? double.Parse(spinHaoMon351.EditValue.ToString()) : 0;
+                objLoaiTaiSan.phantramhaomon_32 = spinHaoMon32.EditValue != null ? double.Parse(spinHaoMon32.EditValue.ToString()) : 0;
                 objLoaiTaiSan.huuhinh = checkHuuHinh.Checked;
                 DonViTinh objDonVi = gridLookUpDonVi.EditValue != null ? DonViTinh.getById(GUID.From(gridLookUpDonVi.EditValue)) : null;
                 objLoaiTaiSan.donvitinh = (objDonVi != null && objDonVi.id != Guid.Empty) ? objDonVi : null;
