@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucQuanLyLoaiTS));
             this.rbnControlLoaiTS = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barBtnThemLoaiTS = new DevExpress.XtraBars.BarButtonItem();
@@ -72,7 +71,9 @@
             this.btnSua_r = new DevExpress.XtraEditors.SimpleButton();
             this.btnThem_r = new DevExpress.XtraEditors.SimpleButton();
             this.txtMoTa = new DevExpress.XtraEditors.MemoEdit();
-            this.dxErrorProviderInfo = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
+            this.dxErrorProviderInfo = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider();
+            this.colphantramhaomon_351 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.colphantramhaomon_32 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             ((System.ComponentModel.ISupportInitialize)(this.rbnControlLoaiTS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControlMain)).BeginInit();
             this.splitContainerControlMain.SuspendLayout();
@@ -204,6 +205,8 @@
             this.colten,
             this.coldonvitinh,
             this.colhuuhinh,
+            this.colphantramhaomon_351,
+            this.colphantramhaomon_32,
             this.colobj});
             this.treeListLoaiTS.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeListLoaiTS.KeyFieldName = "id";
@@ -320,8 +323,8 @@
             this.spinHaoMon32.Name = "spinHaoMon32";
             this.spinHaoMon32.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.spinHaoMon32.Properties.DisplayFormat.FormatString = "0%";
-            this.spinHaoMon32.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.spinHaoMon32.Properties.DisplayFormat.FormatString = "p";
+            this.spinHaoMon32.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.spinHaoMon32.Size = new System.Drawing.Size(294, 20);
             this.spinHaoMon32.TabIndex = 23;
             // 
@@ -339,8 +342,8 @@
             this.spinHaoMon351.Name = "spinHaoMon351";
             this.spinHaoMon351.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.spinHaoMon351.Properties.DisplayFormat.FormatString = "0%";
-            this.spinHaoMon351.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.spinHaoMon351.Properties.DisplayFormat.FormatString = "P";
+            this.spinHaoMon351.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.spinHaoMon351.Size = new System.Drawing.Size(294, 20);
             this.spinHaoMon351.TabIndex = 22;
             // 
@@ -543,6 +546,24 @@
             // 
             this.dxErrorProviderInfo.ContainerControl = this;
             // 
+            // colphantramhaomon_351
+            // 
+            this.colphantramhaomon_351.Caption = "Tỷ lệ hao mòn theo QĐ 351";
+            this.colphantramhaomon_351.FieldName = "phantramhaomon_351";
+            this.colphantramhaomon_351.Format.FormatString = "p0";
+            this.colphantramhaomon_351.Format.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colphantramhaomon_351.Name = "colphantramhaomon_351";
+            this.colphantramhaomon_351.Visible = true;
+            this.colphantramhaomon_351.VisibleIndex = 3;
+            // 
+            // colphantramhaomon_32
+            // 
+            this.colphantramhaomon_32.Caption = "Tỷ lệ hao mòn theo QĐ 32";
+            this.colphantramhaomon_32.FieldName = "phantramhaomon_32";
+            this.colphantramhaomon_32.Name = "colphantramhaomon_32";
+            this.colphantramhaomon_32.Visible = true;
+            this.colphantramhaomon_32.VisibleIndex = 4;
+            // 
             // ucQuanLyLoaiTS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -618,5 +639,7 @@
         private DevExpress.XtraEditors.LabelControl lblHaoMon351;
         private DevExpress.XtraEditors.SpinEdit spinHaoMon32;
         private DevExpress.XtraEditors.SpinEdit spinHaoMon351;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn colphantramhaomon_351;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn colphantramhaomon_32;
     }
 }

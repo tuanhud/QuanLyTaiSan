@@ -14,6 +14,8 @@ namespace TSCD.DataFilter
         public String donvitinh { get; set; }
         public bool huuhinh { get; set; }
         public Guid? parent_id { get; set; }
+        public double? phantramhaomon_351 { get; set; }
+        public double? phantramhaomon_32 { get; set; }
         public LoaiTaiSan obj { get; set; }
 
         public static List<LoaiTSHienThi> Convert(IQueryable<LoaiTaiSan> list)
@@ -30,6 +32,8 @@ namespace TSCD.DataFilter
                     donvitinh = ct.donvitinh != null ? ct.donvitinh.ten : "",
                     huuhinh = ct.huuhinh,
                     parent_id = ct.parent_id,
+                    phantramhaomon_351 = ct.phantramhaomon_351,
+                    phantramhaomon_32 = ct.phantramhaomon_32,
                     obj = ct,
                 }).ToList();
                 return re;
@@ -55,6 +59,8 @@ namespace TSCD.DataFilter
                     donvitinh = ct.donvitinh != null ? ct.donvitinh.ten : "",
                     huuhinh = ct.huuhinh,
                     parent_id = ct.parent_id,
+                    phantramhaomon_351 = ct.phantramhaomon_351,
+                    phantramhaomon_32 = ct.phantramhaomon_32,
                     obj = ct,
                 }).ToList();
                 return re;
