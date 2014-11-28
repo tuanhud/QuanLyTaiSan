@@ -54,10 +54,6 @@ namespace TSCD.DataFilter
                             )
                         )
                     )
-                    {
-                        obj.sodaunam_soluong += ctts.soluong;
-                        obj.sodaunam_giatri += ctts.thanhtien;
-                    }
                     var tmp = taisan.cttaisans.Where(
                         c =>
                             c.soluong > 0
