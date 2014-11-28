@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SHARED.Libraries;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -31,7 +32,7 @@ namespace TSCD.DataFilter
         /// <returns></returns>
         public static List<TK_TangGiam_TheoLoaiTS> getAll(DateTime? from, DateTime? to)
         {
-            var list_loaits = LoaiTaiSan.getAll();
+            var list_loaits = LoaiTaiSan.getAll();// LoaiTaiSan.getAll();
             List<TK_TangGiam_TheoLoaiTS> re = new List<TK_TangGiam_TheoLoaiTS>();
 
             foreach (var item in list_loaits)
@@ -40,15 +41,16 @@ namespace TSCD.DataFilter
                 obj.tenloai = item.ten;
                 obj.id_loai = item.id;
                 obj.donvitinh = item.donvitinh ==null ? "":item.donvitinh.ten;
+                int count=0;
                 foreach (var taisan in item.taisans)
                 {
                     //Tính số đầu năm
                     foreach (var ctts in taisan.cttaisans.Where(
-                        c=>
-                            c.soluong>0
+                        c =>
+                            c.soluong > 0
                             &&
                             (
-                                (c.ngay!=null && c.ngay<from)
+                                (c.ngay != null && c.ngay < from)
                             )
                         )
                     )
@@ -66,7 +68,7 @@ namespace TSCD.DataFilter
                             obj.tangtrongnam_soluong += ctts.soluong;
                             obj.tangtrongnam_giatri += ctts.thanhtien;
                         }
-                        else if(ctts.tang_giam==-1)
+                        else if (ctts.tang_giam == -1)
                         {
                             obj.giamtrongnam_soluong += ctts.soluong;
                             obj.giamtrongnam_giatri += ctts.thanhtien;
