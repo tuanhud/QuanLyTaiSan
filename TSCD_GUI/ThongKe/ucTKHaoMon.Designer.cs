@@ -226,7 +226,7 @@
             this.colphantramhaomon_351.FieldName = "phantramhaomon_351";
             this.colphantramhaomon_351.Name = "colphantramhaomon_351";
             this.colphantramhaomon_351.Visible = true;
-            this.colphantramhaomon_351.VisibleIndex = 13;
+            this.colphantramhaomon_351.VisibleIndex = 12;
             // 
             // colphantramhaomon_32
             // 
@@ -234,7 +234,7 @@
             this.colphantramhaomon_32.FieldName = "phantramhaomon_32";
             this.colphantramhaomon_32.Name = "colphantramhaomon_32";
             this.colphantramhaomon_32.Visible = true;
-            this.colphantramhaomon_32.VisibleIndex = 12;
+            this.colphantramhaomon_32.VisibleIndex = 13;
             // 
             // colsonamdasudung_cuoi2008
             // 
