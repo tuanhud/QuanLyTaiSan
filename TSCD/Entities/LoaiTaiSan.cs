@@ -27,11 +27,11 @@ namespace TSCD.Entities
         public String ten { get; set; }
 
         /// <summary>
-        /// Phần trăm hao mòn/năm
+        /// Phần trăm hao mòn/năm: 0.25, 0.1
         /// </summary>
         public double phantramhaomon_351 { get; set; }
         /// <summary>
-        /// Phần trăm hao mòn/năm
+        /// Phần trăm hao mòn/năm: 0.25, 0.1
         /// </summary>
         public double phantramhaomon_32 { get; set; }
         /*

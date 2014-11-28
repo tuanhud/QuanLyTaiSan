@@ -151,7 +151,14 @@ namespace TSCD.DataFilter
         {
             get
             {
-                return (long)(thanhtien * phantramhaomon_2 * sonamsudung_32);
+                if (sonamsudungconlai_32 > 0)
+                {
+                    return giatriconlai_351;
+                }
+                else
+                {
+                    return 0;
+                }
             }
         }
 
