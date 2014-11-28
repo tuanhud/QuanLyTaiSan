@@ -323,8 +323,19 @@
             this.spinHaoMon32.Name = "spinHaoMon32";
             this.spinHaoMon32.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.spinHaoMon32.Properties.DisplayFormat.FormatString = "p";
+            this.spinHaoMon32.Properties.DisplayFormat.FormatString = "P";
             this.spinHaoMon32.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.spinHaoMon32.Properties.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
+            this.spinHaoMon32.Properties.Mask.EditMask = "p";
+            this.spinHaoMon32.Properties.MaxValue = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.spinHaoMon32.Size = new System.Drawing.Size(294, 20);
             this.spinHaoMon32.TabIndex = 23;
             // 
@@ -344,6 +355,17 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.spinHaoMon351.Properties.DisplayFormat.FormatString = "P";
             this.spinHaoMon351.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.spinHaoMon351.Properties.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
+            this.spinHaoMon351.Properties.Mask.EditMask = "p";
+            this.spinHaoMon351.Properties.MaxValue = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.spinHaoMon351.Size = new System.Drawing.Size(294, 20);
             this.spinHaoMon351.TabIndex = 22;
             // 
@@ -550,7 +572,7 @@
             // 
             this.colphantramhaomon_351.Caption = "Tỷ lệ hao mòn theo QĐ 351";
             this.colphantramhaomon_351.FieldName = "phantramhaomon_351";
-            this.colphantramhaomon_351.Format.FormatString = "p0";
+            this.colphantramhaomon_351.Format.FormatString = "P";
             this.colphantramhaomon_351.Format.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colphantramhaomon_351.Name = "colphantramhaomon_351";
             this.colphantramhaomon_351.Visible = true;
@@ -560,6 +582,8 @@
             // 
             this.colphantramhaomon_32.Caption = "Tỷ lệ hao mòn theo QĐ 32";
             this.colphantramhaomon_32.FieldName = "phantramhaomon_32";
+            this.colphantramhaomon_32.Format.FormatString = "P";
+            this.colphantramhaomon_32.Format.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colphantramhaomon_32.Name = "colphantramhaomon_32";
             this.colphantramhaomon_32.Visible = true;
             this.colphantramhaomon_32.VisibleIndex = 4;

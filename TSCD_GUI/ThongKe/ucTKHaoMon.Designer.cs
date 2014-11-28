@@ -44,13 +44,16 @@
             this.coldvql = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colphong = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colvitri = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colkhauhaothang = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colkhauhaonam = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colhaomon = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colgiatriconlai = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colphantramhaomon_351 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colphantramhaomon_32 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colsonamdasudung_cuoi2008 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colsonamsudung_351 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colsonamsudung_32 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colsonamsudungconlai_351 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colsonamsudungconlai_32 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colgiatriconlai_351 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colgiatriconlai_32 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelSearch = new DevExpress.XtraEditors.PanelControl();
-            this.radioKhauHaoThang = new System.Windows.Forms.RadioButton();
-            this.radioKhauHaoNam = new System.Windows.Forms.RadioButton();
             this.btnClear = new DevExpress.XtraEditors.SimpleButton();
             this.btnTim = new DevExpress.XtraEditors.SimpleButton();
             this.ucComboBoxViTri1 = new TSCD_GUI.MyUserControl.ucComboBoxViTri();
@@ -102,12 +105,18 @@
             this.coldvql,
             this.colphong,
             this.colvitri,
-            this.colkhauhaothang,
-            this.colkhauhaonam,
-            this.colhaomon,
-            this.colgiatriconlai});
+            this.colphantramhaomon_351,
+            this.colphantramhaomon_32,
+            this.colsonamdasudung_cuoi2008,
+            this.colsonamsudung_351,
+            this.colsonamsudung_32,
+            this.colsonamsudungconlai_351,
+            this.colsonamsudungconlai_32,
+            this.colgiatriconlai_351,
+            this.colgiatriconlai_32});
             this.gridViewHaoMon.GridControl = this.gridControlHaoMon;
             this.gridViewHaoMon.Name = "gridViewHaoMon";
+            this.gridViewHaoMon.OptionsView.ColumnAutoWidth = false;
             // 
             // colid
             // 
@@ -211,42 +220,80 @@
             this.colvitri.Visible = true;
             this.colvitri.VisibleIndex = 11;
             // 
-            // colkhauhaothang
+            // colphantramhaomon_351
             // 
-            this.colkhauhaothang.Caption = "Khấu hao tháng";
-            this.colkhauhaothang.FieldName = "khauhaothang";
-            this.colkhauhaothang.Name = "colkhauhaothang";
-            this.colkhauhaothang.Visible = true;
-            this.colkhauhaothang.VisibleIndex = 13;
+            this.colphantramhaomon_351.Caption = "Tỷ lệ hao mòn theo QĐ 351";
+            this.colphantramhaomon_351.FieldName = "phantramhaomon_351";
+            this.colphantramhaomon_351.Name = "colphantramhaomon_351";
+            this.colphantramhaomon_351.Visible = true;
+            this.colphantramhaomon_351.VisibleIndex = 13;
             // 
-            // colkhauhaonam
+            // colphantramhaomon_32
             // 
-            this.colkhauhaonam.Caption = "Khấu hao năm";
-            this.colkhauhaonam.FieldName = "khauhaonam";
-            this.colkhauhaonam.Name = "colkhauhaonam";
-            this.colkhauhaonam.Visible = true;
-            this.colkhauhaonam.VisibleIndex = 12;
+            this.colphantramhaomon_32.Caption = "Tỷ lệ hao mòn theo QĐ 32";
+            this.colphantramhaomon_32.FieldName = "phantramhaomon_32";
+            this.colphantramhaomon_32.Name = "colphantramhaomon_32";
+            this.colphantramhaomon_32.Visible = true;
+            this.colphantramhaomon_32.VisibleIndex = 12;
             // 
-            // colhaomon
+            // colsonamdasudung_cuoi2008
             // 
-            this.colhaomon.Caption = "Hao mòn";
-            this.colhaomon.FieldName = "haomon";
-            this.colhaomon.Name = "colhaomon";
-            this.colhaomon.Visible = true;
-            this.colhaomon.VisibleIndex = 14;
+            this.colsonamdasudung_cuoi2008.Caption = "Số năm đã sử dụng tính đến cuối năm 2008";
+            this.colsonamdasudung_cuoi2008.FieldName = "sonamdasudung_cuoi2008";
+            this.colsonamdasudung_cuoi2008.Name = "colsonamdasudung_cuoi2008";
+            this.colsonamdasudung_cuoi2008.Visible = true;
+            this.colsonamdasudung_cuoi2008.VisibleIndex = 14;
             // 
-            // colgiatriconlai
+            // colsonamsudung_351
             // 
-            this.colgiatriconlai.Caption = "Giá trị còn lại";
-            this.colgiatriconlai.FieldName = "giatriconlai";
-            this.colgiatriconlai.Name = "colgiatriconlai";
-            this.colgiatriconlai.Visible = true;
-            this.colgiatriconlai.VisibleIndex = 15;
+            this.colsonamsudung_351.Caption = "Thời gian sử dụng theo QĐ 351";
+            this.colsonamsudung_351.FieldName = "sonamsudung_351";
+            this.colsonamsudung_351.Name = "colsonamsudung_351";
+            this.colsonamsudung_351.Visible = true;
+            this.colsonamsudung_351.VisibleIndex = 15;
+            // 
+            // colsonamsudung_32
+            // 
+            this.colsonamsudung_32.Caption = "Thời gian sử dụng theo QĐ 32";
+            this.colsonamsudung_32.FieldName = "sonamsudung_32";
+            this.colsonamsudung_32.Name = "colsonamsudung_32";
+            this.colsonamsudung_32.Visible = true;
+            this.colsonamsudung_32.VisibleIndex = 16;
+            // 
+            // colsonamsudungconlai_351
+            // 
+            this.colsonamsudungconlai_351.Caption = "Số năm sử dụng còn lại theo QĐ 351";
+            this.colsonamsudungconlai_351.FieldName = "sonamsudungconlai_351";
+            this.colsonamsudungconlai_351.Name = "colsonamsudungconlai_351";
+            this.colsonamsudungconlai_351.Visible = true;
+            this.colsonamsudungconlai_351.VisibleIndex = 17;
+            // 
+            // colsonamsudungconlai_32
+            // 
+            this.colsonamsudungconlai_32.Caption = "Số năm sử dụng còn lại theo QĐ 32";
+            this.colsonamsudungconlai_32.FieldName = "sonamsudungconlai_32";
+            this.colsonamsudungconlai_32.Name = "colsonamsudungconlai_32";
+            this.colsonamsudungconlai_32.Visible = true;
+            this.colsonamsudungconlai_32.VisibleIndex = 18;
+            // 
+            // colgiatriconlai_351
+            // 
+            this.colgiatriconlai_351.Caption = "Giá trị còn lại theo QĐ 351";
+            this.colgiatriconlai_351.FieldName = "giatriconlai_351";
+            this.colgiatriconlai_351.Name = "colgiatriconlai_351";
+            this.colgiatriconlai_351.Visible = true;
+            this.colgiatriconlai_351.VisibleIndex = 19;
+            // 
+            // colgiatriconlai_32
+            // 
+            this.colgiatriconlai_32.Caption = "Giá trị còn lại theo QĐ 32";
+            this.colgiatriconlai_32.FieldName = "giatriconlai_32";
+            this.colgiatriconlai_32.Name = "colgiatriconlai_32";
+            this.colgiatriconlai_32.Visible = true;
+            this.colgiatriconlai_32.VisibleIndex = 20;
             // 
             // panelSearch
             // 
-            this.panelSearch.Controls.Add(this.radioKhauHaoThang);
-            this.panelSearch.Controls.Add(this.radioKhauHaoNam);
             this.panelSearch.Controls.Add(this.btnClear);
             this.panelSearch.Controls.Add(this.btnTim);
             this.panelSearch.Controls.Add(this.ucComboBoxViTri1);
@@ -265,28 +312,6 @@
             this.panelSearch.Size = new System.Drawing.Size(862, 82);
             this.panelSearch.TabIndex = 1;
             // 
-            // radioKhauHaoThang
-            // 
-            this.radioKhauHaoThang.AutoSize = true;
-            this.radioKhauHaoThang.Location = new System.Drawing.Point(136, 8);
-            this.radioKhauHaoThang.Name = "radioKhauHaoThang";
-            this.radioKhauHaoThang.Size = new System.Drawing.Size(126, 17);
-            this.radioKhauHaoThang.TabIndex = 17;
-            this.radioKhauHaoThang.Text = "Khấu hao theo tháng";
-            this.radioKhauHaoThang.UseVisualStyleBackColor = true;
-            // 
-            // radioKhauHaoNam
-            // 
-            this.radioKhauHaoNam.AutoSize = true;
-            this.radioKhauHaoNam.Checked = true;
-            this.radioKhauHaoNam.Location = new System.Drawing.Point(5, 7);
-            this.radioKhauHaoNam.Name = "radioKhauHaoNam";
-            this.radioKhauHaoNam.Size = new System.Drawing.Size(118, 17);
-            this.radioKhauHaoNam.TabIndex = 16;
-            this.radioKhauHaoNam.TabStop = true;
-            this.radioKhauHaoNam.Text = "Khấu hao theo năm";
-            this.radioKhauHaoNam.UseVisualStyleBackColor = true;
-            // 
             // btnClear
             // 
             this.btnClear.Location = new System.Drawing.Point(765, 29);
@@ -304,6 +329,7 @@
             this.btnTim.Size = new System.Drawing.Size(75, 23);
             this.btnTim.TabIndex = 14;
             this.btnTim.Text = "Tìm";
+            this.btnTim.Click += new System.EventHandler(this.btnTim_Click);
             // 
             // ucComboBoxViTri1
             // 
@@ -447,13 +473,16 @@
         private DevExpress.XtraGrid.Columns.GridColumn coldvql;
         private DevExpress.XtraGrid.Columns.GridColumn colphong;
         private DevExpress.XtraGrid.Columns.GridColumn colvitri;
-        private DevExpress.XtraGrid.Columns.GridColumn colkhauhaothang;
-        private DevExpress.XtraGrid.Columns.GridColumn colkhauhaonam;
-        private DevExpress.XtraGrid.Columns.GridColumn colhaomon;
-        private DevExpress.XtraGrid.Columns.GridColumn colgiatriconlai;
+        private DevExpress.XtraGrid.Columns.GridColumn colphantramhaomon_351;
+        private DevExpress.XtraGrid.Columns.GridColumn colphantramhaomon_32;
+        private DevExpress.XtraGrid.Columns.GridColumn colsonamdasudung_cuoi2008;
+        private DevExpress.XtraGrid.Columns.GridColumn colsonamsudung_351;
         private DevExpress.XtraGrid.Columns.GridColumn colsohieuct;
         private DevExpress.XtraGrid.Columns.GridColumn colngaysudung;
-        private System.Windows.Forms.RadioButton radioKhauHaoThang;
-        private System.Windows.Forms.RadioButton radioKhauHaoNam;
+        private DevExpress.XtraGrid.Columns.GridColumn colsonamsudung_32;
+        private DevExpress.XtraGrid.Columns.GridColumn colsonamsudungconlai_351;
+        private DevExpress.XtraGrid.Columns.GridColumn colsonamsudungconlai_32;
+        private DevExpress.XtraGrid.Columns.GridColumn colgiatriconlai_351;
+        private DevExpress.XtraGrid.Columns.GridColumn colgiatriconlai_32;
     }
 }

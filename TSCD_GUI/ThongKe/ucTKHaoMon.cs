@@ -10,6 +10,7 @@ using DevExpress.XtraEditors;
 using TSCD.DataFilter;
 using TSCD.Entities;
 using SHARED.Libraries;
+using TSCD.DataFilter.SearchFilter;
 
 namespace TSCD_GUI.ThongKe
 {
@@ -97,6 +98,34 @@ namespace TSCD_GUI.ThongKe
             checkDonVi.Checked = false;
             ucComboBoxViTri1.EditValue = Guid.Empty;
             checkViTri.Checked = false;
+        }
+
+        private void btnTim_Click(object sender, EventArgs e)
+        {
+            DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitFormLoad), true, true, false);
+            DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang tải dữ liệu...");
+            try
+            {
+                //String ten = checkTen.Checked ? txtTen.Text : null;
+                //String ten = txtTen.Text;
+                LoaiTaiSan loai = checkLoaiTS.Checked ? ucComboBoxLoaiTS1.LoaiTS : null;
+                DonVi DVQL = ucComboBoxDonVi1.DonVi;
+                ViTri vitri = ucComboBoxViTri1.ViTri;
+                Phong phong = ucComboBoxViTri1.Phong;
+                bool isViTri = true;
+                if (vitri == null)
+                    isViTri = false;
+                List<TaiSanHienThi> list = TaiSanHienThi.Convert(CTTaiSanSF.search(null, loai, checkDonVi.Checked, DVQL, false, null, isViTri && checkViTri.Checked, vitri, !isViTri && checkViTri.Checked, phong));
+                gridControlHaoMon.DataSource = list;
+
+                //saveSearchXml(this.Name);
+                //ucGridControlTaiSan1.CollapseAllGroups();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->Search:" + ex.Message);
+            }
+            DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
         }
     }
 }
