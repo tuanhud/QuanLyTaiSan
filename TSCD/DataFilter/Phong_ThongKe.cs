@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SHARED.Libraries;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,12 +12,29 @@ namespace TSCD.DataFilter
         public Guid id { get; set; }
         public String phong { get; set; }
         public String loai { get; set; }
-        public long tonggiatritaisan { get; set; }
         public String coso { get; set; }
         public String day { get; set; }
         public String tang { get; set; }
         public int sochongoi { get; set; }
+        public long tonggiatritaisan { get; set; }
 
+        //public Phong obj { get; set; }
+
+        //public long tonggiatritaisan
+        //{
+        //    get
+        //    {
+        //        try
+        //        {
+        //            return obj.tonggiatritaisan;
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            Debug.WriteLine(ex);
+        //            return 0;
+        //        }
+        //    }
+        //}
 
         public static List<Phong_ThongKe> getAll(List<Guid> list_coso = null, List<Guid> list_loaiphong = null)
         {
@@ -40,6 +58,7 @@ namespace TSCD.DataFilter
                 phong = x.ten,
                 loai = x.loaiphong == null ? "" : x.loaiphong.ten,
                 sochongoi = x.sochongoi,
+                //obj = x,
                 tonggiatritaisan = x.tonggiatritaisan,
                 coso = x.vitri.coso == null ? "" : x.vitri.coso.ten,
                 day = x.vitri.day == null ? "" : x.vitri.day.ten,
