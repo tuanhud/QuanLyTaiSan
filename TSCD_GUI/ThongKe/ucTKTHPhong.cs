@@ -10,6 +10,7 @@ using DevExpress.XtraEditors;
 using TSCD.Entities;
 using TSCD.DataFilter;
 using SHARED.Libraries;
+using TSCD_GUI.Libraries;
 
 namespace TSCD_GUI.ThongKe
 {
@@ -95,6 +96,17 @@ namespace TSCD_GUI.ThongKe
             //    comboBoxEdit1.SelectedIndex = 0;
             if (comboBoxEdit2.Properties.Items.Count > 0)
                 comboBoxEdit2.SelectedIndex = 0;
+        }
+
+        private void btnTim_Click(object sender, EventArgs e)
+        {
+            DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitFormLoad), true, true, false);
+            DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang xử lý...");
+            //List<Guid> list_coso = CheckedComboBoxEditHelper.getCheckedValueArray(checkedComboBoxCoSo);
+            //List<Guid> list_loaiphong = CheckedComboBoxEditHelper.getCheckedValueArray(checkedComboBoxLoaiPhong);
+            List<Guid> list_loaiphong = CheckedComboBoxEditHelper.getCheckedValueArray(checkedComboBoxEdit1);
+            gridControlPhong.DataSource = Phong_ThongKe.getAll(null, list_loaiphong);
+            DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
         }
     }
 }

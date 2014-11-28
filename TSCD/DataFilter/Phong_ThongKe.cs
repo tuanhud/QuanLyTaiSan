@@ -11,6 +11,7 @@ namespace TSCD.DataFilter
         public Guid id { get; set; }
         public String phong { get; set; }
         public String loai { get; set; }
+        public long tonggiatritaisan { get; set; }
         public String coso { get; set; }
         public String day { get; set; }
         public String tang { get; set; }
@@ -33,12 +34,13 @@ namespace TSCD.DataFilter
             }
 
             //FINAL SELECT
-            List<Phong_ThongKe> re = query.Select(x => new Phong_ThongKe
+            List<Phong_ThongKe> re = query.ToList().Select(x => new Phong_ThongKe
             {
                 id = x.id,
                 phong = x.ten,
                 loai = x.loaiphong == null ? "" : x.loaiphong.ten,
                 sochongoi = x.sochongoi,
+                tonggiatritaisan = x.tonggiatritaisan,
                 coso = x.vitri.coso == null ? "" : x.vitri.coso.ten,
                 day = x.vitri.day == null ? "" : x.vitri.day.ten,
                 tang = x.vitri.tang == null ? "" : x.vitri.tang.ten

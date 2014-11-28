@@ -47,7 +47,7 @@
             this.colten = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colloai = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colsochongoi = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colgiatri = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.coltonggiatritaisan = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colcoso = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colday = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coltang = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -133,6 +133,7 @@
             this.btnTim.Size = new System.Drawing.Size(75, 23);
             this.btnTim.TabIndex = 28;
             this.btnTim.Text = "Tìm";
+            this.btnTim.Click += new System.EventHandler(this.btnTim_Click);
             // 
             // ucComboBoxViTri1
             // 
@@ -206,7 +207,7 @@
             this.colten,
             this.colloai,
             this.colsochongoi,
-            this.colgiatri,
+            this.coltonggiatritaisan,
             this.colcoso,
             this.colday,
             this.coltang});
@@ -243,13 +244,13 @@
             this.colsochongoi.Visible = true;
             this.colsochongoi.VisibleIndex = 2;
             // 
-            // colgiatri
+            // coltonggiatritaisan
             // 
-            this.colgiatri.Caption = "Giá trị";
-            this.colgiatri.FieldName = "giatri";
-            this.colgiatri.Name = "colgiatri";
-            this.colgiatri.Visible = true;
-            this.colgiatri.VisibleIndex = 3;
+            this.coltonggiatritaisan.Caption = "Giá trị";
+            this.coltonggiatritaisan.FieldName = "tonggiatritaisan";
+            this.coltonggiatritaisan.Name = "coltonggiatritaisan";
+            this.coltonggiatritaisan.Visible = true;
+            this.coltonggiatritaisan.VisibleIndex = 3;
             // 
             // colcoso
             // 
@@ -321,5 +322,6 @@
         private DevExpress.XtraEditors.SpinEdit spinEdit1;
         private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit2;
         private DevExpress.XtraEditors.LabelControl lblSoLuongChoNgoi;
+        private DevExpress.XtraGrid.Columns.GridColumn coltonggiatritaisan;
     }
 }
