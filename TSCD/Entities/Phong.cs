@@ -47,6 +47,27 @@ namespace TSCD.Entities
 
         #endregion
         #region Nghiep vu
+        [NotMapped]
+        public long tonggiatritaisan
+        {
+            get
+            {
+                //long tmp = 0;
+                //foreach(var item in cttaisans)
+                //{
+                //    tmp += item.thanhtien;
+                //}
+                //return tmp;
+                try
+                {
+                    return cttaisans.Sum(x => x.thanhtien);
+                }catch(Exception ex)
+                {
+                    Debug.WriteLine(ex);
+                    return 0;
+                }
+            }
+        }
         public static List<Phong> getPhongByViTri(Guid _cosoid, Guid _dayid, Guid _tangid)
         {
             List<Phong> re =
