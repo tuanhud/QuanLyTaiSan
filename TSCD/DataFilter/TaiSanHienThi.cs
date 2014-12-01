@@ -39,12 +39,12 @@ namespace TSCD.DataFilter
             {
                 try
                 {
-                    return (double)obj.taisan.loaitaisan.phantramhaomon_351;
+                    return obj.taisan.loaitaisan.phantramhaomon_351;
                 }
                 catch (Exception ex)
                 {
                     Debug.WriteLine(ex);
-                    return -1;
+                    return 1;
                     
                 }
             }
@@ -63,7 +63,7 @@ namespace TSCD.DataFilter
                 catch (Exception ex)
                 {
                     Debug.WriteLine(ex);
-                    return -1;
+                    return 1;
                     
                 }
             }
@@ -122,7 +122,7 @@ namespace TSCD.DataFilter
         {
             get
             {
-                return sonamsudung_351 - sonamdasudung_cuoi2008;
+                return sonamsudung_351 - sonamdasudung_cuoi2008 > 0?  sonamsudung_351 - sonamdasudung_cuoi2008:0;
             }
         }
         /// <summary>
@@ -132,7 +132,7 @@ namespace TSCD.DataFilter
         {
             get
             {
-                return sonamsudung_32 - sonamdasudung_cuoi2008;
+                return sonamsudung_32 - sonamdasudung_cuoi2008 > 0 ? sonamsudung_32 - sonamdasudung_cuoi2008 : 0;
             }
         }
         /// <summary>
