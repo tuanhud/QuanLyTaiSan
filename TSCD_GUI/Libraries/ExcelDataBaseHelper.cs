@@ -1,14 +1,18 @@
 ﻿using SHARED.Libraries;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
+using TSCD.DataFilter;
 using TSCD.Entities;
 
 namespace TSCD_GUI.Libraries
 {
     public class ExcelDataBaseHelper
     {
+        const String range = "$A2:Q9999";
+
         public static System.Data.DataTable OpenFile(String fileName, String sheet)
         {
             //var fullFileName = string.Format("{0}\\{1}", System.IO.Directory.GetCurrentDirectory(), fileName);
@@ -1267,6 +1271,313 @@ namespace TSCD_GUI.Libraries
             catch (Exception ex)
             {
                 Debug.WriteLine("ExcelDataBaseHelper->WriteFile : " + ex.Message);
+            }
+        }
+
+        public static bool insert_data_to_Excel(List<TaiSanHienThi> list)
+        {
+            try
+            {
+                const String ID = "A";
+                const String NGAY_CT = "B";
+                const String SOHIEU_CT = "C";
+                const String TEN = "D";
+                const String LOAI = "E";
+                const String DONVITINH = "F";
+                const String NGAY_SD = "G";
+                const String NUOC_SX = "H";
+                const String SOLUONG = "I";
+                const String DONGIA = "J";
+                const String THANHTIEN = "K";
+                const String TINHTRANG = "L";
+                const String VITRI = "M";
+                const String PHONG = "N";
+                const String DONVI_QL = "O";
+                const String GHICHU = "P";
+                
+                String currentPath = Directory.GetCurrentDirectory();
+                //String path = Path.Combine(currentPath, "Excel");
+                String path = "F:";
+                String file = "";
+                String fileName = "Book1.xls";
+                if (Directory.Exists(path))
+                {
+                    file = path + "//" + fileName;
+                    if (System.IO.File.Exists(file))
+                    {
+                        System.Data.OleDb.OleDbConnection MyConnection;
+
+                        MyConnection = new System.Data.OleDb.OleDbConnection(String.Format("provider=Microsoft.Jet.OLEDB.4.0;Data Source='{0}';Extended Properties=Excel 8.0;",file));
+                        MyConnection.Open();
+                        
+                        foreach (TaiSanHienThi ts in list)
+                        {
+                            System.Data.OleDb.OleDbCommand myCommand = new System.Data.OleDb.OleDbCommand();
+                            string sql = null;
+                            myCommand.Connection = MyConnection;
+                            sql = String.Format("Insert into [Sheet1$A2:P9999] ({0}) values(@id, @ngay_ct, @sohieu_ct, @ten, @loai, @donvitinh, @ngay_sd, @nuoc_sx, @soluong, @dongia, @thanhtien, @tinhtrang, @vitri, @phong, @donvi_ql, @ghichu)",
+                                ID + "," + NGAY_CT + "," + SOHIEU_CT + "," + TEN + "," + LOAI + "," + DONVITINH + "," + NGAY_SD + "," + NUOC_SX + "," + SOLUONG + "," + DONGIA + "," + THANHTIEN + "," + TINHTRANG + "," + VITRI + "," + PHONG + "," + DONVI_QL + "," + GHICHU);
+                            myCommand.CommandText = sql;
+                            myCommand.Parameters.AddWithValue("@id", ts.id);
+                            myCommand.Parameters.AddWithValue("@ngay_ct", ts.ngay_ct != null ? (Object)((DateTime)ts.ngay_ct).ToShortDateString() : DBNull.Value);
+                            myCommand.Parameters.AddWithValue("@sohieu_ct", (Object)ts.sohieu_ct ?? DBNull.Value);
+                            myCommand.Parameters.AddWithValue("@ten", ts.ten);
+                            myCommand.Parameters.AddWithValue("@loai", ts.loaits);
+                            myCommand.Parameters.AddWithValue("@donvitinh", ts.donvitinh);
+                            myCommand.Parameters.AddWithValue("@ngay_sd", ts.ngay != null ? (Object)((DateTime)ts.ngay).ToShortDateString() : DBNull.Value);
+                            myCommand.Parameters.AddWithValue("@nuoc_sx", (Object)ts.nuocsx ?? DBNull.Value);
+                            myCommand.Parameters.AddWithValue("@soluong", ts.soluong);
+                            myCommand.Parameters.AddWithValue("@dongia", ts.dongia);
+                            myCommand.Parameters.AddWithValue("@thanhtien", ts.thanhtien);
+                            myCommand.Parameters.AddWithValue("@tinhtrang", ts.tinhtrang);
+                            myCommand.Parameters.AddWithValue("@vitri", (Object)ts.vitri ?? DBNull.Value);
+                            myCommand.Parameters.AddWithValue("@phong", (Object)ts.phong ?? DBNull.Value);
+                            myCommand.Parameters.AddWithValue("@donvi_ql", (Object)ts.dvquanly ?? DBNull.Value);
+                            myCommand.Parameters.AddWithValue("@ghichu", (Object)ts.ghichu ?? DBNull.Value);
+                            myCommand.ExecuteNonQuery();
+                        }
+                        MyConnection.Close();
+                        return true;
+                    }
+                    else
+                        return false;
+                }
+                else
+                    return false;
+            }
+            catch(Exception ex)
+            {
+                Debug.WriteLine("ExcelDataBaseHelper->insert_data_to_Excel: " + ex.Message);
+                return false;
+            }
+        }
+
+        public static bool UpdateTaiSan(String fileName, String sheet)
+        {
+            try
+            {
+                int line = 0;
+                System.Data.DataTable dt = new System.Data.DataTable();
+
+                const int ID = 0;
+                const int NGAY_CT = 1;
+                const int SOHIEU_CT = 2;
+                const int TEN = 3;
+                //const int LOAI = 4;
+                //const int DONVITINH = 5;
+                const int NGAY_SD = 6;
+                const int NUOC_SX = 7;
+                //const int SOLUONG = 8;
+                //const int DONGIA = 9;
+                //const int THANHTIEN = 10;
+                const int TINHTRANG = 11;
+                const int VITRI = 12;
+                const int PHONG = 13;
+                const int DONVI_QL = 14;
+                const int GHICHU = 15;
+                const int CHECK = 16;
+
+                dt = OpenFileWithRange(fileName, sheet);
+                if (dt != null)
+                {
+                    int lines = dt.Rows.Count;
+                    foreach (System.Data.DataRow row in dt.Rows)
+                    {
+                        line++;
+                        DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang Import... " +
+                            String.Format(System.Globalization.CultureInfo.InvariantCulture, "{0:0.00}", (line * 1.0 / lines) * 100) + "%");
+                        if (row[CHECK] == DBNull.Value || !row[CHECK].Equals("Pass"))
+                        {
+                            if (row[ID] != DBNull.Value && !String.IsNullOrWhiteSpace(row[ID].ToString()))
+                            {
+                                CTTaiSan ct = CTTaiSan.getById(GUID.From(row[ID].ToString()));
+                                if (ct == null)
+                                {
+                                    WriteFileWithRange(fileName, sheet, row[ID].ToString().Trim(), "Error (Không tìm thấy tài sản)");
+                                    continue;
+                                }
+                                else
+                                {
+                                    TinhTrang objTinhTrang = null;
+                                    if (row[TINHTRANG] != DBNull.Value && !String.IsNullOrWhiteSpace(row[TINHTRANG].ToString()))
+                                    {
+                                        String ten_tinhtrang = row[TINHTRANG].ToString().Trim().ToUpper();
+                                        objTinhTrang = TinhTrang.getQuery().Where(c => c.value.ToUpper().Equals(ten_tinhtrang)).FirstOrDefault();
+                                        if (objTinhTrang == null)
+                                        {
+                                            WriteFileWithRange(fileName, sheet, row[ID].ToString().Trim(), "Error (Không có tình trạng)");
+                                            continue;
+                                        }
+                                    }
+                                    DonVi objDonVi = null;
+                                    if (row[DONVI_QL] != DBNull.Value && !String.IsNullOrWhiteSpace(row[DONVI_QL].ToString()))
+                                    {
+                                        String ten_donvi_ql = row[DONVI_QL].ToString().Trim().ToUpper();
+                                        objDonVi = DonVi.getQuery().Where(c => c.ten.ToUpper().Equals(ten_donvi_ql)).FirstOrDefault();
+                                        if (objDonVi == null)
+                                        {
+                                            WriteFileWithRange(fileName, sheet, row[ID].ToString().Trim(), "Error (Không có đơn vị quản lý)");
+                                            continue;
+                                        }
+                                    }
+                                    Phong objPhong = null;
+                                    if (row[PHONG] != DBNull.Value && !String.IsNullOrWhiteSpace(row[PHONG].ToString()))
+                                    {
+                                        String ten_phong = row[PHONG].ToString().Trim().ToUpper();
+                                        objPhong = Phong.getQuery().Where(c => c.ten.ToUpper().Equals(ten_phong)).FirstOrDefault();
+                                        if (objPhong == null)
+                                        {
+                                            WriteFileWithRange(fileName, sheet, row[ID].ToString().Trim(), "Error (Không có phòng)");
+                                            continue;
+                                        }
+                                    }
+                                    ViTri objViTri = null;
+                                    CoSo objCoSo = null;
+                                    Dayy objDay = null;
+                                    Tang objTang = null;
+                                    if (row[VITRI] != DBNull.Value && !String.IsNullOrWhiteSpace(row[VITRI].ToString()))
+                                    {
+                                        String ten_vitri = row[VITRI].ToString().Trim();
+                                        string[] words = ten_vitri.Split('-');
+                                        if (words.Count() > 0)
+                                        {
+                                            String ten_coso = words[0].Trim().ToUpper();
+                                            objCoSo = CoSo.getQuery().Where(c => c.ten.ToUpper().Equals(ten_coso)).FirstOrDefault();
+                                            if (objCoSo == null)
+                                            {
+                                                WriteFileWithRange(fileName, sheet, row[ID].ToString().Trim(), "Error (Không có cơ sở)");
+                                                continue;
+                                            }
+                                        }
+                                        if (words.Count() > 1)
+                                        {
+                                            String ten_day = words[1].Trim().ToUpper();
+                                            objDay = objCoSo.days.Where(c => c.ten.ToUpper().Equals(ten_day)).FirstOrDefault();
+                                            if (objDay == null)
+                                            {
+                                                WriteFileWithRange(fileName, sheet, row[ID].ToString().Trim(), "Error (Không có dãy)");
+                                                continue;
+                                            }
+                                        }
+                                        if (words.Count() > 2)
+                                        {
+                                            String ten_tang = words[2].Trim().ToUpper();
+                                            objTang = objDay.tangs.Where(c => c.ten.ToUpper().Equals(ten_tang)).FirstOrDefault();
+                                            if (objTang == null)
+                                            {
+                                                WriteFileWithRange(fileName, sheet, row[ID].ToString().Trim(), "Error (Không có tầng)");
+                                                continue;
+                                            }
+                                        }
+                                        objViTri = ViTri.request(objCoSo, objDay, objTang);
+                                    }
+                                    if (row[TEN] == DBNull.Value || String.IsNullOrWhiteSpace(row[TEN].ToString()))
+                                    {
+                                        WriteFileWithRange(fileName, sheet, row[ID].ToString().Trim(), "Error (Không có tên)");
+                                        continue;
+                                    }
+                                    try
+                                    {
+                                        ct.taisan.ten = row[TEN].ToString().Trim();
+                                        ct.taisan.nuocsx = row[NUOC_SX] != DBNull.Value ? row[NUOC_SX].ToString().Trim() : "";
+                                        ct.ngay = row[NGAY_SD] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[NGAY_SD]) : null;
+                                        ct.chungtu.ngay = row[NGAY_CT] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[NGAY_CT]) : null;
+                                        ct.chungtu.sohieu = row[SOHIEU_CT] != DBNull.Value ? row[SOHIEU_CT].ToString().Trim() : "";
+                                        ct.ghichu = row[GHICHU] != DBNull.Value ? row[GHICHU].ToString().Trim() : "";
+                                        if (ct.update() > 0)
+                                        {
+                                            if(ct.donviquanly != objDonVi || ct.phong != objPhong || ct.vitri != objViTri)
+                                                if (ct.chuyenDonVi(objDonVi, null, objViTri, objPhong, ct.parent, ct.chungtu, ct.soluong, "", ct.ngay) > 0 && DBInstance.commit() > 0)
+                                                {
+                                                    WriteFileWithRange(fileName, sheet, row[ID].ToString().Trim(), "Pass");
+                                                }
+                                                else
+                                                {
+                                                    WriteFileWithRange(fileName, sheet, row[ID].ToString().Trim(), "Error (Chuyển vị trí)");
+                                                    continue;
+                                                }
+                                            if (ct.tinhtrang != objTinhTrang)
+                                                if (ct.chuyenTinhTrang(ct.chungtu, objTinhTrang, ct.soluong, ct.ghichu) > 0 && DBInstance.commit() > 0)
+                                                {
+                                                    WriteFileWithRange(fileName, sheet, row[ID].ToString().Trim(), "Pass");
+                                                }
+                                                else
+                                                {
+                                                    WriteFileWithRange(fileName, sheet, row[ID].ToString().Trim(), "Error (Chuyển tình trạng)");
+                                                    continue;
+                                                }
+                                            WriteFileWithRange(fileName, sheet, row[ID].ToString().Trim(), "Pass");
+                                        }
+                                        else
+                                        {
+                                            WriteFileWithRange(fileName, sheet, row[ID].ToString().Trim(), "Error");
+                                        }
+                                    }
+                                    catch (Exception ex)
+                                    {
+                                        Debug.WriteLine("ExcelDataBaseHelper->UpdateTaiSan: " + ex.Message);
+                                        WriteFileWithRange(fileName, sheet, row[ID].ToString().Trim(), "Error");
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                WriteFileWithRange(fileName, sheet, row[ID].ToString().Trim(), "Error (Không đủ thông tin)");
+                            }
+                        }
+                    }
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("ExcelDataBaseHelper->ImportTaiSan: " + ex.Message);
+                return false;
+            }
+        }
+
+        public static System.Data.DataTable OpenFileWithRange(String fileName, String sheet)
+        {
+            //var fullFileName = string.Format("{0}\\{1}", System.IO.Directory.GetCurrentDirectory(), fileName);
+            if (!System.IO.File.Exists(fileName))
+            {
+                DevExpress.XtraEditors.XtraMessageBox.Show("File not found");
+                return null;
+            }
+            System.Data.DataTable dt = new System.Data.DataTable();
+            var cmdText = String.Format("SELECT * FROM [{0}${1}]", sheet, range);
+            using (var adapter = new System.Data.OleDb.OleDbDataAdapter(cmdText, GetConnectionString(fileName)))
+            {
+                adapter.Fill(dt);
+            }
+            return dt;
+        }
+
+        private static void WriteFileWithRange(String fileName, String sheet, String stt, String text)
+        {
+            try
+            {
+                if (!stt.Equals(""))
+                {
+                    //Ghi file Excel
+                    using (System.Data.OleDb.OleDbConnection MyConnection = new System.Data.OleDb.OleDbConnection(GetConnectionString(fileName)))
+                    {
+                        System.Data.OleDb.OleDbCommand myCommand = new System.Data.OleDb.OleDbCommand();
+                        string sql = null;
+                        MyConnection.Open();
+                        myCommand.Connection = MyConnection;
+                        sql = String.Format("Update [{0}${1}] set Q = @pass where A = @stt", sheet, range);
+                        myCommand.CommandText = sql;
+                        myCommand.Parameters.AddWithValue("@pass", text);
+                        myCommand.Parameters.AddWithValue("@stt", stt);
+                        myCommand.ExecuteNonQuery();
+                        MyConnection.Close();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("ExcelDataBaseHelper->WriteFileWithRange: " + ex.Message);
             }
         }
     }
