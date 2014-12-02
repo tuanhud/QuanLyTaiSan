@@ -10,7 +10,7 @@ namespace TSCD.DataFilter
     public class Phong_ThongKe : _FilterAbstract<Phong_ThongKe>
     {
         public Guid id { get; set; }
-        public String phong { get; set; }
+        public String ten { get; set; }
         public String loai { get; set; }
         public String coso { get; set; }
         public String day { get; set; }
@@ -55,7 +55,7 @@ namespace TSCD.DataFilter
             List<Phong_ThongKe> re = query.ToList().Select(x => new Phong_ThongKe
             {
                 id = x.id,
-                phong = x.ten,
+                ten = x.ten,
                 loai = x.loaiphong == null ? "" : x.loaiphong.ten,
                 sochongoi = x.sochongoi,
                 //obj = x,

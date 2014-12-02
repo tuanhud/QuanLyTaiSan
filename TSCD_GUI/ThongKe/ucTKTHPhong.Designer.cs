@@ -212,7 +212,19 @@
             this.colday,
             this.coltang});
             this.gridViewPhong.GridControl = this.gridControlPhong;
+            this.gridViewPhong.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Count, "ten", this.colten, ""),
+            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Custom, "loai", this.colloai, ""),
+            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Sum, "sochongoi", this.colsochongoi, ""),
+            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Sum, "tonggiatritaisan", this.coltonggiatritaisan, "{0:### ### ### ##0}"),
+            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Custom, "coso", this.colcoso, ""),
+            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Custom, "day", this.colday, ""),
+            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Custom, "tang", this.coltang, "")});
             this.gridViewPhong.Name = "gridViewPhong";
+            this.gridViewPhong.OptionsBehavior.Editable = false;
+            this.gridViewPhong.OptionsBehavior.ReadOnly = true;
+            this.gridViewPhong.OptionsView.ShowFooter = true;
+            this.gridViewPhong.CustomSummaryCalculate += new DevExpress.Data.CustomSummaryEventHandler(this.gridViewPhong_CustomSummaryCalculate);
             // 
             // colid
             // 
@@ -225,6 +237,8 @@
             this.colten.Caption = "Tên phòng";
             this.colten.FieldName = "ten";
             this.colten.Name = "colten";
+            this.colten.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count)});
             this.colten.Visible = true;
             this.colten.VisibleIndex = 0;
             // 
@@ -233,6 +247,8 @@
             this.colloai.Caption = "Loại phòng";
             this.colloai.FieldName = "loai";
             this.colloai.Name = "colloai";
+            this.colloai.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Custom)});
             this.colloai.Visible = true;
             this.colloai.VisibleIndex = 1;
             // 
@@ -241,14 +257,20 @@
             this.colsochongoi.Caption = "Số chỗ ngồi";
             this.colsochongoi.FieldName = "sochongoi";
             this.colsochongoi.Name = "colsochongoi";
+            this.colsochongoi.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum)});
             this.colsochongoi.Visible = true;
             this.colsochongoi.VisibleIndex = 2;
             // 
             // coltonggiatritaisan
             // 
             this.coltonggiatritaisan.Caption = "Giá trị";
+            this.coltonggiatritaisan.DisplayFormat.FormatString = "### ### ### ##0";
+            this.coltonggiatritaisan.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.coltonggiatritaisan.FieldName = "tonggiatritaisan";
             this.coltonggiatritaisan.Name = "coltonggiatritaisan";
+            this.coltonggiatritaisan.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "tonggiatritaisan", "{0:### ### ### ##0}")});
             this.coltonggiatritaisan.Visible = true;
             this.coltonggiatritaisan.VisibleIndex = 3;
             // 
@@ -257,6 +279,8 @@
             this.colcoso.Caption = "Cơ sở";
             this.colcoso.FieldName = "coso";
             this.colcoso.Name = "colcoso";
+            this.colcoso.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Custom)});
             this.colcoso.Visible = true;
             this.colcoso.VisibleIndex = 4;
             // 
@@ -265,6 +289,8 @@
             this.colday.Caption = "Dãy";
             this.colday.FieldName = "day";
             this.colday.Name = "colday";
+            this.colday.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Custom)});
             this.colday.Visible = true;
             this.colday.VisibleIndex = 5;
             // 
@@ -273,6 +299,8 @@
             this.coltang.Caption = "Tầng";
             this.coltang.FieldName = "tang";
             this.coltang.Name = "coltang";
+            this.coltang.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Custom)});
             this.coltang.Visible = true;
             this.coltang.VisibleIndex = 6;
             // 
@@ -315,7 +343,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colten;
         private DevExpress.XtraGrid.Columns.GridColumn colloai;
         private DevExpress.XtraGrid.Columns.GridColumn colsochongoi;
-        private DevExpress.XtraGrid.Columns.GridColumn colgiatri;
         private DevExpress.XtraGrid.Columns.GridColumn colcoso;
         private DevExpress.XtraGrid.Columns.GridColumn colday;
         private DevExpress.XtraGrid.Columns.GridColumn coltang;

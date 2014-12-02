@@ -292,9 +292,23 @@
             this.colphong,
             this.coldvql});
             this.gridViewTaiSan.GridControl = this.gridControlTaiSan;
+            this.gridViewTaiSan.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Count, "ten", this.colten, ""),
+            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Custom, "loaits", this.colloaits, ""),
+            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Custom, "donvitinh", this.coldonvitinh, ""),
+            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Sum, "soluong", this.colsoluong, ""),
+            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Sum, "dongia", this.coldongia, "{0:### ### ### ##0}"),
+            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Sum, "thanhtien", this.colthanhtien, "{0:### ### ### ##0}"),
+            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Custom, "nuocsx", this.colnuocsx, ""),
+            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Custom, "tinhtrang", this.coltinhtrang, ""),
+            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Custom, "vitri", this.colvitri, ""),
+            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Custom, "phong", this.colphong, ""),
+            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Custom, "dvquanly", this.coldvql, "")});
             this.gridViewTaiSan.Name = "gridViewTaiSan";
             this.gridViewTaiSan.OptionsBehavior.Editable = false;
             this.gridViewTaiSan.OptionsBehavior.ReadOnly = true;
+            this.gridViewTaiSan.OptionsView.ShowFooter = true;
+            this.gridViewTaiSan.CustomSummaryCalculate += new DevExpress.Data.CustomSummaryEventHandler(this.gridViewTaiSan_CustomSummaryCalculate);
             // 
             // colid
             // 
@@ -323,6 +337,8 @@
             this.colten.Caption = "Tên tài sản";
             this.colten.FieldName = "ten";
             this.colten.Name = "colten";
+            this.colten.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count)});
             this.colten.Visible = true;
             this.colten.VisibleIndex = 2;
             // 
@@ -331,6 +347,8 @@
             this.colloaits.Caption = "Loại tài sản";
             this.colloaits.FieldName = "loaits";
             this.colloaits.Name = "colloaits";
+            this.colloaits.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Custom)});
             this.colloaits.Visible = true;
             this.colloaits.VisibleIndex = 3;
             // 
@@ -339,6 +357,8 @@
             this.coldonvitinh.Caption = "Đơn vị tính";
             this.coldonvitinh.FieldName = "donvitinh";
             this.coldonvitinh.Name = "coldonvitinh";
+            this.coldonvitinh.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Custom)});
             this.coldonvitinh.Visible = true;
             this.coldonvitinh.VisibleIndex = 4;
             // 
@@ -353,8 +373,12 @@
             // coldongia
             // 
             this.coldongia.Caption = "Đơn giá";
+            this.coldongia.DisplayFormat.FormatString = "### ### ### ##0";
+            this.coldongia.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.coldongia.FieldName = "dongia";
             this.coldongia.Name = "coldongia";
+            this.coldongia.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "dongia", "{0:### ### ### ##0}")});
             this.coldongia.Visible = true;
             this.coldongia.VisibleIndex = 8;
             // 
@@ -363,14 +387,20 @@
             this.colsoluong.Caption = "Số lượng";
             this.colsoluong.FieldName = "soluong";
             this.colsoluong.Name = "colsoluong";
+            this.colsoluong.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum)});
             this.colsoluong.Visible = true;
             this.colsoluong.VisibleIndex = 7;
             // 
             // colthanhtien
             // 
             this.colthanhtien.Caption = "Thành tiền";
+            this.colthanhtien.DisplayFormat.FormatString = "### ### ### ##0";
+            this.colthanhtien.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colthanhtien.FieldName = "thanhtien";
             this.colthanhtien.Name = "colthanhtien";
+            this.colthanhtien.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "thanhtien", "{0:### ### ### ##0}")});
             this.colthanhtien.Visible = true;
             this.colthanhtien.VisibleIndex = 9;
             // 
@@ -379,6 +409,8 @@
             this.colnuocsx.Caption = "Nước sản xuất";
             this.colnuocsx.FieldName = "nuocsx";
             this.colnuocsx.Name = "colnuocsx";
+            this.colnuocsx.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Custom)});
             this.colnuocsx.Visible = true;
             this.colnuocsx.VisibleIndex = 6;
             // 
@@ -387,6 +419,8 @@
             this.coltinhtrang.Caption = "Tình trạng";
             this.coltinhtrang.FieldName = "tinhtrang";
             this.coltinhtrang.Name = "coltinhtrang";
+            this.coltinhtrang.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Custom)});
             this.coltinhtrang.Visible = true;
             this.coltinhtrang.VisibleIndex = 10;
             // 
@@ -395,6 +429,8 @@
             this.colvitri.Caption = "Vị trí";
             this.colvitri.FieldName = "vitri";
             this.colvitri.Name = "colvitri";
+            this.colvitri.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Custom)});
             this.colvitri.Visible = true;
             this.colvitri.VisibleIndex = 11;
             // 
@@ -403,6 +439,8 @@
             this.colphong.Caption = "Phòng";
             this.colphong.FieldName = "phong";
             this.colphong.Name = "colphong";
+            this.colphong.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Custom)});
             this.colphong.Visible = true;
             this.colphong.VisibleIndex = 12;
             // 
@@ -411,6 +449,8 @@
             this.coldvql.Caption = "Đơn vị quản lý";
             this.coldvql.FieldName = "dvquanly";
             this.coldvql.Name = "coldvql";
+            this.coldvql.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Custom)});
             this.coldvql.Visible = true;
             this.coldvql.VisibleIndex = 13;
             // 

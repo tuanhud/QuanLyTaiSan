@@ -146,5 +146,26 @@ namespace TSCD_GUI.ThongKe
         {
             Search();
         }
+
+        List<Object> listToSummary = new List<Object>();
+        private void gridViewTaiSan_CustomSummaryCalculate(object sender, DevExpress.Data.CustomSummaryEventArgs e)
+        {
+            try
+            {
+                if (e.SummaryProcess == DevExpress.Data.CustomSummaryProcess.Calculate)
+                    listToSummary.Add(e.FieldValue);
+                else
+                {
+                    List<Object> tmp = listToSummary.Distinct().ToList();
+                    tmp.Remove("");
+                    e.TotalValue = tmp.Count();
+                    listToSummary.Clear();
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->gridViewTaiSan_CustomSummaryCalculate:" + ex.Message);
+            }
+        }
     }
 }

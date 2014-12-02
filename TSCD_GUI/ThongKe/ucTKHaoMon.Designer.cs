@@ -66,6 +66,7 @@
             this.dateNgayTK = new DevExpress.XtraEditors.DateEdit();
             this.labelTinhTrang = new DevExpress.XtraEditors.LabelControl();
             this.labelNgayTK = new DevExpress.XtraEditors.LabelControl();
+            this.colngayct = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlHaoMon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewHaoMon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelSearch)).BeginInit();
@@ -94,6 +95,7 @@
             this.gridViewHaoMon.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colid,
             this.colsohieuct,
+            this.colngayct,
             this.colten,
             this.colloaits,
             this.coldonvitinh,
@@ -127,7 +129,7 @@
             // colsohieuct
             // 
             this.colsohieuct.Caption = "Số hiệu chứng từ";
-            this.colsohieuct.FieldName = "sohieuct";
+            this.colsohieuct.FieldName = "sohieu_ct";
             this.colsohieuct.Name = "colsohieuct";
             this.colsohieuct.Visible = true;
             this.colsohieuct.VisibleIndex = 0;
@@ -167,7 +169,7 @@
             // colngaysudung
             // 
             this.colngaysudung.Caption = "Ngày sử dụng";
-            this.colngaysudung.FieldName = "ngaysudung";
+            this.colngaysudung.FieldName = "ngay";
             this.colngaysudung.Name = "colngaysudung";
             this.colngaysudung.Visible = true;
             this.colngaysudung.VisibleIndex = 5;
@@ -199,7 +201,7 @@
             // coldvql
             // 
             this.coldvql.Caption = "Đơn vị quản lý";
-            this.coldvql.FieldName = "donviquanly";
+            this.coldvql.FieldName = "dvquanly";
             this.coldvql.Name = "coldvql";
             this.coldvql.Visible = true;
             this.coldvql.VisibleIndex = 9;
@@ -422,6 +424,14 @@
             this.labelNgayTK.TabIndex = 0;
             this.labelNgayTK.Text = "Ngày thống kê:";
             // 
+            // colngayct
+            // 
+            this.colngayct.Caption = "Ngày chứng từ";
+            this.colngayct.FieldName = "ngay_ct";
+            this.colngayct.Name = "colngayct";
+            this.colngayct.Visible = true;
+            this.colngayct.VisibleIndex = 21;
+            // 
             // ucTKHaoMon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -484,5 +494,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colsonamsudungconlai_32;
         private DevExpress.XtraGrid.Columns.GridColumn colgiatriconlai_351;
         private DevExpress.XtraGrid.Columns.GridColumn colgiatriconlai_32;
+        private DevExpress.XtraGrid.Columns.GridColumn colngayct;
     }
 }

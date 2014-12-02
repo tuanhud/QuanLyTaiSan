@@ -67,7 +67,6 @@ namespace TSCD_GUI.ThongKe
             {
                 Debug.WriteLine(this.Name + "->loadData:" + ex.Message);
             }
-
         }
 
         private void CheckedViTri()
@@ -107,6 +106,27 @@ namespace TSCD_GUI.ThongKe
             List<Guid> list_loaiphong = CheckedComboBoxEditHelper.getCheckedValueArray(checkedComboBoxEdit1);
             gridControlPhong.DataSource = Phong_ThongKe.getAll(null, list_loaiphong);
             DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
+        }
+
+        List<Object> listToSummary = new List<Object>();
+        private void gridViewPhong_CustomSummaryCalculate(object sender, DevExpress.Data.CustomSummaryEventArgs e)
+        {
+            try
+            {
+                if (e.SummaryProcess == DevExpress.Data.CustomSummaryProcess.Calculate)
+                    listToSummary.Add(e.FieldValue);
+                else
+                {
+                    List<Object> tmp = listToSummary.Distinct().ToList();
+                    tmp.Remove("");
+                    e.TotalValue = tmp.Count();
+                    listToSummary.Clear();
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->gridViewPhong_CustomSummaryCalculate:" + ex.Message);
+            }
         }
     }
 }
