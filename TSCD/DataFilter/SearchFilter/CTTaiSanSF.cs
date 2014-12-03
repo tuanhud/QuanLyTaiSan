@@ -57,7 +57,8 @@ namespace TSCD.DataFilter.SearchFilter
             Boolean timTheoViTri=false,
             ViTri vitri=null,
             Boolean timTheoPhong=false,
-            Phong phong=null
+            Phong phong=null,
+            List<Guid> tinhtrangs = null
             )
         {
             var query = CTTaiSan.getQuery();
@@ -133,6 +134,10 @@ namespace TSCD.DataFilter.SearchFilter
                         (c.phong != null && c.phong.id == phong.id)
                     );
                 }
+            }
+            if (tinhtrangs != null && tinhtrangs.Count > 0)
+            {
+                query = query.Where(c => c.tinhtrang == null || tinhtrangs.Contains(c.tinhtrang.id));
             }
             return query;
         }

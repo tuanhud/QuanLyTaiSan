@@ -48,13 +48,13 @@ namespace TSCD_GUI.ThongKe
                 ucComboBoxDonVi1.DataSource = list;
                 ucComboBoxDonVi1.DonVi = objNULL;
 
-                List<ViTriHienThi> listViTri = ViTriHienThi.getAllHavePhong();
-                ViTriHienThi objNULL2 = new ViTriHienThi();
-                objNULL2.id = Guid.Empty;
-                objNULL2.ten = "[Không có vị trí]";
-                objNULL2.parent_id = Guid.Empty;
-                objNULL2.loai = typeof(Phong).Name;
-                listViTri.Insert(0, objNULL2);
+                List<ViTriHienThi> listViTri = ViTriHienThi.getAll();
+                //ViTriHienThi objNULL2 = new ViTriHienThi();
+                //objNULL2.id = Guid.Empty;
+                //objNULL2.ten = "[Không có vị trí]";
+                //objNULL2.parent_id = Guid.Empty;
+                //objNULL2.loai = typeof(Phong).Name;
+                //listViTri.Insert(0, objNULL2);
                 ucComboBoxViTri1.DataSource = listViTri;
 
                 //ucGridControlTaiSan1.DataSource = null;
@@ -104,7 +104,7 @@ namespace TSCD_GUI.ThongKe
             //List<Guid> list_coso = CheckedComboBoxEditHelper.getCheckedValueArray(checkedComboBoxCoSo);
             //List<Guid> list_loaiphong = CheckedComboBoxEditHelper.getCheckedValueArray(checkedComboBoxLoaiPhong);
             List<Guid> list_loaiphong = CheckedComboBoxEditHelper.getCheckedValueArray(checkedComboBoxEdit1);
-            gridControlPhong.DataSource = Phong_ThongKe.getAll(null, list_loaiphong);
+            gridControlPhong.DataSource = Phong_ThongKe.getAllForTH(list_loaiphong, checkViTri.Checked ? ucComboBoxViTri1.ViTri : null);
             DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
         }
 

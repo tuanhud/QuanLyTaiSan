@@ -11,6 +11,7 @@ using TSCD.Entities;
 using TSCD.DataFilter;
 using SHARED.Libraries;
 using TSCD.DataFilter.SearchFilter;
+using TSCD_GUI.Libraries;
 
 namespace TSCD_GUI.ThongKe
 {
@@ -114,6 +115,7 @@ namespace TSCD_GUI.ThongKe
             {
                 //String ten = checkTen.Checked ? txtTen.Text : null;
                 //String ten = txtTen.Text;
+                List<Guid> tinhtrangs = CheckedComboBoxEditHelper.getCheckedValueArray(checkedCbxTinhTrang);
                 LoaiTaiSan loai = checkLoaiTS.Checked ? ucComboBoxLoaiTS1.LoaiTS : null;
                 DonVi DVQL = ucComboBoxDonVi1.DonVi;
                 ViTri vitri = ucComboBoxViTri1.ViTri;
@@ -121,7 +123,7 @@ namespace TSCD_GUI.ThongKe
                 bool isViTri = true;
                 if (vitri == null)
                     isViTri = false;
-                List<TaiSanHienThi> list = TaiSanHienThi.Convert(CTTaiSanSF.search(null, loai, checkDonVi.Checked, DVQL, false, null, isViTri && checkViTri.Checked, vitri, !isViTri && checkViTri.Checked, phong));
+                List<TaiSanHienThi> list = TaiSanHienThi.Convert(CTTaiSanSF.search(null, loai, checkDonVi.Checked, DVQL, false, null, isViTri && checkViTri.Checked, vitri, !isViTri && checkViTri.Checked, phong, tinhtrangs));
                 //ucGridControlTaiSan1.DataSource = list;
                 gridControlTaiSan.DataSource = list;
 

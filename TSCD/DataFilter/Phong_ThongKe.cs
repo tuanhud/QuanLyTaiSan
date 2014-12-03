@@ -68,5 +68,38 @@ namespace TSCD.DataFilter
 
             return re;
         }
+
+        public static List<Phong_ThongKe> getAllForTH(List<Guid> list_loaiphong = null, ViTri vitri = null)
+        {
+            IQueryable<Phong> query = Phong.getQuery();
+
+            //LTB
+            if (list_loaiphong != null && list_loaiphong.Count > 0)
+            {
+                query = query.Where(x => x.loaiphong == null || list_loaiphong.Contains(x.loaiphong.id));
+            }
+            //VITRI
+            if (vitri != null)
+            {
+                query = query.Where(x => (vitri.coso_id == null || x.vitri.coso.id == vitri.coso_id) && (vitri.day_id == null || x.vitri.day.id == vitri.day_id) && (vitri.tang_id == null || x.vitri.tang.id == vitri.tang_id));
+            }
+
+            //FINAL SELECT
+            List<Phong_ThongKe> re = query.ToList().Select(x => new Phong_ThongKe
+            {
+                id = x.id,
+                ten = x.ten,
+                loai = x.loaiphong == null ? "" : x.loaiphong.ten,
+                sochongoi = x.sochongoi,
+                //obj = x,
+                tonggiatritaisan = x.tonggiatritaisan,
+                coso = x.vitri.coso == null ? "" : x.vitri.coso.ten,
+                day = x.vitri.day == null ? "" : x.vitri.day.ten,
+                tang = x.vitri.tang == null ? "" : x.vitri.tang.ten
+            }
+            ).ToList();
+
+            return re;
+        }
     }
 }
