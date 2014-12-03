@@ -128,5 +128,15 @@ namespace TSCD_GUI.ThongKe
                 Debug.WriteLine(this.Name + "->gridViewPhong_CustomSummaryCalculate:" + ex.Message);
             }
         }
+
+        public void ExpandAllGroups()
+        {
+            gridViewPhong.ExpandAllGroups();
+        }
+
+        public void CollapseAllGroups()
+        {
+            gridViewPhong.CollapseAllGroups();
+        }
     }
 }

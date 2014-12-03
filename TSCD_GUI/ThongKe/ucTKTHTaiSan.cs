@@ -169,5 +169,15 @@ namespace TSCD_GUI.ThongKe
                 Debug.WriteLine(this.Name + "->gridViewTaiSan_CustomSummaryCalculate:" + ex.Message);
             }
         }
+
+        public void ExpandAllGroups()
+        {
+            gridViewTaiSan.ExpandAllGroups();
+        }
+
+        public void CollapseAllGroups()
+        {
+            gridViewTaiSan.CollapseAllGroups();
+        }
     }
 }

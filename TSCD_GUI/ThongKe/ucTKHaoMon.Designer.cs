@@ -457,7 +457,7 @@
 
         #endregion
 
-        private DevExpress.XtraGrid.GridControl gridControlHaoMon;
+        public DevExpress.XtraGrid.GridControl gridControlHaoMon;
         private DevExpress.XtraGrid.Views.Grid.GridView gridViewHaoMon;
         private DevExpress.XtraEditors.PanelControl panelSearch;
         private DevExpress.XtraEditors.LabelControl labelNgayTK;

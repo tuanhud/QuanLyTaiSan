@@ -329,7 +329,7 @@
         #endregion
 
         private DevExpress.XtraEditors.PanelControl panelSearch;
-        private DevExpress.XtraGrid.GridControl gridControlPhong;
+        public DevExpress.XtraGrid.GridControl gridControlPhong;
         private DevExpress.XtraGrid.Views.Grid.GridView gridViewPhong;
         private MyUserControl.ucComboBoxViTri ucComboBoxViTri1;
         private MyUserControl.ucComboBoxDonVi ucComboBoxDonVi1;

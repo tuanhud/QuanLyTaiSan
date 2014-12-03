@@ -83,6 +83,18 @@ namespace TSCD_GUI.ThongKe
             {
                 _ucTKTaiSan.ExpandAllGroups();
             }
+            else if (current.Equals(_ucTKHaoMon))
+            {
+                _ucTKHaoMon.ExpandAllGroups();
+            }
+            else if (current.Equals(_ucTKTHPhong))
+            {
+                _ucTKTHPhong.ExpandAllGroups();
+            }
+            else if (current.Equals(_ucTKTHTaiSan))
+            {
+                _ucTKTHTaiSan.ExpandAllGroups();
+            }
         }
 
         private void barBtnCollapseAll_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -94,6 +106,18 @@ namespace TSCD_GUI.ThongKe
             else if (current.Equals(_ucTKTaiSan))
             {
                 _ucTKTaiSan.CollapseAllGroups();
+            }
+            else if (current.Equals(_ucTKHaoMon))
+            {
+                _ucTKHaoMon.CollapseAllGroups();
+            }
+            else if (current.Equals(_ucTKTHPhong))
+            {
+                _ucTKTHPhong.CollapseAllGroups();
+            }
+            else if (current.Equals(_ucTKTHTaiSan))
+            {
+                _ucTKTHTaiSan.CollapseAllGroups();
             }
         }
 
@@ -184,6 +208,108 @@ namespace TSCD_GUI.ThongKe
 
                             XtraReportTSCD_Grid _XtraReportTSCD_Grid = new XtraReportTSCD_Grid(_ucTKTaiSan.gridControlTaiSan);
                             _XtraReportTSCD_Grid.SetTextTitle("Thống Kê Tài Sản");
+                            _XtraReportTSCD_Grid.SetTextTitle_TopRight("");
+
+                            ReportPrintTool printTool = new ReportPrintTool(_XtraReportTSCD_Grid);
+                            splashScreenManager_Report.CloseWaitForm();
+                            printTool.ShowPreviewDialog();
+                        }
+                        catch
+                        {
+                            XtraMessageBox.Show("Đã xảy ra lỗi!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    else
+                    {
+                        XtraMessageBox.Show("Chưa có dữ liệu!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else if (current.Equals(_ucTKHaoMon))
+                {
+                    if (Object.Equals(_ucTKHaoMon.gridControlHaoMon.DataSource, null))
+                    {
+                        XtraMessageBox.Show("Chưa có dữ liệu!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    if (((List<TaiSanHienThi>)_ucTKHaoMon.gridControlHaoMon.DataSource).Count > 0)
+                    {
+                        try
+                        {
+                            DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager_Report = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::TSCD_GUI.WaitFormLoad), true, true, DevExpress.XtraSplashScreen.ParentType.UserControl);
+                            splashScreenManager_Report.ShowWaitForm();
+                            splashScreenManager_Report.SetWaitFormCaption("Đang tạo report");
+                            splashScreenManager_Report.SetWaitFormDescription("Vui lòng chờ trong giây lát...");
+
+                            XtraReportTSCD_Grid _XtraReportTSCD_Grid = new XtraReportTSCD_Grid(_ucTKHaoMon.gridControlHaoMon);
+                            _XtraReportTSCD_Grid.SetTextTitle("Thống Kê Hao Mòn");
+                            _XtraReportTSCD_Grid.SetTextTitle_TopRight("");
+
+                            ReportPrintTool printTool = new ReportPrintTool(_XtraReportTSCD_Grid);
+                            splashScreenManager_Report.CloseWaitForm();
+                            printTool.ShowPreviewDialog();
+                        }
+                        catch
+                        {
+                            XtraMessageBox.Show("Đã xảy ra lỗi!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    else
+                    {
+                        XtraMessageBox.Show("Chưa có dữ liệu!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else if (current.Equals(_ucTKTHPhong))
+                {
+                    if (Object.Equals(_ucTKTHPhong.gridControlPhong.DataSource, null))
+                    {
+                        XtraMessageBox.Show("Chưa có dữ liệu!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    if (((List<Phong_ThongKe>)_ucTKTHPhong.gridControlPhong.DataSource).Count > 0)
+                    {
+                        try
+                        {
+                            DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager_Report = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::TSCD_GUI.WaitFormLoad), true, true, DevExpress.XtraSplashScreen.ParentType.UserControl);
+                            splashScreenManager_Report.ShowWaitForm();
+                            splashScreenManager_Report.SetWaitFormCaption("Đang tạo report");
+                            splashScreenManager_Report.SetWaitFormDescription("Vui lòng chờ trong giây lát...");
+
+                            XtraReportTSCD_Grid _XtraReportTSCD_Grid = new XtraReportTSCD_Grid(_ucTKTHPhong.gridControlPhong);
+                            _XtraReportTSCD_Grid.SetTextTitle("Thống Kê Tổng Hợp Phòng");
+                            _XtraReportTSCD_Grid.SetTextTitle_TopRight("");
+
+                            ReportPrintTool printTool = new ReportPrintTool(_XtraReportTSCD_Grid);
+                            splashScreenManager_Report.CloseWaitForm();
+                            printTool.ShowPreviewDialog();
+                        }
+                        catch
+                        {
+                            XtraMessageBox.Show("Đã xảy ra lỗi!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    else
+                    {
+                        XtraMessageBox.Show("Chưa có dữ liệu!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else if (current.Equals(_ucTKTHTaiSan))
+                {
+                    if (Object.Equals(_ucTKTHTaiSan.gridControlTaiSan.DataSource, null))
+                    {
+                        XtraMessageBox.Show("Chưa có dữ liệu!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    if (((List<TaiSanHienThi>)_ucTKTHTaiSan.gridControlTaiSan.DataSource).Count > 0)
+                    {
+                        try
+                        {
+                            DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager_Report = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::TSCD_GUI.WaitFormLoad), true, true, DevExpress.XtraSplashScreen.ParentType.UserControl);
+                            splashScreenManager_Report.ShowWaitForm();
+                            splashScreenManager_Report.SetWaitFormCaption("Đang tạo report");
+                            splashScreenManager_Report.SetWaitFormDescription("Vui lòng chờ trong giây lát...");
+
+                            XtraReportTSCD_Grid _XtraReportTSCD_Grid = new XtraReportTSCD_Grid(_ucTKTHTaiSan.gridControlTaiSan);
+                            _XtraReportTSCD_Grid.SetTextTitle("Thống Kê Tổng Hợp Tài Sản");
                             _XtraReportTSCD_Grid.SetTextTitle_TopRight("");
 
                             ReportPrintTool printTool = new ReportPrintTool(_XtraReportTSCD_Grid);

@@ -127,5 +127,15 @@ namespace TSCD_GUI.ThongKe
             }
             DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
         }
+
+        public void ExpandAllGroups()
+        {
+            gridViewHaoMon.ExpandAllGroups();
+        }
+
+        public void CollapseAllGroups()
+        {
+            gridViewHaoMon.CollapseAllGroups();
+        }
     }
 }

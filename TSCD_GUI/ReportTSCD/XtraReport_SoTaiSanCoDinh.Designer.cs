@@ -56,6 +56,7 @@
             this.xrTableCell1 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell2 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell3 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrTableCell60 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell5 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableRow2 = new DevExpress.XtraReports.UI.XRTableRow();
             this.xrTableCell11 = new DevExpress.XtraReports.UI.XRTableCell();
@@ -145,7 +146,6 @@
             this.xrControlStyle_Middle = new DevExpress.XtraReports.UI.XRControlStyle();
             this.xrControlStyle_Left = new DevExpress.XtraReports.UI.XRControlStyle();
             this.xrControlStyle_Right = new DevExpress.XtraReports.UI.XRControlStyle();
-            this.xrTableCell60 = new DevExpress.XtraReports.UI.XRTableCell();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable_Detail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable_Header)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable_SUM)).BeginInit();
@@ -353,6 +353,12 @@
             this.xrTableCell3.Name = "xrTableCell3";
             this.xrTableCell3.Text = "Hao mòn tài sản cố đinh";
             this.xrTableCell3.Weight = 3.6458349609375D;
+            // 
+            // xrTableCell60
+            // 
+            this.xrTableCell60.Name = "xrTableCell60";
+            this.xrTableCell60.Text = "Ghi giảm TSCD";
+            this.xrTableCell60.Weight = 1.6249987792968748D;
             // 
             // xrTableCell5
             // 
@@ -998,7 +1004,7 @@
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrControlStyle_Header.BorderWidth = 0.7F;
-            this.xrControlStyle_Header.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrControlStyle_Header.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrControlStyle_Header.Name = "xrControlStyle_Header";
             this.xrControlStyle_Header.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
@@ -1024,7 +1030,7 @@
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrControlStyle_Middle.BorderWidth = 0.7F;
-            this.xrControlStyle_Middle.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrControlStyle_Middle.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrControlStyle_Middle.Name = "xrControlStyle_Middle";
             this.xrControlStyle_Middle.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
@@ -1035,7 +1041,7 @@
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrControlStyle_Left.BorderWidth = 0.7F;
-            this.xrControlStyle_Left.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrControlStyle_Left.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrControlStyle_Left.Name = "xrControlStyle_Left";
             this.xrControlStyle_Left.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             // 
@@ -1046,15 +1052,9 @@
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrControlStyle_Right.BorderWidth = 0.7F;
-            this.xrControlStyle_Right.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrControlStyle_Right.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrControlStyle_Right.Name = "xrControlStyle_Right";
             this.xrControlStyle_Right.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
-            // 
-            // xrTableCell60
-            // 
-            this.xrTableCell60.Name = "xrTableCell60";
-            this.xrTableCell60.Text = "Ghi giảm TSCD";
-            this.xrTableCell60.Weight = 1.6249987792968748D;
             // 
             // XtraReport_SoTaiSanCoDinh
             // 

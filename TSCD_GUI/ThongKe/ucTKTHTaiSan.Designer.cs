@@ -483,7 +483,7 @@
         #endregion
 
         private DevExpress.XtraEditors.PanelControl panelSearch;
-        private DevExpress.XtraGrid.GridControl gridControlTaiSan;
+        public DevExpress.XtraGrid.GridControl gridControlTaiSan;
         private DevExpress.XtraGrid.Views.Grid.GridView gridViewTaiSan;
         private DevExpress.XtraEditors.SimpleButton btnClear;
         private DevExpress.XtraEditors.SimpleButton btnTim;
