@@ -35,7 +35,8 @@ namespace TSCD.DataFilter
         public String dvsudung { get; set; }
         public ICollection<CTTaiSan> childs { get; set; }
         public DateTime? date_create { get; set; }
-
+        public double phantramhaomon_32 { get; set; }
+        public long sotientrongmotnam { get; set; }
 
         public static List<TaiSan_ThongKe> getAll(List<Guid> list_coso = null, List<Guid> list_loaitaisan = null, DonVi donvi = null)
         {
@@ -54,7 +55,7 @@ namespace TSCD.DataFilter
             //COSO
             if (list_coso != null && list_coso.Count > 0)
             {
-                List<Guid> list_phong = Phong.getQuery().Where(x => list_coso.Contains(x.vitri.coso.id)).Select(c=>c.id).ToList();
+                List<Guid> list_phong = Phong.getQuery().Where(x => list_coso.Contains(x.vitri.coso.id)).Select(c => c.id).ToList();
                 //query = query.Where(x => x.vitri.coso == null || list_coso.Contains(x.vitri.coso.id));
                 query = query.Where(x => list_coso.Contains(x.vitri.coso.id) || list_phong.Contains(x.phong.id));
             }
@@ -88,6 +89,8 @@ namespace TSCD.DataFilter
                 x.vitri.day.ten + (x.vitri.tang != null ? " - " + x.vitri.tang.ten : "") : "") : "") : "",
                 dvquanly = x.donviquanly != null ? x.donviquanly.ten : "",
                 dvsudung = x.donvisudung != null ? x.donvisudung.ten : "",
+                phantramhaomon_32 = Object.Equals(x.taisan, null) ? 0 : Object.Equals(x.taisan.loaitaisan, null) ? 0 : x.taisan.loaitaisan.phantramhaomon_32,
+                sotientrongmotnam = Object.Equals(x.taisan, null) ? 0 : Object.Equals(x.taisan.loaitaisan, null) ? 0 : (long)(x.taisan.dongia * x.taisan.loaitaisan.phantramhaomon_32),
             }
             ).ToList();
 
@@ -100,24 +103,24 @@ namespace TSCD.DataFilter
         /// <param name="ngay_from"></param>
         /// <param name="ngay_to"></param>
         /// <returns></returns>
-        public static List<TaiSan_ThongKe> getTangGiamAll(Guid donviquanly, DateTime? ngay_from=null, DateTime? ngay_to = null)
+        public static List<TaiSan_ThongKe> getTangGiamAll(Guid donviquanly, DateTime? ngay_from = null, DateTime? ngay_to = null)
         {
             IQueryable<LogTangGiamTaiSan> query = LogTangGiamTaiSan.getQuery();
-            
+
             //THONG KE TANG GIAM TREN DONVI
             //DONVIQUANLY
             if (donviquanly != Guid.Empty)
             {
-                List<Guid>  list_donviquanly = DonVi.getById(donviquanly).getAllChildsRecursive().Select(x => x.id).ToList();
-                query = query.Where(x => x.donviquanly!=null && list_donviquanly.Contains(x.donviquanly.id));
+                List<Guid> list_donviquanly = DonVi.getById(donviquanly).getAllChildsRecursive().Select(x => x.id).ToList();
+                query = query.Where(x => x.donviquanly != null && list_donviquanly.Contains(x.donviquanly.id));
                 query = query.Where(c => c.tang_giam_donvi != 0);
             }
             else
             //THONG KE TANG GIAM TOAN TRUONG
             {
-                query = query.Where(c=> c.tang_giam==1 || c.tang_giam == -1);
+                query = query.Where(c => c.tang_giam == 1 || c.tang_giam == -1);
             }
-            
+
 
             //FINAL SELECT
             List<TaiSan_ThongKe> re = query.OrderByDescending(x => x.date_create).Select(x => new TaiSan_ThongKe
@@ -130,8 +133,8 @@ namespace TSCD.DataFilter
                 loaits = x.taisan.loaitaisan.ten,
                 donvitinh = x.taisan.loaitaisan.donvitinh != null ? x.taisan.loaitaisan.donvitinh.ten : "",
 
-                soluong_tang = (x.tang_giam==1 || x.tang_giam_donvi==1) ? (int?)x.soluong : null,
-                dongia_tang = (x.tang_giam==1 || x.tang_giam_donvi==1) ? (long?)x.taisan.dongia: null,
+                soluong_tang = (x.tang_giam == 1 || x.tang_giam_donvi == 1) ? (int?)x.soluong : null,
+                dongia_tang = (x.tang_giam == 1 || x.tang_giam_donvi == 1) ? (long?)x.taisan.dongia : null,
                 thanhtien_tang = (x.tang_giam == 1 || x.tang_giam_donvi == 1) ? (long?)x.soluong * x.taisan.dongia : null,
 
                 soluong_giam = (x.tang_giam == -1 || x.tang_giam_donvi == -1) ? (int?)x.soluong : null,

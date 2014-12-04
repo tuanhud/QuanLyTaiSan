@@ -40,8 +40,10 @@ namespace TSCD_GUI.ReportTSCD
                 xrTableCell_TenTSCD.DataBindings.Add("Text", null, "ten");
                 xrTableCell_NuocSanXuat.DataBindings.Add("Text", null, "nuocsx");
                 xrTableCell_NgaySuDung.DataBindings.Add("Text", null, "ngay", "{0:dd/MM/yyyy}");
-
+                
                 xrTableCell_NguyenGia.DataBindings.Add("Text", null, "thanhtien", "{0:### ### ### ###}");
+                xrTableCell_TyLeHM.DataBindings.Add("Text", null, "phantramhaomon_32");
+                
                 IntSUM();
             }
             if (!Object.Equals(obj, null))
