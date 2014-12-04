@@ -126,7 +126,8 @@
             "=",
             ">=",
             ">",
-            "<="});
+            "<=",
+            "<"});
             this.comboBoxEdit2.Size = new System.Drawing.Size(34, 20);
             this.comboBoxEdit2.TabIndex = 30;
             // 
@@ -148,7 +149,8 @@
             "=",
             ">=",
             ">",
-            "<="});
+            "<=",
+            "<"});
             this.comboBoxEdit1.Size = new System.Drawing.Size(34, 20);
             this.comboBoxEdit1.TabIndex = 28;
             // 

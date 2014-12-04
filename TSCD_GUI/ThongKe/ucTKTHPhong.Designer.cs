@@ -103,7 +103,9 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.comboBoxEdit2.Properties.Items.AddRange(new object[] {
             "=",
+            ">=",
             ">",
+            "<=",
             "<"});
             this.comboBoxEdit2.Size = new System.Drawing.Size(34, 20);
             this.comboBoxEdit2.TabIndex = 33;
