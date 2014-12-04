@@ -35,6 +35,10 @@ namespace PTB.Entities
         [ForeignKey("quantrivien_id")]
         public virtual QuanTriVien quantrivien { get; set; }
 
+        /// <summary>
+        /// Su dung khi sua chua coa phat sinh gia tien
+        /// </summary>
+        public long phisuachua { get; set; }
         #endregion
 
         #region Override
