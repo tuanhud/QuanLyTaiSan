@@ -88,6 +88,7 @@ namespace TSCD_GUI.ThongKe
             //checkedCbxTinhTrang.EditValue = null;
             //ucComboBoxLoaiTS1.EditValue = null;
             //checkLoaiTS.Checked = false;
+            checkedCbxLoaiPhong.SetEditValue(null);
             ucComboBoxDonVi1.EditValue = Guid.Empty;
             checkDonVi.Checked = false;
             ucComboBoxViTri1.EditValue = Guid.Empty;

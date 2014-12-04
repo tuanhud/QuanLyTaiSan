@@ -95,7 +95,7 @@ namespace TSCD_GUI.ThongKe
         private void btnClear_Click(object sender, EventArgs e)
         {
             dateNgaySD.DateTime = DateTime.Now;
-            checkedCbxTinhTrang.EditValue = null;
+            checkedCbxTinhTrang.SetEditValue(null);
             ucComboBoxLoaiTS1.EditValue = null;
             checkLoaiTS.Checked = false;
             ucComboBoxDonVi1.EditValue = Guid.Empty;
