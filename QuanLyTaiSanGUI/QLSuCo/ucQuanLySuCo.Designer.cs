@@ -28,8 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucQuanLySuCo));
             this.gridViewLogSuCo = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.collngay = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -75,7 +74,11 @@
             this.imageSlider1 = new DevExpress.XtraEditors.Controls.ImageSlider();
             this.txtMota = new DevExpress.XtraEditors.MemoEdit();
             this.groupControlPhong = new DevExpress.XtraEditors.GroupControl();
-            this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
+            this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider();
+            this.lblPhiSuaChua = new DevExpress.XtraEditors.LabelControl();
+            this.spinPhiSuaChua = new DevExpress.XtraEditors.SpinEdit();
+            this.colphisuachua = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.collphisuachua = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewLogSuCo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlSuCo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewSuCo)).BeginInit();
@@ -93,6 +96,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControlPhong)).BeginInit();
             this.groupControlPhong.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinPhiSuaChua.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // gridViewLogSuCo
@@ -101,6 +105,7 @@
             this.collngay,
             this.collcreate,
             this.colltinhtrang,
+            this.collphisuachua,
             this.collmota,
             this.collqtvien});
             this.gridViewLogSuCo.GridControl = this.gridControlSuCo;
@@ -143,7 +148,7 @@
             this.collmota.FieldName = "mota";
             this.collmota.Name = "collmota";
             this.collmota.Visible = true;
-            this.collmota.VisibleIndex = 2;
+            this.collmota.VisibleIndex = 3;
             // 
             // collqtvien
             // 
@@ -151,20 +156,20 @@
             this.collqtvien.FieldName = "quantrivien.hoten";
             this.collqtvien.Name = "collqtvien";
             this.collqtvien.Visible = true;
-            this.collqtvien.VisibleIndex = 3;
+            this.collqtvien.VisibleIndex = 4;
             // 
             // gridControlSuCo
             // 
             this.gridControlSuCo.Dock = System.Windows.Forms.DockStyle.Fill;
-            gridLevelNode1.LevelTemplate = this.gridViewLogSuCo;
-            gridLevelNode1.RelationName = "Log";
+            gridLevelNode2.LevelTemplate = this.gridViewLogSuCo;
+            gridLevelNode2.RelationName = "Log";
             this.gridControlSuCo.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode1});
+            gridLevelNode2});
             this.gridControlSuCo.Location = new System.Drawing.Point(0, 0);
             this.gridControlSuCo.MainView = this.gridViewSuCo;
             this.gridControlSuCo.MenuManager = this.ribbonSuCoPhong;
             this.gridControlSuCo.Name = "gridControlSuCo";
-            this.gridControlSuCo.Size = new System.Drawing.Size(475, 396);
+            this.gridControlSuCo.Size = new System.Drawing.Size(474, 421);
             this.gridControlSuCo.TabIndex = 0;
             this.gridControlSuCo.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewSuCo,
@@ -177,6 +182,7 @@
             this.colten,
             this.colphong,
             this.coltinhtrang,
+            this.colphisuachua,
             this.colmota,
             this.colmodified,
             this.colday,
@@ -226,7 +232,7 @@
             this.colmota.FieldName = "mota";
             this.colmota.Name = "colmota";
             this.colmota.Visible = true;
-            this.colmota.VisibleIndex = 2;
+            this.colmota.VisibleIndex = 3;
             // 
             // colmodified
             // 
@@ -240,7 +246,7 @@
             this.colday.FieldName = "ngay";
             this.colday.Name = "colday";
             this.colday.Visible = true;
-            this.colday.VisibleIndex = 3;
+            this.colday.VisibleIndex = 4;
             // 
             // colid
             // 
@@ -314,7 +320,7 @@
             this.splitContainerControl1.Panel1.Text = "Panel1";
             this.splitContainerControl1.Panel2.Controls.Add(this.groupControl1);
             this.splitContainerControl1.Panel2.Text = "Panel2";
-            this.splitContainerControl1.Size = new System.Drawing.Size(809, 396);
+            this.splitContainerControl1.Size = new System.Drawing.Size(809, 421);
             this.splitContainerControl1.SplitterPosition = 330;
             this.splitContainerControl1.TabIndex = 1;
             this.splitContainerControl1.Text = "splitContainerControl1";
@@ -323,6 +329,8 @@
             // 
             this.groupControl1.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupControl1.AppearanceCaption.Options.UseFont = true;
+            this.groupControl1.Controls.Add(this.spinPhiSuaChua);
+            this.groupControl1.Controls.Add(this.lblPhiSuaChua);
             this.groupControl1.Controls.Add(this.btnR_Sua);
             this.groupControl1.Controls.Add(this.btnR_Them);
             this.groupControl1.Controls.Add(this.btnR_Xoa);
@@ -346,7 +354,7 @@
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl1.Location = new System.Drawing.Point(0, 0);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(330, 396);
+            this.groupControl1.Size = new System.Drawing.Size(330, 421);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Chi tiết";
             // 
@@ -412,7 +420,7 @@
             // btnHuy
             // 
             this.btnHuy.Image = ((System.Drawing.Image)(resources.GetObject("btnHuy.Image")));
-            this.btnHuy.Location = new System.Drawing.Point(159, 359);
+            this.btnHuy.Location = new System.Drawing.Point(159, 381);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(75, 23);
             this.btnHuy.TabIndex = 11;
@@ -422,7 +430,7 @@
             // btnOK
             // 
             this.btnOK.Image = ((System.Drawing.Image)(resources.GetObject("btnOK.Image")));
-            this.btnOK.Location = new System.Drawing.Point(78, 359);
+            this.btnOK.Location = new System.Drawing.Point(78, 381);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 10;
@@ -431,7 +439,7 @@
             // 
             // labelControl7
             // 
-            this.labelControl7.Location = new System.Drawing.Point(5, 286);
+            this.labelControl7.Location = new System.Drawing.Point(5, 308);
             this.labelControl7.Name = "labelControl7";
             this.labelControl7.Size = new System.Drawing.Size(39, 13);
             this.labelControl7.TabIndex = 11;
@@ -547,7 +555,7 @@
             // 
             this.txtMota.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtMota.Location = new System.Drawing.Point(78, 283);
+            this.txtMota.Location = new System.Drawing.Point(78, 305);
             this.txtMota.MenuManager = this.ribbonSuCoPhong;
             this.txtMota.Name = "txtMota";
             this.txtMota.Size = new System.Drawing.Size(238, 70);
@@ -564,13 +572,64 @@
             this.groupControlPhong.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControlPhong.Location = new System.Drawing.Point(0, 145);
             this.groupControlPhong.Name = "groupControlPhong";
-            this.groupControlPhong.Size = new System.Drawing.Size(813, 422);
+            this.groupControlPhong.Size = new System.Drawing.Size(813, 447);
             this.groupControlPhong.TabIndex = 3;
             this.groupControlPhong.Text = "Phòng";
             // 
             // dxErrorProvider1
             // 
             this.dxErrorProvider1.ContainerControl = this;
+            // 
+            // lblPhiSuaChua
+            // 
+            this.lblPhiSuaChua.Location = new System.Drawing.Point(6, 282);
+            this.lblPhiSuaChua.Name = "lblPhiSuaChua";
+            this.lblPhiSuaChua.Size = new System.Drawing.Size(66, 13);
+            this.lblPhiSuaChua.TabIndex = 18;
+            this.lblPhiSuaChua.Text = "Phí sửa chữa:";
+            // 
+            // spinPhiSuaChua
+            // 
+            this.spinPhiSuaChua.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.spinPhiSuaChua.Location = new System.Drawing.Point(78, 279);
+            this.spinPhiSuaChua.MenuManager = this.ribbonSuCoPhong;
+            this.spinPhiSuaChua.Name = "spinPhiSuaChua";
+            this.spinPhiSuaChua.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.spinPhiSuaChua.Properties.DisplayFormat.FormatString = "### ### ### ##0";
+            this.spinPhiSuaChua.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.spinPhiSuaChua.Properties.Mask.EditMask = "### ### ### ##0";
+            this.spinPhiSuaChua.Properties.MaxValue = new decimal(new int[] {
+            -727379969,
+            232,
+            0,
+            0});
+            this.spinPhiSuaChua.Size = new System.Drawing.Size(238, 20);
+            this.spinPhiSuaChua.TabIndex = 19;
+            // 
+            // colphisuachua
+            // 
+            this.colphisuachua.Caption = "Phí sửa chữa";
+            this.colphisuachua.DisplayFormat.FormatString = "### ### ### ##0";
+            this.colphisuachua.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colphisuachua.FieldName = "phisuachua";
+            this.colphisuachua.Name = "colphisuachua";
+            this.colphisuachua.Visible = true;
+            this.colphisuachua.VisibleIndex = 2;
+            // 
+            // collphisuachua
+            // 
+            this.collphisuachua.Caption = "Phí sửa chữa";
+            this.collphisuachua.DisplayFormat.FormatString = "### ### ### ##0";
+            this.collphisuachua.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.collphisuachua.FieldName = "phisuachua";
+            this.collphisuachua.Name = "collphisuachua";
+            this.collphisuachua.Visible = true;
+            this.collphisuachua.VisibleIndex = 2;
             // 
             // ucQuanLySuCo
             // 
@@ -581,7 +640,7 @@
             this.Controls.Add(this.groupControlPhong);
             this.Controls.Add(this.ribbonSuCoPhong);
             this.Name = "ucQuanLySuCo";
-            this.Size = new System.Drawing.Size(813, 567);
+            this.Size = new System.Drawing.Size(813, 592);
             ((System.ComponentModel.ISupportInitialize)(this.gridViewLogSuCo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlSuCo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewSuCo)).EndInit();
@@ -600,6 +659,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControlPhong)).EndInit();
             this.groupControlPhong.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinPhiSuaChua.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -652,5 +712,9 @@
         private DevExpress.XtraGrid.Columns.GridColumn colday;
         private DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider dxErrorProvider1;
         private DevExpress.XtraGrid.Columns.GridColumn colid;
+        private DevExpress.XtraGrid.Columns.GridColumn collphisuachua;
+        private DevExpress.XtraGrid.Columns.GridColumn colphisuachua;
+        private DevExpress.XtraEditors.SpinEdit spinPhiSuaChua;
+        private DevExpress.XtraEditors.LabelControl lblPhiSuaChua;
     }
 }

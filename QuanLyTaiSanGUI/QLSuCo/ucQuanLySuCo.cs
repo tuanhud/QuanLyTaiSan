@@ -183,6 +183,7 @@ namespace PTB_GUI.QLSuCo
             txtMota.Properties.ReadOnly = !_enable;
             lookUpEditTinhTrang.Properties.ReadOnly = !_enable;
             dateEdit1.Properties.ReadOnly = !_enable;
+            spinPhiSuaChua.Properties.ReadOnly = !_enable;
             enableButton(!_enable);
             barBtnThem.Enabled = !_enable && canAdd;
             btnR_Them.Enabled = !_enable && canAdd;
@@ -225,6 +226,7 @@ namespace PTB_GUI.QLSuCo
                         txtTen.Text = objSuCo.ten;
                         lblPhong.Text = objSuCo.phong.ten;
                         dateEdit1.EditValue = objSuCo.ngay;
+                        spinPhiSuaChua.EditValue = objSuCo.phisuachua;
                         if (!isLog)
                         {
                             lookUpEditTinhTrang.EditValue = objSuCo.tinhtrang_id;
@@ -243,6 +245,7 @@ namespace PTB_GUI.QLSuCo
                             lookUpEditTinhTrang.EditValue = obj.tinhtrang_id;
                             txtMota.Text = obj.mota;
                             dateEdit1.EditValue = obj.date_create;
+                            spinPhiSuaChua.EditValue = obj.phisuachua;
                             if (obj.hinhanhs.Count > 0)
                             {
                                 listHinhs = obj.hinhanhs.ToList();
@@ -363,6 +366,7 @@ namespace PTB_GUI.QLSuCo
                         objSuCo.phong = objPhong;
                         objSuCo.tinhtrang = lookUpEditTinhTrang.GetSelectedDataRow() as TinhTrang;
                         objSuCo.mota = txtMota.Text;
+                        objSuCo.phisuachua = spinPhiSuaChua != null ? long.Parse(spinPhiSuaChua.EditValue.ToString()) : 0;
                         objSuCo.hinhanhs = listHinhs;
                         objSuCo.ngay = dateEdit1.EditValue != null ? dateEdit1.DateTime : DateTime.Now;
                         if (objSuCo.add() > 0 && DBInstance.commit() > 0)
@@ -383,6 +387,7 @@ namespace PTB_GUI.QLSuCo
                             objSuCo.ten = txtTen.Text;
                             objSuCo.tinhtrang = lookUpEditTinhTrang.GetSelectedDataRow() as TinhTrang;
                             objSuCo.mota = txtMota.Text;
+                            objSuCo.phisuachua = spinPhiSuaChua != null ? long.Parse(spinPhiSuaChua.EditValue.ToString()) : 0;
                             objSuCo.hinhanhs = listHinhs;
                             objSuCo.ngay = dateEdit1.EditValue != null ? dateEdit1.DateTime : DateTime.Now;
                             if (objSuCo.update() > 0 && DBInstance.commit() > 0)
