@@ -33,6 +33,7 @@
             this.gridViewHaoMon = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colsohieuct = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colngayct = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colten = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colloaits = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coldonvitinh = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -66,7 +67,6 @@
             this.dateNgayTK = new DevExpress.XtraEditors.DateEdit();
             this.labelTinhTrang = new DevExpress.XtraEditors.LabelControl();
             this.labelNgayTK = new DevExpress.XtraEditors.LabelControl();
-            this.colngayct = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlHaoMon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewHaoMon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelSearch)).BeginInit();
@@ -133,6 +133,14 @@
             this.colsohieuct.Name = "colsohieuct";
             this.colsohieuct.Visible = true;
             this.colsohieuct.VisibleIndex = 0;
+            // 
+            // colngayct
+            // 
+            this.colngayct.Caption = "Ngày chứng từ";
+            this.colngayct.FieldName = "ngay_ct";
+            this.colngayct.Name = "colngayct";
+            this.colngayct.Visible = true;
+            this.colngayct.VisibleIndex = 21;
             // 
             // colten
             // 
@@ -378,7 +386,7 @@
             // 
             // checkedCbxTinhTrang
             // 
-            this.checkedCbxTinhTrang.Location = new System.Drawing.Point(85, 55);
+            this.checkedCbxTinhTrang.Location = new System.Drawing.Point(85, 31);
             this.checkedCbxTinhTrang.Name = "checkedCbxTinhTrang";
             this.checkedCbxTinhTrang.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -399,18 +407,24 @@
             // dateNgayTK
             // 
             this.dateNgayTK.EditValue = null;
-            this.dateNgayTK.Location = new System.Drawing.Point(85, 29);
+            this.dateNgayTK.Location = new System.Drawing.Point(85, 5);
             this.dateNgayTK.Name = "dateNgayTK";
             this.dateNgayTK.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateNgayTK.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateNgayTK.Properties.DisplayFormat.FormatString = "yyyy";
+            this.dateNgayTK.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dateNgayTK.Properties.EditFormat.FormatString = "yyyy";
+            this.dateNgayTK.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dateNgayTK.Properties.Mask.EditMask = "yyyy";
+            this.dateNgayTK.Properties.VistaCalendarViewStyle = DevExpress.XtraEditors.VistaCalendarViewStyle.YearsGroupView;
             this.dateNgayTK.Size = new System.Drawing.Size(130, 20);
             this.dateNgayTK.TabIndex = 5;
             // 
             // labelTinhTrang
             // 
-            this.labelTinhTrang.Location = new System.Drawing.Point(5, 58);
+            this.labelTinhTrang.Location = new System.Drawing.Point(5, 34);
             this.labelTinhTrang.Name = "labelTinhTrang";
             this.labelTinhTrang.Size = new System.Drawing.Size(53, 13);
             this.labelTinhTrang.TabIndex = 3;
@@ -418,19 +432,11 @@
             // 
             // labelNgayTK
             // 
-            this.labelNgayTK.Location = new System.Drawing.Point(5, 32);
+            this.labelNgayTK.Location = new System.Drawing.Point(5, 8);
             this.labelNgayTK.Name = "labelNgayTK";
-            this.labelNgayTK.Size = new System.Drawing.Size(74, 13);
+            this.labelNgayTK.Size = new System.Drawing.Size(70, 13);
             this.labelNgayTK.TabIndex = 0;
-            this.labelNgayTK.Text = "Ngày thống kê:";
-            // 
-            // colngayct
-            // 
-            this.colngayct.Caption = "Ngày chứng từ";
-            this.colngayct.FieldName = "ngay_ct";
-            this.colngayct.Name = "colngayct";
-            this.colngayct.Visible = true;
-            this.colngayct.VisibleIndex = 21;
+            this.labelNgayTK.Text = "Năm thống kê:";
             // 
             // ucTKHaoMon
             // 

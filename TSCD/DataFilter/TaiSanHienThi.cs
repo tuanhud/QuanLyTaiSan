@@ -279,7 +279,7 @@ namespace TSCD.DataFilter
             var re = new List<TaiSanHienThi>();
             foreach(var item in list)
             {
-                if(item.namsudung<=nam)
+                if(item.namsudung>nam)
                 {
                     //ignore
                 }

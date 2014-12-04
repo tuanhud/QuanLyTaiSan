@@ -102,30 +102,38 @@ namespace TSCD_GUI.ThongKe
 
         private void btnTim_Click(object sender, EventArgs e)
         {
-            DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitFormLoad), true, true, false);
-            DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang tải dữ liệu...");
-            try
+            if (dateNgayTK.EditValue == null)
+                dateNgayTK.DateTime = DateTime.Now;
+            if (dateNgayTK.DateTime.Year <= 2008)
+                XtraMessageBox.Show("Năm thống kê phải lớn hơn 2008", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else
             {
-                //String ten = checkTen.Checked ? txtTen.Text : null;
-                //String ten = txtTen.Text;
-                LoaiTaiSan loai = checkLoaiTS.Checked ? ucComboBoxLoaiTS1.LoaiTS : null;
-                DonVi DVQL = ucComboBoxDonVi1.DonVi;
-                ViTri vitri = ucComboBoxViTri1.ViTri;
-                Phong phong = ucComboBoxViTri1.Phong;
-                bool isViTri = true;
-                if (vitri == null)
-                    isViTri = false;
-                List<TaiSanHienThi> list = TaiSanHienThi.Convert(CTTaiSanSF.search(null, loai, checkDonVi.Checked, DVQL, false, null, isViTri && checkViTri.Checked, vitri, !isViTri && checkViTri.Checked, phong));
-                gridControlHaoMon.DataSource = list;
+                DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitFormLoad), true, true, false);
+                DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang tải dữ liệu...");
+                try
+                {
+                    //String ten = checkTen.Checked ? txtTen.Text : null;
+                    //String ten = txtTen.Text;
+                    LoaiTaiSan loai = checkLoaiTS.Checked ? ucComboBoxLoaiTS1.LoaiTS : null;
+                    DonVi DVQL = ucComboBoxDonVi1.DonVi;
+                    ViTri vitri = ucComboBoxViTri1.ViTri;
+                    Phong phong = ucComboBoxViTri1.Phong;
+                    bool isViTri = true;
+                    if (vitri == null)
+                        isViTri = false;
+                    List<TaiSanHienThi> tmp = TaiSanHienThi.Convert(CTTaiSanSF.search(null, loai, checkDonVi.Checked, DVQL, false, null, isViTri && checkViTri.Checked, vitri, !isViTri && checkViTri.Checked, phong));
+                    List<TaiSanHienThi> list = TaiSanHienThi.Convert(tmp, dateNgayTK.DateTime.Year);
+                    gridControlHaoMon.DataSource = list;
 
-                //saveSearchXml(this.Name);
-                //ucGridControlTaiSan1.CollapseAllGroups();
+                    //saveSearchXml(this.Name);
+                    //ucGridControlTaiSan1.CollapseAllGroups();
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(this.Name + "->Search:" + ex.Message);
+                }
+                DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
             }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(this.Name + "->Search:" + ex.Message);
-            }
-            DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
         }
 
         public void ExpandAllGroups()

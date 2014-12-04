@@ -69,7 +69,7 @@ namespace TSCD.DataFilter
             return re;
         }
 
-        public static List<Phong_ThongKe> getAllForTH(List<Guid> list_loaiphong = null, ViTri vitri = null, DonVi donvi = null)
+        public static List<Phong_ThongKe> getAllForTH(List<Guid> list_loaiphong = null, ViTri vitri = null, DonVi donvi = null, String equation = null, int? sochongoi = null)
         {
             IQueryable<Phong> query = Phong.getQuery();
 
@@ -84,6 +84,22 @@ namespace TSCD.DataFilter
             {
                 query = query.Where(x => x.loaiphong == null || list_loaiphong.Contains(x.loaiphong.id));
             }
+
+            //SOCHONGOI
+            if ((equation != null && (equation.Equals("=") || equation.Equals(">=") || equation.Equals(">") || equation.Equals("<=") || equation.Equals("<"))) && sochongoi != null && sochongoi >= 0)
+            {
+                if(equation.Equals("="))
+                    query = query.Where(x => x.sochongoi == sochongoi);
+                else if (equation.Equals(">="))
+                    query = query.Where(x => x.sochongoi >= sochongoi);
+                else if (equation.Equals(">"))
+                    query = query.Where(x => x.sochongoi > sochongoi);
+                else if (equation.Equals("<="))
+                    query = query.Where(x => x.sochongoi <= sochongoi);
+                else if (equation.Equals("<"))
+                    query = query.Where(x => x.sochongoi < sochongoi);
+            }
+
             //VITRI
             if (vitri != null)
             {

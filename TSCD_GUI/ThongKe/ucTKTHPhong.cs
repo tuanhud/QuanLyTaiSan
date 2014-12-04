@@ -36,7 +36,7 @@ namespace TSCD_GUI.ThongKe
                 //DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang tải dữ liệu...");
                 //gridControlTaiSan.DataSource = TaiSanHienThi.getAllNoDonVi();
                 //DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
-                checkedComboBoxEdit1.Properties.DataSource = LoaiPhong.getQuery().OrderBy(c => c.order).ToList();
+                checkedCbxLoaiPhong.Properties.DataSource = LoaiPhong.getQuery().OrderBy(c => c.order).ToList();
 
                 //ucComboBoxLoaiTS1.DataSource = LoaiTSHienThi.Convert(LoaiTaiSan.getQuery().OrderBy(c => c.parent_id).ThenBy(c => c.ten));
                 List<DonVi> list = DonVi.getQuery().OrderBy(c => c.parent_id).ThenBy(c => c.ten).ToList();
@@ -90,11 +90,11 @@ namespace TSCD_GUI.ThongKe
             ucComboBoxViTri1.EditValue = Guid.Empty;
             checkViTri.Checked = false;
             //dateNgayTK.EditValue = null;
-            spinEdit1.EditValue = null;
+            spinSoChoNgoi.EditValue = null;
             //if (comboBoxEdit1.Properties.Items.Count > 0)
             //    comboBoxEdit1.SelectedIndex = 0;
-            if (comboBoxEdit2.Properties.Items.Count > 0)
-                comboBoxEdit2.SelectedIndex = 0;
+            if (cbxEquation.Properties.Items.Count > 0)
+                cbxEquation.SelectedIndex = 0;
         }
 
         private void btnTim_Click(object sender, EventArgs e)
@@ -103,8 +103,9 @@ namespace TSCD_GUI.ThongKe
             DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang xử lý...");
             //List<Guid> list_coso = CheckedComboBoxEditHelper.getCheckedValueArray(checkedComboBoxCoSo);
             //List<Guid> list_loaiphong = CheckedComboBoxEditHelper.getCheckedValueArray(checkedComboBoxLoaiPhong);
-            List<Guid> list_loaiphong = CheckedComboBoxEditHelper.getCheckedValueArray(checkedComboBoxEdit1);
-            gridControlPhong.DataSource = Phong_ThongKe.getAllForTH(list_loaiphong, checkViTri.Checked ? ucComboBoxViTri1.ViTri : null, checkDonVi.Checked ? ucComboBoxDonVi1.DonVi : null);
+            List<Guid> list_loaiphong = CheckedComboBoxEditHelper.getCheckedValueArray(checkedCbxLoaiPhong);
+            gridControlPhong.DataSource = Phong_ThongKe.getAllForTH(list_loaiphong, checkViTri.Checked ? ucComboBoxViTri1.ViTri : null, checkDonVi.Checked ? ucComboBoxDonVi1.DonVi : null, 
+                cbxEquation.EditValue != null ? cbxEquation.EditValue.ToString() : null, spinSoChoNgoi.EditValue != null ? (int?)Convert.ToInt32(spinSoChoNgoi.EditValue) : null);
             DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
         }
 
