@@ -69,9 +69,15 @@ namespace TSCD.DataFilter
             return re;
         }
 
-        public static List<Phong_ThongKe> getAllForTH(List<Guid> list_loaiphong = null, ViTri vitri = null)
+        public static List<Phong_ThongKe> getAllForTH(List<Guid> list_loaiphong = null, ViTri vitri = null, DonVi donvi = null)
         {
             IQueryable<Phong> query = Phong.getQuery();
+
+            //DONVI
+            if (donvi != null)
+            {
+                query = donvi.getAllCTTaiSanRecursive().Where(c=>c.phong != null).Select(c => c.phong).Distinct();
+            }
 
             //LTB
             if (list_loaiphong != null && list_loaiphong.Count > 0)

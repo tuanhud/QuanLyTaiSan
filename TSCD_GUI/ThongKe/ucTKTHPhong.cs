@@ -104,7 +104,7 @@ namespace TSCD_GUI.ThongKe
             //List<Guid> list_coso = CheckedComboBoxEditHelper.getCheckedValueArray(checkedComboBoxCoSo);
             //List<Guid> list_loaiphong = CheckedComboBoxEditHelper.getCheckedValueArray(checkedComboBoxLoaiPhong);
             List<Guid> list_loaiphong = CheckedComboBoxEditHelper.getCheckedValueArray(checkedComboBoxEdit1);
-            gridControlPhong.DataSource = Phong_ThongKe.getAllForTH(list_loaiphong, checkViTri.Checked ? ucComboBoxViTri1.ViTri : null);
+            gridControlPhong.DataSource = Phong_ThongKe.getAllForTH(list_loaiphong, checkViTri.Checked ? ucComboBoxViTri1.ViTri : null, checkDonVi.Checked ? ucComboBoxDonVi1.DonVi : null);
             DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
         }
 
