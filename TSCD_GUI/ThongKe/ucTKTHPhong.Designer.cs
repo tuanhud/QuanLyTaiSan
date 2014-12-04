@@ -314,6 +314,7 @@
             this.Controls.Add(this.panelSearch);
             this.Name = "ucTKTHPhong";
             this.Size = new System.Drawing.Size(834, 525);
+            this.Leave += new System.EventHandler(this.ucTKTHPhong_Leave);
             ((System.ComponentModel.ISupportInitialize)(this.panelSearch)).EndInit();
             this.panelSearch.ResumeLayout(false);
             this.panelSearch.PerformLayout();

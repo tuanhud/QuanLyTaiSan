@@ -464,6 +464,7 @@
             this.Controls.Add(this.panelSearch);
             this.Name = "ucTKTHTaiSan";
             this.Size = new System.Drawing.Size(832, 541);
+            this.Leave += new System.EventHandler(this.ucTKTHTaiSan_Leave);
             ((System.ComponentModel.ISupportInitialize)(this.panelSearch)).EndInit();
             this.panelSearch.ResumeLayout(false);
             this.panelSearch.PerformLayout();

@@ -12,6 +12,7 @@ using TSCD.DataFilter;
 using SHARED.Libraries;
 using TSCD.DataFilter.SearchFilter;
 using TSCD_GUI.Libraries;
+using System.IO;
 
 namespace TSCD_GUI.ThongKe
 {
@@ -21,6 +22,7 @@ namespace TSCD_GUI.ThongKe
         {
             InitializeComponent();
             init();
+            createLayout();
         }
 
         private void init()
@@ -36,6 +38,7 @@ namespace TSCD_GUI.ThongKe
         {
             try
             {
+                loadLayout();
                 //DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitFormLoad), true, true, false);
                 //DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang tải dữ liệu...");
                 //gridControlTaiSan.DataSource = TaiSanHienThi.getAllNoDonVi();
@@ -178,6 +181,70 @@ namespace TSCD_GUI.ThongKe
         public void CollapseAllGroups()
         {
             gridViewTaiSan.CollapseAllGroups();
+        }
+
+        public void createLayout()
+        {
+            String currentPath = Directory.GetCurrentDirectory();
+            String path = Path.Combine(currentPath, "Layout");
+            if (!Directory.Exists(path))
+                Directory.CreateDirectory(path);
+            String fileMaster = path + "//" + this.Name + "_Master_Default.xml";
+            //String fileDetail = path + "//" + fileName + "_Detail_Default.xml";
+            if (!System.IO.File.Exists(fileMaster))
+            {
+                gridViewTaiSan.SaveLayoutToXml(fileMaster);
+            }
+            //if (!System.IO.File.Exists(fileDetail))
+            //{
+            //    bandedGridViewTaiSan.SaveLayoutToXml(fileDetail);
+            //}
+        }
+
+        public void saveLayout()
+        {
+            String currentPath = Directory.GetCurrentDirectory();
+            String path = Path.Combine(currentPath, "Layout");
+            if (!Directory.Exists(path))
+                Directory.CreateDirectory(path);
+            String fileMaster = path + "//" + this.Name + "_Master_Current.xml";
+            //String fileDetail = path + "//" + fileName + "_Detail_Current.xml";
+            gridViewTaiSan.SaveLayoutToXml(fileMaster);
+            //bandedGridViewTSKemTheo.SaveLayoutToXml(fileDetail);
+        }
+
+        public void loadLayout(bool Default = false)
+        {
+            String currentPath = Directory.GetCurrentDirectory();
+            String path = Path.Combine(currentPath, "Layout");
+            if (Directory.Exists(path))
+            {
+                String fileMaster = "";
+                //String fileDetail = "";
+                if (Default)
+                {
+                    fileMaster = path + "//" + this.Name + "_Master_Default.xml";
+                    //fileDetail = path + "//" + fileName + "_Detail_Default.xml";
+                }
+                else
+                {
+                    fileMaster = path + "//" + this.Name + "_Master_Current.xml";
+                    //fileDetail = path + "//" + fileName + "_Detail_Current.xml";
+                }
+                if (System.IO.File.Exists(fileMaster))
+                {
+                    gridViewTaiSan.RestoreLayoutFromXml(fileMaster);
+                }
+                //if (System.IO.File.Exists(fileDetail))
+                //{
+                //bandedGridViewTSKemTheo.RestoreLayoutFromXml(fileDetail);
+                //}
+            }
+        }
+
+        private void ucTKTHTaiSan_Leave(object sender, EventArgs e)
+        {
+            saveLayout();
         }
     }
 }
