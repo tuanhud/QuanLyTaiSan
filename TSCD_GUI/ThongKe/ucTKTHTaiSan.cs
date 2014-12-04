@@ -64,7 +64,7 @@ namespace TSCD_GUI.ThongKe
                 listViTri.Insert(0, objNULL2);
                 ucComboBoxViTri1.DataSource = listViTri;
 
-                //ucGridControlTaiSan1.DataSource = null;
+                gridControlTaiSan.DataSource = null;
                 //loadSearchXml(this.Name);
                 //Search();
 
@@ -94,7 +94,7 @@ namespace TSCD_GUI.ThongKe
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            dateNgayTK.DateTime = DateTime.Now;
+            dateNgaySD.DateTime = DateTime.Now;
             checkedCbxTinhTrang.EditValue = null;
             ucComboBoxLoaiTS1.EditValue = null;
             checkLoaiTS.Checked = false;
@@ -102,12 +102,12 @@ namespace TSCD_GUI.ThongKe
             checkDonVi.Checked = false;
             ucComboBoxViTri1.EditValue = Guid.Empty;
             checkViTri.Checked = false;
-            dateNgayTK.EditValue = null;
-            spinEdit1.EditValue = null;
-            if (comboBoxEdit1.Properties.Items.Count > 0)
-                comboBoxEdit1.SelectedIndex = 0;
-            if (comboBoxEdit2.Properties.Items.Count > 0)
-                comboBoxEdit2.SelectedIndex = 0;
+            dateNgaySD.EditValue = null;
+            spinDonGia.EditValue = null;
+            if (cbxEquationNgaySD.Properties.Items.Count > 0)
+                cbxEquationNgaySD.SelectedIndex = 0;
+            if (cbxEquationDonGia.Properties.Items.Count > 0)
+                cbxEquationDonGia.SelectedIndex = 0;
         }
 
         public void Search()
@@ -126,7 +126,9 @@ namespace TSCD_GUI.ThongKe
                 bool isViTri = true;
                 if (vitri == null)
                     isViTri = false;
-                List<TaiSanHienThi> list = TaiSanHienThi.Convert(CTTaiSanSF.search(null, loai, checkDonVi.Checked, DVQL, false, null, isViTri && checkViTri.Checked, vitri, !isViTri && checkViTri.Checked, phong, tinhtrangs));
+                List<TaiSanHienThi> list = TaiSanHienThi.Convert(CTTaiSanSF.search(null, loai, checkDonVi.Checked, DVQL, false, null, isViTri && checkViTri.Checked, vitri, !isViTri && checkViTri.Checked, phong, tinhtrangs, 
+                    cbxEquationDonGia.EditValue != null ? cbxEquationDonGia.EditValue.ToString() : null, spinDonGia.EditValue != null ? (long?)long.Parse(spinDonGia.EditValue.ToString()) : null,
+                    cbxEquationNgaySD.EditValue != null ? cbxEquationNgaySD.EditValue.ToString() : null, dateNgaySD.EditValue != null ? (DateTime?)dateNgaySD.DateTime : null));
                 //ucGridControlTaiSan1.DataSource = list;
                 gridControlTaiSan.DataSource = list;
 

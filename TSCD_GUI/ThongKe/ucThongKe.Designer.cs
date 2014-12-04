@@ -80,6 +80,7 @@
             this.barBtnTKPhong.Id = 1;
             this.barBtnTKPhong.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnTKPhong.LargeGlyph")));
             this.barBtnTKPhong.Name = "barBtnTKPhong";
+            this.barBtnTKPhong.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.barBtnTKPhong.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnTKPhong_ItemClick);
             // 
             // barBtnDefault
@@ -117,6 +118,7 @@
             this.barBtnTKTaiSan.Id = 5;
             this.barBtnTKTaiSan.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnTKTaiSan.LargeGlyph")));
             this.barBtnTKTaiSan.Name = "barBtnTKTaiSan";
+            this.barBtnTKTaiSan.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.barBtnTKTaiSan.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnTKTaiSan_ItemClick);
             // 
             // barBtnXuatBaoCao
@@ -155,7 +157,6 @@
             this.barBtnTKTHPhong.Id = 10;
             this.barBtnTKTHPhong.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnTKTHPhong.LargeGlyph")));
             this.barBtnTKTHPhong.Name = "barBtnTKTHPhong";
-            this.barBtnTKTHPhong.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.barBtnTKTHPhong.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnTKTHPhong_ItemClick);
             // 
             // barBtnTKTHTaiSan
@@ -166,7 +167,6 @@
             this.barBtnTKTHTaiSan.Id = 11;
             this.barBtnTKTHTaiSan.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnTKTHTaiSan.LargeGlyph")));
             this.barBtnTKTHTaiSan.Name = "barBtnTKTHTaiSan";
-            this.barBtnTKTHTaiSan.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.barBtnTKTHTaiSan.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnTKTHTaiSan_ItemClick);
             // 
             // rbnPageThongKe

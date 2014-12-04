@@ -58,7 +58,11 @@ namespace TSCD.DataFilter.SearchFilter
             ViTri vitri=null,
             Boolean timTheoPhong=false,
             Phong phong=null,
-            List<Guid> tinhtrangs = null
+            List<Guid> tinhtrangs = null,
+            String equation = null, 
+            long? dongia = null,
+            String equation_ngay = null,
+            DateTime? ngay_sd = null
             )
         {
             var query = CTTaiSan.getQuery();
@@ -138,6 +142,36 @@ namespace TSCD.DataFilter.SearchFilter
             if (tinhtrangs != null && tinhtrangs.Count > 0)
             {
                 query = query.Where(c => c.tinhtrang == null || tinhtrangs.Contains(c.tinhtrang.id));
+            }
+
+            //DONGIA
+            if ((equation != null && (equation.Equals("=") || equation.Equals(">=") || equation.Equals(">") || equation.Equals("<=") || equation.Equals("<"))) && dongia != null && dongia >= 0)
+            {
+                if (equation.Equals("="))
+                    query = query.Where(x => x.taisan.dongia == dongia);
+                else if (equation.Equals(">="))
+                    query = query.Where(x => x.taisan.dongia >= dongia);
+                else if (equation.Equals(">"))
+                    query = query.Where(x => x.taisan.dongia > dongia);
+                else if (equation.Equals("<="))
+                    query = query.Where(x => x.taisan.dongia <= dongia);
+                else if (equation.Equals("<"))
+                    query = query.Where(x => x.taisan.dongia < dongia);
+            }
+
+            //NGAYSUDUNG
+            if ((equation_ngay != null && (equation_ngay.Equals("=") || equation_ngay.Equals(">=") || equation_ngay.Equals(">") || equation_ngay.Equals("<=") || equation_ngay.Equals("<"))) && ngay_sd != null)
+            {
+                if (equation_ngay.Equals("="))
+                    query = query.Where(x => x.ngay == null || x.ngay == ngay_sd);
+                else if (equation_ngay.Equals(">="))
+                    query = query.Where(x => x.ngay == null || x.ngay >= ngay_sd);
+                else if (equation_ngay.Equals(">"))
+                    query = query.Where(x => x.ngay == null || x.ngay > ngay_sd);
+                else if (equation_ngay.Equals("<="))
+                    query = query.Where(x => x.ngay == null || x.ngay <= ngay_sd);
+                else if (equation_ngay.Equals("<"))
+                    query = query.Where(x => x.ngay == null || x.ngay < ngay_sd);
             }
             return query;
         }

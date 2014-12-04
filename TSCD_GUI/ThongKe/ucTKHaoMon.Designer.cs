@@ -446,6 +446,7 @@
             this.Controls.Add(this.panelSearch);
             this.Name = "ucTKHaoMon";
             this.Size = new System.Drawing.Size(862, 528);
+            this.Leave += new System.EventHandler(this.ucTKHaoMon_Leave);
             ((System.ComponentModel.ISupportInitialize)(this.gridControlHaoMon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewHaoMon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelSearch)).EndInit();
