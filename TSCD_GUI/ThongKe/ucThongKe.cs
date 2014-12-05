@@ -389,5 +389,60 @@ namespace TSCD_GUI.ThongKe
                 _ucTKTHTaiSan.loadData();
             }
         }
+
+        private void barBtnImport_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (current.Equals(_ucTKTHTaiSan))
+            {
+                OpenFileDialog open = new OpenFileDialog();
+                open.Filter = "All Excel Files(*.xls,*.xlsx)|*.xls;*.xlsx";
+                open.Title = "Chọn tập tin để Import";
+                if (open.ShowDialog() == DialogResult.OK)
+                {
+                    DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitFormLoad), true, true, false);
+                    DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang Import...");
+                    if (TSCD_GUI.Libraries.ExcelDataBaseHelper.UpdateTaiSan(open.FileName, "TaiSan"))
+                    {
+                        DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
+                        XtraMessageBox.Show("Import thành công!");
+                    }
+                    else
+                    {
+                        DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
+                        XtraMessageBox.Show("Import không thành công!");
+                    }
+                }
+            }
+        }
+
+        private void barBtnExport_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (current.Equals(_ucTKTHTaiSan))
+            {
+                if (_ucTKTHTaiSan.taisans == null || _ucTKTHTaiSan.taisans.Count == 0)
+                    XtraMessageBox.Show("Chưa có dữ liệu!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else
+                {
+                    SaveFileDialog save = new SaveFileDialog();
+                    save.Filter = "All Excel Files(*.xls)|*.xls";
+                    //save.Title = "Chọn tập tin để Import";
+                    if (save.ShowDialog() == DialogResult.OK)
+                    {
+                        DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitFormLoad), true, true, false);
+                        DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang Export...");
+                        if (TSCD_GUI.Libraries.ExcelDataBaseHelper.insert_data_to_Excel(_ucTKTHTaiSan.taisans, save.FileName))
+                        {
+                            DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
+                            XtraMessageBox.Show("Export thành công!");
+                        }
+                        else
+                        {
+                            DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
+                            XtraMessageBox.Show("Export không thành công!");
+                        }
+                    }
+                }
+            }
+        }
     }
 }

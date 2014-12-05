@@ -63,6 +63,7 @@
             this.colvitri = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colphong = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coldvql = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryMemoTen = new DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit();
             ((System.ComponentModel.ISupportInitialize)(this.panelSearch)).BeginInit();
             this.panelSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spinDonGia.Properties)).BeginInit();
@@ -76,6 +77,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dateNgaySD.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlTaiSan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewTaiSan)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryMemoTen)).BeginInit();
             this.SuspendLayout();
             // 
             // panelSearch
@@ -270,6 +272,8 @@
             this.gridControlTaiSan.Location = new System.Drawing.Point(0, 82);
             this.gridControlTaiSan.MainView = this.gridViewTaiSan;
             this.gridControlTaiSan.Name = "gridControlTaiSan";
+            this.gridControlTaiSan.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryMemoTen});
             this.gridControlTaiSan.Size = new System.Drawing.Size(832, 459);
             this.gridControlTaiSan.TabIndex = 1;
             this.gridControlTaiSan.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -310,6 +314,7 @@
             this.gridViewTaiSan.OptionsBehavior.Editable = false;
             this.gridViewTaiSan.OptionsBehavior.ReadOnly = true;
             this.gridViewTaiSan.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridViewTaiSan.OptionsView.RowAutoHeight = true;
             this.gridViewTaiSan.OptionsView.ShowFooter = true;
             this.gridViewTaiSan.CustomSummaryCalculate += new DevExpress.Data.CustomSummaryEventHandler(this.gridViewTaiSan_CustomSummaryCalculate);
             // 
@@ -338,6 +343,7 @@
             // colten
             // 
             this.colten.Caption = "Tên tài sản";
+            this.colten.ColumnEdit = this.repositoryMemoTen;
             this.colten.FieldName = "ten";
             this.colten.Name = "colten";
             this.colten.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
@@ -457,6 +463,10 @@
             this.coldvql.Visible = true;
             this.coldvql.VisibleIndex = 13;
             // 
+            // repositoryMemoTen
+            // 
+            this.repositoryMemoTen.Name = "repositoryMemoTen";
+            // 
             // ucTKTHTaiSan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -480,6 +490,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dateNgaySD.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlTaiSan)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewTaiSan)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryMemoTen)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -520,5 +531,6 @@
         private DevExpress.XtraEditors.ComboBoxEdit cbxEquationDonGia;
         private DevExpress.XtraEditors.LabelControl lblDonGia;
         private DevExpress.XtraGrid.Columns.GridColumn colngay_ct;
+        private DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit repositoryMemoTen;
     }
 }
