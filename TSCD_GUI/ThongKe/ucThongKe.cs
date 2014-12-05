@@ -430,7 +430,7 @@ namespace TSCD_GUI.ThongKe
                     {
                         DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitFormLoad), true, true, false);
                         DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang Export...");
-                        if (TSCD_GUI.Libraries.ExcelDataBaseHelper.insert_data_to_Excel(_ucTKTHTaiSan.taisans, save.FileName))
+                        if (TSCD_GUI.Libraries.ExcelDataBaseHelper.insert_data_to_Excel(_ucTKTHTaiSan.taisans.OrderBy(c=>c.loaits).ToList(), save.FileName))
                         {
                             DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
                             XtraMessageBox.Show("Export thành công!");

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using TSCD.DataFilter;
 using TSCD.Entities;
 
@@ -1307,18 +1308,24 @@ namespace TSCD_GUI.Libraries
                     {
                         File.Delete(file_path);
                         File.Copy(file, file_path);
-         
                         System.Data.OleDb.OleDbConnection MyConnection;
 
                         MyConnection = new System.Data.OleDb.OleDbConnection(String.Format("provider=Microsoft.Jet.OLEDB.4.0;Data Source='{0}';Extended Properties=Excel 8.0;", file_path));
                         MyConnection.Open();
-                        
+                        int i = 0;
                         foreach (TaiSanHienThi ts in list)
                         {
+                            i++;
+                            if (i % 100 == 0)
+                            {
+                                MyConnection.Close();
+                                MyConnection = new System.Data.OleDb.OleDbConnection(String.Format("provider=Microsoft.Jet.OLEDB.4.0;Data Source='{0}';Extended Properties=Excel 8.0;", file_path));
+                                MyConnection.Open();
+                            }
                             System.Data.OleDb.OleDbCommand myCommand = new System.Data.OleDb.OleDbCommand();
                             string sql = null;
                             myCommand.Connection = MyConnection;
-                            sql = String.Format("Insert into [Sheet1$A2:P9999] ({0}) values(@id, @ngay_ct, @sohieu_ct, @ten, @loai, @donvitinh, @ngay_sd, @nuoc_sx, @soluong, @dongia, @thanhtien, @tinhtrang, @vitri, @phong, @donvi_ql, @ghichu)",
+                            sql = String.Format("Insert into [TaiSan$A2:P9999] ({0}) values(@id, @ngay_ct, @sohieu_ct, @ten, @loai, @donvitinh, @ngay_sd, @nuoc_sx, @soluong, @dongia, @thanhtien, @tinhtrang, @vitri, @phong, @donvi_ql, @ghichu)",
                                 ID + "," + NGAY_CT + "," + SOHIEU_CT + "," + TEN + "," + LOAI + "," + DONVITINH + "," + NGAY_SD + "," + NUOC_SX + "," + SOLUONG + "," + DONGIA + "," + THANHTIEN + "," + TINHTRANG + "," + VITRI + "," + PHONG + "," + DONVI_QL + "," + GHICHU);
                             myCommand.CommandText = sql;
                             myCommand.Parameters.AddWithValue("@id", ts.id);
@@ -1338,6 +1345,10 @@ namespace TSCD_GUI.Libraries
                             myCommand.Parameters.AddWithValue("@donvi_ql", (Object)ts.dvquanly ?? DBNull.Value);
                             myCommand.Parameters.AddWithValue("@ghichu", (Object)ts.ghichu ?? DBNull.Value);
                             myCommand.ExecuteNonQuery();
+                            if (i % 500 == 0)
+                            {
+                                
+                            }
                         }
                         MyConnection.Close();
                         return true;
