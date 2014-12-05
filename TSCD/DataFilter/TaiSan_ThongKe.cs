@@ -89,7 +89,7 @@ namespace TSCD.DataFilter
                 x.vitri.day.ten + (x.vitri.tang != null ? " - " + x.vitri.tang.ten : "") : "") : "") : "",
                 dvquanly = x.donviquanly != null ? x.donviquanly.ten : "",
                 dvsudung = x.donvisudung != null ? x.donvisudung.ten : "",
-                phantramhaomon_32 = Object.Equals(x.taisan, null) ? 0 : Object.Equals(x.taisan.loaitaisan, null) ? 0 : x.taisan.loaitaisan.phantramhaomon_32,
+                phantramhaomon_32 = Object.Equals(x.taisan, null) ? 0 : Object.Equals(x.taisan.loaitaisan, null) ? 0 : x.taisan.loaitaisan.phantramhaomon_32 * 100,
                 sotientrongmotnam = Object.Equals(x.taisan, null) ? 0 : Object.Equals(x.taisan.loaitaisan, null) ? 0 : (long)(x.taisan.dongia * x.taisan.loaitaisan.phantramhaomon_32),
             }
             ).ToList();

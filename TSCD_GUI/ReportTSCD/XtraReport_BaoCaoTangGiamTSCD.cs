@@ -111,25 +111,29 @@ namespace TSCD_GUI.ReportTSCD
 
         private void IntSUM()
         {
-            xrTableCell_SUM_SoDauNam.DataBindings.Add("Text", this.DataSource, "sodaunam_giatri", "{0:### ### ### ###}");
+            xrTableCell_SUM_SoDauNam.DataBindings.Add("Text", this.DataSource, "sodaunam_giatri");
+            xrTableCell_SUM_SoDauNam.Summary.FormatString = "{0:### ### ### ### ### ###}";
             xrTableCell_SUM_SoDauNam.Summary.IgnoreNullValues = true;
             xrTableCell_SUM_SoDauNam.Summary.Func = SummaryFunc.Sum;
             xrTableCell_SUM_SoDauNam.Summary.Running = SummaryRunning.Report;
             xrTableCell_SUM_SoDauNam.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
 
-            xrTableCell_SUM_TangTrongNam.DataBindings.Add("Text", this.DataSource, "tangtrongnam_giatri", "{0:### ### ### ###}");
+            xrTableCell_SUM_TangTrongNam.DataBindings.Add("Text", this.DataSource, "tangtrongnam_giatri");
+            xrTableCell_SUM_TangTrongNam.Summary.FormatString = "{0:### ### ### ### ### ###}";
             xrTableCell_SUM_TangTrongNam.Summary.IgnoreNullValues = true;
             xrTableCell_SUM_TangTrongNam.Summary.Func = SummaryFunc.Sum;
             xrTableCell_SUM_TangTrongNam.Summary.Running = SummaryRunning.Report;
             xrTableCell_SUM_TangTrongNam.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
 
-            xrTableCell_SUM_GiamTrongNam.DataBindings.Add("Text", this.DataSource, "giamtrongnam_giatri", "{0:### ### ### ###}");
+            xrTableCell_SUM_GiamTrongNam.DataBindings.Add("Text", this.DataSource, "giamtrongnam_giatri");
+            xrTableCell_SUM_GiamTrongNam.Summary.FormatString = "{0:### ### ### ### ### ###}";
             xrTableCell_SUM_GiamTrongNam.Summary.IgnoreNullValues = true;
             xrTableCell_SUM_GiamTrongNam.Summary.Func = SummaryFunc.Sum;
             xrTableCell_SUM_GiamTrongNam.Summary.Running = SummaryRunning.Report;
             xrTableCell_SUM_GiamTrongNam.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
 
-            xrTableCell_SUM_SoCuoiNam.DataBindings.Add("Text", this.DataSource, "socuoinam_giatri", "{0:### ### ### ###}");
+            xrTableCell_SUM_SoCuoiNam.DataBindings.Add("Text", this.DataSource, "socuoinam_giatri");
+            xrTableCell_SUM_SoCuoiNam.Summary.FormatString = "{0:### ### ### ### ### ###}";
             xrTableCell_SUM_SoCuoiNam.Summary.IgnoreNullValues = true;
             xrTableCell_SUM_SoCuoiNam.Summary.Func = SummaryFunc.Sum;
             xrTableCell_SUM_SoCuoiNam.Summary.Running = SummaryRunning.Report;

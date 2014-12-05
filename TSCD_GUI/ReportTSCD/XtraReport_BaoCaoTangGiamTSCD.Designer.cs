@@ -507,15 +507,15 @@
             // 
             // xrTableCell28
             // 
-            this.xrTableCell28.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrTableCell28.Font = new System.Drawing.Font("Tahoma", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell28.Name = "xrTableCell28";
-            this.xrTableCell28.StyleName = "xrControlStyle_Middle";
+            this.xrTableCell28.StyleName = "xrControlStyle_Right";
             this.xrTableCell28.StylePriority.UseFont = false;
             this.xrTableCell28.Weight = 0.3849999999999999D;
             // 
             // xrTableCell29
             // 
-            this.xrTableCell29.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrTableCell29.Font = new System.Drawing.Font("Tahoma", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell29.Name = "xrTableCell29";
             this.xrTableCell29.StyleName = "xrControlStyle_Middle";
             this.xrTableCell29.StylePriority.UseFont = false;
@@ -524,7 +524,7 @@
             // 
             // xrTableCell30
             // 
-            this.xrTableCell30.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrTableCell30.Font = new System.Drawing.Font("Tahoma", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell30.Name = "xrTableCell30";
             this.xrTableCell30.StyleName = "xrControlStyle_Left";
             this.xrTableCell30.StylePriority.UseFont = false;
@@ -532,7 +532,7 @@
             // 
             // xrTableCell31
             // 
-            this.xrTableCell31.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrTableCell31.Font = new System.Drawing.Font("Tahoma", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell31.Name = "xrTableCell31";
             this.xrTableCell31.StyleName = "xrControlStyle_Right";
             this.xrTableCell31.StylePriority.UseFont = false;
@@ -540,7 +540,7 @@
             // 
             // xrTableCell_SUM_SoDauNam
             // 
-            this.xrTableCell_SUM_SoDauNam.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrTableCell_SUM_SoDauNam.Font = new System.Drawing.Font("Tahoma", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell_SUM_SoDauNam.Name = "xrTableCell_SUM_SoDauNam";
             this.xrTableCell_SUM_SoDauNam.StyleName = "xrControlStyle_Right";
             this.xrTableCell_SUM_SoDauNam.StylePriority.UseFont = false;
@@ -548,7 +548,7 @@
             // 
             // xrTableCell33
             // 
-            this.xrTableCell33.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrTableCell33.Font = new System.Drawing.Font("Tahoma", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell33.Multiline = true;
             this.xrTableCell33.Name = "xrTableCell33";
             this.xrTableCell33.StyleName = "xrControlStyle_Right";
@@ -557,7 +557,7 @@
             // 
             // xrTableCell_SUM_TangTrongNam
             // 
-            this.xrTableCell_SUM_TangTrongNam.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrTableCell_SUM_TangTrongNam.Font = new System.Drawing.Font("Tahoma", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell_SUM_TangTrongNam.Name = "xrTableCell_SUM_TangTrongNam";
             this.xrTableCell_SUM_TangTrongNam.StyleName = "xrControlStyle_Right";
             this.xrTableCell_SUM_TangTrongNam.StylePriority.UseFont = false;
@@ -565,7 +565,7 @@
             // 
             // xrTableCell35
             // 
-            this.xrTableCell35.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrTableCell35.Font = new System.Drawing.Font("Tahoma", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell35.Name = "xrTableCell35";
             this.xrTableCell35.StyleName = "xrControlStyle_Right";
             this.xrTableCell35.StylePriority.UseFont = false;
@@ -573,7 +573,7 @@
             // 
             // xrTableCell_SUM_GiamTrongNam
             // 
-            this.xrTableCell_SUM_GiamTrongNam.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrTableCell_SUM_GiamTrongNam.Font = new System.Drawing.Font("Tahoma", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell_SUM_GiamTrongNam.Name = "xrTableCell_SUM_GiamTrongNam";
             this.xrTableCell_SUM_GiamTrongNam.StyleName = "xrControlStyle_Right";
             this.xrTableCell_SUM_GiamTrongNam.StylePriority.UseFont = false;
@@ -581,7 +581,7 @@
             // 
             // xrTableCell38
             // 
-            this.xrTableCell38.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrTableCell38.Font = new System.Drawing.Font("Tahoma", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell38.Name = "xrTableCell38";
             this.xrTableCell38.StyleName = "xrControlStyle_Right";
             this.xrTableCell38.StylePriority.UseFont = false;
@@ -589,7 +589,7 @@
             // 
             // xrTableCell_SUM_SoCuoiNam
             // 
-            this.xrTableCell_SUM_SoCuoiNam.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrTableCell_SUM_SoCuoiNam.Font = new System.Drawing.Font("Tahoma", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell_SUM_SoCuoiNam.Name = "xrTableCell_SUM_SoCuoiNam";
             this.xrTableCell_SUM_SoCuoiNam.StyleName = "xrControlStyle_Right";
             this.xrTableCell_SUM_SoCuoiNam.StylePriority.UseFont = false;

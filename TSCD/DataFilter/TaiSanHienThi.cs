@@ -29,7 +29,7 @@ namespace TSCD.DataFilter
         public String dvsudung { get; set; }
         public ICollection<CTTaiSan> childs { get; set; }
         public CTTaiSan obj { get; set; }
-        
+
         /// <summary>
         /// phan tram hao mon theo QD 351
         /// </summary>
@@ -45,7 +45,7 @@ namespace TSCD.DataFilter
                 {
                     Debug.WriteLine(ex);
                     return 1;
-                    
+
                 }
             }
         }
@@ -64,10 +64,28 @@ namespace TSCD.DataFilter
                 {
                     Debug.WriteLine(ex);
                     return 1;
-                    
+
                 }
             }
         }
+
+        public double phantramhaomon_32_nhan100
+        {
+            get
+            {
+                try
+                {
+                    return obj.taisan.loaitaisan.phantramhaomon_32 * 100;
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex);
+                    return 1;
+
+                }
+            }
+        }
+
         /// <summary>
         /// Lay YEAR cua ngay su dung
         /// </summary>
@@ -75,7 +93,7 @@ namespace TSCD.DataFilter
         {
             get
             {
-                return ngay==null?0:ngay.Value.Year;
+                return ngay == null ? 0 : ngay.Value.Year;
             }
         }
         /// <summary>
@@ -88,7 +106,8 @@ namespace TSCD.DataFilter
                 try
                 {
                     return (2008 - namsudung < 0 ? 0 : 2008 - namsudung);
-                }catch(Exception ex)
+                }
+                catch (Exception ex)
                 {
                     Debug.WriteLine(ex);
                     return 0;
@@ -122,7 +141,7 @@ namespace TSCD.DataFilter
         {
             get
             {
-                return sonamsudung_351 - sonamdasudung_cuoi2008 > 0?  sonamsudung_351 - sonamdasudung_cuoi2008:0;
+                return sonamsudung_351 - sonamdasudung_cuoi2008 > 0 ? sonamsudung_351 - sonamdasudung_cuoi2008 : 0;
             }
         }
         /// <summary>
@@ -267,7 +286,7 @@ namespace TSCD.DataFilter
                 return null;
             }
         }
-        
+
         /// <summary>
         /// 
         /// </summary>
@@ -277,13 +296,13 @@ namespace TSCD.DataFilter
         public static List<TaiSanHienThi> Convert(List<TaiSanHienThi> list, int nam)
         {
             var re = new List<TaiSanHienThi>();
-            foreach(var item in list)
+            foreach (var item in list)
             {
-                if(item.namsudung>nam)
+                if (item.namsudung > nam)
                 {
                     //ignore
                 }
-                else if(item.giatriconlai_32<=0 || item.sonamsudungconlai_32<=0)
+                else if (item.giatriconlai_32 <= 0 || item.sonamsudungconlai_32 <= 0)
                 {
                     item.giatriconlai_final = 0;
                     item.sonamsudungconlai_final = 0;
@@ -292,13 +311,13 @@ namespace TSCD.DataFilter
                 else
                 {
                     //tinh ngay nam 2008 thi gia tri con lai chinh la theo uyet dinh 32
-                    if(nam==2008)
+                    if (nam == 2008)
                     {
                         item.giatriconlai_final = item.giatriconlai_32;
                         item.sonamsudungconlai_final = item.sonamsudungconlai_final;
                     }
                     //khong tinh gia tri con lai duoc
-                    else if(nam-2008<0)
+                    else if (nam - 2008 < 0)
                     {
                         item.giatriconlai_final = -1;
                         item.sonamsudungconlai_final = item.sonamsudungconlai_32 + (2008 - nam);
@@ -306,9 +325,9 @@ namespace TSCD.DataFilter
                     else
                     {
                         long haomon_tren1nam = item.giatriconlai_32 / item.sonamsudungconlai_32;
-                        long tonghaomon = (nam - 2008)*haomon_tren1nam;
+                        long tonghaomon = (nam - 2008) * haomon_tren1nam;
                         item.giatriconlai_final = item.giatriconlai_32 - tonghaomon;
-                        item.sonamsudungconlai_final = item.sonamsudungconlai_32 - (nam-2008);
+                        item.sonamsudungconlai_final = item.sonamsudungconlai_32 - (nam - 2008);
                     }
                     re.Add(item);
                 }

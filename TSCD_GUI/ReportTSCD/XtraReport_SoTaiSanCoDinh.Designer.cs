@@ -753,106 +753,140 @@
             // 
             // xrTableCell53
             // 
+            this.xrTableCell53.Font = new System.Drawing.Font("Tahoma", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell53.Name = "xrTableCell53";
             this.xrTableCell53.StyleName = "xrControlStyle_Middle";
+            this.xrTableCell53.StylePriority.UseFont = false;
             this.xrTableCell53.Text = "Cộng";
             this.xrTableCell53.Weight = 0.41666656494140619D;
             // 
             // xrTableCell54
             // 
+            this.xrTableCell54.Font = new System.Drawing.Font("Tahoma", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell54.Name = "xrTableCell54";
             this.xrTableCell54.StyleName = "xrControlStyle_Left";
+            this.xrTableCell54.StylePriority.UseFont = false;
             this.xrTableCell54.Weight = 0.37369796752929696D;
             // 
             // xrTableCell55
             // 
+            this.xrTableCell55.Font = new System.Drawing.Font("Tahoma", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell55.Name = "xrTableCell55";
-            this.xrTableCell55.StyleName = "xrControlStyle_Middle";
+            this.xrTableCell55.StyleName = "xrControlStyle_Left";
+            this.xrTableCell55.StylePriority.UseFont = false;
             this.xrTableCell55.Weight = 0.62369792938232382D;
             // 
             // xrTableCell56
             // 
+            this.xrTableCell56.Font = new System.Drawing.Font("Tahoma", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell56.Name = "xrTableCell56";
             this.xrTableCell56.StyleName = "xrControlStyle_Left";
+            this.xrTableCell56.StylePriority.UseFont = false;
             this.xrTableCell56.Weight = 1.1028650093078611D;
             // 
             // xrTableCell57
             // 
+            this.xrTableCell57.Font = new System.Drawing.Font("Tahoma", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell57.Name = "xrTableCell57";
             this.xrTableCell57.StyleName = "xrControlStyle_Left";
+            this.xrTableCell57.StylePriority.UseFont = false;
             this.xrTableCell57.Weight = 0.37267164230346705D;
             // 
             // xrTableCell58
             // 
+            this.xrTableCell58.Font = new System.Drawing.Font("Tahoma", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell58.Multiline = true;
             this.xrTableCell58.Name = "xrTableCell58";
-            this.xrTableCell58.StyleName = "xrControlStyle_Middle";
+            this.xrTableCell58.StyleName = "xrControlStyle_Left";
+            this.xrTableCell58.StylePriority.UseFont = false;
             this.xrTableCell58.Weight = 0.42029693603515639D;
             // 
             // xrTableCell59
             // 
+            this.xrTableCell59.Font = new System.Drawing.Font("Tahoma", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell59.Name = "xrTableCell59";
             this.xrTableCell59.StyleName = "xrControlStyle_Left";
+            this.xrTableCell59.StylePriority.UseFont = false;
             this.xrTableCell59.Weight = 0.4075513648986816D;
             // 
             // xrTableCell_SUM_NguyenGiaTang
             // 
+            this.xrTableCell_SUM_NguyenGiaTang.Font = new System.Drawing.Font("Tahoma", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell_SUM_NguyenGiaTang.Name = "xrTableCell_SUM_NguyenGiaTang";
             this.xrTableCell_SUM_NguyenGiaTang.StyleName = "xrControlStyle_Right";
+            this.xrTableCell_SUM_NguyenGiaTang.StylePriority.UseFont = false;
             this.xrTableCell_SUM_NguyenGiaTang.Weight = 0.78255218744277932D;
             // 
             // xrTableCell61
             // 
+            this.xrTableCell61.Font = new System.Drawing.Font("Tahoma", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell61.Name = "xrTableCell61";
             this.xrTableCell61.StyleName = "xrControlStyle_Right";
+            this.xrTableCell61.StylePriority.UseFont = false;
             this.xrTableCell61.Weight = 0.50000091791152967D;
             // 
             // xrTableCell_SUM_SoTienHM
             // 
+            this.xrTableCell_SUM_SoTienHM.Font = new System.Drawing.Font("Tahoma", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell_SUM_SoTienHM.Name = "xrTableCell_SUM_SoTienHM";
             this.xrTableCell_SUM_SoTienHM.StyleName = "xrControlStyle_Right";
+            this.xrTableCell_SUM_SoTienHM.StylePriority.UseFont = false;
             this.xrTableCell_SUM_SoTienHM.Weight = 0.74999878644943152D;
             // 
             // xrTableCell_SUM_SoHMNam
             // 
+            this.xrTableCell_SUM_SoHMNam.Font = new System.Drawing.Font("Tahoma", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell_SUM_SoHMNam.Name = "xrTableCell_SUM_SoHMNam";
             this.xrTableCell_SUM_SoHMNam.StyleName = "xrControlStyle_Right";
+            this.xrTableCell_SUM_SoHMNam.StylePriority.UseFont = false;
             this.xrTableCell_SUM_SoHMNam.Weight = 0.73002122104167944D;
             // 
             // xrTableCell64
             // 
+            this.xrTableCell64.Font = new System.Drawing.Font("Tahoma", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell64.Name = "xrTableCell64";
             this.xrTableCell64.StyleName = "xrControlStyle_Right";
+            this.xrTableCell64.StylePriority.UseFont = false;
             this.xrTableCell64.Weight = 0.7887273901700973D;
             // 
             // xrTableCell_SUM_SoHMLuyKe
             // 
+            this.xrTableCell_SUM_SoHMLuyKe.Font = new System.Drawing.Font("Tahoma", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell_SUM_SoHMLuyKe.Name = "xrTableCell_SUM_SoHMLuyKe";
             this.xrTableCell_SUM_SoHMLuyKe.StyleName = "xrControlStyle_Right";
+            this.xrTableCell_SUM_SoHMLuyKe.StylePriority.UseFont = false;
             this.xrTableCell_SUM_SoHMLuyKe.Weight = 0.87708607852458953D;
             // 
             // xrTableCell66
             // 
+            this.xrTableCell66.Font = new System.Drawing.Font("Tahoma", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell66.Name = "xrTableCell66";
             this.xrTableCell66.StyleName = "xrControlStyle_Left";
+            this.xrTableCell66.StylePriority.UseFont = false;
             this.xrTableCell66.Weight = 0.48120118424296376D;
             // 
             // xrTableCell67
             // 
+            this.xrTableCell67.Font = new System.Drawing.Font("Tahoma", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell67.Name = "xrTableCell67";
-            this.xrTableCell67.StyleName = "xrControlStyle_Middle";
+            this.xrTableCell67.StyleName = "xrControlStyle_Left";
+            this.xrTableCell67.StylePriority.UseFont = false;
             this.xrTableCell67.Weight = 0.63337998673319817D;
             // 
             // xrTableCell68
             // 
+            this.xrTableCell68.Font = new System.Drawing.Font("Tahoma", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell68.Name = "xrTableCell68";
             this.xrTableCell68.StyleName = "xrControlStyle_Left";
+            this.xrTableCell68.StylePriority.UseFont = false;
             this.xrTableCell68.Weight = 0.51041688248515127D;
             // 
             // xrTableCell69
             // 
+            this.xrTableCell69.Font = new System.Drawing.Font("Tahoma", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell69.Name = "xrTableCell69";
             this.xrTableCell69.StyleName = "xrControlStyle_Right";
+            this.xrTableCell69.StylePriority.UseFont = false;
             this.xrTableCell69.Weight = 0.72916795060038564D;
             // 
             // xrLabel_NguoiLapBieu

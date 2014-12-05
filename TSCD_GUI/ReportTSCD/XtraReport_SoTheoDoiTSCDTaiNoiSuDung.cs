@@ -62,25 +62,29 @@ namespace TSCD_GUI.ReportTSCD
 
         private void IntSUM()
         {
-            xrTableCell_SUM_SoLuongTang.DataBindings.Add("Text", this.DataSource, "soluong_tang", "{0:### ### ### ###}");
+            xrTableCell_SUM_SoLuongTang.DataBindings.Add("Text", this.DataSource, "soluong_tang");
+            xrTableCell_SUM_SoLuongTang.Summary.FormatString = "{0:### ### ### ### ### ###}";
             xrTableCell_SUM_SoLuongTang.Summary.IgnoreNullValues = true;
             xrTableCell_SUM_SoLuongTang.Summary.Func = SummaryFunc.Sum;
             xrTableCell_SUM_SoLuongTang.Summary.Running = SummaryRunning.Report;
             xrTableCell_SUM_SoLuongTang.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
 
-            xrTableCell_SUM_ThanhTienTang.DataBindings.Add("Text", this.DataSource, "thanhtien_tang", "{0:### ### ### ###}");
+            xrTableCell_SUM_ThanhTienTang.DataBindings.Add("Text", this.DataSource, "thanhtien_tang");
+            xrTableCell_SUM_ThanhTienTang.Summary.FormatString = "{0:### ### ### ### ### ###}";
             xrTableCell_SUM_ThanhTienTang.Summary.IgnoreNullValues = true;
             xrTableCell_SUM_ThanhTienTang.Summary.Func = SummaryFunc.Sum;
             xrTableCell_SUM_ThanhTienTang.Summary.Running = SummaryRunning.Report;
             xrTableCell_SUM_ThanhTienTang.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
 
-            xrTableCell_SUM_SoLuongGiam.DataBindings.Add("Text", this.DataSource, "soluong_giam", "{0:### ### ### ###}");
+            xrTableCell_SUM_SoLuongGiam.DataBindings.Add("Text", this.DataSource, "soluong_giam");
+            xrTableCell_SUM_SoLuongGiam.Summary.FormatString = "{0:### ### ### ### ### ###}";
             xrTableCell_SUM_SoLuongGiam.Summary.IgnoreNullValues = true;
             xrTableCell_SUM_SoLuongGiam.Summary.Func = SummaryFunc.Sum;
             xrTableCell_SUM_SoLuongGiam.Summary.Running = SummaryRunning.Report;
             xrTableCell_SUM_SoLuongGiam.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
 
-            xrTableCell_SUM_ThanhTienGiam.DataBindings.Add("Text", this.DataSource, "thanhtien_giam", "{0:### ### ### ###}");
+            xrTableCell_SUM_ThanhTienGiam.DataBindings.Add("Text", this.DataSource, "thanhtien_giam");
+            xrTableCell_SUM_ThanhTienGiam.Summary.FormatString = "{0:### ### ### ### ### ###}";
             xrTableCell_SUM_ThanhTienGiam.Summary.IgnoreNullValues = true;
             xrTableCell_SUM_ThanhTienGiam.Summary.Func = SummaryFunc.Sum;
             xrTableCell_SUM_ThanhTienGiam.Summary.Running = SummaryRunning.Report;
