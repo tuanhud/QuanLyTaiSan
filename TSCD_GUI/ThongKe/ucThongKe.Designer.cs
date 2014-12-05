@@ -40,10 +40,13 @@
             this.barBtnTKHaoMon = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnTKTHPhong = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnTKTHTaiSan = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnImport = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnExport = new DevExpress.XtraBars.BarButtonItem();
             this.rbnPageThongKe = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbnGroupThongKe = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnGroupLayout = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnGroupBaoCao = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rbnGroupKiemKe = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.panelControlMain = new DevExpress.XtraEditors.PanelControl();
             this.splashScreenManager_Report = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::TSCD_GUI.QLTaiSan.WaitForm_Report), true, true, DevExpress.XtraSplashScreen.ParentType.UserControl);
             ((System.ComponentModel.ISupportInitialize)(this.rbnControlThongKe)).BeginInit();
@@ -64,9 +67,11 @@
             this.barButtonItemXuatThongKe,
             this.barBtnTKHaoMon,
             this.barBtnTKTHPhong,
-            this.barBtnTKTHTaiSan});
+            this.barBtnTKTHTaiSan,
+            this.barBtnImport,
+            this.barBtnExport});
             this.rbnControlThongKe.Location = new System.Drawing.Point(0, 0);
-            this.rbnControlThongKe.MaxItemId = 12;
+            this.rbnControlThongKe.MaxItemId = 14;
             this.rbnControlThongKe.Name = "rbnControlThongKe";
             this.rbnControlThongKe.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbnPageThongKe});
@@ -169,12 +174,31 @@
             this.barBtnTKTHTaiSan.Name = "barBtnTKTHTaiSan";
             this.barBtnTKTHTaiSan.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnTKTHTaiSan_ItemClick);
             // 
+            // barBtnImport
+            // 
+            this.barBtnImport.Caption = "Import";
+            this.barBtnImport.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnImport.Glyph")));
+            this.barBtnImport.Id = 12;
+            this.barBtnImport.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnImport.LargeGlyph")));
+            this.barBtnImport.Name = "barBtnImport";
+            this.barBtnImport.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnImport_ItemClick);
+            // 
+            // barBtnExport
+            // 
+            this.barBtnExport.Caption = "Export";
+            this.barBtnExport.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnExport.Glyph")));
+            this.barBtnExport.Id = 13;
+            this.barBtnExport.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnExport.LargeGlyph")));
+            this.barBtnExport.Name = "barBtnExport";
+            this.barBtnExport.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnExport_ItemClick);
+            // 
             // rbnPageThongKe
             // 
             this.rbnPageThongKe.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.rbnGroupThongKe,
             this.rbnGroupLayout,
-            this.rbnGroupBaoCao});
+            this.rbnGroupBaoCao,
+            this.rbnGroupKiemKe});
             this.rbnPageThongKe.Image = ((System.Drawing.Image)(resources.GetObject("rbnPageThongKe.Image")));
             this.rbnPageThongKe.Name = "rbnPageThongKe";
             this.rbnPageThongKe.Text = "Thống kê";
@@ -206,6 +230,14 @@
             this.rbnGroupBaoCao.Name = "rbnGroupBaoCao";
             this.rbnGroupBaoCao.ShowCaptionButton = false;
             this.rbnGroupBaoCao.Text = "Báo cáo";
+            // 
+            // rbnGroupKiemKe
+            // 
+            this.rbnGroupKiemKe.ItemLinks.Add(this.barBtnImport);
+            this.rbnGroupKiemKe.ItemLinks.Add(this.barBtnExport);
+            this.rbnGroupKiemKe.Name = "rbnGroupKiemKe";
+            this.rbnGroupKiemKe.ShowCaptionButton = false;
+            this.rbnGroupKiemKe.Text = "Kiểm kê tài sản";
             // 
             // panelControlMain
             // 
@@ -249,6 +281,9 @@
         private DevExpress.XtraBars.BarButtonItem barBtnTKHaoMon;
         private DevExpress.XtraBars.BarButtonItem barBtnTKTHPhong;
         private DevExpress.XtraBars.BarButtonItem barBtnTKTHTaiSan;
+        private DevExpress.XtraBars.BarButtonItem barBtnImport;
+        private DevExpress.XtraBars.BarButtonItem barBtnExport;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupKiemKe;
         private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager_Report;
     }
 }

@@ -18,6 +18,9 @@ namespace TSCD_GUI.ThongKe
 {
     public partial class ucTKTHTaiSan : DevExpress.XtraEditors.XtraUserControl
     {
+
+        public List<TaiSanHienThi> taisans = new List<TaiSanHienThi>();
+
         public ucTKTHTaiSan()
         {
             InitializeComponent();
@@ -65,6 +68,7 @@ namespace TSCD_GUI.ThongKe
                 ucComboBoxViTri1.DataSource = listViTri;
 
                 gridControlTaiSan.DataSource = null;
+                taisans = null;
                 //loadSearchXml(this.Name);
                 //Search();
 
@@ -131,7 +135,7 @@ namespace TSCD_GUI.ThongKe
                     cbxEquationNgaySD.EditValue != null ? cbxEquationNgaySD.EditValue.ToString() : null, dateNgaySD.EditValue != null ? (DateTime?)dateNgaySD.DateTime : null));
                 //ucGridControlTaiSan1.DataSource = list;
                 gridControlTaiSan.DataSource = list;
-
+                taisans = list;
                 //bool isEnabled = list.Count > 0;
                 //barBtnSuaTaiSan.Enabled = isEnabled;
                 //barBtnXoaTaiSan.Enabled = isEnabled;

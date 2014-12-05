@@ -1274,7 +1274,7 @@ namespace TSCD_GUI.Libraries
             }
         }
 
-        public static bool insert_data_to_Excel(List<TaiSanHienThi> list)
+        public static bool insert_data_to_Excel(List<TaiSanHienThi> list, String file_path)
         {
             try
             {
@@ -1296,18 +1296,21 @@ namespace TSCD_GUI.Libraries
                 const String GHICHU = "P";
                 
                 String currentPath = Directory.GetCurrentDirectory();
-                //String path = Path.Combine(currentPath, "Excel");
-                String path = "F:";
+                String path = Path.Combine(currentPath, "Excel");
+                //String path = "F:";
                 String file = "";
-                String fileName = "Book1.xls";
+                String fileName = "MauExport.xls";
                 if (Directory.Exists(path))
                 {
                     file = path + "//" + fileName;
                     if (System.IO.File.Exists(file))
                     {
+                        File.Delete(file_path);
+                        File.Copy(file, file_path);
+         
                         System.Data.OleDb.OleDbConnection MyConnection;
 
-                        MyConnection = new System.Data.OleDb.OleDbConnection(String.Format("provider=Microsoft.Jet.OLEDB.4.0;Data Source='{0}';Extended Properties=Excel 8.0;",file));
+                        MyConnection = new System.Data.OleDb.OleDbConnection(String.Format("provider=Microsoft.Jet.OLEDB.4.0;Data Source='{0}';Extended Properties=Excel 8.0;", file_path));
                         MyConnection.Open();
                         
                         foreach (TaiSanHienThi ts in list)
