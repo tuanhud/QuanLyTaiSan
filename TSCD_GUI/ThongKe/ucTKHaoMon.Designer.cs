@@ -67,6 +67,8 @@
             this.dateNgayTK = new DevExpress.XtraEditors.DateEdit();
             this.labelTinhTrang = new DevExpress.XtraEditors.LabelControl();
             this.labelNgayTK = new DevExpress.XtraEditors.LabelControl();
+            this.colsonamsudungconlai_final = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colgiatriconlai_final = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlHaoMon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewHaoMon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelSearch)).BeginInit();
@@ -115,7 +117,9 @@
             this.colsonamsudungconlai_351,
             this.colsonamsudungconlai_32,
             this.colgiatriconlai_351,
-            this.colgiatriconlai_32});
+            this.colgiatriconlai_32,
+            this.colsonamsudungconlai_final,
+            this.colgiatriconlai_final});
             this.gridViewHaoMon.GridControl = this.gridControlHaoMon;
             this.gridViewHaoMon.Name = "gridViewHaoMon";
             this.gridViewHaoMon.OptionsBehavior.Editable = false;
@@ -453,6 +457,24 @@
             this.labelNgayTK.TabIndex = 0;
             this.labelNgayTK.Text = "Năm thống kê:";
             // 
+            // colsonamsudungconlai_final
+            // 
+            this.colsonamsudungconlai_final.Caption = "Số năm sử dụng còn lại sau cùng";
+            this.colsonamsudungconlai_final.FieldName = "sonamsudungconlai_final";
+            this.colsonamsudungconlai_final.Name = "colsonamsudungconlai_final";
+            this.colsonamsudungconlai_final.Visible = true;
+            this.colsonamsudungconlai_final.VisibleIndex = 22;
+            // 
+            // colgiatriconlai_final
+            // 
+            this.colgiatriconlai_final.Caption = "Giá trị còn lại sau cùng";
+            this.colgiatriconlai_final.DisplayFormat.FormatString = "### ### ### ##0";
+            this.colgiatriconlai_final.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colgiatriconlai_final.FieldName = "giatriconlai_final";
+            this.colgiatriconlai_final.Name = "colgiatriconlai_final";
+            this.colgiatriconlai_final.Visible = true;
+            this.colgiatriconlai_final.VisibleIndex = 23;
+            // 
             // ucTKHaoMon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -517,5 +539,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colgiatriconlai_351;
         private DevExpress.XtraGrid.Columns.GridColumn colgiatriconlai_32;
         private DevExpress.XtraGrid.Columns.GridColumn colngayct;
+        private DevExpress.XtraGrid.Columns.GridColumn colsonamsudungconlai_final;
+        private DevExpress.XtraGrid.Columns.GridColumn colgiatriconlai_final;
     }
 }

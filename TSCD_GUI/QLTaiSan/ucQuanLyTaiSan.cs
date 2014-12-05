@@ -15,6 +15,7 @@ using TSCD.DataFilter.SearchFilter;
 using DevExpress.XtraReports.UI;
 using System.IO;
 using System.Xml;
+using TSCD_GUI.Libraries;
 
 namespace TSCD_GUI.QLTaiSan
 {
@@ -62,6 +63,9 @@ namespace TSCD_GUI.QLTaiSan
                 objNULL2.loai = typeof(Phong).Name;
                 listViTri.Insert(0, objNULL2);
                 ucComboBoxViTri1.DataSource = listViTri;
+
+                checkedCbxTinhTrang.Properties.DataSource = TinhTrang.getQuery().OrderBy(c => c.order).ToList();
+
                 //ucComboBoxDonVi2.DonVi = objNULL;
                 ucGridControlTaiSan1.DataSource = null;
                 barBtnSuaTaiSan.Enabled = false;
@@ -93,7 +97,8 @@ namespace TSCD_GUI.QLTaiSan
                 bool isViTri = true;
                 if (vitri == null)
                     isViTri = false;
-                List<TaiSanHienThi> list = TaiSanHienThi.Convert(CTTaiSanSF.search(ten, loai, checkDVQL.Checked, DVQL, false, null, isViTri && checkViTri.Checked, vitri, !isViTri && checkViTri.Checked, phong));
+                List<Guid> tinhtrangs = CheckedComboBoxEditHelper.getCheckedValueArray(checkedCbxTinhTrang);
+                List<TaiSanHienThi> list = TaiSanHienThi.Convert(CTTaiSanSF.search(ten, loai, checkDVQL.Checked, DVQL, false, null, isViTri && checkViTri.Checked, vitri, !isViTri && checkViTri.Checked, phong, tinhtrangs));
                 ucGridControlTaiSan1.DataSource = list;
                 
 
@@ -266,6 +271,7 @@ namespace TSCD_GUI.QLTaiSan
                 writer.WriteStartElement("Search");
                 //writer.WriteAttributeString("cTen", checkTen.Checked ? "1" : "0");
                 writer.WriteAttributeString("vTen", txtTen.Text);
+                writer.WriteAttributeString("vTinhTrang", checkedCbxTinhTrang.EditValue.ToString());
                 writer.WriteAttributeString("cLoai", checkLoai.Checked ? "1" : "0");
                 LoaiTaiSan loai = ucComboBoxLoaiTS1.LoaiTS;
                 writer.WriteAttributeString("vLoai", loai != null ? loai.id.ToString() : "");
@@ -304,6 +310,7 @@ namespace TSCD_GUI.QLTaiSan
                         writer_new.WriteStartDocument();
                         writer_new.WriteStartElement("Search");
                         writer_new.WriteAttributeString("vTen", "Không có");
+                        writer_new.WriteAttributeString("vTinhTrang", "");
                         writer_new.WriteAttributeString("cLoai", "0");
                         writer_new.WriteAttributeString("vLoai", "");
                         writer_new.WriteAttributeString("cDVQL", "0");
@@ -324,12 +331,13 @@ namespace TSCD_GUI.QLTaiSan
                             {
                                 //checkTen.Checked = Convert.ToInt32(reader.GetAttribute(0)).Equals(1) ? true : false;
                                 txtTen.Text = reader.GetAttribute(0);
-                                ucComboBoxLoaiTS1.LoaiTS = LoaiTaiSan.getById(GUID.From(reader.GetAttribute(2)));
-                                checkLoai.Checked = Convert.ToInt32(reader.GetAttribute(1)).Equals(1) ? true : false;
-                                ucComboBoxDonVi1.DonVi = DonVi.getById(GUID.From(reader.GetAttribute(4)));
-                                checkDVQL.Checked = Convert.ToInt32(reader.GetAttribute(3)).Equals(1) ? true : false;
-                                ucComboBoxViTri1.EditValue = GUID.From(reader.GetAttribute(6));
-                                checkViTri.Checked = Convert.ToInt32(reader.GetAttribute(5)).Equals(1) ? true : false;
+                                checkedCbxTinhTrang.SetEditValue(reader.GetAttribute(1));
+                                ucComboBoxLoaiTS1.LoaiTS = LoaiTaiSan.getById(GUID.From(reader.GetAttribute(3)));
+                                checkLoai.Checked = Convert.ToInt32(reader.GetAttribute(2)).Equals(1) ? true : false;
+                                ucComboBoxDonVi1.DonVi = DonVi.getById(GUID.From(reader.GetAttribute(5)));
+                                checkDVQL.Checked = Convert.ToInt32(reader.GetAttribute(4)).Equals(1) ? true : false;
+                                ucComboBoxViTri1.EditValue = GUID.From(reader.GetAttribute(7));
+                                checkViTri.Checked = Convert.ToInt32(reader.GetAttribute(6)).Equals(1) ? true : false;
                             }
                         }
                         reader.Close();
@@ -431,6 +439,7 @@ namespace TSCD_GUI.QLTaiSan
             checkDVQL.Checked = false;
             ucComboBoxViTri1.EditValue = Guid.Empty;
             checkViTri.Checked = false;
+            checkedCbxTinhTrang.SetEditValue(null);
         }
 
         private void barBtnExpandAll_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
