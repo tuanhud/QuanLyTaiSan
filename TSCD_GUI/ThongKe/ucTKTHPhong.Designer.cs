@@ -225,6 +225,7 @@
             this.gridViewPhong.Name = "gridViewPhong";
             this.gridViewPhong.OptionsBehavior.Editable = false;
             this.gridViewPhong.OptionsBehavior.ReadOnly = true;
+            this.gridViewPhong.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gridViewPhong.OptionsView.ShowFooter = true;
             this.gridViewPhong.CustomSummaryCalculate += new DevExpress.Data.CustomSummaryEventHandler(this.gridViewPhong_CustomSummaryCalculate);
             // 

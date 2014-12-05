@@ -309,6 +309,7 @@
             this.gridViewTaiSan.Name = "gridViewTaiSan";
             this.gridViewTaiSan.OptionsBehavior.Editable = false;
             this.gridViewTaiSan.OptionsBehavior.ReadOnly = true;
+            this.gridViewTaiSan.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gridViewTaiSan.OptionsView.ShowFooter = true;
             this.gridViewTaiSan.CustomSummaryCalculate += new DevExpress.Data.CustomSummaryEventHandler(this.gridViewTaiSan_CustomSummaryCalculate);
             // 

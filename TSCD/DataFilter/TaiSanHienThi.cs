@@ -151,7 +151,14 @@ namespace TSCD.DataFilter
         {
             get
             {
-                return sonamsudung_32 - sonamdasudung_cuoi2008 > 0 ? sonamsudung_32 - sonamdasudung_cuoi2008 : 0;
+                if (namsudung > 2008)
+                {
+                    return sonamsudung_32;
+                }
+                else
+                {
+                    return sonamsudung_32 - sonamdasudung_cuoi2008 > 0 ? sonamsudung_32 - sonamdasudung_cuoi2008 : 0;
+                }
             }
         }
         /// <summary>
@@ -171,13 +178,20 @@ namespace TSCD.DataFilter
         {
             get
             {
-                if (sonamsudungconlai_32 > 0)
+                if (namsudung > 2008)
                 {
-                    return giatriconlai_351;
+                    return thanhtien;
                 }
                 else
                 {
-                    return 0;
+                    if (sonamsudungconlai_32 > 0)
+                    {
+                        return giatriconlai_351;
+                    }
+                    else
+                    {
+                        return 0;
+                    }
                 }
             }
         }
@@ -298,38 +312,51 @@ namespace TSCD.DataFilter
             var re = new List<TaiSanHienThi>();
             foreach (var item in list)
             {
-                if (item.namsudung > nam)
+                //if(item.namsudung>2008 && item.namsudung<=nam)
+                //{
+                //    long haomon_trennam = item.thanhtien / item.sonamsudung_32;
+                //    long tongHaoMon = haomon_trennam * (nam - item.namsudung);
+                //    item.giatriconlai_final = item.thanhtien - tongHaoMon > 0?item.thanhtien-tongHaoMon:0;
+                //    item.sonamsudungconlai_final = item.sonamsudung_32 - (nam - item.namsudung);
+                //    re.Add(item);
+                //}
+                //else
                 {
-                    //ignore
-                }
-                else if (item.giatriconlai_32 <= 0 || item.sonamsudungconlai_32 <= 0)
-                {
-                    item.giatriconlai_final = 0;
-                    item.sonamsudungconlai_final = 0;
-                    re.Add(item);
-                }
-                else
-                {
-                    //tinh ngay nam 2008 thi gia tri con lai chinh la theo uyet dinh 32
-                    if (nam == 2008)
+                    if (item.namsudung > nam)
                     {
-                        item.giatriconlai_final = item.giatriconlai_32;
-                        item.sonamsudungconlai_final = item.sonamsudungconlai_final;
+                        //ignore
                     }
-                    //khong tinh gia tri con lai duoc
-                    else if (nam - 2008 < 0)
+                    else if (item.giatriconlai_32 <= 0 || item.sonamsudungconlai_32 <= 0)
                     {
-                        item.giatriconlai_final = -1;
-                        item.sonamsudungconlai_final = item.sonamsudungconlai_32 + (2008 - nam);
+                        item.giatriconlai_final = 0;
+                        item.sonamsudungconlai_final = 0;
+                        re.Add(item);
                     }
                     else
                     {
-                        long haomon_tren1nam = item.giatriconlai_32 / item.sonamsudungconlai_32;
-                        long tonghaomon = (nam - 2008) * haomon_tren1nam;
-                        item.giatriconlai_final = item.giatriconlai_32 - tonghaomon;
-                        item.sonamsudungconlai_final = item.sonamsudungconlai_32 - (nam - 2008);
+                        //tinh ngay nam 2008 thi gia tri con lai chinh la theo uyet dinh 32
+                        if (nam == 2008)
+                        {
+                            item.giatriconlai_final = item.giatriconlai_32;
+                            item.sonamsudungconlai_final = item.sonamsudungconlai_final;
+                        }
+                        //khong tinh gia tri con lai duoc
+                        else if (nam - 2008 < 0)
+                        {
+                            item.giatriconlai_final = -1;
+                            item.sonamsudungconlai_final = item.sonamsudungconlai_32 + (2008 - nam);
+                        }
+                        else
+                        {
+                            var nam_anchor = item.namsudung<=2008?2008:item.namsudung;
+                            
+                            long haomon_tren1nam = item.giatriconlai_32 / item.sonamsudungconlai_32;
+                            long tonghaomon = (nam - nam_anchor) * haomon_tren1nam;
+                            item.giatriconlai_final = item.giatriconlai_32 - tonghaomon;
+                            item.sonamsudungconlai_final = item.sonamsudungconlai_32 - (nam - nam_anchor);
+                        }
+                        re.Add(item);
                     }
-                    re.Add(item);
                 }
             }
 
