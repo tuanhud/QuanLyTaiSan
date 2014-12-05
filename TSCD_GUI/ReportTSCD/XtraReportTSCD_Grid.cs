@@ -27,6 +27,15 @@ namespace TSCD_GUI.ReportTSCD
             winControlContainer_GridControl.WinControl = this._GridControl;
         }
 
+        public XtraReportTSCD_Grid(DevExpress.XtraGrid.GridControl _GridControl, Boolean ALLSUM)
+        {
+            InitializeComponent();
+            this._GridControl = _GridControl;
+            this._GridControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            SHARED.Libraries.ReportHelper.InitGridView(this._GridControl, ALLSUM);
+            winControlContainer_GridControl.WinControl = this._GridControl;
+        }
+
         public void SetGridControl(DevExpress.XtraGrid.GridControl _GridControl)
         {
             this._GridControl = _GridControl;

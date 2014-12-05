@@ -178,7 +178,7 @@ namespace TSCD_GUI.ThongKe
                             splashScreenManager_Report.SetWaitFormCaption("Đang tạo report");
                             splashScreenManager_Report.SetWaitFormDescription("Vui lòng chờ trong giây lát...");
 
-                            XtraReportTSCD_Grid _XtraReportTSCD_Grid = new XtraReportTSCD_Grid(_ucTKPhong.gridControlPhong);
+                            XtraReportTSCD_Grid _XtraReportTSCD_Grid = new XtraReportTSCD_Grid(_ucTKPhong.gridControlPhong, false);
                             _XtraReportTSCD_Grid.SetTextTitle("Thống Kê Phòng");
                             _XtraReportTSCD_Grid.SetTextTitle_TopRight("");
 
@@ -212,7 +212,7 @@ namespace TSCD_GUI.ThongKe
                             splashScreenManager_Report.SetWaitFormCaption("Đang tạo report");
                             splashScreenManager_Report.SetWaitFormDescription("Vui lòng chờ trong giây lát...");
 
-                            XtraReportTSCD_Grid _XtraReportTSCD_Grid = new XtraReportTSCD_Grid(_ucTKTaiSan.gridControlTaiSan);
+                            XtraReportTSCD_Grid _XtraReportTSCD_Grid = new XtraReportTSCD_Grid(_ucTKTaiSan.gridControlTaiSan, false);
                             _XtraReportTSCD_Grid.SetTextTitle("Thống Kê Tài Sản");
                             _XtraReportTSCD_Grid.SetTextTitle_TopRight("");
 
@@ -246,7 +246,7 @@ namespace TSCD_GUI.ThongKe
                             splashScreenManager_Report.SetWaitFormCaption("Đang tạo report");
                             splashScreenManager_Report.SetWaitFormDescription("Vui lòng chờ trong giây lát...");
 
-                            XtraReportTSCD_Grid _XtraReportTSCD_Grid = new XtraReportTSCD_Grid(_ucTKHaoMon.gridControlHaoMon);
+                            XtraReportTSCD_Grid _XtraReportTSCD_Grid = new XtraReportTSCD_Grid(_ucTKHaoMon.gridControlHaoMon, false);
                             _XtraReportTSCD_Grid.SetTextTitle("Thống Kê Hao Mòn");
                             _XtraReportTSCD_Grid.SetTextTitle_TopRight("");
 
@@ -280,7 +280,7 @@ namespace TSCD_GUI.ThongKe
                             splashScreenManager_Report.SetWaitFormCaption("Đang tạo report");
                             splashScreenManager_Report.SetWaitFormDescription("Vui lòng chờ trong giây lát...");
 
-                            XtraReportTSCD_Grid _XtraReportTSCD_Grid = new XtraReportTSCD_Grid(_ucTKTHPhong.gridControlPhong);
+                            XtraReportTSCD_Grid _XtraReportTSCD_Grid = new XtraReportTSCD_Grid(_ucTKTHPhong.gridControlPhong, false);
                             _XtraReportTSCD_Grid.SetTextTitle("Thống Kê Tổng Hợp Phòng");
                             _XtraReportTSCD_Grid.SetTextTitle_TopRight("");
 
@@ -314,7 +314,7 @@ namespace TSCD_GUI.ThongKe
                             splashScreenManager_Report.SetWaitFormCaption("Đang tạo report");
                             splashScreenManager_Report.SetWaitFormDescription("Vui lòng chờ trong giây lát...");
 
-                            XtraReportTSCD_Grid _XtraReportTSCD_Grid = new XtraReportTSCD_Grid(_ucTKTHTaiSan.gridControlTaiSan);
+                            XtraReportTSCD_Grid _XtraReportTSCD_Grid = new XtraReportTSCD_Grid(_ucTKTHTaiSan.gridControlTaiSan, false);
                             _XtraReportTSCD_Grid.SetTextTitle("Thống Kê Tổng Hợp Tài Sản");
                             _XtraReportTSCD_Grid.SetTextTitle_TopRight("");
 

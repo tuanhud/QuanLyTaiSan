@@ -232,6 +232,100 @@ namespace SHARED.Libraries
             }
         }
 
+        public static void InitGridView(DevExpress.XtraGrid.GridControl _GridControl, Boolean CreatSUM)
+        {
+            //BandedGridView
+            DevExpress.XtraGrid.Views.BandedGrid.BandedGridView _BandedGridView = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridView();
+            Boolean isBandedGridView = true;
+            try
+            {
+                _BandedGridView = _GridControl.MainView as DevExpress.XtraGrid.Views.BandedGrid.BandedGridView;
+            }
+            catch
+            {
+                isBandedGridView = false;
+            }
+            if (isBandedGridView)
+            {
+                if (!Object.Equals(_BandedGridView, null))
+                {
+                    SetTheme(_BandedGridView);
+                    if (CreatSUM)
+                    {
+                        _BandedGridView.GroupSummary.Clear();
+                        for (int i = 0; i < _BandedGridView.Columns.Count; i++)
+                        {
+                            if (_BandedGridView.Columns[i].Visible && _BandedGridView.Columns[i].GroupIndex < 0)
+                            {
+                                if (!Object.Equals(_BandedGridView.GetRowCellValue(0, _BandedGridView.Columns[i]), null))
+                                {
+                                    if (SHARED.Libraries.StringHelper.IsNumber(_BandedGridView.GetRowCellValue(0, _BandedGridView.Columns[i]).ToString()))
+                                    {
+                                        _BandedGridView.Columns[i].SummaryItem.Collection.Clear();
+                                        _BandedGridView.Columns[i].Summary.Add(DevExpress.Data.SummaryItemType.Sum, _BandedGridView.Columns[i].FieldName, "{0}");
+
+                                        GridGroupSummaryItem itemTop = new GridGroupSummaryItem();
+                                        itemTop.FieldName = _BandedGridView.Columns[i].FieldName;
+                                        itemTop.SummaryType = DevExpress.Data.SummaryItemType.Sum;
+                                        itemTop.DisplayFormat = "(" + _BandedGridView.Columns[i].Caption + ": {0})";
+                                        _BandedGridView.GroupSummary.Add(itemTop);
+
+                                        GridGroupSummaryItem itemDown = new GridGroupSummaryItem();
+                                        itemDown.FieldName = _BandedGridView.Columns[i].FieldName;
+                                        itemDown.SummaryType = DevExpress.Data.SummaryItemType.Sum;
+                                        itemDown.DisplayFormat = "{0}";
+                                        itemDown.ShowInGroupColumnFooter = _BandedGridView.Columns[i];
+                                        _BandedGridView.GroupSummary.Add(itemDown);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+
+            //GridView
+            if (_GridControl.ViewCollection.Count > 0)
+            {
+                DevExpress.XtraGrid.Views.Grid.GridView _GridView = new DevExpress.XtraGrid.Views.Grid.GridView();
+                _GridView = _GridControl.ViewCollection[0] as DevExpress.XtraGrid.Views.Grid.GridView;
+                SetTheme(_GridView);
+                if (CreatSUM)
+                {
+                    _GridView.GroupSummary.Clear();
+
+                    for (int i = 0; i < _GridView.Columns.Count; i++)
+                    {
+                        if (_GridView.Columns[i].Visible && _GridView.Columns[i].GroupIndex < 0)
+                        {
+                            if (!Object.Equals(_GridView.GetRowCellValue(0, _GridView.Columns[i]), null))
+                            {
+                                if (SHARED.Libraries.StringHelper.IsNumber(_GridView.GetRowCellValue(0, _GridView.Columns[i]).ToString()))
+                                {
+                                    _GridView.Columns[i].SummaryItem.Collection.Clear();
+                                    _GridView.Columns[i].Summary.Add(DevExpress.Data.SummaryItemType.Sum, _GridView.Columns[i].FieldName, "{0}");
+
+                                    GridGroupSummaryItem itemTop = new GridGroupSummaryItem();
+                                    itemTop.FieldName = _GridView.Columns[i].FieldName;
+                                    itemTop.SummaryType = DevExpress.Data.SummaryItemType.Sum;
+                                    itemTop.DisplayFormat = "(" + _GridView.Columns[i].Caption + ": {0})";
+                                    _GridView.GroupSummary.Add(itemTop);
+
+                                    GridGroupSummaryItem itemDown = new GridGroupSummaryItem();
+                                    itemDown.FieldName = _GridView.Columns[i].FieldName;
+                                    itemDown.SummaryType = DevExpress.Data.SummaryItemType.Sum;
+                                    itemDown.DisplayFormat = "{0}";
+                                    itemDown.ShowInGroupColumnFooter = _GridView.Columns[i];
+                                    _GridView.GroupSummary.Add(itemDown);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
         public static DataSet FillDatasetFromGrid(DevExpress.XtraGrid.Views.Grid.GridView _GridView)
         {
             DataSet _DataSet = new DataSet();
