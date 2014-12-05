@@ -203,7 +203,7 @@ namespace TSCD_GUI.ReportTSCD
                         splashScreenManager_Report.SetWaitFormDescription("Vui lòng chờ trong giây lát...");
 
                         var DonViSelected = ucComboBoxDonVi_ChonDonVi.DonVi;
-                        TSCD_GUI.ReportTSCD.XtraReport_SoChiTietTaiSanCoDinh _XtraReport_SoChiTietTaiSanCoDinh = new ReportTSCD.XtraReport_SoChiTietTaiSanCoDinh(TaiSanHienThi.Convert(CTTaiSan.getQuery().Where(item => Object.Equals(item.donviquanly, DonViSelected) || Object.Equals(item.donvisudung, DonViSelected))), DonViSelected);
+                        TSCD_GUI.ReportTSCD.XtraReport_SoChiTietTaiSanCoDinh _XtraReport_SoChiTietTaiSanCoDinh = new ReportTSCD.XtraReport_SoChiTietTaiSanCoDinh(TaiSanHienThi.Convert(DonViSelected.cttaisans), DonViSelected);
                         ReportPrintTool printTool = new ReportPrintTool(_XtraReport_SoChiTietTaiSanCoDinh);
 
                         splashScreenManager_Report.CloseWaitForm();
@@ -216,7 +216,7 @@ namespace TSCD_GUI.ReportTSCD
                         splashScreenManager_Report.SetWaitFormDescription("Vui lòng chờ trong giây lát...");
 
                         var DonViSelected = ucComboBoxDonVi_ChonDonVi.DonVi;
-                        TSCD_GUI.ReportTSCD.XtraReport_SoChiTietTaiSanCoDinh _XtraReport_SoChiTietTaiSanCoDinh = new ReportTSCD.XtraReport_SoChiTietTaiSanCoDinh(TaiSanHienThi.Convert(CTTaiSan.getQuery().Where(item => Object.Equals(item.donviquanly, DonViSelected) || Object.Equals(item.donvisudung, DonViSelected))), DonViSelected);
+                        TSCD_GUI.ReportTSCD.XtraReport_SoChiTietTaiSanCoDinh _XtraReport_SoChiTietTaiSanCoDinh = new ReportTSCD.XtraReport_SoChiTietTaiSanCoDinh(TaiSanHienThi.Convert(DonViSelected.cttaisans), DonViSelected);
                         ReportDesignTool designTool = new ReportDesignTool(_XtraReport_SoChiTietTaiSanCoDinh);
 
                         splashScreenManager_Report.CloseWaitForm();

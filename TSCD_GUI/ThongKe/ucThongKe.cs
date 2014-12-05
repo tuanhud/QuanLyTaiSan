@@ -52,8 +52,8 @@ namespace TSCD_GUI.ThongKe
 
         public void loadData()
         {
-            barBtnTKPhong.PerformClick();
-            barBtnTKTaiSan.PerformClick();
+            barBtnTKTHPhong.PerformClick();
+            barBtnTKTHTaiSan.PerformClick();
         }
 
         private void barBtnTKPhong_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
