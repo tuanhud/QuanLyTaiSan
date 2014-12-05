@@ -132,7 +132,14 @@ namespace TSCD.DataFilter
         {
             get
             {
-                return sonamsudung_32 - sonamdasudung_cuoi2008 > 0 ? sonamsudung_32 - sonamdasudung_cuoi2008 : 0;
+                if (namsudung > 2008)
+                {
+                    return sonamsudung_32;
+                }
+                else
+                {
+                    return sonamsudung_32 - sonamdasudung_cuoi2008 > 0 ? sonamsudung_32 - sonamdasudung_cuoi2008 : 0;
+                }
             }
         }
         /// <summary>
@@ -152,13 +159,20 @@ namespace TSCD.DataFilter
         {
             get
             {
-                if (sonamsudungconlai_32 > 0)
+                if (namsudung > 2008)
                 {
-                    return giatriconlai_351;
+                    return thanhtien;
                 }
                 else
                 {
-                    return 0;
+                    if (sonamsudungconlai_32 > 0)
+                    {
+                        return giatriconlai_351;
+                    }
+                    else
+                    {
+                        return 0;
+                    }
                 }
             }
         }
@@ -279,14 +293,15 @@ namespace TSCD.DataFilter
             var re = new List<TaiSanHienThi>();
             foreach(var item in list)
             {
-                if(item.namsudung>2008 && item.namsudung<=nam)
-                {
-                    long haomon_trennam = item.thanhtien / item.sonamsudung_32;
-                    long tongHaoMon = haomon_trennam * (nam - item.namsudung);
-                    item.giatriconlai_final = item.thanhtien - tongHaoMon > 0?item.thanhtien-tongHaoMon:0;
-                    item.sonamsudungconlai_final = item.sonamsudung_32 - (nam - item.namsudung);
-                }
-                else
+                //if(item.namsudung>2008 && item.namsudung<=nam)
+                //{
+                //    long haomon_trennam = item.thanhtien / item.sonamsudung_32;
+                //    long tongHaoMon = haomon_trennam * (nam - item.namsudung);
+                //    item.giatriconlai_final = item.thanhtien - tongHaoMon > 0?item.thanhtien-tongHaoMon:0;
+                //    item.sonamsudungconlai_final = item.sonamsudung_32 - (nam - item.namsudung);
+                //    re.Add(item);
+                //}
+                //else
                 {
                     if (item.namsudung > nam)
                     {
@@ -314,10 +329,12 @@ namespace TSCD.DataFilter
                         }
                         else
                         {
+                            var nam_anchor = item.namsudung<=2008?2008:item.namsudung;
+                            
                             long haomon_tren1nam = item.giatriconlai_32 / item.sonamsudungconlai_32;
-                            long tonghaomon = (nam - 2008) * haomon_tren1nam;
+                            long tonghaomon = (nam - nam_anchor) * haomon_tren1nam;
                             item.giatriconlai_final = item.giatriconlai_32 - tonghaomon;
-                            item.sonamsudungconlai_final = item.sonamsudungconlai_32 - (nam - 2008);
+                            item.sonamsudungconlai_final = item.sonamsudungconlai_32 - (nam - nam_anchor);
                         }
                         re.Add(item);
                     }
