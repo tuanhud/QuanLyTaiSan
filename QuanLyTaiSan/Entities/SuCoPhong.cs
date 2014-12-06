@@ -44,7 +44,7 @@ namespace PTB.Entities
         /// <summary>
         /// Su dung khi sua chua, co luu lai gia tien
         /// </summary>
-        public long phisuachua { get; set; }
+        //public long phisuachua { get; set; }
         public virtual ICollection<LogSuCoPhong> logsucophongs { get; set; }
 
 		#endregion
@@ -96,7 +96,7 @@ namespace PTB.Entities
             try
             {
                 LogSuCoPhong obj = new LogSuCoPhong();
-                obj.phisuachua = phisuachua;
+                //obj.phisuachua = phisuachua;
                 obj.hinhanhs = hinhanhs;
                 obj.mota = this.mota;
                 obj.sucophong = this;

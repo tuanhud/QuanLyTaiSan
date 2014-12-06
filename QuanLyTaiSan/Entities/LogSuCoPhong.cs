@@ -38,7 +38,7 @@ namespace PTB.Entities
         /// <summary>
         /// Su dung khi sua chua coa phat sinh gia tien
         /// </summary>
-        public long phisuachua { get; set; }
+        //public long phisuachua { get; set; }
         #endregion
 
         #region Override

@@ -28,6 +28,10 @@ namespace PTB.Entities
         [Required]
         public String password { get; set; }
 
+        /// <summary>
+        /// For future extensible
+        /// </summary>
+        //public String session { get; set; }
         #endregion
 
         #region Nghiep vu
