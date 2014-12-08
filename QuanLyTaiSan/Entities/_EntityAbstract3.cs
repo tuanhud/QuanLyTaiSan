@@ -31,7 +31,7 @@ namespace PTB.Entities
         /// <summary>
         /// For future extensible
         /// </summary>
-        //public String session { get; set; }
+        public String session { get; set; }
         #endregion
 
         #region Nghiep vu

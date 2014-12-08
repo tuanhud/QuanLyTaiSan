@@ -3,7 +3,7 @@ namespace PTB.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class basev4GUID : DbMigration
+    public partial class _base : DbMigration
     {
         public override void Up()
         {
@@ -19,6 +19,8 @@ namespace PTB.Migrations
                         mota = c.String(),
                         date_create = c.DateTime(),
                         date_modified = c.DateTime(),
+                        optional1 = c.Long(),
+                        optional2 = c.String(),
                     })
                 .PrimaryKey(t => t.id)
                 .Index(t => t.ten, unique: true);
@@ -35,6 +37,8 @@ namespace PTB.Migrations
                         mota = c.String(),
                         date_create = c.DateTime(),
                         date_modified = c.DateTime(),
+                        optional1 = c.Long(),
+                        optional2 = c.String(),
                     })
                 .PrimaryKey(t => t.id)
                 .ForeignKey("dbo.COSOS", t => t.coso_id)
@@ -51,6 +55,8 @@ namespace PTB.Migrations
                         mota = c.String(),
                         date_create = c.DateTime(),
                         date_modified = c.DateTime(),
+                        optional1 = c.Long(),
+                        optional2 = c.String(),
                     })
                 .PrimaryKey(t => t.id)
                 .Index(t => t.path, unique: true);
@@ -70,6 +76,8 @@ namespace PTB.Migrations
                         mota = c.String(),
                         date_create = c.DateTime(),
                         date_modified = c.DateTime(),
+                        optional1 = c.Long(),
+                        optional2 = c.String(),
                     })
                 .PrimaryKey(t => t.id)
                 .ForeignKey("dbo.PHONGS", t => t.phong_id)
@@ -84,7 +92,7 @@ namespace PTB.Migrations
                 c => new
                     {
                         id = c.Guid(nullable: false, identity: true),
-                        ten = c.String(nullable: false, maxLength: 255),
+                        ten = c.String(),
                         vitri_id = c.Guid(nullable: false),
                         nhanvienpt_id = c.Guid(),
                         quantrivien_id = c.Guid(),
@@ -93,12 +101,13 @@ namespace PTB.Migrations
                         mota = c.String(),
                         date_create = c.DateTime(),
                         date_modified = c.DateTime(),
+                        optional1 = c.Long(),
+                        optional2 = c.String(),
                     })
                 .PrimaryKey(t => t.id)
                 .ForeignKey("dbo.QUANTRIVIENS", t => t.quantrivien_id)
                 .ForeignKey("dbo.NHANVIENPTS", t => t.nhanvienpt_id)
                 .ForeignKey("dbo.VITRIS", t => t.vitri_id)
-                .Index(t => t.ten, unique: true, name: "nothing")
                 .Index(t => t.vitri_id)
                 .Index(t => t.nhanvienpt_id)
                 .Index(t => t.quantrivien_id);
@@ -118,6 +127,8 @@ namespace PTB.Migrations
                         mota = c.String(),
                         date_create = c.DateTime(),
                         date_modified = c.DateTime(),
+                        optional1 = c.Long(),
+                        optional2 = c.String(),
                     })
                 .PrimaryKey(t => t.id)
                 .ForeignKey("dbo.PHONGS", t => t.phong_id)
@@ -137,14 +148,17 @@ namespace PTB.Migrations
                         donvi = c.String(),
                         email = c.String(),
                         group_id = c.Guid(nullable: false),
-                        hoten = c.String(nullable: false),
+                        hoten = c.String(),
                         username = c.String(nullable: false, maxLength: 100),
                         password = c.String(nullable: false),
+                        session = c.String(),
                         subId = c.String(),
                         order = c.Long(),
                         mota = c.String(),
                         date_create = c.DateTime(),
                         date_modified = c.DateTime(),
+                        optional1 = c.Long(),
+                        optional2 = c.String(),
                     })
                 .PrimaryKey(t => t.id)
                 .ForeignKey("dbo.GROUPS", t => t.group_id)
@@ -163,6 +177,8 @@ namespace PTB.Migrations
                         mota = c.String(),
                         date_create = c.DateTime(),
                         date_modified = c.DateTime(),
+                        optional1 = c.Long(),
+                        optional2 = c.String(),
                     })
                 .PrimaryKey(t => t.id)
                 .Index(t => t.ten, unique: true);
@@ -185,6 +201,8 @@ namespace PTB.Migrations
                         mota = c.String(),
                         date_create = c.DateTime(),
                         date_modified = c.DateTime(),
+                        optional1 = c.Long(),
+                        optional2 = c.String(),
                     })
                 .PrimaryKey(t => t.id);
             
@@ -200,6 +218,8 @@ namespace PTB.Migrations
                         mota = c.String(),
                         date_create = c.DateTime(),
                         date_modified = c.DateTime(),
+                        optional1 = c.Long(),
+                        optional2 = c.String(),
                     })
                 .PrimaryKey(t => t.id)
                 .ForeignKey("dbo.DAYS", t => t.day_id)
@@ -218,6 +238,8 @@ namespace PTB.Migrations
                         mota = c.String(),
                         date_create = c.DateTime(),
                         date_modified = c.DateTime(),
+                        optional1 = c.Long(),
+                        optional2 = c.String(),
                     })
                 .PrimaryKey(t => t.id)
                 .ForeignKey("dbo.COSOS", t => t.coso_id)
@@ -235,11 +257,14 @@ namespace PTB.Migrations
                         tinhtrang_id = c.Guid(nullable: false),
                         sucophong_id = c.Guid(nullable: false),
                         quantrivien_id = c.Guid(),
+                        phisuachua = c.Long(),
                         subId = c.String(),
                         order = c.Long(),
                         mota = c.String(),
                         date_create = c.DateTime(),
                         date_modified = c.DateTime(),
+                        optional1 = c.Long(),
+                        optional2 = c.String(),
                     })
                 .PrimaryKey(t => t.id)
                 .ForeignKey("dbo.QUANTRIVIENS", t => t.quantrivien_id)
@@ -258,11 +283,14 @@ namespace PTB.Migrations
                         ten = c.String(nullable: false, maxLength: 255),
                         tinhtrang_id = c.Guid(nullable: false),
                         phong_id = c.Guid(nullable: false),
+                        phisuachua = c.Long(),
                         subId = c.String(),
                         order = c.Long(),
                         mota = c.String(),
                         date_create = c.DateTime(),
                         date_modified = c.DateTime(),
+                        optional1 = c.Long(),
+                        optional2 = c.String(),
                     })
                 .PrimaryKey(t => t.id)
                 .ForeignKey("dbo.PHONGS", t => t.phong_id)
@@ -275,17 +303,18 @@ namespace PTB.Migrations
                 c => new
                     {
                         id = c.Guid(nullable: false, identity: true),
-                        key = c.String(maxLength: 100),
+                        type = c.Int(),
+                        key = c.String(maxLength: 255),
                         value = c.String(nullable: false, maxLength: 255),
                         subId = c.String(),
                         order = c.Long(),
                         mota = c.String(),
                         date_create = c.DateTime(),
                         date_modified = c.DateTime(),
+                        optional1 = c.Long(),
+                        optional2 = c.String(),
                     })
-                .PrimaryKey(t => t.id)
-                .Index(t => t.key, unique: true)
-                .Index(t => t.value, unique: true);
+                .PrimaryKey(t => t.id);
             
             CreateTable(
                 "dbo.PHIEUMUONPHONGS",
@@ -308,6 +337,8 @@ namespace PTB.Migrations
                         mota = c.String(),
                         date_create = c.DateTime(),
                         date_modified = c.DateTime(),
+                        optional1 = c.Long(),
+                        optional2 = c.String(),
                     })
                 .PrimaryKey(t => t.id)
                 .ForeignKey("dbo.QUANTRIVIENS", t => t.nguoiduyet_id)
@@ -328,6 +359,8 @@ namespace PTB.Migrations
                         mota = c.String(),
                         date_create = c.DateTime(),
                         date_modified = c.DateTime(),
+                        optional1 = c.Long(),
+                        optional2 = c.String(),
                     })
                 .PrimaryKey(t => t.id)
                 .ForeignKey("dbo.LOAITHIETBIS", t => t.loaithietbi_id)
@@ -346,6 +379,8 @@ namespace PTB.Migrations
                         mota = c.String(),
                         date_create = c.DateTime(),
                         date_modified = c.DateTime(),
+                        optional1 = c.Long(),
+                        optional2 = c.String(),
                     })
                 .PrimaryKey(t => t.id)
                 .ForeignKey("dbo.LOAITHIETBIS", t => t.parent_id)
@@ -365,6 +400,8 @@ namespace PTB.Migrations
                         mota = c.String(),
                         date_create = c.DateTime(),
                         date_modified = c.DateTime(),
+                        optional1 = c.Long(),
+                        optional2 = c.String(),
                     })
                 .PrimaryKey(t => t.id);
             
@@ -378,6 +415,8 @@ namespace PTB.Migrations
                         mota = c.String(),
                         date_create = c.DateTime(),
                         date_modified = c.DateTime(),
+                        optional1 = c.Long(),
+                        optional2 = c.String(),
                     })
                 .PrimaryKey(t => t.id);
             
@@ -393,6 +432,8 @@ namespace PTB.Migrations
                         mota = c.String(),
                         date_create = c.DateTime(),
                         date_modified = c.DateTime(),
+                        optional1 = c.Long(),
+                        optional2 = c.String(),
                     })
                 .PrimaryKey(t => t.id)
                 .Index(t => t.key, unique: true);
@@ -687,8 +728,6 @@ namespace PTB.Migrations
             DropIndex("dbo.THIETBIS", new[] { "loaithietbi_id" });
             DropIndex("dbo.PHIEUMUONPHONGS", new[] { "nguoiduyet_id" });
             DropIndex("dbo.PHIEUMUONPHONGS", new[] { "nguoimuon_id" });
-            DropIndex("dbo.TINHTRANGS", new[] { "value" });
-            DropIndex("dbo.TINHTRANGS", new[] { "key" });
             DropIndex("dbo.SUCOPHONGS", new[] { "phong_id" });
             DropIndex("dbo.SUCOPHONGS", new[] { "tinhtrang_id" });
             DropIndex("dbo.LOGSUCOPHONGS", new[] { "quantrivien_id" });
@@ -708,7 +747,6 @@ namespace PTB.Migrations
             DropIndex("dbo.PHONGS", new[] { "quantrivien_id" });
             DropIndex("dbo.PHONGS", new[] { "nhanvienpt_id" });
             DropIndex("dbo.PHONGS", new[] { "vitri_id" });
-            DropIndex("dbo.PHONGS", "nothing");
             DropIndex("dbo.CTTHIETBIS", new[] { "tinhtrang_id" });
             DropIndex("dbo.CTTHIETBIS", new[] { "thietbi_id" });
             DropIndex("dbo.CTTHIETBIS", new[] { "phong_id" });

@@ -57,6 +57,9 @@ namespace PTB.Entities
         /// Optional
         /// </summary>
         public DateTime? date_modified { get; set; }
+
+        public long? optional1 { get; set; }
+        public string optional2 { get; set; }
         #endregion
         
         #region Nghiệp vụ

@@ -7,13 +7,13 @@ namespace PTB.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.1-30610")]
-    public sealed partial class basev4GUID : IMigrationMetadata
+    public sealed partial class _base : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(basev4GUID));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(_base));
         
         string IMigrationMetadata.Id
         {
-            get { return "201408270501123_basev4GUID"; }
+            get { return "201412080805579_base"; }
         }
         
         string IMigrationMetadata.Source

@@ -176,37 +176,9 @@
     <Compile Include="Libraries\EmailHelper.cs" />
     <Compile Include="Libraries\ImageHelper.cs" />
     <Compile Include="Libraries\PermissionHelper.cs" />
-    <Compile Include="Migrations\201408270501123_basev4GUID.cs" />
-    <Compile Include="Migrations\201408270501123_basev4GUID.Designer.cs">
-      <DependentUpon>201408270501123_basev4GUID.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201408280536270_TCSD_base_vBeta.cs" />
-    <Compile Include="Migrations\201408280536270_TCSD_base_vBeta.Designer.cs">
-      <DependentUpon>201408280536270_TCSD_base_vBeta.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201409040531083_QLTSCD_xoa_rangbuoc_ctts_logts_chuthe.cs" />
-    <Compile Include="Migrations\201409040531083_QLTSCD_xoa_rangbuoc_ctts_logts_chuthe.Designer.cs">
-      <DependentUpon>201409040531083_QLTSCD_xoa_rangbuoc_ctts_logts_chuthe.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201409050512416_remove_QLTSCD_entities_from_QuanLyTaiSan_project.cs" />
-    <Compile Include="Migrations\201409050512416_remove_QLTSCD_entities_from_QuanLyTaiSan_project.Designer.cs">
-      <DependentUpon>201409050512416_remove_QLTSCD_entities_from_QuanLyTaiSan_project.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201409050519422_gobo_rangbuoc_tenphong_unique.cs" />
-    <Compile Include="Migrations\201409050519422_gobo_rangbuoc_tenphong_unique.Designer.cs">
-      <DependentUpon>201409050519422_gobo_rangbuoc_tenphong_unique.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201409050526584_doi_khoachinh_LOGHETHONG.cs" />
-    <Compile Include="Migrations\201409050526584_doi_khoachinh_LOGHETHONG.Designer.cs">
-      <DependentUpon>201409050526584_doi_khoachinh_LOGHETHONG.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201409061457028_rollback_loghethong_primarykey.cs" />
-    <Compile Include="Migrations\201409061457028_rollback_loghethong_primarykey.Designer.cs">
-      <DependentUpon>201409061457028_rollback_loghethong_primarykey.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201409180827118_boRangBuocTinhTrangValueAndKey.cs" />
-    <Compile Include="Migrations\201409180827118_boRangBuocTinhTrangValueAndKey.Designer.cs">
-      <DependentUpon>201409180827118_boRangBuocTinhTrangValueAndKey.cs</DependentUpon>
+    <Compile Include="Migrations\201412080805579_base.cs" />
+    <Compile Include="Migrations\201412080805579_base.Designer.cs">
+      <DependentUpon>201412080805579_base.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <DependentUpon>Settings.settings</DependentUpon>
@@ -216,29 +188,8 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Migrations\201408270501123_basev4GUID.resx">
-      <DependentUpon>201408270501123_basev4GUID.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201408280536270_TCSD_base_vBeta.resx">
-      <DependentUpon>201408280536270_TCSD_base_vBeta.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201409040531083_QLTSCD_xoa_rangbuoc_ctts_logts_chuthe.resx">
-      <DependentUpon>201409040531083_QLTSCD_xoa_rangbuoc_ctts_logts_chuthe.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201409050512416_remove_QLTSCD_entities_from_QuanLyTaiSan_project.resx">
-      <DependentUpon>201409050512416_remove_QLTSCD_entities_from_QuanLyTaiSan_project.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201409050519422_gobo_rangbuoc_tenphong_unique.resx">
-      <DependentUpon>201409050519422_gobo_rangbuoc_tenphong_unique.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201409050526584_doi_khoachinh_LOGHETHONG.resx">
-      <DependentUpon>201409050526584_doi_khoachinh_LOGHETHONG.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201409061457028_rollback_loghethong_primarykey.resx">
-      <DependentUpon>201409061457028_rollback_loghethong_primarykey.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201409180827118_boRangBuocTinhTrangValueAndKey.resx">
-      <DependentUpon>201409180827118_boRangBuocTinhTrangValueAndKey.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201412080805579_base.resx">
+      <DependentUpon>201412080805579_base.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
