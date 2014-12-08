@@ -382,7 +382,6 @@
             this.btnThongKeTangGiam.Size = new System.Drawing.Size(172, 23);
             this.btnThongKeTangGiam.TabIndex = 7;
             this.btnThongKeTangGiam.Text = "Thống kê tăng giảm";
-            this.btnThongKeTangGiam.Visible = false;
             this.btnThongKeTangGiam.Click += new System.EventHandler(this.btnThongKeTangGiam_Click);
             // 
             // ucComboBoxDonVi1
@@ -390,6 +389,7 @@
             this.ucComboBoxDonVi1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ucComboBoxDonVi1.DonVi = null;
+            this.ucComboBoxDonVi1.EditValue = null;
             this.ucComboBoxDonVi1.Location = new System.Drawing.Point(88, 108);
             this.ucComboBoxDonVi1.Name = "ucComboBoxDonVi1";
             this.ucComboBoxDonVi1.Size = new System.Drawing.Size(185, 20);
