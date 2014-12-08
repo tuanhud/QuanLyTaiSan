@@ -312,52 +312,43 @@ namespace TSCD.DataFilter
             var re = new List<TaiSanHienThi>();
             foreach (var item in list)
             {
-                //if(item.namsudung>2008 && item.namsudung<=nam)
-                //{
-                //    long haomon_trennam = item.thanhtien / item.sonamsudung_32;
-                //    long tongHaoMon = haomon_trennam * (nam - item.namsudung);
-                //    item.giatriconlai_final = item.thanhtien - tongHaoMon > 0?item.thanhtien-tongHaoMon:0;
-                //    item.sonamsudungconlai_final = item.sonamsudung_32 - (nam - item.namsudung);
-                //    re.Add(item);
-                //}
-                //else
+                
+                if (item.namsudung > nam)
                 {
-                    if (item.namsudung > nam)
+                    //ignore
+                }
+                else if (item.giatriconlai_32 <= 0 || item.sonamsudungconlai_32 <= 0)
+                {
+                    item.giatriconlai_final = 0;
+                    item.sonamsudungconlai_final = 0;
+                    re.Add(item);
+                }
+                else
+                {
+                    //tinh ngay nam 2008 thi gia tri con lai chinh la theo uyet dinh 32
+                    if (nam == 2008)
                     {
-                        //ignore
+                        item.giatriconlai_final = item.giatriconlai_32;
+                        item.sonamsudungconlai_final = item.sonamsudungconlai_final;
                     }
-                    else if (item.giatriconlai_32 <= 0 || item.sonamsudungconlai_32 <= 0)
+                    //khong tinh gia tri con lai duoc
+                    else if (nam - 2008 < 0)
                     {
                         item.giatriconlai_final = 0;
-                        item.sonamsudungconlai_final = 0;
-                        re.Add(item);
+                        item.sonamsudungconlai_final = item.sonamsudungconlai_32 + (2008 - nam);
                     }
                     else
                     {
-                        //tinh ngay nam 2008 thi gia tri con lai chinh la theo uyet dinh 32
-                        if (nam == 2008)
-                        {
-                            item.giatriconlai_final = item.giatriconlai_32;
-                            item.sonamsudungconlai_final = item.sonamsudungconlai_final;
-                        }
-                        //khong tinh gia tri con lai duoc
-                        else if (nam - 2008 < 0)
-                        {
-                            item.giatriconlai_final = -1;
-                            item.sonamsudungconlai_final = item.sonamsudungconlai_32 + (2008 - nam);
-                        }
-                        else
-                        {
-                            var nam_anchor = item.namsudung<=2008?2008:item.namsudung;
+                        var nam_anchor = item.namsudung<=2008?2008:item.namsudung;
                             
-                            long haomon_tren1nam = item.giatriconlai_32 / item.sonamsudungconlai_32;
-                            long tonghaomon = (nam - nam_anchor) * haomon_tren1nam;
-                            item.giatriconlai_final = item.giatriconlai_32 - tonghaomon;
-                            item.sonamsudungconlai_final = item.sonamsudungconlai_32 - (nam - nam_anchor);
-                        }
-                        re.Add(item);
+                        long haomon_tren1nam = item.giatriconlai_32 / item.sonamsudungconlai_32;
+                        long tonghaomon = (nam - nam_anchor) * haomon_tren1nam;
+                        item.giatriconlai_final = item.giatriconlai_32 - tonghaomon < 1000 ? 0 : item.giatriconlai_32 - tonghaomon;
+                        item.sonamsudungconlai_final = item.sonamsudungconlai_32 - (nam - nam_anchor) < 0 ? 0 : item.sonamsudungconlai_32 - (nam - nam_anchor);
                     }
+                    re.Add(item);
                 }
+                
             }
 
             return re;
