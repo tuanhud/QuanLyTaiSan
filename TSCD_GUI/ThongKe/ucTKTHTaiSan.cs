@@ -98,8 +98,8 @@ namespace TSCD_GUI.ThongKe
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            dateNgaySD.DateTime = DateTime.Now;
             checkedCbxTinhTrang.SetEditValue(null);
+            checkTinhTrang.Checked = false;
             ucComboBoxLoaiTS1.EditValue = null;
             checkLoaiTS.Checked = false;
             ucComboBoxDonVi1.EditValue = Guid.Empty;
@@ -112,6 +112,8 @@ namespace TSCD_GUI.ThongKe
                 cbxEquationNgaySD.SelectedIndex = 0;
             if (cbxEquationDonGia.Properties.Items.Count > 0)
                 cbxEquationDonGia.SelectedIndex = 0;
+            checkNgaySuDung.Checked = false;
+            checkDonGia.Checked = false;
         }
 
         public void Search()
@@ -130,9 +132,9 @@ namespace TSCD_GUI.ThongKe
                 bool isViTri = true;
                 if (vitri == null)
                     isViTri = false;
-                List<TaiSanHienThi> list = TaiSanHienThi.Convert(CTTaiSanSF.search(null, loai, checkDonVi.Checked, DVQL, false, null, isViTri && checkViTri.Checked, vitri, !isViTri && checkViTri.Checked, phong, tinhtrangs, 
-                    cbxEquationDonGia.EditValue != null ? cbxEquationDonGia.EditValue.ToString() : null, spinDonGia.EditValue != null ? (long?)long.Parse(spinDonGia.EditValue.ToString()) : null,
-                    cbxEquationNgaySD.EditValue != null ? cbxEquationNgaySD.EditValue.ToString() : null, dateNgaySD.EditValue != null ? (DateTime?)dateNgaySD.DateTime : null));
+                List<TaiSanHienThi> list = TaiSanHienThi.Convert(CTTaiSanSF.search(null, loai, checkDonVi.Checked, DVQL, false, null, isViTri && checkViTri.Checked, vitri, !isViTri && checkViTri.Checked, phong, checkTinhTrang.Checked ? tinhtrangs : null,
+                    (cbxEquationDonGia.EditValue != null && checkDonGia.Checked) ? cbxEquationDonGia.EditValue.ToString() : null, (spinDonGia.EditValue != null && checkDonGia.Checked) ? (long?)long.Parse(spinDonGia.EditValue.ToString()) : null,
+                    (cbxEquationNgaySD.EditValue != null && checkNgaySuDung.Checked) ? cbxEquationNgaySD.EditValue.ToString() : null, (dateNgaySD.EditValue != null && checkNgaySuDung.Checked) ? (DateTime?)dateNgaySD.DateTime : null));
                 //ucGridControlTaiSan1.DataSource = list;
                 gridControlTaiSan.DataSource = list;
                 taisans = list;
@@ -158,25 +160,25 @@ namespace TSCD_GUI.ThongKe
             Search();
         }
 
-        List<Object> listToSummary = new List<Object>();
+        //List<Object> listToSummary = new List<Object>();
         private void gridViewTaiSan_CustomSummaryCalculate(object sender, DevExpress.Data.CustomSummaryEventArgs e)
         {
-            try
-            {
-                if (e.SummaryProcess == DevExpress.Data.CustomSummaryProcess.Calculate)
-                    listToSummary.Add(e.FieldValue);
-                else
-                {
-                    List<Object> tmp = listToSummary.Distinct().ToList();
-                    tmp.Remove("");
-                    e.TotalValue = tmp.Count();
-                    listToSummary.Clear();
-                }
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(this.Name + "->gridViewTaiSan_CustomSummaryCalculate:" + ex.Message);
-            }
+            //try
+            //{
+            //    if (e.SummaryProcess == DevExpress.Data.CustomSummaryProcess.Calculate)
+            //        listToSummary.Add(e.FieldValue);
+            //    else
+            //    {
+            //        List<Object> tmp = listToSummary.Distinct().ToList();
+            //        tmp.Remove("");
+            //        e.TotalValue = tmp.Count();
+            //        listToSummary.Clear();
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    Debug.WriteLine(this.Name + "->gridViewTaiSan_CustomSummaryCalculate:" + ex.Message);
+            //}
         }
 
         public void ExpandAllGroups()
@@ -251,6 +253,31 @@ namespace TSCD_GUI.ThongKe
         private void ucTKTHTaiSan_Leave(object sender, EventArgs e)
         {
             saveLayout();
+        }
+
+        private void cbxEquationNgaySD_EditValueChanged(object sender, EventArgs e)
+        {
+            checkNgaySuDung.Checked = true;
+        }
+
+        private void dateNgaySD_EditValueChanged(object sender, EventArgs e)
+        {
+            checkNgaySuDung.Checked = true;
+        }
+
+        private void cbxEquationDonGia_EditValueChanged(object sender, EventArgs e)
+        {
+            checkDonGia.Checked = true;
+        }
+
+        private void spinDonGia_EditValueChanged(object sender, EventArgs e)
+        {
+            checkDonGia.Checked = true;
+        }
+
+        private void checkedCbxTinhTrang_EditValueChanged(object sender, EventArgs e)
+        {
+            checkTinhTrang.Checked = true;
         }
     }
 }

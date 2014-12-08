@@ -206,9 +206,9 @@
             // 
             this.rbnGroupThongKe.ItemLinks.Add(this.barBtnTKPhong);
             this.rbnGroupThongKe.ItemLinks.Add(this.barBtnTKTaiSan);
-            this.rbnGroupThongKe.ItemLinks.Add(this.barBtnTKHaoMon);
-            this.rbnGroupThongKe.ItemLinks.Add(this.barBtnTKTHPhong);
             this.rbnGroupThongKe.ItemLinks.Add(this.barBtnTKTHTaiSan);
+            this.rbnGroupThongKe.ItemLinks.Add(this.barBtnTKTHPhong);
+            this.rbnGroupThongKe.ItemLinks.Add(this.barBtnTKHaoMon);
             this.rbnGroupThongKe.Name = "rbnGroupThongKe";
             this.rbnGroupThongKe.ShowCaptionButton = false;
             this.rbnGroupThongKe.Text = "Thống kê";

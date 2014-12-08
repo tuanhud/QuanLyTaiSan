@@ -35,6 +35,7 @@
             this.colsohieuct = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colngayct = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colten = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryMemoTen = new DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit();
             this.colloaits = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coldonvitinh = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colnuocsx = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -57,6 +58,8 @@
             this.colsonamsudungconlai_final = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colgiatriconlai_final = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelSearch = new DevExpress.XtraEditors.PanelControl();
+            this.checkTinhTrang = new DevExpress.XtraEditors.CheckEdit();
+            this.checkNamTK = new DevExpress.XtraEditors.CheckEdit();
             this.btnClear = new DevExpress.XtraEditors.SimpleButton();
             this.btnTim = new DevExpress.XtraEditors.SimpleButton();
             this.ucComboBoxViTri1 = new TSCD_GUI.MyUserControl.ucComboBoxViTri();
@@ -67,20 +70,19 @@
             this.checkedCbxTinhTrang = new DevExpress.XtraEditors.CheckedComboBoxEdit();
             this.ucComboBoxDonVi1 = new TSCD_GUI.MyUserControl.ucComboBoxDonVi();
             this.dateNgayTK = new DevExpress.XtraEditors.DateEdit();
-            this.labelTinhTrang = new DevExpress.XtraEditors.LabelControl();
-            this.labelNgayTK = new DevExpress.XtraEditors.LabelControl();
-            this.repositoryMemoTen = new DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlHaoMon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewHaoMon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryMemoTen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelSearch)).BeginInit();
             this.panelSearch.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.checkTinhTrang.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkNamTK.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkViTri.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkLoaiTS.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkDonVi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkedCbxTinhTrang.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateNgayTK.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateNgayTK.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryMemoTen)).BeginInit();
             this.SuspendLayout();
             // 
             // gridControlHaoMon
@@ -162,6 +164,10 @@
             this.colten.Name = "colten";
             this.colten.Visible = true;
             this.colten.VisibleIndex = 2;
+            // 
+            // repositoryMemoTen
+            // 
+            this.repositoryMemoTen.Name = "repositoryMemoTen";
             // 
             // colloaits
             // 
@@ -347,6 +353,8 @@
             // 
             // panelSearch
             // 
+            this.panelSearch.Controls.Add(this.checkTinhTrang);
+            this.panelSearch.Controls.Add(this.checkNamTK);
             this.panelSearch.Controls.Add(this.btnClear);
             this.panelSearch.Controls.Add(this.btnTim);
             this.panelSearch.Controls.Add(this.ucComboBoxViTri1);
@@ -357,13 +365,29 @@
             this.panelSearch.Controls.Add(this.checkedCbxTinhTrang);
             this.panelSearch.Controls.Add(this.ucComboBoxDonVi1);
             this.panelSearch.Controls.Add(this.dateNgayTK);
-            this.panelSearch.Controls.Add(this.labelTinhTrang);
-            this.panelSearch.Controls.Add(this.labelNgayTK);
             this.panelSearch.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelSearch.Location = new System.Drawing.Point(0, 0);
             this.panelSearch.Name = "panelSearch";
             this.panelSearch.Size = new System.Drawing.Size(862, 82);
             this.panelSearch.TabIndex = 1;
+            // 
+            // checkTinhTrang
+            // 
+            this.checkTinhTrang.Location = new System.Drawing.Point(5, 29);
+            this.checkTinhTrang.Name = "checkTinhTrang";
+            this.checkTinhTrang.Properties.Caption = "Tình trạng:";
+            this.checkTinhTrang.Size = new System.Drawing.Size(82, 19);
+            this.checkTinhTrang.TabIndex = 17;
+            // 
+            // checkNamTK
+            // 
+            this.checkNamTK.EditValue = true;
+            this.checkNamTK.Location = new System.Drawing.Point(5, 5);
+            this.checkNamTK.Name = "checkNamTK";
+            this.checkNamTK.Properties.Caption = "Năm thống kê:";
+            this.checkNamTK.Properties.ReadOnly = true;
+            this.checkNamTK.Size = new System.Drawing.Size(93, 19);
+            this.checkNamTK.TabIndex = 16;
             // 
             // btnClear
             // 
@@ -429,7 +453,7 @@
             // 
             // checkedCbxTinhTrang
             // 
-            this.checkedCbxTinhTrang.Location = new System.Drawing.Point(85, 31);
+            this.checkedCbxTinhTrang.Location = new System.Drawing.Point(101, 32);
             this.checkedCbxTinhTrang.Name = "checkedCbxTinhTrang";
             this.checkedCbxTinhTrang.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -437,6 +461,7 @@
             this.checkedCbxTinhTrang.Properties.ValueMember = "id";
             this.checkedCbxTinhTrang.Size = new System.Drawing.Size(130, 20);
             this.checkedCbxTinhTrang.TabIndex = 7;
+            this.checkedCbxTinhTrang.EditValueChanged += new System.EventHandler(this.checkedCbxTinhTrang_EditValueChanged);
             // 
             // ucComboBoxDonVi1
             // 
@@ -450,7 +475,7 @@
             // dateNgayTK
             // 
             this.dateNgayTK.EditValue = null;
-            this.dateNgayTK.Location = new System.Drawing.Point(85, 5);
+            this.dateNgayTK.Location = new System.Drawing.Point(101, 6);
             this.dateNgayTK.Name = "dateNgayTK";
             this.dateNgayTK.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -465,26 +490,6 @@
             this.dateNgayTK.Size = new System.Drawing.Size(130, 20);
             this.dateNgayTK.TabIndex = 5;
             // 
-            // labelTinhTrang
-            // 
-            this.labelTinhTrang.Location = new System.Drawing.Point(5, 34);
-            this.labelTinhTrang.Name = "labelTinhTrang";
-            this.labelTinhTrang.Size = new System.Drawing.Size(53, 13);
-            this.labelTinhTrang.TabIndex = 3;
-            this.labelTinhTrang.Text = "Tình trạng:";
-            // 
-            // labelNgayTK
-            // 
-            this.labelNgayTK.Location = new System.Drawing.Point(5, 8);
-            this.labelNgayTK.Name = "labelNgayTK";
-            this.labelNgayTK.Size = new System.Drawing.Size(70, 13);
-            this.labelNgayTK.TabIndex = 0;
-            this.labelNgayTK.Text = "Năm thống kê:";
-            // 
-            // repositoryMemoTen
-            // 
-            this.repositoryMemoTen.Name = "repositoryMemoTen";
-            // 
             // ucTKHaoMon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -496,16 +501,17 @@
             this.Leave += new System.EventHandler(this.ucTKHaoMon_Leave);
             ((System.ComponentModel.ISupportInitialize)(this.gridControlHaoMon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewHaoMon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryMemoTen)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelSearch)).EndInit();
             this.panelSearch.ResumeLayout(false);
-            this.panelSearch.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.checkTinhTrang.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkNamTK.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkViTri.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkLoaiTS.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkDonVi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkedCbxTinhTrang.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateNgayTK.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateNgayTK.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryMemoTen)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -515,8 +521,6 @@
         public DevExpress.XtraGrid.GridControl gridControlHaoMon;
         private DevExpress.XtraGrid.Views.Grid.GridView gridViewHaoMon;
         private DevExpress.XtraEditors.PanelControl panelSearch;
-        private DevExpress.XtraEditors.LabelControl labelNgayTK;
-        private DevExpress.XtraEditors.LabelControl labelTinhTrang;
         private MyUserControl.ucComboBoxDonVi ucComboBoxDonVi1;
         private DevExpress.XtraEditors.DateEdit dateNgayTK;
         private DevExpress.XtraEditors.CheckedComboBoxEdit checkedCbxTinhTrang;
@@ -553,5 +557,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colsonamsudungconlai_final;
         private DevExpress.XtraGrid.Columns.GridColumn colgiatriconlai_final;
         private DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit repositoryMemoTen;
+        private DevExpress.XtraEditors.CheckEdit checkTinhTrang;
+        private DevExpress.XtraEditors.CheckEdit checkNamTK;
     }
 }

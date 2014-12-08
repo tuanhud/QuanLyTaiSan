@@ -89,6 +89,7 @@ namespace TSCD_GUI.ThongKe
             //ucComboBoxLoaiTS1.EditValue = null;
             //checkLoaiTS.Checked = false;
             checkedCbxLoaiPhong.SetEditValue(null);
+            checkLoaiPhong.Checked = false;
             ucComboBoxDonVi1.EditValue = Guid.Empty;
             checkDonVi.Checked = false;
             ucComboBoxViTri1.EditValue = Guid.Empty;
@@ -99,6 +100,7 @@ namespace TSCD_GUI.ThongKe
             //    comboBoxEdit1.SelectedIndex = 0;
             if (cbxEquation.Properties.Items.Count > 0)
                 cbxEquation.SelectedIndex = 0;
+            checkSoLuongChoNgoi.Checked = false;
         }
 
         private void btnTim_Click(object sender, EventArgs e)
@@ -108,30 +110,30 @@ namespace TSCD_GUI.ThongKe
             //List<Guid> list_coso = CheckedComboBoxEditHelper.getCheckedValueArray(checkedComboBoxCoSo);
             //List<Guid> list_loaiphong = CheckedComboBoxEditHelper.getCheckedValueArray(checkedComboBoxLoaiPhong);
             List<Guid> list_loaiphong = CheckedComboBoxEditHelper.getCheckedValueArray(checkedCbxLoaiPhong);
-            gridControlPhong.DataSource = Phong_ThongKe.getAllForTH(list_loaiphong, checkViTri.Checked ? ucComboBoxViTri1.ViTri : null, checkDonVi.Checked ? ucComboBoxDonVi1.DonVi : null, 
-                cbxEquation.EditValue != null ? cbxEquation.EditValue.ToString() : null, spinSoChoNgoi.EditValue != null ? (int?)Convert.ToInt32(spinSoChoNgoi.EditValue) : null);
+            gridControlPhong.DataSource = Phong_ThongKe.getAllForTH(checkLoaiPhong.Checked ? list_loaiphong : null, checkViTri.Checked ? ucComboBoxViTri1.ViTri : null, checkDonVi.Checked ? ucComboBoxDonVi1.DonVi : null,
+                (cbxEquation.EditValue != null && checkSoLuongChoNgoi.Checked) ? cbxEquation.EditValue.ToString() : null, (spinSoChoNgoi.EditValue != null && checkSoLuongChoNgoi.Checked) ? (int?)Convert.ToInt32(spinSoChoNgoi.EditValue) : null);
             DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
         }
 
-        List<Object> listToSummary = new List<Object>();
+        //List<Object> listToSummary = new List<Object>();
         private void gridViewPhong_CustomSummaryCalculate(object sender, DevExpress.Data.CustomSummaryEventArgs e)
         {
-            try
-            {
-                if (e.SummaryProcess == DevExpress.Data.CustomSummaryProcess.Calculate)
-                    listToSummary.Add(e.FieldValue);
-                else
-                {
-                    List<Object> tmp = listToSummary.Distinct().ToList();
-                    tmp.Remove("");
-                    e.TotalValue = tmp.Count();
-                    listToSummary.Clear();
-                }
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(this.Name + "->gridViewPhong_CustomSummaryCalculate:" + ex.Message);
-            }
+            //try
+            //{
+            //    if (e.SummaryProcess == DevExpress.Data.CustomSummaryProcess.Calculate)
+            //        listToSummary.Add(e.FieldValue);
+            //    else
+            //    {
+            //        List<Object> tmp = listToSummary.Distinct().ToList();
+            //        tmp.Remove("");
+            //        e.TotalValue = tmp.Count();
+            //        listToSummary.Clear();
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    Debug.WriteLine(this.Name + "->gridViewPhong_CustomSummaryCalculate:" + ex.Message);
+            //}
         }
 
         public void ExpandAllGroups()
@@ -206,6 +208,21 @@ namespace TSCD_GUI.ThongKe
         private void ucTKTHPhong_Leave(object sender, EventArgs e)
         {
             saveLayout();
+        }
+
+        private void checkedCbxLoaiPhong_EditValueChanged(object sender, EventArgs e)
+        {
+            checkLoaiPhong.Checked = true;
+        }
+
+        private void cbxEquation_EditValueChanged(object sender, EventArgs e)
+        {
+            checkSoLuongChoNgoi.Checked = true;
+        }
+
+        private void spinSoChoNgoi_EditValueChanged(object sender, EventArgs e)
+        {
+            checkSoLuongChoNgoi.Checked = true;
         }
     }
 }
