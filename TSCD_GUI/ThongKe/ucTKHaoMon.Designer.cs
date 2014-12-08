@@ -54,6 +54,8 @@
             this.colsonamsudungconlai_32 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colgiatriconlai_351 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colgiatriconlai_32 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colsonamsudungconlai_final = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colgiatriconlai_final = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelSearch = new DevExpress.XtraEditors.PanelControl();
             this.btnClear = new DevExpress.XtraEditors.SimpleButton();
             this.btnTim = new DevExpress.XtraEditors.SimpleButton();
@@ -67,8 +69,7 @@
             this.dateNgayTK = new DevExpress.XtraEditors.DateEdit();
             this.labelTinhTrang = new DevExpress.XtraEditors.LabelControl();
             this.labelNgayTK = new DevExpress.XtraEditors.LabelControl();
-            this.colsonamsudungconlai_final = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colgiatriconlai_final = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryMemoTen = new DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlHaoMon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewHaoMon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelSearch)).BeginInit();
@@ -79,6 +80,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.checkedCbxTinhTrang.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateNgayTK.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateNgayTK.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryMemoTen)).BeginInit();
             this.SuspendLayout();
             // 
             // gridControlHaoMon
@@ -87,6 +89,8 @@
             this.gridControlHaoMon.Location = new System.Drawing.Point(0, 82);
             this.gridControlHaoMon.MainView = this.gridViewHaoMon;
             this.gridControlHaoMon.Name = "gridControlHaoMon";
+            this.gridControlHaoMon.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryMemoTen});
             this.gridControlHaoMon.Size = new System.Drawing.Size(862, 446);
             this.gridControlHaoMon.TabIndex = 0;
             this.gridControlHaoMon.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -126,6 +130,7 @@
             this.gridViewHaoMon.OptionsBehavior.ReadOnly = true;
             this.gridViewHaoMon.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gridViewHaoMon.OptionsView.ColumnAutoWidth = false;
+            this.gridViewHaoMon.OptionsView.RowAutoHeight = true;
             // 
             // colid
             // 
@@ -152,6 +157,7 @@
             // colten
             // 
             this.colten.Caption = "Tên tài sản";
+            this.colten.ColumnEdit = this.repositoryMemoTen;
             this.colten.FieldName = "ten";
             this.colten.Name = "colten";
             this.colten.Visible = true;
@@ -321,6 +327,24 @@
             this.colgiatriconlai_32.Visible = true;
             this.colgiatriconlai_32.VisibleIndex = 21;
             // 
+            // colsonamsudungconlai_final
+            // 
+            this.colsonamsudungconlai_final.Caption = "Số năm sử dụng còn lại sau cùng";
+            this.colsonamsudungconlai_final.FieldName = "sonamsudungconlai_final";
+            this.colsonamsudungconlai_final.Name = "colsonamsudungconlai_final";
+            this.colsonamsudungconlai_final.Visible = true;
+            this.colsonamsudungconlai_final.VisibleIndex = 22;
+            // 
+            // colgiatriconlai_final
+            // 
+            this.colgiatriconlai_final.Caption = "Giá trị còn lại sau cùng";
+            this.colgiatriconlai_final.DisplayFormat.FormatString = "### ### ### ##0";
+            this.colgiatriconlai_final.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colgiatriconlai_final.FieldName = "giatriconlai_final";
+            this.colgiatriconlai_final.Name = "colgiatriconlai_final";
+            this.colgiatriconlai_final.Visible = true;
+            this.colgiatriconlai_final.VisibleIndex = 23;
+            // 
             // panelSearch
             // 
             this.panelSearch.Controls.Add(this.btnClear);
@@ -457,23 +481,9 @@
             this.labelNgayTK.TabIndex = 0;
             this.labelNgayTK.Text = "Năm thống kê:";
             // 
-            // colsonamsudungconlai_final
+            // repositoryMemoTen
             // 
-            this.colsonamsudungconlai_final.Caption = "Số năm sử dụng còn lại sau cùng";
-            this.colsonamsudungconlai_final.FieldName = "sonamsudungconlai_final";
-            this.colsonamsudungconlai_final.Name = "colsonamsudungconlai_final";
-            this.colsonamsudungconlai_final.Visible = true;
-            this.colsonamsudungconlai_final.VisibleIndex = 22;
-            // 
-            // colgiatriconlai_final
-            // 
-            this.colgiatriconlai_final.Caption = "Giá trị còn lại sau cùng";
-            this.colgiatriconlai_final.DisplayFormat.FormatString = "### ### ### ##0";
-            this.colgiatriconlai_final.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.colgiatriconlai_final.FieldName = "giatriconlai_final";
-            this.colgiatriconlai_final.Name = "colgiatriconlai_final";
-            this.colgiatriconlai_final.Visible = true;
-            this.colgiatriconlai_final.VisibleIndex = 23;
+            this.repositoryMemoTen.Name = "repositoryMemoTen";
             // 
             // ucTKHaoMon
             // 
@@ -495,6 +505,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.checkedCbxTinhTrang.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateNgayTK.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateNgayTK.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryMemoTen)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -541,5 +552,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colngayct;
         private DevExpress.XtraGrid.Columns.GridColumn colsonamsudungconlai_final;
         private DevExpress.XtraGrid.Columns.GridColumn colgiatriconlai_final;
+        private DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit repositoryMemoTen;
     }
 }
