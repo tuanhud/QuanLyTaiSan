@@ -12,6 +12,7 @@ using TSCD.Entities;
 using SHARED.Libraries;
 using TSCD.DataFilter.SearchFilter;
 using System.IO;
+using TSCD_GUI.Libraries;
 
 namespace TSCD_GUI.ThongKe
 {
@@ -94,7 +95,8 @@ namespace TSCD_GUI.ThongKe
         private void btnClear_Click(object sender, EventArgs e)
         {
             dateNgayTK.DateTime = DateTime.Now;
-            checkedCbxTinhTrang.EditValue = null;
+            checkedCbxTinhTrang.SetEditValue(null);
+            checkTinhTrang.Checked = false;
             ucComboBoxLoaiTS1.EditValue = null;
             checkLoaiTS.Checked = false;
             ucComboBoxDonVi1.DonVi = null;
@@ -121,10 +123,11 @@ namespace TSCD_GUI.ThongKe
                     DonVi DVQL = ucComboBoxDonVi1.DonVi;
                     ViTri vitri = ucComboBoxViTri1.ViTri;
                     Phong phong = ucComboBoxViTri1.Phong;
+                    List<Guid> tinhtrangs = CheckedComboBoxEditHelper.getCheckedValueArray(checkedCbxTinhTrang);
                     bool isViTri = true;
                     if (vitri == null)
                         isViTri = false;
-                    List<TaiSanHienThi> tmp = TaiSanHienThi.Convert(CTTaiSanSF.search(null, loai, checkDonVi.Checked, DVQL, false, null, isViTri && checkViTri.Checked, vitri, !isViTri && checkViTri.Checked, phong));
+                    List<TaiSanHienThi> tmp = TaiSanHienThi.Convert(CTTaiSanSF.search(null, loai, checkDonVi.Checked, DVQL, false, null, isViTri && checkViTri.Checked, vitri, !isViTri && checkViTri.Checked, phong, checkTinhTrang.Checked ? tinhtrangs : null));
                     List<TaiSanHienThi> list = TaiSanHienThi.Convert(tmp, dateNgayTK.DateTime.Year);
                     gridControlHaoMon.DataSource = list;
 
@@ -211,6 +214,11 @@ namespace TSCD_GUI.ThongKe
         private void ucTKHaoMon_Leave(object sender, EventArgs e)
         {
             saveLayout();
+        }
+
+        private void checkedCbxTinhTrang_EditValueChanged(object sender, EventArgs e)
+        {
+            checkTinhTrang.Checked = true;
         }
     }
 }

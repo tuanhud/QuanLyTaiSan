@@ -32,7 +32,6 @@
             this.panelSearch = new DevExpress.XtraEditors.PanelControl();
             this.spinDonGia = new DevExpress.XtraEditors.SpinEdit();
             this.cbxEquationDonGia = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.lblDonGia = new DevExpress.XtraEditors.LabelControl();
             this.cbxEquationNgaySD = new DevExpress.XtraEditors.ComboBoxEdit();
             this.btnClear = new DevExpress.XtraEditors.SimpleButton();
             this.btnTim = new DevExpress.XtraEditors.SimpleButton();
@@ -44,14 +43,13 @@
             this.checkedCbxTinhTrang = new DevExpress.XtraEditors.CheckedComboBoxEdit();
             this.ucComboBoxDonVi1 = new TSCD_GUI.MyUserControl.ucComboBoxDonVi();
             this.dateNgaySD = new DevExpress.XtraEditors.DateEdit();
-            this.labelTinhTrang = new DevExpress.XtraEditors.LabelControl();
-            this.labelNgaySuDung = new DevExpress.XtraEditors.LabelControl();
             this.gridControlTaiSan = new DevExpress.XtraGrid.GridControl();
             this.gridViewTaiSan = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colngay_ct = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colsohieuct = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colten = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryMemoTen = new DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit();
             this.colloaits = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coldonvitinh = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colngaysudung = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -63,7 +61,9 @@
             this.colvitri = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colphong = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coldvql = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.repositoryMemoTen = new DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit();
+            this.checkTinhTrang = new DevExpress.XtraEditors.CheckEdit();
+            this.checkDonGia = new DevExpress.XtraEditors.CheckEdit();
+            this.checkNgaySuDung = new DevExpress.XtraEditors.CheckEdit();
             ((System.ComponentModel.ISupportInitialize)(this.panelSearch)).BeginInit();
             this.panelSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spinDonGia.Properties)).BeginInit();
@@ -78,13 +78,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridControlTaiSan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewTaiSan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryMemoTen)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkTinhTrang.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkDonGia.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkNgaySuDung.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelSearch
             // 
+            this.panelSearch.Controls.Add(this.checkTinhTrang);
+            this.panelSearch.Controls.Add(this.checkDonGia);
+            this.panelSearch.Controls.Add(this.checkNgaySuDung);
             this.panelSearch.Controls.Add(this.spinDonGia);
             this.panelSearch.Controls.Add(this.cbxEquationDonGia);
-            this.panelSearch.Controls.Add(this.lblDonGia);
             this.panelSearch.Controls.Add(this.cbxEquationNgaySD);
             this.panelSearch.Controls.Add(this.btnClear);
             this.panelSearch.Controls.Add(this.btnTim);
@@ -96,8 +101,6 @@
             this.panelSearch.Controls.Add(this.checkedCbxTinhTrang);
             this.panelSearch.Controls.Add(this.ucComboBoxDonVi1);
             this.panelSearch.Controls.Add(this.dateNgaySD);
-            this.panelSearch.Controls.Add(this.labelTinhTrang);
-            this.panelSearch.Controls.Add(this.labelNgaySuDung);
             this.panelSearch.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelSearch.Location = new System.Drawing.Point(0, 0);
             this.panelSearch.Name = "panelSearch";
@@ -111,16 +114,17 @@
             0,
             0,
             0});
-            this.spinDonGia.Location = new System.Drawing.Point(124, 29);
+            this.spinDonGia.Location = new System.Drawing.Point(142, 29);
             this.spinDonGia.Name = "spinDonGia";
             this.spinDonGia.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.spinDonGia.Size = new System.Drawing.Size(90, 20);
             this.spinDonGia.TabIndex = 31;
+            this.spinDonGia.EditValueChanged += new System.EventHandler(this.spinDonGia_EditValueChanged);
             // 
             // cbxEquationDonGia
             // 
-            this.cbxEquationDonGia.Location = new System.Drawing.Point(84, 29);
+            this.cbxEquationDonGia.Location = new System.Drawing.Point(102, 29);
             this.cbxEquationDonGia.Name = "cbxEquationDonGia";
             this.cbxEquationDonGia.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -132,18 +136,11 @@
             "<"});
             this.cbxEquationDonGia.Size = new System.Drawing.Size(34, 20);
             this.cbxEquationDonGia.TabIndex = 30;
-            // 
-            // lblDonGia
-            // 
-            this.lblDonGia.Location = new System.Drawing.Point(5, 32);
-            this.lblDonGia.Name = "lblDonGia";
-            this.lblDonGia.Size = new System.Drawing.Size(41, 13);
-            this.lblDonGia.TabIndex = 29;
-            this.lblDonGia.Text = "Đơn giá:";
+            this.cbxEquationDonGia.EditValueChanged += new System.EventHandler(this.cbxEquationDonGia_EditValueChanged);
             // 
             // cbxEquationNgaySD
             // 
-            this.cbxEquationNgaySD.Location = new System.Drawing.Point(84, 5);
+            this.cbxEquationNgaySD.Location = new System.Drawing.Point(102, 5);
             this.cbxEquationNgaySD.Name = "cbxEquationNgaySD";
             this.cbxEquationNgaySD.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -155,6 +152,7 @@
             "<"});
             this.cbxEquationNgaySD.Size = new System.Drawing.Size(34, 20);
             this.cbxEquationNgaySD.TabIndex = 28;
+            this.cbxEquationNgaySD.EditValueChanged += new System.EventHandler(this.cbxEquationNgaySD_EditValueChanged);
             // 
             // btnClear
             // 
@@ -178,7 +176,7 @@
             // ucComboBoxViTri1
             // 
             this.ucComboBoxViTri1.EditValue = null;
-            this.ucComboBoxViTri1.Location = new System.Drawing.Point(372, 54);
+            this.ucComboBoxViTri1.Location = new System.Drawing.Point(390, 54);
             this.ucComboBoxViTri1.Name = "ucComboBoxViTri1";
             this.ucComboBoxViTri1.Phong = null;
             this.ucComboBoxViTri1.Size = new System.Drawing.Size(200, 20);
@@ -189,14 +187,14 @@
             // 
             this.ucComboBoxLoaiTS1.EditValue = null;
             this.ucComboBoxLoaiTS1.LoaiTS = null;
-            this.ucComboBoxLoaiTS1.Location = new System.Drawing.Point(372, 29);
+            this.ucComboBoxLoaiTS1.Location = new System.Drawing.Point(390, 29);
             this.ucComboBoxLoaiTS1.Name = "ucComboBoxLoaiTS1";
             this.ucComboBoxLoaiTS1.Size = new System.Drawing.Size(200, 20);
             this.ucComboBoxLoaiTS1.TabIndex = 24;
             // 
             // checkViTri
             // 
-            this.checkViTri.Location = new System.Drawing.Point(276, 54);
+            this.checkViTri.Location = new System.Drawing.Point(294, 54);
             this.checkViTri.Name = "checkViTri";
             this.checkViTri.Properties.Caption = "Vị trí:";
             this.checkViTri.Size = new System.Drawing.Size(58, 19);
@@ -204,7 +202,7 @@
             // 
             // checkLoaiTS
             // 
-            this.checkLoaiTS.Location = new System.Drawing.Point(276, 29);
+            this.checkLoaiTS.Location = new System.Drawing.Point(294, 29);
             this.checkLoaiTS.Name = "checkLoaiTS";
             this.checkLoaiTS.Properties.Caption = "Loại tài sản:";
             this.checkLoaiTS.Size = new System.Drawing.Size(82, 19);
@@ -212,7 +210,7 @@
             // 
             // checkDonVi
             // 
-            this.checkDonVi.Location = new System.Drawing.Point(276, 5);
+            this.checkDonVi.Location = new System.Drawing.Point(294, 5);
             this.checkDonVi.Name = "checkDonVi";
             this.checkDonVi.Properties.Caption = "Đơn vị quản lý:";
             this.checkDonVi.Size = new System.Drawing.Size(93, 19);
@@ -220,7 +218,7 @@
             // 
             // checkedCbxTinhTrang
             // 
-            this.checkedCbxTinhTrang.Location = new System.Drawing.Point(84, 54);
+            this.checkedCbxTinhTrang.Location = new System.Drawing.Point(102, 54);
             this.checkedCbxTinhTrang.Name = "checkedCbxTinhTrang";
             this.checkedCbxTinhTrang.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -228,12 +226,13 @@
             this.checkedCbxTinhTrang.Properties.ValueMember = "id";
             this.checkedCbxTinhTrang.Size = new System.Drawing.Size(130, 20);
             this.checkedCbxTinhTrang.TabIndex = 20;
+            this.checkedCbxTinhTrang.EditValueChanged += new System.EventHandler(this.checkedCbxTinhTrang_EditValueChanged);
             // 
             // ucComboBoxDonVi1
             // 
             this.ucComboBoxDonVi1.DonVi = null;
             this.ucComboBoxDonVi1.EditValue = null;
-            this.ucComboBoxDonVi1.Location = new System.Drawing.Point(372, 5);
+            this.ucComboBoxDonVi1.Location = new System.Drawing.Point(390, 5);
             this.ucComboBoxDonVi1.Name = "ucComboBoxDonVi1";
             this.ucComboBoxDonVi1.Size = new System.Drawing.Size(200, 20);
             this.ucComboBoxDonVi1.TabIndex = 19;
@@ -241,7 +240,7 @@
             // dateNgaySD
             // 
             this.dateNgaySD.EditValue = null;
-            this.dateNgaySD.Location = new System.Drawing.Point(124, 5);
+            this.dateNgaySD.Location = new System.Drawing.Point(142, 5);
             this.dateNgaySD.Name = "dateNgaySD";
             this.dateNgaySD.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -249,22 +248,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateNgaySD.Size = new System.Drawing.Size(90, 20);
             this.dateNgaySD.TabIndex = 18;
-            // 
-            // labelTinhTrang
-            // 
-            this.labelTinhTrang.Location = new System.Drawing.Point(5, 57);
-            this.labelTinhTrang.Name = "labelTinhTrang";
-            this.labelTinhTrang.Size = new System.Drawing.Size(53, 13);
-            this.labelTinhTrang.TabIndex = 17;
-            this.labelTinhTrang.Text = "Tình trạng:";
-            // 
-            // labelNgaySuDung
-            // 
-            this.labelNgaySuDung.Location = new System.Drawing.Point(4, 8);
-            this.labelNgaySuDung.Name = "labelNgaySuDung";
-            this.labelNgaySuDung.Size = new System.Drawing.Size(71, 13);
-            this.labelNgaySuDung.TabIndex = 16;
-            this.labelNgaySuDung.Text = "Ngày sử dụng:";
+            this.dateNgaySD.EditValueChanged += new System.EventHandler(this.dateNgaySD_EditValueChanged);
             // 
             // gridControlTaiSan
             // 
@@ -299,17 +283,9 @@
             this.coldvql});
             this.gridViewTaiSan.GridControl = this.gridControlTaiSan;
             this.gridViewTaiSan.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Count, "ten", this.colten, ""),
-            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Custom, "loaits", this.colloaits, ""),
-            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Custom, "donvitinh", this.coldonvitinh, ""),
             new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Sum, "soluong", this.colsoluong, ""),
             new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Sum, "dongia", this.coldongia, "{0:### ### ### ##0}"),
-            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Sum, "thanhtien", this.colthanhtien, "{0:### ### ### ##0}"),
-            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Custom, "nuocsx", this.colnuocsx, ""),
-            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Custom, "tinhtrang", this.coltinhtrang, ""),
-            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Custom, "vitri", this.colvitri, ""),
-            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Custom, "phong", this.colphong, ""),
-            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Custom, "dvquanly", this.coldvql, "")});
+            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Sum, "thanhtien", this.colthanhtien, "{0:### ### ### ##0}")});
             this.gridViewTaiSan.Name = "gridViewTaiSan";
             this.gridViewTaiSan.OptionsBehavior.Editable = false;
             this.gridViewTaiSan.OptionsBehavior.ReadOnly = true;
@@ -346,18 +322,18 @@
             this.colten.ColumnEdit = this.repositoryMemoTen;
             this.colten.FieldName = "ten";
             this.colten.Name = "colten";
-            this.colten.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count)});
             this.colten.Visible = true;
             this.colten.VisibleIndex = 2;
+            // 
+            // repositoryMemoTen
+            // 
+            this.repositoryMemoTen.Name = "repositoryMemoTen";
             // 
             // colloaits
             // 
             this.colloaits.Caption = "Loại tài sản";
             this.colloaits.FieldName = "loaits";
             this.colloaits.Name = "colloaits";
-            this.colloaits.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Custom)});
             this.colloaits.Visible = true;
             this.colloaits.VisibleIndex = 3;
             // 
@@ -366,8 +342,6 @@
             this.coldonvitinh.Caption = "Đơn vị tính";
             this.coldonvitinh.FieldName = "donvitinh";
             this.coldonvitinh.Name = "coldonvitinh";
-            this.coldonvitinh.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Custom)});
             this.coldonvitinh.Visible = true;
             this.coldonvitinh.VisibleIndex = 4;
             // 
@@ -418,8 +392,6 @@
             this.colnuocsx.Caption = "Nước sản xuất";
             this.colnuocsx.FieldName = "nuocsx";
             this.colnuocsx.Name = "colnuocsx";
-            this.colnuocsx.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Custom)});
             this.colnuocsx.Visible = true;
             this.colnuocsx.VisibleIndex = 6;
             // 
@@ -428,8 +400,6 @@
             this.coltinhtrang.Caption = "Tình trạng";
             this.coltinhtrang.FieldName = "tinhtrang";
             this.coltinhtrang.Name = "coltinhtrang";
-            this.coltinhtrang.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Custom)});
             this.coltinhtrang.Visible = true;
             this.coltinhtrang.VisibleIndex = 10;
             // 
@@ -438,8 +408,6 @@
             this.colvitri.Caption = "Vị trí";
             this.colvitri.FieldName = "vitri";
             this.colvitri.Name = "colvitri";
-            this.colvitri.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Custom)});
             this.colvitri.Visible = true;
             this.colvitri.VisibleIndex = 11;
             // 
@@ -448,8 +416,6 @@
             this.colphong.Caption = "Phòng";
             this.colphong.FieldName = "phong";
             this.colphong.Name = "colphong";
-            this.colphong.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Custom)});
             this.colphong.Visible = true;
             this.colphong.VisibleIndex = 12;
             // 
@@ -458,14 +424,32 @@
             this.coldvql.Caption = "Đơn vị quản lý";
             this.coldvql.FieldName = "dvquanly";
             this.coldvql.Name = "coldvql";
-            this.coldvql.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Custom)});
             this.coldvql.Visible = true;
             this.coldvql.VisibleIndex = 13;
             // 
-            // repositoryMemoTen
+            // checkTinhTrang
             // 
-            this.repositoryMemoTen.Name = "repositoryMemoTen";
+            this.checkTinhTrang.Location = new System.Drawing.Point(5, 54);
+            this.checkTinhTrang.Name = "checkTinhTrang";
+            this.checkTinhTrang.Properties.Caption = "Tình trạng:";
+            this.checkTinhTrang.Size = new System.Drawing.Size(82, 19);
+            this.checkTinhTrang.TabIndex = 34;
+            // 
+            // checkDonGia
+            // 
+            this.checkDonGia.Location = new System.Drawing.Point(5, 29);
+            this.checkDonGia.Name = "checkDonGia";
+            this.checkDonGia.Properties.Caption = "Đơn giá:";
+            this.checkDonGia.Size = new System.Drawing.Size(82, 19);
+            this.checkDonGia.TabIndex = 33;
+            // 
+            // checkNgaySuDung
+            // 
+            this.checkNgaySuDung.Location = new System.Drawing.Point(5, 5);
+            this.checkNgaySuDung.Name = "checkNgaySuDung";
+            this.checkNgaySuDung.Properties.Caption = "Ngày sử dụng:";
+            this.checkNgaySuDung.Size = new System.Drawing.Size(93, 19);
+            this.checkNgaySuDung.TabIndex = 32;
             // 
             // ucTKTHTaiSan
             // 
@@ -478,7 +462,6 @@
             this.Leave += new System.EventHandler(this.ucTKTHTaiSan_Leave);
             ((System.ComponentModel.ISupportInitialize)(this.panelSearch)).EndInit();
             this.panelSearch.ResumeLayout(false);
-            this.panelSearch.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spinDonGia.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbxEquationDonGia.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbxEquationNgaySD.Properties)).EndInit();
@@ -491,6 +474,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridControlTaiSan)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewTaiSan)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryMemoTen)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkTinhTrang.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkDonGia.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkNgaySuDung.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -510,8 +496,6 @@
         private DevExpress.XtraEditors.CheckedComboBoxEdit checkedCbxTinhTrang;
         private MyUserControl.ucComboBoxDonVi ucComboBoxDonVi1;
         private DevExpress.XtraEditors.DateEdit dateNgaySD;
-        private DevExpress.XtraEditors.LabelControl labelTinhTrang;
-        private DevExpress.XtraEditors.LabelControl labelNgaySuDung;
         private DevExpress.XtraGrid.Columns.GridColumn colid;
         private DevExpress.XtraGrid.Columns.GridColumn colten;
         private DevExpress.XtraGrid.Columns.GridColumn colloaits;
@@ -529,8 +513,10 @@
         private DevExpress.XtraEditors.ComboBoxEdit cbxEquationNgaySD;
         private DevExpress.XtraEditors.SpinEdit spinDonGia;
         private DevExpress.XtraEditors.ComboBoxEdit cbxEquationDonGia;
-        private DevExpress.XtraEditors.LabelControl lblDonGia;
         private DevExpress.XtraGrid.Columns.GridColumn colngay_ct;
         private DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit repositoryMemoTen;
+        private DevExpress.XtraEditors.CheckEdit checkTinhTrang;
+        private DevExpress.XtraEditors.CheckEdit checkDonGia;
+        private DevExpress.XtraEditors.CheckEdit checkNgaySuDung;
     }
 }

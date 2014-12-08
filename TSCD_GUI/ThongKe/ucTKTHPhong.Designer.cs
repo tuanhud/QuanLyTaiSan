@@ -32,7 +32,6 @@
             this.panelSearch = new DevExpress.XtraEditors.PanelControl();
             this.spinSoChoNgoi = new DevExpress.XtraEditors.SpinEdit();
             this.cbxEquation = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.lblSoLuongChoNgoi = new DevExpress.XtraEditors.LabelControl();
             this.btnClear = new DevExpress.XtraEditors.SimpleButton();
             this.btnTim = new DevExpress.XtraEditors.SimpleButton();
             this.ucComboBoxViTri1 = new TSCD_GUI.MyUserControl.ucComboBoxViTri();
@@ -40,7 +39,6 @@
             this.checkDonVi = new DevExpress.XtraEditors.CheckEdit();
             this.checkViTri = new DevExpress.XtraEditors.CheckEdit();
             this.checkedCbxLoaiPhong = new DevExpress.XtraEditors.CheckedComboBoxEdit();
-            this.lblLoaiPhong = new DevExpress.XtraEditors.LabelControl();
             this.gridControlPhong = new DevExpress.XtraGrid.GridControl();
             this.gridViewPhong = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -51,6 +49,8 @@
             this.colcoso = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colday = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coltang = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.checkSoLuongChoNgoi = new DevExpress.XtraEditors.CheckEdit();
+            this.checkLoaiPhong = new DevExpress.XtraEditors.CheckEdit();
             ((System.ComponentModel.ISupportInitialize)(this.panelSearch)).BeginInit();
             this.panelSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spinSoChoNgoi.Properties)).BeginInit();
@@ -60,13 +60,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.checkedCbxLoaiPhong.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlPhong)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewPhong)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkSoLuongChoNgoi.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkLoaiPhong.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelSearch
             // 
+            this.panelSearch.Controls.Add(this.checkLoaiPhong);
+            this.panelSearch.Controls.Add(this.checkSoLuongChoNgoi);
             this.panelSearch.Controls.Add(this.spinSoChoNgoi);
             this.panelSearch.Controls.Add(this.cbxEquation);
-            this.panelSearch.Controls.Add(this.lblSoLuongChoNgoi);
             this.panelSearch.Controls.Add(this.btnClear);
             this.panelSearch.Controls.Add(this.btnTim);
             this.panelSearch.Controls.Add(this.ucComboBoxViTri1);
@@ -74,7 +77,6 @@
             this.panelSearch.Controls.Add(this.checkDonVi);
             this.panelSearch.Controls.Add(this.checkViTri);
             this.panelSearch.Controls.Add(this.checkedCbxLoaiPhong);
-            this.panelSearch.Controls.Add(this.lblLoaiPhong);
             this.panelSearch.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelSearch.Location = new System.Drawing.Point(0, 0);
             this.panelSearch.Name = "panelSearch";
@@ -88,16 +90,17 @@
             0,
             0,
             0});
-            this.spinSoChoNgoi.Location = new System.Drawing.Point(137, 29);
+            this.spinSoChoNgoi.Location = new System.Drawing.Point(159, 29);
             this.spinSoChoNgoi.Name = "spinSoChoNgoi";
             this.spinSoChoNgoi.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.spinSoChoNgoi.Size = new System.Drawing.Size(90, 20);
             this.spinSoChoNgoi.TabIndex = 34;
+            this.spinSoChoNgoi.EditValueChanged += new System.EventHandler(this.spinSoChoNgoi_EditValueChanged);
             // 
             // cbxEquation
             // 
-            this.cbxEquation.Location = new System.Drawing.Point(97, 29);
+            this.cbxEquation.Location = new System.Drawing.Point(119, 29);
             this.cbxEquation.Name = "cbxEquation";
             this.cbxEquation.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -109,14 +112,7 @@
             "<"});
             this.cbxEquation.Size = new System.Drawing.Size(34, 20);
             this.cbxEquation.TabIndex = 33;
-            // 
-            // lblSoLuongChoNgoi
-            // 
-            this.lblSoLuongChoNgoi.Location = new System.Drawing.Point(5, 32);
-            this.lblSoLuongChoNgoi.Name = "lblSoLuongChoNgoi";
-            this.lblSoLuongChoNgoi.Size = new System.Drawing.Size(89, 13);
-            this.lblSoLuongChoNgoi.TabIndex = 32;
-            this.lblSoLuongChoNgoi.Text = "Số lượng chỗ ngồi:";
+            this.cbxEquation.EditValueChanged += new System.EventHandler(this.cbxEquation_EditValueChanged);
             // 
             // btnClear
             // 
@@ -140,7 +136,7 @@
             // ucComboBoxViTri1
             // 
             this.ucComboBoxViTri1.EditValue = null;
-            this.ucComboBoxViTri1.Location = new System.Drawing.Point(358, 5);
+            this.ucComboBoxViTri1.Location = new System.Drawing.Point(380, 5);
             this.ucComboBoxViTri1.Name = "ucComboBoxViTri1";
             this.ucComboBoxViTri1.Phong = null;
             this.ucComboBoxViTri1.Size = new System.Drawing.Size(200, 20);
@@ -151,14 +147,14 @@
             // 
             this.ucComboBoxDonVi1.DonVi = null;
             this.ucComboBoxDonVi1.EditValue = null;
-            this.ucComboBoxDonVi1.Location = new System.Drawing.Point(358, 29);
+            this.ucComboBoxDonVi1.Location = new System.Drawing.Point(380, 29);
             this.ucComboBoxDonVi1.Name = "ucComboBoxDonVi1";
             this.ucComboBoxDonVi1.Size = new System.Drawing.Size(200, 20);
             this.ucComboBoxDonVi1.TabIndex = 4;
             // 
             // checkDonVi
             // 
-            this.checkDonVi.Location = new System.Drawing.Point(291, 31);
+            this.checkDonVi.Location = new System.Drawing.Point(313, 31);
             this.checkDonVi.Name = "checkDonVi";
             this.checkDonVi.Properties.Caption = "Đơn vị:";
             this.checkDonVi.Size = new System.Drawing.Size(59, 19);
@@ -166,7 +162,7 @@
             // 
             // checkViTri
             // 
-            this.checkViTri.Location = new System.Drawing.Point(291, 5);
+            this.checkViTri.Location = new System.Drawing.Point(313, 5);
             this.checkViTri.Name = "checkViTri";
             this.checkViTri.Properties.Caption = "Vị trí:";
             this.checkViTri.Size = new System.Drawing.Size(51, 19);
@@ -174,7 +170,7 @@
             // 
             // checkedCbxLoaiPhong
             // 
-            this.checkedCbxLoaiPhong.Location = new System.Drawing.Point(97, 5);
+            this.checkedCbxLoaiPhong.Location = new System.Drawing.Point(119, 5);
             this.checkedCbxLoaiPhong.Name = "checkedCbxLoaiPhong";
             this.checkedCbxLoaiPhong.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -182,14 +178,7 @@
             this.checkedCbxLoaiPhong.Properties.ValueMember = "id";
             this.checkedCbxLoaiPhong.Size = new System.Drawing.Size(130, 20);
             this.checkedCbxLoaiPhong.TabIndex = 1;
-            // 
-            // lblLoaiPhong
-            // 
-            this.lblLoaiPhong.Location = new System.Drawing.Point(5, 5);
-            this.lblLoaiPhong.Name = "lblLoaiPhong";
-            this.lblLoaiPhong.Size = new System.Drawing.Size(56, 13);
-            this.lblLoaiPhong.TabIndex = 0;
-            this.lblLoaiPhong.Text = "Loại phòng:";
+            this.checkedCbxLoaiPhong.EditValueChanged += new System.EventHandler(this.checkedCbxLoaiPhong_EditValueChanged);
             // 
             // gridControlPhong
             // 
@@ -216,12 +205,8 @@
             this.gridViewPhong.GridControl = this.gridControlPhong;
             this.gridViewPhong.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Count, "ten", this.colten, ""),
-            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Custom, "loai", this.colloai, ""),
             new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Sum, "sochongoi", this.colsochongoi, ""),
-            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Sum, "tonggiatritaisan", this.coltonggiatritaisan, "{0:### ### ### ##0}"),
-            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Custom, "coso", this.colcoso, ""),
-            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Custom, "day", this.colday, ""),
-            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Custom, "tang", this.coltang, "")});
+            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Sum, "tonggiatritaisan", this.coltonggiatritaisan, "{0:### ### ### ##0}")});
             this.gridViewPhong.Name = "gridViewPhong";
             this.gridViewPhong.OptionsBehavior.Editable = false;
             this.gridViewPhong.OptionsBehavior.ReadOnly = true;
@@ -250,8 +235,6 @@
             this.colloai.Caption = "Loại phòng";
             this.colloai.FieldName = "loai";
             this.colloai.Name = "colloai";
-            this.colloai.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Custom)});
             this.colloai.Visible = true;
             this.colloai.VisibleIndex = 1;
             // 
@@ -282,8 +265,6 @@
             this.colcoso.Caption = "Cơ sở";
             this.colcoso.FieldName = "coso";
             this.colcoso.Name = "colcoso";
-            this.colcoso.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Custom)});
             this.colcoso.Visible = true;
             this.colcoso.VisibleIndex = 4;
             // 
@@ -292,8 +273,6 @@
             this.colday.Caption = "Dãy";
             this.colday.FieldName = "day";
             this.colday.Name = "colday";
-            this.colday.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Custom)});
             this.colday.Visible = true;
             this.colday.VisibleIndex = 5;
             // 
@@ -302,10 +281,24 @@
             this.coltang.Caption = "Tầng";
             this.coltang.FieldName = "tang";
             this.coltang.Name = "coltang";
-            this.coltang.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Custom)});
             this.coltang.Visible = true;
             this.coltang.VisibleIndex = 6;
+            // 
+            // checkSoLuongChoNgoi
+            // 
+            this.checkSoLuongChoNgoi.Location = new System.Drawing.Point(5, 31);
+            this.checkSoLuongChoNgoi.Name = "checkSoLuongChoNgoi";
+            this.checkSoLuongChoNgoi.Properties.Caption = "Số lượng chỗ ngồi:";
+            this.checkSoLuongChoNgoi.Size = new System.Drawing.Size(113, 19);
+            this.checkSoLuongChoNgoi.TabIndex = 35;
+            // 
+            // checkLoaiPhong
+            // 
+            this.checkLoaiPhong.Location = new System.Drawing.Point(5, 6);
+            this.checkLoaiPhong.Name = "checkLoaiPhong";
+            this.checkLoaiPhong.Properties.Caption = "Loại phòng:";
+            this.checkLoaiPhong.Size = new System.Drawing.Size(78, 19);
+            this.checkLoaiPhong.TabIndex = 36;
             // 
             // ucTKTHPhong
             // 
@@ -318,7 +311,6 @@
             this.Leave += new System.EventHandler(this.ucTKTHPhong_Leave);
             ((System.ComponentModel.ISupportInitialize)(this.panelSearch)).EndInit();
             this.panelSearch.ResumeLayout(false);
-            this.panelSearch.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spinSoChoNgoi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbxEquation.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkDonVi.Properties)).EndInit();
@@ -326,6 +318,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.checkedCbxLoaiPhong.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlPhong)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewPhong)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkSoLuongChoNgoi.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkLoaiPhong.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -340,7 +334,6 @@
         private DevExpress.XtraEditors.CheckEdit checkDonVi;
         private DevExpress.XtraEditors.CheckEdit checkViTri;
         private DevExpress.XtraEditors.CheckedComboBoxEdit checkedCbxLoaiPhong;
-        private DevExpress.XtraEditors.LabelControl lblLoaiPhong;
         private DevExpress.XtraEditors.SimpleButton btnClear;
         private DevExpress.XtraEditors.SimpleButton btnTim;
         private DevExpress.XtraGrid.Columns.GridColumn colid;
@@ -352,7 +345,8 @@
         private DevExpress.XtraGrid.Columns.GridColumn coltang;
         private DevExpress.XtraEditors.SpinEdit spinSoChoNgoi;
         private DevExpress.XtraEditors.ComboBoxEdit cbxEquation;
-        private DevExpress.XtraEditors.LabelControl lblSoLuongChoNgoi;
         private DevExpress.XtraGrid.Columns.GridColumn coltonggiatritaisan;
+        private DevExpress.XtraEditors.CheckEdit checkLoaiPhong;
+        private DevExpress.XtraEditors.CheckEdit checkSoLuongChoNgoi;
     }
 }
