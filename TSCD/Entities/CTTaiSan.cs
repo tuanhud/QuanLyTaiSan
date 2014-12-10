@@ -28,7 +28,7 @@ namespace TSCD.Entities
         /// </summary>
         [Required]
         public int soluong { get; set; }
-        
+
         /// <summary>
         /// Mô tả về nguồn gốc của tài sản này
         /// </summary>
@@ -112,11 +112,11 @@ namespace TSCD.Entities
         /// <returns></returns>
         public int chuyenTinhTrang(
             ChungTu chungtu_moi,
-            TinhTrang tinhtrang_moi, int soluong_moi=-1, String ghichu_moi="")
+            TinhTrang tinhtrang_moi, int soluong_moi = -1, String ghichu_moi = "")
         {
             Boolean re = true;
             //xét ràng buộc
-            if(tinhtrang_moi==null)
+            if (tinhtrang_moi == null)
             {
                 return -1;
             }
@@ -129,7 +129,7 @@ namespace TSCD.Entities
                 soluong_moi = this.soluong;
             }
             //this đã bị báo là giảm tài sản rồi, không cho chuyển ngược lại
-            if(this.tinhtrang.giam_taisan)
+            if (this.tinhtrang.giam_taisan)
             {
                 return -1;
             }
@@ -138,7 +138,7 @@ namespace TSCD.Entities
             this.chungtu = chungtu_moi;
             this.ghichu = ghichu_moi;
             //chuyển toàn bộ
-            if(soluong>=this.soluong)
+            if (soluong >= this.soluong)
             {
                 this.tinhtrang = tinhtrang_moi;
                 re = re && this.update() > 0;
@@ -158,7 +158,7 @@ namespace TSCD.Entities
             {
                 this.soluong -= soluong_moi;
                 re = re && this.update() > 0;
-                
+
                 //Thêm mới CTTS
                 //Step 1: Tao CTTS moi -> add
                 CTTaiSan ctts = new CTTaiSan();
@@ -188,7 +188,7 @@ namespace TSCD.Entities
                     re = re && log.add() > 0;
                 }
             }
-            
+
             //end
             return re ? 1 : -1;
         }
@@ -213,12 +213,12 @@ namespace TSCD.Entities
             Phong phong_moi,
             CTTaiSan cttaisan_parent_moi,
             ChungTu chungtu_moi,
-            int soluong_moi=-1,
-            String ghichu_moi="",
-            DateTime? ngay_moi=null)
+            int soluong_moi = -1,
+            String ghichu_moi = "",
+            DateTime? ngay_moi = null)
         {
             Boolean re = true;
-            
+
             //Kiem tra rang buoc
             //So luong chuyen phai hop le
             if (soluong_moi > this.soluong)
@@ -226,7 +226,7 @@ namespace TSCD.Entities
                 return -1;
             }
             //tự chuyển đổi
-            if(soluong_moi<0)
+            if (soluong_moi < 0)
             {
                 soluong_moi = this.soluong;
             }
@@ -237,7 +237,7 @@ namespace TSCD.Entities
             if (soluong_moi <= 0 || soluong_moi == this.soluong)
             {
                 //cung don vi quan ly
-                if(cungdonviquanly)
+                if (cungdonviquanly)
                 {
                     //chi update lai this
                     this.chungtu = chungtu_moi;
@@ -274,20 +274,20 @@ namespace TSCD.Entities
                     log.tang_giam = 0;
                     log.tang_giam_donvi = 1;
                     log.chuyenden_chuyendi = 1;
-                    re = re && log.add()>0;
+                    re = re && log.add() > 0;
                     //Step 3: Update lai soluong cho this=0 -> update
                     this.chungtu = chungtu_moi;
                     this.ghichu = ghichu_moi;
                     this.soluong = 0;
                     this.nguongoc = ctts.nguongoc;
-                    re = re && this.update()>0;
+                    re = re && this.update() > 0;
                     //Step 4: ghi nhan su giam cho this
                     LogTangGiamTaiSan log2 = this.generateLogTangGiamTaiSan();
                     log2.soluong = soluong_moi;//importance!!!không dùng this.soluong
                     log2.tang_giam = 0;
                     log2.tang_giam_donvi = -1;
                     log2.chuyenden_chuyendi = -1;
-                    re = re && log2.add()>0;
+                    re = re && log2.add() > 0;
                 }
                 //end
                 return re ? 1 : -1;
@@ -307,7 +307,7 @@ namespace TSCD.Entities
                     ctts.ghichu = ghichu_moi;
                     ctts.mota = this.mota;
                     ctts.ngay = ngay_moi;
-                    ctts.nguongoc = "[Hệ thống tự động tạo: phân bổ nội " + (this.donviquanly == null ? "(null)" : this.donviquanly.niceName())+"]";
+                    ctts.nguongoc = "[Hệ thống tự động tạo: phân bổ nội " + (this.donviquanly == null ? "(null)" : this.donviquanly.niceName()) + "]";
                     ctts.parent = cttaisan_parent_moi;
                     ctts.phong = phong_moi;
                     ctts.soluong = soluong_moi;//importance!!!
@@ -366,7 +366,7 @@ namespace TSCD.Entities
                 }
             }
             #endregion
-            return re?1:-1;
+            return re ? 1 : -1;
         }
         /// <summary>
         /// Copy moi thuoc tinh,
@@ -460,7 +460,7 @@ namespace TSCD.Entities
         {
             //kiem tra rang buoc
             //thêm mới không được phép chỉ định giảm
-            if(tinhtrang.giam_taisan)
+            if (tinhtrang.giam_taisan)
             {
                 return -1;
             }
@@ -507,7 +507,7 @@ namespace TSCD.Entities
         /// <returns></returns>
         public override int delete()
         {
-            if(chungtu!=null)
+            if (chungtu != null)
             {
                 chungtu.delete();
             }
@@ -523,5 +523,213 @@ namespace TSCD.Entities
             soluong = 1;
         }
         #endregion
+
+        #region Khau hao
+        /// <summary>
+        /// phan tram hao mon theo QD 351
+        /// </summary>
+        [NotMapped]
+        public double phantramhaomon_351
+        {
+            get
+            {
+                try
+                {
+                    return taisan.loaitaisan.phantramhaomon_351;
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex);
+                    return 1;
+                }
+            }
+        }
+        /// <summary>
+        /// phan tram hao mon theo QD 32
+        /// </summary>
+        [NotMapped]
+        public double phantramhaomon_32
+        {
+            get
+            {
+                try
+                {
+                    return obj.taisan.loaitaisan.phantramhaomon_32;
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex);
+                    return 1;
+                }
+            }
+        }
+        /// <summary>
+        /// so nam su dung theo quyet dinh 351
+        /// </summary>
+        [NotMapped]
+        public int sonamsudung_351
+        {
+            get
+            {
+                return taisan.loaitaisan.sonamsudung_351;
+            }
+        }
+        /// <summary>
+        /// so nam su dung theo quyet dinh 32
+        /// </summary>
+        [NotMapped]
+        public int sonamsudung_32
+        {
+            get
+            {
+                return taisan.loaitaisan.sonamsudung_32;
+            }
+        }
+        /// <summary>
+        /// Lay dinh dang yyyy cua nam dua vao su dung
+        /// </summary>
+        [NotMapped]
+        public int namsudung
+        {
+            get
+            {
+                return ngay == null ? 0 : ngay.Value.Year;
+            }
+        }
+        /// <summary>
+        /// Gia tri con lai tinh den het nam 2008 theo QD 32 moi nhat cua Bo tai chinh
+        /// </summary>
+        [NotMapped]
+        public long giatriconlai_32
+        {
+            get
+            {
+                //sau nam 2008 thi chinh la nguyengia*soluong (gia tri ban dau)
+                if (namsudung > 2008)
+                {
+                    return thanhtien;
+                }
+                else
+                {
+                    //tmp: so nam su dung con lai theo QD 351,
+                    //cach tinh nguoc thay vi phai di tinh hao mon va tong hao mon
+                    int tmp = sonamsudung_351 - (2008 - namsudung);
+                    if(tmp<=0)
+                    {
+                        tmp=0;
+                    }
+                    return thanhtien * phantramhaomon_351 * tmp;
+                }
+            }
+        }
+        /// <summary>
+        /// So nam su dung con lai tinh den het nam 2008 theo QD 32 moi nhat cua Bo tai chinh
+        /// </summary>
+        [NotMapped]
+        public long sonamsudungconlai_32
+        {
+            get
+            {
+                //neu tai san khai bao sau 2008 thi so nam su dung con lai chinh la theo quyet dinh 32
+                if (namsudung > 2008)
+                {
+                    return sonamsudung_32;
+                }
+                else
+                {
+                    int tmp = sonamsudung_32 - (2008 - namsudung);
+                    return tmp < 0 ? 0 : tmp;
+                }
+            }
+        }
+        [NotMapped]
+        public long haomon_1nam
+        {
+            get
+            {
+                if (giatriconlai_32 <= 0 || sonamsudungconlai_32 <= 0)
+                {
+                    return 0;
+                }
+                else
+                {
+                    return giatriconlai_32 / sonamsungdungconlai_32;
+                }
+            }
+        }
+        [NotMapped]
+        public long sonamsudungconlai_final(int namthongke)
+        {
+            if(namthongke<=2008 || namthongke<namsudung)
+            {
+                return 0;
+            }
+
+            if (namsudung > 2008)
+            {
+                //tmp: so nam su dung con lai tinh den het nam thong ke
+                int tmp = sonamsudung_32 - (namthongke - namsudung);
+                return tmp < 0 ? 0 : tmp;
+            }
+            else
+            {
+                //tmp: so nam su dung con lai tinh den het nam thong ke
+                int tmp = sonamsudungconlai_32 - (namthongke - 2008);
+                return tmp < 0 ? 0 : tmp;
+            }
+        }
+        [NotMapped]
+        public long giatriconlai_final(int namthongke)
+        {
+            //tmp: so nam da su dung tinh den het nam thong ke
+            int tmp = 0;
+            if (namsungdung > 2008)
+            {
+                tmp = namthongke - namsudung;
+            }
+            else
+            {
+                tmp = namthongke - 2008;
+            }
+
+            long tonghaomon = haomon_1nam * tmp;
+            long conlai = giatriconlai_32 - tonghaomon;
+            //gia tri nho nhat hien thi la 1000 VND ?????? considering.....
+            return conlai < 0 ? 0 : conlai;
+        }
+        /// <summary>
+        /// Tong hao mon tinh tu dau toi gio ke ca truoc nam 2008
+        /// </summary>
+        /// <param name="namthongke"></param>
+        /// <returns></returns>
+        [NotMapped]
+        public long haomonluyke(int namthongke)
+        {
+            if (namthongke <= 2008 || namthongke < namsudung)
+            {
+                return 0;
+            }
+            //Tong gia tri ban dau cua tai san - gia tri con lai final
+            long tmp = thanhtien - giatriconlai_final(namthongke);
+            return tmp < 0 ? 0 : tmp;
+        }
+        /// <summary>
+        ///  = Hao mon luy ke cua nam truoc = haomonluyke nam nay - hao mon 1 nam;
+        /// </summary>
+        /// <param name="namthongke"></param>
+        /// <returns></returns>
+        [NotMapped]
+        public long haomonnamtruocchuyensang(int namthongke)
+        {
+            if (namthongke <= 2008 || namthongke < namsudung)
+            {
+                return 0;
+            }
+            long tmp = haomonluyke(namthongke) - haomon_1nam;
+            return tmp < 0 ? 0 : tmp;
+        }
+        #endregion
+
     }
 }
+
