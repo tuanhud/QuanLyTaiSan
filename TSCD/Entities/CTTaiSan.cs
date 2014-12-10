@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SHARED.Libraries;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -554,7 +555,7 @@ namespace TSCD.Entities
             {
                 try
                 {
-                    return obj.taisan.loaitaisan.phantramhaomon_32;
+                    return taisan.loaitaisan.phantramhaomon_32;
                 }
                 catch (Exception ex)
                 {
@@ -618,7 +619,7 @@ namespace TSCD.Entities
                     {
                         tmp=0;
                     }
-                    return thanhtien * phantramhaomon_351 * tmp;
+                    return (long)(thanhtien * phantramhaomon_351 * tmp);
                 }
             }
         }
@@ -653,11 +654,11 @@ namespace TSCD.Entities
                 }
                 else
                 {
-                    return giatriconlai_32 / sonamsungdungconlai_32;
+                    return giatriconlai_32 / sonamsudungconlai_32;
                 }
             }
         }
-        [NotMapped]
+        //[NotMapped]
         public long sonamsudungconlai_final(int namthongke)
         {
             if(namthongke<=2008 || namthongke<namsudung)
@@ -674,16 +675,16 @@ namespace TSCD.Entities
             else
             {
                 //tmp: so nam su dung con lai tinh den het nam thong ke
-                int tmp = sonamsudungconlai_32 - (namthongke - 2008);
+                long tmp = sonamsudungconlai_32 - (namthongke - 2008);
                 return tmp < 0 ? 0 : tmp;
             }
         }
-        [NotMapped]
+        //[NotMapped]
         public long giatriconlai_final(int namthongke)
         {
             //tmp: so nam da su dung tinh den het nam thong ke
             int tmp = 0;
-            if (namsungdung > 2008)
+            if (namsudung > 2008)
             {
                 tmp = namthongke - namsudung;
             }
@@ -702,7 +703,7 @@ namespace TSCD.Entities
         /// </summary>
         /// <param name="namthongke"></param>
         /// <returns></returns>
-        [NotMapped]
+        //[NotMapped]
         public long haomonluyke(int namthongke)
         {
             if (namthongke <= 2008 || namthongke < namsudung)
@@ -718,7 +719,7 @@ namespace TSCD.Entities
         /// </summary>
         /// <param name="namthongke"></param>
         /// <returns></returns>
-        [NotMapped]
+        //[NotMapped]
         public long haomonnamtruocchuyensang(int namthongke)
         {
             if (namthongke <= 2008 || namthongke < namsudung)

@@ -294,7 +294,7 @@
             this.navBarGroupControlContainerDonVi.Controls.Add(this.ucTreeDonVi1);
             this.navBarGroupControlContainerDonVi.Controls.Add(this.treeListDonVi);
             this.navBarGroupControlContainerDonVi.Name = "navBarGroupControlContainerDonVi";
-            this.navBarGroupControlContainerDonVi.Size = new System.Drawing.Size(305, 287);
+            this.navBarGroupControlContainerDonVi.Size = new System.Drawing.Size(307, 276);
             this.navBarGroupControlContainerDonVi.TabIndex = 0;
             // 
             // ucTreeDonVi1
@@ -303,7 +303,7 @@
             this.ucTreeDonVi1.DonVi = null;
             this.ucTreeDonVi1.Location = new System.Drawing.Point(0, 0);
             this.ucTreeDonVi1.Name = "ucTreeDonVi1";
-            this.ucTreeDonVi1.Size = new System.Drawing.Size(305, 287);
+            this.ucTreeDonVi1.Size = new System.Drawing.Size(307, 276);
             this.ucTreeDonVi1.TabIndex = 1;
             // 
             // treeListDonVi
@@ -311,7 +311,7 @@
             this.treeListDonVi.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeListDonVi.Location = new System.Drawing.Point(0, 0);
             this.treeListDonVi.Name = "treeListDonVi";
-            this.treeListDonVi.Size = new System.Drawing.Size(305, 287);
+            this.treeListDonVi.Size = new System.Drawing.Size(307, 276);
             this.treeListDonVi.TabIndex = 0;
             // 
             // groupControlMain

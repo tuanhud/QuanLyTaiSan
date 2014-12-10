@@ -167,8 +167,28 @@ namespace TSCD.DataFilter
                 id = ct.id,
                 ngay = ct.ngay,
                 giatriconlai_final = ct.giatriconlai_final(namthongke),
-                sonamsudungconlai_final = ct.sonamsudungconlai_final(namthongke)
+                sonamsudungconlai_final = ct.sonamsudungconlai_final(namthongke),
+                sohieu_ct = ct.chungtu != null ? ct.chungtu.sohieu : "",
+                ngay_ct = ct.chungtu != null ? ct.chungtu.ngay : null,
+                ten = ct.taisan.ten,
+                loaits = ct.taisan.loaitaisan.ten,
+                donvitinh = ct.taisan.loaitaisan.donvitinh != null ? ct.taisan.loaitaisan.donvitinh.ten : "",
+                soluong = ct.soluong,
+                dongia = ct.taisan.dongia,
+                thanhtien = ct.soluong * ct.taisan.dongia,
+                nuocsx = ct.taisan.nuocsx,
+                nguongoc = ct.nguongoc,
+                tinhtrang = ct.tinhtrang.value,
+                ghichu = ct.mota,
+                childs = ct.childs,
+                phong = ct.phong != null ? ct.phong.ten : "",
+                vitri = ct.vitri != null ? (ct.vitri.coso != null ? ct.vitri.coso.ten + (ct.vitri.day != null ? " - " +
+                ct.vitri.day.ten + (ct.vitri.tang != null ? " - " + ct.vitri.tang.ten : "") : "") : "") : "",
+                dvquanly = ct.donviquanly != null ? ct.donviquanly.ten : "",
+                dvsudung = ct.donvisudung != null ? ct.donvisudung.ten : "",
+                obj = ct
             }).ToList();
+            return re;
         }
         #endregion
     }
