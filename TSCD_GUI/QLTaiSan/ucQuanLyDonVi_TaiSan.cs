@@ -40,7 +40,14 @@ namespace TSCD_GUI.QLTaiSan
         {
             try
             {
-                ucTreeDonVi1.DataSource = DonVi.getQuery().OrderBy(c => c.parent_id).ThenBy(c => c.ten).ToList();
+                List<DonVi> list = DonVi.getQuery().OrderBy(c => c.parent_id).ThenBy(c => c.ten).ToList();
+                DonVi objNULL = new DonVi();
+                objNULL.id = Guid.Empty;
+                objNULL.ten = "[Không có đơn vị]";
+                objNULL.parent = null;
+                list.Insert(0, objNULL);
+                ucTreeDonVi1.DataSource = list;
+                //ucTreeDonVi1.DataSource = DonVi.getQuery().OrderBy(c => c.parent_id).ThenBy(c => c.ten).ToList();
                 if (donvi != null)
                     ucTreeDonVi1.DonVi = donvi;
                 reloadData();
@@ -86,7 +93,13 @@ namespace TSCD_GUI.QLTaiSan
                 else
                 {
                     ucGridControlTaiSan1.DataSource = null;
-                    barBtnThemTaiSan.Enabled = barBtnSuaTaiSan.Enabled = barBtnXoaTaiSan.Enabled = barBtnChuyen.Enabled = barBtnChuyenTinhTrang.Enabled = false;
+                    list = TaiSanHienThi.Convert(CTTaiSan.getQuery().Where(c => c.donviquanly == null));
+                    ucGridControlTaiSan1.DataSource = list;
+
+                    bool isEnabled = list.Count > 0;
+                    barBtnThemTaiSan.Enabled = true;
+                    barBtnSuaTaiSan.Enabled = barBtnXoaTaiSan.Enabled = barBtnChuyen.Enabled = barBtnChuyenTinhTrang.Enabled = isEnabled;
+                    //barBtnThemTaiSan.Enabled = barBtnSuaTaiSan.Enabled = barBtnXoaTaiSan.Enabled = barBtnChuyen.Enabled = barBtnChuyenTinhTrang.Enabled = false;
                 }
                 ucGridControlTaiSan1.CollapseAllGroups();
             }

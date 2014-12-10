@@ -172,7 +172,7 @@
             // 
             // barBtnAttachment
             // 
-            this.barBtnAttachment.Caption = "File chứng từ";
+            this.barBtnAttachment.Caption = "Đính kèm";
             this.barBtnAttachment.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnAttachment.Glyph")));
             this.barBtnAttachment.Id = 11;
             this.barBtnAttachment.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnAttachment.LargeGlyph")));
@@ -209,7 +209,7 @@
             this.rbnGroupAttachment});
             this.rbnPageDonVi_TaiSan.Image = ((System.Drawing.Image)(resources.GetObject("rbnPageDonVi_TaiSan.Image")));
             this.rbnPageDonVi_TaiSan.Name = "rbnPageDonVi_TaiSan";
-            this.rbnPageDonVi_TaiSan.Text = "Tài sản - Đơn vị";
+            this.rbnPageDonVi_TaiSan.Text = "Tài sản";
             // 
             // rbnGroupTaiSan
             // 
@@ -248,6 +248,7 @@
             this.rbnGroupImport.Name = "rbnGroupImport";
             this.rbnGroupImport.ShowCaptionButton = false;
             this.rbnGroupImport.Text = "Import";
+            this.rbnGroupImport.Visible = false;
             // 
             // rbnGroupLayout
             // 
