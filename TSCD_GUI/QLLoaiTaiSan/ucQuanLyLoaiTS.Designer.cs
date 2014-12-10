@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucQuanLyLoaiTS));
             this.rbnControlLoaiTS = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barBtnThemLoaiTS = new DevExpress.XtraBars.BarButtonItem();
@@ -45,6 +46,8 @@
             this.colten = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.coldonvitinh = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colhuuhinh = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.colphantramhaomon_351 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.colphantramhaomon_32 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colobj = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.groupControlInfo = new DevExpress.XtraEditors.GroupControl();
             this.lblHaoMon32 = new DevExpress.XtraEditors.LabelControl();
@@ -71,9 +74,7 @@
             this.btnSua_r = new DevExpress.XtraEditors.SimpleButton();
             this.btnThem_r = new DevExpress.XtraEditors.SimpleButton();
             this.txtMoTa = new DevExpress.XtraEditors.MemoEdit();
-            this.dxErrorProviderInfo = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider();
-            this.colphantramhaomon_351 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.colphantramhaomon_32 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.dxErrorProviderInfo = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.rbnControlLoaiTS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControlMain)).BeginInit();
             this.splitContainerControlMain.SuspendLayout();
@@ -255,6 +256,26 @@
             this.colhuuhinh.Visible = true;
             this.colhuuhinh.VisibleIndex = 2;
             // 
+            // colphantramhaomon_351
+            // 
+            this.colphantramhaomon_351.Caption = "Tỷ lệ hao mòn theo QĐ 351";
+            this.colphantramhaomon_351.FieldName = "phantramhaomon_351";
+            this.colphantramhaomon_351.Format.FormatString = "P";
+            this.colphantramhaomon_351.Format.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colphantramhaomon_351.Name = "colphantramhaomon_351";
+            this.colphantramhaomon_351.Visible = true;
+            this.colphantramhaomon_351.VisibleIndex = 3;
+            // 
+            // colphantramhaomon_32
+            // 
+            this.colphantramhaomon_32.Caption = "Tỷ lệ hao mòn theo QĐ 32";
+            this.colphantramhaomon_32.FieldName = "phantramhaomon_32";
+            this.colphantramhaomon_32.Format.FormatString = "P";
+            this.colphantramhaomon_32.Format.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colphantramhaomon_32.Name = "colphantramhaomon_32";
+            this.colphantramhaomon_32.Visible = true;
+            this.colphantramhaomon_32.VisibleIndex = 4;
+            // 
             // colobj
             // 
             this.colobj.Caption = "obj";
@@ -410,9 +431,10 @@
             // 
             // btnDonViTinh
             // 
+            this.btnDonViTinh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDonViTinh.Image = ((System.Drawing.Image)(resources.GetObject("btnDonViTinh.Image")));
             this.btnDonViTinh.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btnDonViTinh.Location = new System.Drawing.Point(333, 77);
+            this.btnDonViTinh.Location = new System.Drawing.Point(358, 77);
             this.btnDonViTinh.Name = "btnDonViTinh";
             this.btnDonViTinh.Size = new System.Drawing.Size(23, 23);
             this.btnDonViTinh.TabIndex = 7;
@@ -567,26 +589,6 @@
             // dxErrorProviderInfo
             // 
             this.dxErrorProviderInfo.ContainerControl = this;
-            // 
-            // colphantramhaomon_351
-            // 
-            this.colphantramhaomon_351.Caption = "Tỷ lệ hao mòn theo QĐ 351";
-            this.colphantramhaomon_351.FieldName = "phantramhaomon_351";
-            this.colphantramhaomon_351.Format.FormatString = "P";
-            this.colphantramhaomon_351.Format.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.colphantramhaomon_351.Name = "colphantramhaomon_351";
-            this.colphantramhaomon_351.Visible = true;
-            this.colphantramhaomon_351.VisibleIndex = 3;
-            // 
-            // colphantramhaomon_32
-            // 
-            this.colphantramhaomon_32.Caption = "Tỷ lệ hao mòn theo QĐ 32";
-            this.colphantramhaomon_32.FieldName = "phantramhaomon_32";
-            this.colphantramhaomon_32.Format.FormatString = "P";
-            this.colphantramhaomon_32.Format.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.colphantramhaomon_32.Name = "colphantramhaomon_32";
-            this.colphantramhaomon_32.Visible = true;
-            this.colphantramhaomon_32.VisibleIndex = 4;
             // 
             // ucQuanLyLoaiTS
             // 

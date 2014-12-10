@@ -130,6 +130,7 @@ namespace TSCD_GUI.QLTaiSan
             if (obj != null)
             {
                 frmAddTaiSan frm = new frmAddTaiSan(obj, true);
+                frm.Text = "Sửa tài sản";
                 frm.reloadAndFocused = new frmAddTaiSan.ReloadAndFocused(reloadAndFocused);
                 frm.ShowDialog();
             }

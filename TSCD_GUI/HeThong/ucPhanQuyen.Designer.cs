@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucPhanQuyen));
             this.rbnGroupQTV = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.barBtnThemQTV = new DevExpress.XtraBars.BarButtonItem();
@@ -48,7 +49,7 @@
             this.txtMatKhauQuanTriVien = new DevExpress.XtraEditors.TextEdit();
             this.txtTaiKhoanQuanTriVien = new DevExpress.XtraEditors.TextEdit();
             this.txtTenQuanTriVien = new DevExpress.XtraEditors.TextEdit();
-            this.dxErrorProviderInfo = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider();
+            this.dxErrorProviderInfo = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
             this.rbnPagePhanQuyen = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbnGroupNhomQuyen = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.barBtnNhomQuyen = new DevExpress.XtraBars.BarButtonItem();
@@ -324,7 +325,7 @@
             this.gridControlQTV.Location = new System.Drawing.Point(0, 0);
             this.gridControlQTV.MainView = this.gridViewQTV;
             this.gridControlQTV.Name = "gridControlQTV";
-            this.gridControlQTV.Size = new System.Drawing.Size(508, 352);
+            this.gridControlQTV.Size = new System.Drawing.Size(507, 352);
             this.gridControlQTV.TabIndex = 0;
             this.gridControlQTV.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewQTV});
@@ -481,6 +482,8 @@
             // 
             // memoEdit_mota
             // 
+            this.memoEdit_mota.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.memoEdit_mota.Location = new System.Drawing.Point(93, 209);
             this.memoEdit_mota.MenuManager = this.rbnPhanQuyen;
             this.memoEdit_mota.Name = "memoEdit_mota";

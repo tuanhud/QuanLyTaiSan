@@ -97,8 +97,6 @@
             this.coldonvitinh.Name = "coldonvitinh";
             this.coldonvitinh.OptionsColumn.ReadOnly = true;
             this.coldonvitinh.OptionsFilter.AutoFilterCondition = DevExpress.XtraTreeList.Columns.AutoFilterCondition.Contains;
-            this.coldonvitinh.Visible = true;
-            this.coldonvitinh.VisibleIndex = 1;
             // 
             // colobj
             // 
