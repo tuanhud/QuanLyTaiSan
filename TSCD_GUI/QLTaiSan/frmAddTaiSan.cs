@@ -32,7 +32,7 @@ namespace TSCD_GUI.QLTaiSan
         LoaiTaiSan objLoaiTS = null;
         object id = null;
 
-        public frmAddTaiSan(CTTaiSan _obj, bool isDonVi = false)
+        public frmAddTaiSan(CTTaiSan _obj)
         {
             InitializeComponent();
             loadData();
@@ -84,11 +84,12 @@ namespace TSCD_GUI.QLTaiSan
             }
         }
 
-        public frmAddTaiSan()
+        public frmAddTaiSan(DonVi obj = null)
         {
             InitializeComponent();
             loadData();
             init();
+            ucComboBoxDonVi1.DonVi = obj;
         }
 
         private void loadData()
@@ -501,9 +502,9 @@ namespace TSCD_GUI.QLTaiSan
                 gridControlTaiSan.DataSource = TaiSanHienThi.Convert(listCTTaiSan);
                 if (_id != Guid.Empty)
                 {
-                    int rowHandle = bandedGridViewTaiSan.LocateByValue(colid.FieldName, _id);
+                    int rowHandle = gridViewTaiSan.LocateByValue(colid.FieldName, _id);
                     if (rowHandle != DevExpress.XtraGrid.GridControl.InvalidRowHandle)
-                        bandedGridViewTaiSan.FocusedRowHandle = rowHandle;
+                        gridViewTaiSan.FocusedRowHandle = rowHandle;
                 }
             }
             catch (Exception ex)
@@ -514,9 +515,9 @@ namespace TSCD_GUI.QLTaiSan
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            if (bandedGridViewTaiSan.GetFocusedRow() != null)
+            if (gridViewTaiSan.GetFocusedRow() != null)
             {
-                frmAddTaiSan frm = new frmAddTaiSan((bandedGridViewTaiSan.GetFocusedRow() as TaiSanHienThi).obj, listTinhTrang, listLoaiTaiSan);
+                frmAddTaiSan frm = new frmAddTaiSan((gridViewTaiSan.GetFocusedRow() as TaiSanHienThi).obj, listTinhTrang, listLoaiTaiSan);
                 frm.reloadAndFocused = new frmAddTaiSan.ReloadAndFocused(reload);
                 frm.Text = "Sửa tài sản kèm theo";
                 frm.ShowDialog();
@@ -563,9 +564,9 @@ namespace TSCD_GUI.QLTaiSan
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            if (bandedGridViewTaiSan.GetFocusedRow() != null)
+            if (gridViewTaiSan.GetFocusedRow() != null)
             {
-                CTTaiSan obj = (bandedGridViewTaiSan.GetFocusedRow() as TaiSanHienThi).obj;
+                CTTaiSan obj = (gridViewTaiSan.GetFocusedRow() as TaiSanHienThi).obj;
                 listCTTaiSan.Remove(obj);
                 gridControlTaiSan.DataSource = listCTTaiSan;
             }

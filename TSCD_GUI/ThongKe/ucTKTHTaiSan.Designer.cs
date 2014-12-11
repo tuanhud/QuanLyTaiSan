@@ -113,7 +113,7 @@
             this.checkTinhTrang.Name = "checkTinhTrang";
             this.checkTinhTrang.Properties.Caption = "Tình trạng:";
             this.checkTinhTrang.Size = new System.Drawing.Size(82, 19);
-            this.checkTinhTrang.TabIndex = 34;
+            this.checkTinhTrang.TabIndex = 3;
             // 
             // checkDonGia
             // 
@@ -121,7 +121,7 @@
             this.checkDonGia.Name = "checkDonGia";
             this.checkDonGia.Properties.Caption = "Đơn giá:";
             this.checkDonGia.Size = new System.Drawing.Size(82, 19);
-            this.checkDonGia.TabIndex = 33;
+            this.checkDonGia.TabIndex = 8;
             // 
             // checkNgaySuDung
             // 
@@ -129,7 +129,7 @@
             this.checkNgaySuDung.Name = "checkNgaySuDung";
             this.checkNgaySuDung.Properties.Caption = "Ngày sử dụng:";
             this.checkNgaySuDung.Size = new System.Drawing.Size(93, 19);
-            this.checkNgaySuDung.TabIndex = 32;
+            this.checkNgaySuDung.TabIndex = 5;
             // 
             // spinDonGia
             // 
@@ -143,7 +143,7 @@
             this.spinDonGia.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.spinDonGia.Size = new System.Drawing.Size(90, 20);
-            this.spinDonGia.TabIndex = 31;
+            this.spinDonGia.TabIndex = 10;
             this.spinDonGia.EditValueChanged += new System.EventHandler(this.spinDonGia_EditValueChanged);
             // 
             // cbxEquationDonGia
@@ -159,7 +159,7 @@
             "<=",
             "<"});
             this.cbxEquationDonGia.Size = new System.Drawing.Size(34, 20);
-            this.cbxEquationDonGia.TabIndex = 30;
+            this.cbxEquationDonGia.TabIndex = 9;
             this.cbxEquationDonGia.EditValueChanged += new System.EventHandler(this.cbxEquationDonGia_EditValueChanged);
             // 
             // cbxEquationNgaySD
@@ -175,25 +175,26 @@
             "<=",
             "<"});
             this.cbxEquationNgaySD.Size = new System.Drawing.Size(34, 20);
-            this.cbxEquationNgaySD.TabIndex = 28;
+            this.cbxEquationNgaySD.TabIndex = 6;
             this.cbxEquationNgaySD.EditValueChanged += new System.EventHandler(this.cbxEquationNgaySD_EditValueChanged);
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(797, 33);
+            this.btnClear.Image = ((System.Drawing.Image)(resources.GetObject("btnClear.Image")));
+            this.btnClear.Location = new System.Drawing.Point(797, 32);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(75, 23);
-            this.btnClear.TabIndex = 27;
+            this.btnClear.TabIndex = 16;
             this.btnClear.Text = "Làm sạch";
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnTim
             // 
             this.btnTim.Image = ((System.Drawing.Image)(resources.GetObject("btnTim.Image")));
-            this.btnTim.Location = new System.Drawing.Point(797, 4);
+            this.btnTim.Location = new System.Drawing.Point(797, 5);
             this.btnTim.Name = "btnTim";
             this.btnTim.Size = new System.Drawing.Size(75, 23);
-            this.btnTim.TabIndex = 26;
+            this.btnTim.TabIndex = 15;
             this.btnTim.Text = "Tìm";
             this.btnTim.Click += new System.EventHandler(this.btnTim_Click);
             // 
@@ -204,7 +205,7 @@
             this.ucComboBoxViTri1.Name = "ucComboBoxViTri1";
             this.ucComboBoxViTri1.Phong = null;
             this.ucComboBoxViTri1.Size = new System.Drawing.Size(160, 20);
-            this.ucComboBoxViTri1.TabIndex = 25;
+            this.ucComboBoxViTri1.TabIndex = 14;
             this.ucComboBoxViTri1.ViTri = null;
             // 
             // ucComboBoxLoaiTS1
@@ -214,7 +215,7 @@
             this.ucComboBoxLoaiTS1.Location = new System.Drawing.Point(88, 7);
             this.ucComboBoxLoaiTS1.Name = "ucComboBoxLoaiTS1";
             this.ucComboBoxLoaiTS1.Size = new System.Drawing.Size(160, 20);
-            this.ucComboBoxLoaiTS1.TabIndex = 24;
+            this.ucComboBoxLoaiTS1.TabIndex = 2;
             // 
             // checkViTri
             // 
@@ -222,7 +223,7 @@
             this.checkViTri.Name = "checkViTri";
             this.checkViTri.Properties.Caption = "Vị trí:";
             this.checkViTri.Size = new System.Drawing.Size(58, 19);
-            this.checkViTri.TabIndex = 23;
+            this.checkViTri.TabIndex = 13;
             // 
             // checkLoaiTS
             // 
@@ -230,7 +231,7 @@
             this.checkLoaiTS.Name = "checkLoaiTS";
             this.checkLoaiTS.Properties.Caption = "Loại tài sản:";
             this.checkLoaiTS.Size = new System.Drawing.Size(82, 19);
-            this.checkLoaiTS.TabIndex = 22;
+            this.checkLoaiTS.TabIndex = 1;
             // 
             // checkDonVi
             // 
@@ -238,7 +239,7 @@
             this.checkDonVi.Name = "checkDonVi";
             this.checkDonVi.Properties.Caption = "Đơn vị quản lý:";
             this.checkDonVi.Size = new System.Drawing.Size(93, 19);
-            this.checkDonVi.TabIndex = 21;
+            this.checkDonVi.TabIndex = 11;
             // 
             // checkedCbxTinhTrang
             // 
@@ -249,7 +250,7 @@
             this.checkedCbxTinhTrang.Properties.DisplayMember = "value";
             this.checkedCbxTinhTrang.Properties.ValueMember = "id";
             this.checkedCbxTinhTrang.Size = new System.Drawing.Size(160, 20);
-            this.checkedCbxTinhTrang.TabIndex = 20;
+            this.checkedCbxTinhTrang.TabIndex = 4;
             this.checkedCbxTinhTrang.EditValueChanged += new System.EventHandler(this.checkedCbxTinhTrang_EditValueChanged);
             // 
             // ucComboBoxDonVi1
@@ -259,7 +260,7 @@
             this.ucComboBoxDonVi1.Location = new System.Drawing.Point(621, 8);
             this.ucComboBoxDonVi1.Name = "ucComboBoxDonVi1";
             this.ucComboBoxDonVi1.Size = new System.Drawing.Size(160, 20);
-            this.ucComboBoxDonVi1.TabIndex = 19;
+            this.ucComboBoxDonVi1.TabIndex = 12;
             // 
             // dateNgaySD
             // 
@@ -271,7 +272,7 @@
             this.dateNgaySD.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateNgaySD.Size = new System.Drawing.Size(90, 20);
-            this.dateNgaySD.TabIndex = 18;
+            this.dateNgaySD.TabIndex = 7;
             this.dateNgaySD.EditValueChanged += new System.EventHandler(this.dateNgaySD_EditValueChanged);
             // 
             // gridControlTaiSan
@@ -330,7 +331,7 @@
             this.colngay_ct.FieldName = "ngay_ct";
             this.colngay_ct.Name = "colngay_ct";
             this.colngay_ct.Visible = true;
-            this.colngay_ct.VisibleIndex = 0;
+            this.colngay_ct.VisibleIndex = 1;
             // 
             // colsohieuct
             // 
@@ -338,7 +339,7 @@
             this.colsohieuct.FieldName = "sohieu_ct";
             this.colsohieuct.Name = "colsohieuct";
             this.colsohieuct.Visible = true;
-            this.colsohieuct.VisibleIndex = 1;
+            this.colsohieuct.VisibleIndex = 0;
             // 
             // colten
             // 
@@ -433,7 +434,7 @@
             this.colvitri.FieldName = "vitri";
             this.colvitri.Name = "colvitri";
             this.colvitri.Visible = true;
-            this.colvitri.VisibleIndex = 11;
+            this.colvitri.VisibleIndex = 13;
             // 
             // colphong
             // 
@@ -449,7 +450,7 @@
             this.coldvql.FieldName = "dvquanly";
             this.coldvql.Name = "coldvql";
             this.coldvql.Visible = true;
-            this.coldvql.VisibleIndex = 13;
+            this.coldvql.VisibleIndex = 11;
             // 
             // ucTKTHTaiSan
             // 
