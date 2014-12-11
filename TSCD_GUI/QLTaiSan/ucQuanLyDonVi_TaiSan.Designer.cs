@@ -33,7 +33,6 @@
             this.barBtnThemTaiSan = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnSuaTaiSan = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnXoaTaiSan = new DevExpress.XtraBars.BarButtonItem();
-            this.barBtnXuatBaoCao = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnChuyen = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnLog = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnImport = new DevExpress.XtraBars.BarButtonItem();
@@ -46,7 +45,6 @@
             this.rbnGroupTaiSan = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnGroupChuyen = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnGroupLog = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.rbnGroupBaoCao = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnGroupImport = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnGroupLayout = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnGroupAttachment = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -75,7 +73,6 @@
             this.barBtnThemTaiSan,
             this.barBtnSuaTaiSan,
             this.barBtnXoaTaiSan,
-            this.barBtnXuatBaoCao,
             this.barBtnChuyen,
             this.barBtnLog,
             this.barBtnImport,
@@ -114,15 +111,6 @@
             this.barBtnXoaTaiSan.Id = 3;
             this.barBtnXoaTaiSan.Name = "barBtnXoaTaiSan";
             this.barBtnXoaTaiSan.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnXoaTaiSan_ItemClick);
-            // 
-            // barBtnXuatBaoCao
-            // 
-            this.barBtnXuatBaoCao.Caption = "Xuất báo cáo";
-            this.barBtnXuatBaoCao.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnXuatBaoCao.Glyph")));
-            this.barBtnXuatBaoCao.Id = 4;
-            this.barBtnXuatBaoCao.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnXuatBaoCao.LargeGlyph")));
-            this.barBtnXuatBaoCao.Name = "barBtnXuatBaoCao";
-            this.barBtnXuatBaoCao.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnXuatBaoCao_ItemClick);
             // 
             // barBtnChuyen
             // 
@@ -203,7 +191,6 @@
             this.rbnGroupTaiSan,
             this.rbnGroupChuyen,
             this.rbnGroupLog,
-            this.rbnGroupBaoCao,
             this.rbnGroupImport,
             this.rbnGroupLayout,
             this.rbnGroupAttachment});
@@ -234,13 +221,6 @@
             this.rbnGroupLog.Name = "rbnGroupLog";
             this.rbnGroupLog.ShowCaptionButton = false;
             this.rbnGroupLog.Text = "Log";
-            // 
-            // rbnGroupBaoCao
-            // 
-            this.rbnGroupBaoCao.ItemLinks.Add(this.barBtnXuatBaoCao);
-            this.rbnGroupBaoCao.Name = "rbnGroupBaoCao";
-            this.rbnGroupBaoCao.ShowCaptionButton = false;
-            this.rbnGroupBaoCao.Text = "Báo cáo";
             // 
             // rbnGroupImport
             // 
@@ -370,8 +350,6 @@
         private DevExpress.XtraTreeList.TreeList treeListDonVi;
         private DevExpress.XtraEditors.GroupControl groupControlMain;
         private MyUserControl.ucTreeDonVi ucTreeDonVi1;
-        private DevExpress.XtraBars.BarButtonItem barBtnXuatBaoCao;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupBaoCao;
         private DevExpress.XtraBars.BarButtonItem barBtnChuyen;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupChuyen;
         private DevExpress.XtraBars.BarButtonItem barBtnLog;
