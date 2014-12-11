@@ -32,9 +32,9 @@ namespace TSCD_GUI
         ucQuanLyLoaiTS _ucQuanLyLoaiTS = null;
         //ucQuanLyTaiSan _ucQuanLyTaiSan = null;
         ucQuanLyDonVi_TaiSan _ucQuanLyDonVi_TaiSan = null;
-        ucPhanQuyen _ucPhanQuyen = null;
+        //ucPhanQuyen _ucPhanQuyen = null;
         ucThongKe _ucThongKe = null;
-        ucLogHeThong _ucLogHeThong = null;
+        //ucLogHeThong _ucLogHeThong = null;
 
         const String rbnPageViTri = "rbnPageViTri";
         const String rbnPagePhong = "rbnPagePhong";
@@ -87,9 +87,9 @@ namespace TSCD_GUI
             _ucQuanLyLoaiTS = new ucQuanLyLoaiTS();
             //_ucQuanLyTaiSan = new ucQuanLyTaiSan();
             _ucQuanLyDonVi_TaiSan = new ucQuanLyDonVi_TaiSan();
-            _ucPhanQuyen = new ucPhanQuyen();
+            //_ucPhanQuyen = new ucPhanQuyen();
             _ucThongKe = new ucThongKe();
-            _ucLogHeThong = new ucLogHeThong();
+            //_ucLogHeThong = new ucLogHeThong();
 
             _ucQuanLyViTri.Dock = DockStyle.Fill;
             _ucQuanLyPhong.Dock = DockStyle.Fill;
@@ -97,9 +97,9 @@ namespace TSCD_GUI
             _ucQuanLyLoaiTS.Dock = DockStyle.Fill;
             //_ucQuanLyTaiSan.Dock = DockStyle.Fill;
             _ucQuanLyDonVi_TaiSan.Dock = DockStyle.Fill;
-            _ucPhanQuyen.Dock = DockStyle.Fill;
+            //_ucPhanQuyen.Dock = DockStyle.Fill;
             _ucThongKe.Dock = DockStyle.Fill;
-            _ucLogHeThong.Dock = DockStyle.Fill;
+            //_ucLogHeThong.Dock = DockStyle.Fill;
 
             addRibbonPage(_ucQuanLyViTri.getRibbonControl());
             addRibbonPage(_ucQuanLyPhong.getRibbonControl());
@@ -107,12 +107,12 @@ namespace TSCD_GUI
             addRibbonPage(_ucQuanLyLoaiTS.getRibbonControl());
             //addRibbonPage(_ucQuanLyTaiSan.getRibbonControl());
             addRibbonPage(_ucQuanLyDonVi_TaiSan.getRibbonControl());
-            addRibbonPage(_ucPhanQuyen.getRibbonControl());
+            //addRibbonPage(_ucPhanQuyen.getRibbonControl());
             addRibbonPage(_ucThongKe.getRibbonControl());
-            addRibbonPage(_ucLogHeThong.getRibbonControl());
+            //addRibbonPage(_ucLogHeThong.getRibbonControl());
 
             drawEnd = true;
-            ribbonMain.SelectedPage = ribbonMain.Pages.GetPageByName(rbnPageLogHeThong);
+            ribbonMain.SelectedPage = ribbonMain.Pages.GetPageByName(rbnPageLoaiTS);
             ribbonMain.SelectedPage = ribbonMain.Pages.GetPageByName(rbnPageViTri);
             backstageViewControl.SelectedTabIndex = 6;
             ThongTinPhanMem();
@@ -173,24 +173,24 @@ namespace TSCD_GUI
                         donvi_id = null;
                         phong_id = null;
                     }
-                    else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName(rbnPagePhanQuyen)))
-                    {
-                        _ucPhanQuyen.loadData();
-                        panelControlMain.Controls.Clear();
-                        panelControlMain.Controls.Add(_ucPhanQuyen);
-                    }
+                    //else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName(rbnPagePhanQuyen)))
+                    //{
+                    //    _ucPhanQuyen.loadData();
+                    //    panelControlMain.Controls.Clear();
+                    //    panelControlMain.Controls.Add(_ucPhanQuyen);
+                    //}
                     else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName(rbnPageThongKe)))
                     {
                         _ucThongKe.loadData();
                         panelControlMain.Controls.Clear();
                         panelControlMain.Controls.Add(_ucThongKe);
                     }
-                    else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName(rbnPageLogHeThong)))
-                    {
-                        _ucLogHeThong.loadData();
-                        panelControlMain.Controls.Clear();
-                        panelControlMain.Controls.Add(_ucLogHeThong);
-                    }
+                    //else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName(rbnPageLogHeThong)))
+                    //{
+                    //    _ucLogHeThong.loadData();
+                    //    panelControlMain.Controls.Clear();
+                    //    panelControlMain.Controls.Add(_ucLogHeThong);
+                    //}
                     DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
                 }
             }

@@ -141,8 +141,8 @@ namespace TSCD_GUI.QLTaiSan
                     ViTri viTri = ucComboBoxViTri2.ViTri;
                     DonVi donViQL = ucComboBoxDonVi1.DonVi;
                     String ghiChu = txtGhiChu.Text;
-                    int re = objCTTaiSan.chuyenDonVi(donViQL, null, viTri, phong, objCTTaiSan.parent, objCTTaiSan.chungtu, soLuong, ghiChu);
-                    if (re > 0 && DBInstance.commit() > 0)
+                    CTTaiSan re = objCTTaiSan.chuyenDonVi(donViQL, null, viTri, phong, objCTTaiSan.parent, objCTTaiSan.chungtu, soLuong, ghiChu);
+                    if (re != null && DBInstance.commit() > 0)
                     {
                         DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
                         if (isChuyen)

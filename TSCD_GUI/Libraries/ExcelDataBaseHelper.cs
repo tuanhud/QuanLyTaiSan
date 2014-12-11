@@ -140,7 +140,7 @@ namespace TSCD_GUI.Libraries
                                                             objViTri = objPhong.vitri;
                                                     }
 
-                                                    if (objCTTaiSan2.chuyenDonVi(objDonVi, null, objViTri, objPhong, objCTTaiSan2.parent, objCTTaiSan2.chungtu, objCTTaiSan2.soluong, "", objCTTaiSan2.ngay) > 0 && DBInstance.commit() > 0)
+                                                    if (objCTTaiSan2.chuyenDonVi(objDonVi, null, objViTri, objPhong, objCTTaiSan2.parent, objCTTaiSan2.chungtu, objCTTaiSan2.soluong, "", objCTTaiSan2.ngay) != null && DBInstance.commit() > 0)
                                                     {
                                                         WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Pass");
                                                     }
@@ -180,7 +180,7 @@ namespace TSCD_GUI.Libraries
                                                             else
                                                                 objViTri = objPhong.vitri;
                                                         }
-                                                        if (objCTTaiSan.chuyenDonVi(objDonVi, null, objViTri, objPhong, objCTTaiSan.parent, objCTTaiSan.chungtu, objCTTaiSan.soluong, "", objCTTaiSan.ngay) > 0 && DBInstance.commit() > 0)
+                                                        if (objCTTaiSan.chuyenDonVi(objDonVi, null, objViTri, objPhong, objCTTaiSan.parent, objCTTaiSan.chungtu, objCTTaiSan.soluong, "", objCTTaiSan.ngay) != null && DBInstance.commit() > 0)
                                                         {
                                                             WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Pass");
                                                         }
@@ -233,7 +233,7 @@ namespace TSCD_GUI.Libraries
                                                         else
                                                             objViTri = objPhong.vitri;
                                                     }
-                                                    if (objCTTaiSan.chuyenDonVi(objDonVi, null, objViTri, objPhong, objCTTaiSan.parent, objCTTaiSan.chungtu, objCTTaiSan.soluong, "", objCTTaiSan.ngay) > 0 && DBInstance.commit() > 0)
+                                                    if (objCTTaiSan.chuyenDonVi(objDonVi, null, objViTri, objPhong, objCTTaiSan.parent, objCTTaiSan.chungtu, objCTTaiSan.soluong, "", objCTTaiSan.ngay) != null && DBInstance.commit() > 0)
                                                     {
                                                         WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Pass");
                                                     }
@@ -347,7 +347,7 @@ namespace TSCD_GUI.Libraries
                                         //else
                                             //objViTri = objPhong.vitri;
                                     }
-                                    if (objCTTaiSan.chuyenDonVi(objDonVi, null, objViTri, objPhong, objCTTaiSan.parent, objCTTaiSan.chungtu, objCTTaiSan.soluong, "", objCTTaiSan.ngay) > 0 && DBInstance.commit() > 0)
+                                    if (objCTTaiSan.chuyenDonVi(objDonVi, null, objViTri, objPhong, objCTTaiSan.parent, objCTTaiSan.chungtu, objCTTaiSan.soluong, "", objCTTaiSan.ngay) != null && DBInstance.commit() > 0)
                                     {
                                         WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Pass");
                                     }
@@ -520,7 +520,7 @@ namespace TSCD_GUI.Libraries
                                             WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error (Không có tình trạng)");
                                             continue;
                                         }
-                                        if (obj.chuyenTinhTrang(obj.chungtu, objTinhTrang, obj.soluong, obj.ghichu) > 0 && DBInstance.commit() > 0)
+                                        if (obj.chuyenTinhTrang(obj.chungtu, objTinhTrang, obj.soluong, obj.ghichu) != null && DBInstance.commit() > 0)
                                         {
                                             WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Pass");
                                         }
@@ -1512,7 +1512,7 @@ namespace TSCD_GUI.Libraries
                                         if (ct.update() > 0)
                                         {
                                             if(ct.donviquanly != objDonVi || ct.phong != objPhong || ct.vitri != objViTri)
-                                                if (ct.chuyenDonVi(objDonVi, null, objViTri, objPhong, ct.parent, ct.chungtu, ct.soluong, "", ct.ngay) > 0 && DBInstance.commit() > 0)
+                                                if (ct.chuyenDonVi(objDonVi, null, objViTri, objPhong, ct.parent, ct.chungtu, ct.soluong, "", ct.ngay) != null && DBInstance.commit() > 0)
                                                 {
                                                     WriteFileWithRange(fileName, sheet, row[ID].ToString().Trim(), "Pass");
                                                 }
@@ -1522,7 +1522,7 @@ namespace TSCD_GUI.Libraries
                                                     continue;
                                                 }
                                             if (ct.tinhtrang != objTinhTrang)
-                                                if (ct.chuyenTinhTrang(ct.chungtu, objTinhTrang, ct.soluong, ct.ghichu) > 0 && DBInstance.commit() > 0)
+                                                if (ct.chuyenTinhTrang(ct.chungtu, objTinhTrang, ct.soluong, ct.ghichu) != null && DBInstance.commit() > 0)
                                                 {
                                                     WriteFileWithRange(fileName, sheet, row[ID].ToString().Trim(), "Pass");
                                                 }
@@ -1843,7 +1843,7 @@ namespace TSCD_GUI.Libraries
                                     {
                                         if (objDonVi != null)
                                         {
-                                            if (objCTTaiSan.chuyenDonVi(objDonVi, null, null, objPhong, objCTTaiSan.parent, objCTTaiSan.chungtu, objCTTaiSan.soluong, "", objCTTaiSan.ngay) > 0 && DBInstance.commit() > 0)
+                                            if (objCTTaiSan.chuyenDonVi(objDonVi, null, null, objPhong, objCTTaiSan.parent, objCTTaiSan.chungtu, objCTTaiSan.soluong, "", objCTTaiSan.ngay) != null && DBInstance.commit() > 0)
                                             {
                                                 WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Pass");
                                             }
@@ -1855,7 +1855,7 @@ namespace TSCD_GUI.Libraries
                                         }
                                         if (objTinhTrang != null)
                                         {
-                                            if (objCTTaiSan.chuyenTinhTrang(objCTTaiSan.chungtu, objTinhTrang, objCTTaiSan.soluong, objCTTaiSan.ghichu) > 0 && DBInstance.commit() > 0)
+                                            if (objCTTaiSan.chuyenTinhTrang(objCTTaiSan.chungtu, objTinhTrang, objCTTaiSan.soluong, objCTTaiSan.ghichu) != null && DBInstance.commit() > 0)
                                             {
                                                 WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Pass");
                                             }

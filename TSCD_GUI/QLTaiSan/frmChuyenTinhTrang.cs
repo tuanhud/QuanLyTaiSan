@@ -62,13 +62,13 @@ namespace TSCD_GUI.QLTaiSan
                 int soLuong = Convert.ToInt32(txtSoLuong.EditValue);
                 TinhTrang tinhTrang = TinhTrang.getById(lookUpTinhTrang.EditValue);
                 String ghiChu = txtGhiChu.Text;
-                int re = objCTTaiSan.chuyenTinhTrang(objCTTaiSan.chungtu, tinhTrang, soLuong, ghiChu);
-                if (re > 0 && DBInstance.commit() > 0)
+                CTTaiSan re = objCTTaiSan.chuyenTinhTrang(objCTTaiSan.chungtu, tinhTrang, soLuong, ghiChu);
+                if (re != null && DBInstance.commit() > 0)
                 {
                     XtraMessageBox.Show("Chuyển tình trạng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    Guid id = CTTaiSan.getQuery().Where(c => c.taisan_id == objCTTaiSan.taisan_id && c.tinhtrang_id == tinhTrang.id && c.soluong == soLuong).FirstOrDefault().id;
+                    //Guid id = CTTaiSan.getQuery().Where(c => c.taisan_id == objCTTaiSan.taisan_id && c.tinhtrang_id == tinhTrang.id && c.soluong == soLuong).FirstOrDefault().id;
                     if (reloadAndFocused != null)
-                        reloadAndFocused(id);
+                        reloadAndFocused(re.id);
                     this.Close();
                 }
                 else
