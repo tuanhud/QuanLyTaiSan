@@ -83,8 +83,39 @@ namespace TSCD_GUI.QLTaiSan
 
         private void loadData()
         {
-            loadDataTinhTrang();
-            loadDataLoaiTS();
+            try
+            {
+                loadDataTinhTrang();
+                loadDataLoaiTS();
+                List<DonVi> list = DonVi.getQuery().OrderBy(c => c.parent_id).ThenBy(c => c.ten).ToList();
+                DonVi objNULL = new DonVi();
+                objNULL.id = Guid.Empty;
+                objNULL.ten = "[Không có đơn vị]";
+                objNULL.parent = null;
+                list.Insert(0, objNULL);
+                ucComboBoxDonVi1.DataSource = list;
+                ucComboBoxViTri1.init(false, true);
+                List<ViTriHienThi> listPhong = ViTriHienThi.getAllHavePhong();
+                ViTriHienThi objPhongNULL = new ViTriHienThi();
+                objPhongNULL.id = Guid.Empty;
+                objPhongNULL.ten = "[Không có phòng]";
+                objPhongNULL.loai = typeof(Phong).Name;
+                objPhongNULL.parent_id = Guid.Empty;
+                listPhong.Insert(0, objPhongNULL);
+                ucComboBoxViTri1.DataSource = listPhong;
+                List<ViTriHienThi> listViTri = ViTriHienThi.getAll();
+                ViTriHienThi objViTriNULL = new ViTriHienThi();
+                objViTriNULL.id = Guid.Empty;
+                objViTriNULL.ten = "[Không có vị trí]";
+                objViTriNULL.loai = typeof(CoSo).Name;
+                objViTriNULL.parent_id = Guid.Empty;
+                listViTri.Insert(0, objViTriNULL);
+                ucComboBoxViTri2.DataSource = listViTri;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->loadData:" + ex.Message);
+            }
         }
 
         private void loadDataTinhTrang()
@@ -92,6 +123,7 @@ namespace TSCD_GUI.QLTaiSan
             try
             {
                 listTinhTrang = TinhTrang.getQuery().OrderBy(c => c.order).ToList();
+                lookUpChuyenTinhTrang.Properties.DataSource = listTinhTrang;
                 lookUpTinhTrang.Properties.DataSource = listTinhTrang;
                 if (reLoadAndSetValueTinhTrang != null)
                     reLoadAndSetValueTinhTrang(listTinhTrang);
@@ -129,6 +161,7 @@ namespace TSCD_GUI.QLTaiSan
             {
                 listTinhTrang = _listTinhTrang;
                 lookUpTinhTrang.Properties.DataSource = listTinhTrang;
+                lookUpChuyenTinhTrang.Properties.DataSource = listTinhTrang;
                 if (reload && reLoadAndSetValueTinhTrang != null)
                     reLoadAndSetValueTinhTrang(listTinhTrang);
             }
@@ -172,6 +205,15 @@ namespace TSCD_GUI.QLTaiSan
                 listCTTaiSan = obj.childs.ToList();
                 gridControlTaiSan.DataSource = TaiSanHienThi.Convert(listCTTaiSan);
                 objChungTu = obj.chungtu;
+                //tabDonVi
+                spinSoLuongDonVi.EditValue = spinSoLuongTinhTrang.EditValue = obj.soluong;
+                ucComboBoxViTri1.Phong = objCTTaiSan.phong;
+                ucComboBoxViTri2.ViTri = objCTTaiSan.vitri;
+                ucComboBoxDonVi1.DonVi = objCTTaiSan.donviquanly;
+                spinSoLuongDonVi.Properties.MinValue = 1;
+                spinSoLuongDonVi.Properties.MaxValue = obj.soluong;
+                //tabTinhTrang
+                lookUpChuyenTinhTrang.EditValue = obj.tinhtrang_id;
             }
             catch (Exception ex)
             {
@@ -335,22 +377,22 @@ namespace TSCD_GUI.QLTaiSan
 
         private void txtSoLuong_EditValueChanged(object sender, EventArgs e)
         {
-            setThanhTien();
+            //setThanhTien();
         }
 
         private void txtDonGia_EditValueChanged(object sender, EventArgs e)
         {
-            setThanhTien();
+            //setThanhTien();
         }
 
-        private void setThanhTien()
-        {
-            if (txtSoLuong.EditValue != null && txtDonGia.EditValue != null)
-            {
-                long thanhtien = Convert.ToInt32(txtSoLuong.EditValue) * long.Parse(txtDonGia.EditValue.ToString());
-                lbltxtThanhTien.Text = String.Format("{0:### ### ### ###}", thanhtien);
-            }
-        }
+        //private void setThanhTien()
+        //{
+        //    if (txtSoLuong.EditValue != null && txtDonGia.EditValue != null)
+        //    {
+        //        long thanhtien = Convert.ToInt32(txtSoLuong.EditValue) * long.Parse(txtDonGia.EditValue.ToString());
+        //        lbltxtThanhTien.Text = String.Format("{0:### ### ### ###}", thanhtien);
+        //    }
+        //}
 
         private void setDonViTinh()
         {
@@ -358,9 +400,9 @@ namespace TSCD_GUI.QLTaiSan
             {
                 LoaiTaiSan obj = ucComboBoxLoaiTS1.LoaiTS;
                 if (obj == null || obj.donvitinh == null)
-                    lbltxtDonViTinh.Text = "";
+                    lbltxtDonViTinh.Text = lbltxtDonViTinh1.Text = lbltxtDonViTinh2.Text = "";
                 else
-                    lbltxtDonViTinh.Text = ucComboBoxLoaiTS1.LoaiTS.donvitinh.ten;
+                    lbltxtDonViTinh.Text = lbltxtDonViTinh1.Text = lbltxtDonViTinh2.Text = ucComboBoxLoaiTS1.LoaiTS.donvitinh.ten;
             }
             catch (Exception ex)
             {
@@ -466,6 +508,11 @@ namespace TSCD_GUI.QLTaiSan
                 if (frm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                     objChungTu = frm.ct;
             }
+        }
+
+        private void btnTinhTrang1_Click(object sender, EventArgs e)
+        {
+            btnTinhTrang.PerformClick();
         }
 
     }

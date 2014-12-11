@@ -117,13 +117,16 @@ namespace TSCD_GUI.QLTaiSan
 
         private void barBtnThemTaiSan_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            DonVi obj = ucTreeDonVi1.DonVi;
-            if (obj != null)
-            {
-                frmAddTaiSanExist frm = new frmAddTaiSanExist(obj);
-                frm.reloadAndFocused = new frmAddTaiSanExist.ReloadAndFocused(reloadAndFocused);
-                frm.ShowDialog();
-            }
+            //DonVi obj = ucTreeDonVi1.DonVi;
+            //if (obj != null)
+            //{
+            //    frmAddTaiSanExist frm = new frmAddTaiSanExist(obj);
+            //    frm.reloadAndFocused = new frmAddTaiSanExist.ReloadAndFocused(reloadAndFocused);
+            //    frm.ShowDialog();
+            //}
+            frmAddTaiSan frm = new frmAddTaiSan();
+            frm.reloadAndFocused = new frmAddTaiSan.ReloadAndFocused(reloadAndFocused);
+            frm.ShowDialog();
         }
 
         private void barBtnChuyen_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

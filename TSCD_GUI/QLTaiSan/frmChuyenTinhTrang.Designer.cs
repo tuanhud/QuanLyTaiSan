@@ -39,20 +39,22 @@
             this.lblSoLuong = new DevExpress.XtraEditors.LabelControl();
             this.txtSoLuong = new DevExpress.XtraEditors.SpinEdit();
             this.btnTinhTrang = new DevExpress.XtraEditors.SimpleButton();
-            this.lblTextMaTS = new DevExpress.XtraEditors.LabelControl();
-            this.lblTextTenTS = new DevExpress.XtraEditors.LabelControl();
             this.lblTenTaiSan = new DevExpress.XtraEditors.LabelControl();
             this.lblMaTaiSan = new DevExpress.XtraEditors.LabelControl();
+            this.txtTenTS = new DevExpress.XtraEditors.MemoEdit();
+            this.txtMaTS = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpTinhTrang.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtGhiChu.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSoLuong.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTenTS.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMaTS.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // lookUpTinhTrang
             // 
             this.lookUpTinhTrang.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lookUpTinhTrang.Location = new System.Drawing.Point(75, 87);
+            this.lookUpTinhTrang.Location = new System.Drawing.Point(71, 107);
             this.lookUpTinhTrang.Name = "lookUpTinhTrang";
             this.lookUpTinhTrang.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -66,7 +68,7 @@
             // 
             // lblTinhTrang
             // 
-            this.lblTinhTrang.Location = new System.Drawing.Point(12, 90);
+            this.lblTinhTrang.Location = new System.Drawing.Point(12, 110);
             this.lblTinhTrang.Name = "lblTinhTrang";
             this.lblTinhTrang.Size = new System.Drawing.Size(53, 13);
             this.lblTinhTrang.TabIndex = 38;
@@ -74,9 +76,9 @@
             // 
             // btnHuy
             // 
-            this.btnHuy.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnHuy.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnHuy.Image = ((System.Drawing.Image)(resources.GetObject("btnHuy.Image")));
-            this.btnHuy.Location = new System.Drawing.Point(244, 194);
+            this.btnHuy.Location = new System.Drawing.Point(240, 214);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(75, 23);
             this.btnHuy.TabIndex = 9;
@@ -85,9 +87,9 @@
             // 
             // btnOK
             // 
-            this.btnOK.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnOK.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnOK.Image = ((System.Drawing.Image)(resources.GetObject("btnOK.Image")));
-            this.btnOK.Location = new System.Drawing.Point(163, 194);
+            this.btnOK.Location = new System.Drawing.Point(159, 214);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 8;
@@ -96,7 +98,7 @@
             // 
             // lblGhiChu
             // 
-            this.lblGhiChu.Location = new System.Drawing.Point(12, 116);
+            this.lblGhiChu.Location = new System.Drawing.Point(12, 136);
             this.lblGhiChu.Name = "lblGhiChu";
             this.lblGhiChu.Size = new System.Drawing.Size(39, 13);
             this.lblGhiChu.TabIndex = 40;
@@ -104,9 +106,10 @@
             // 
             // txtGhiChu
             // 
-            this.txtGhiChu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtGhiChu.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtGhiChu.Location = new System.Drawing.Point(75, 113);
+            this.txtGhiChu.Location = new System.Drawing.Point(71, 133);
             this.txtGhiChu.Name = "txtGhiChu";
             this.txtGhiChu.Size = new System.Drawing.Size(395, 75);
             this.txtGhiChu.TabIndex = 7;
@@ -115,7 +118,7 @@
             // lbltxtDonViTinh
             // 
             this.lbltxtDonViTinh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbltxtDonViTinh.Location = new System.Drawing.Point(392, 64);
+            this.lbltxtDonViTinh.Location = new System.Drawing.Point(388, 84);
             this.lbltxtDonViTinh.Name = "lbltxtDonViTinh";
             this.lbltxtDonViTinh.Size = new System.Drawing.Size(60, 13);
             this.lbltxtDonViTinh.TabIndex = 45;
@@ -123,7 +126,7 @@
             // 
             // lblSoLuong
             // 
-            this.lblSoLuong.Location = new System.Drawing.Point(12, 64);
+            this.lblSoLuong.Location = new System.Drawing.Point(12, 84);
             this.lblSoLuong.Name = "lblSoLuong";
             this.lblSoLuong.Size = new System.Drawing.Size(46, 13);
             this.lblSoLuong.TabIndex = 43;
@@ -138,7 +141,7 @@
             0,
             0,
             0});
-            this.txtSoLuong.Location = new System.Drawing.Point(75, 61);
+            this.txtSoLuong.Location = new System.Drawing.Point(71, 81);
             this.txtSoLuong.Name = "txtSoLuong";
             this.txtSoLuong.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -153,27 +156,11 @@
             this.btnTinhTrang.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnTinhTrang.Image = ((System.Drawing.Image)(resources.GetObject("btnTinhTrang.Image")));
             this.btnTinhTrang.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btnTinhTrang.Location = new System.Drawing.Point(447, 85);
+            this.btnTinhTrang.Location = new System.Drawing.Point(443, 105);
             this.btnTinhTrang.Name = "btnTinhTrang";
             this.btnTinhTrang.Size = new System.Drawing.Size(23, 23);
             this.btnTinhTrang.TabIndex = 6;
             this.btnTinhTrang.Click += new System.EventHandler(this.btnTinhTrang_Click);
-            // 
-            // lblTextMaTS
-            // 
-            this.lblTextMaTS.Location = new System.Drawing.Point(75, 12);
-            this.lblTextMaTS.Name = "lblTextMaTS";
-            this.lblTextMaTS.Size = new System.Drawing.Size(12, 13);
-            this.lblTextMaTS.TabIndex = 49;
-            this.lblTextMaTS.Text = "...";
-            // 
-            // lblTextTenTS
-            // 
-            this.lblTextTenTS.Location = new System.Drawing.Point(75, 38);
-            this.lblTextTenTS.Name = "lblTextTenTS";
-            this.lblTextTenTS.Size = new System.Drawing.Size(12, 13);
-            this.lblTextTenTS.TabIndex = 48;
-            this.lblTextTenTS.Text = "...";
             // 
             // lblTenTaiSan
             // 
@@ -191,13 +178,34 @@
             this.lblMaTaiSan.TabIndex = 46;
             this.lblMaTaiSan.Text = "Mã tài sản:";
             // 
+            // txtTenTS
+            // 
+            this.txtTenTS.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtTenTS.Location = new System.Drawing.Point(71, 35);
+            this.txtTenTS.Name = "txtTenTS";
+            this.txtTenTS.Properties.ReadOnly = true;
+            this.txtTenTS.Size = new System.Drawing.Size(399, 40);
+            this.txtTenTS.TabIndex = 49;
+            this.txtTenTS.UseOptimizedRendering = true;
+            // 
+            // txtMaTS
+            // 
+            this.txtMaTS.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtMaTS.Location = new System.Drawing.Point(71, 9);
+            this.txtMaTS.Name = "txtMaTS";
+            this.txtMaTS.Properties.ReadOnly = true;
+            this.txtMaTS.Size = new System.Drawing.Size(399, 20);
+            this.txtMaTS.TabIndex = 48;
+            // 
             // frmChuyenTinhTrang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(482, 229);
-            this.Controls.Add(this.lblTextMaTS);
-            this.Controls.Add(this.lblTextTenTS);
+            this.ClientSize = new System.Drawing.Size(482, 243);
+            this.Controls.Add(this.txtTenTS);
+            this.Controls.Add(this.txtMaTS);
             this.Controls.Add(this.lblTenTaiSan);
             this.Controls.Add(this.lblMaTaiSan);
             this.Controls.Add(this.btnTinhTrang);
@@ -217,6 +225,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.lookUpTinhTrang.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtGhiChu.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSoLuong.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTenTS.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMaTS.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -234,9 +244,9 @@
         private DevExpress.XtraEditors.LabelControl lblSoLuong;
         private DevExpress.XtraEditors.SpinEdit txtSoLuong;
         private DevExpress.XtraEditors.SimpleButton btnTinhTrang;
-        private DevExpress.XtraEditors.LabelControl lblTextMaTS;
-        private DevExpress.XtraEditors.LabelControl lblTextTenTS;
         private DevExpress.XtraEditors.LabelControl lblTenTaiSan;
         private DevExpress.XtraEditors.LabelControl lblMaTaiSan;
+        private DevExpress.XtraEditors.MemoEdit txtTenTS;
+        private DevExpress.XtraEditors.TextEdit txtMaTS;
     }
 }

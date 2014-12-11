@@ -44,17 +44,20 @@
             this.ucComboBoxDonVi1 = new TSCD_GUI.MyUserControl.ucComboBoxDonVi();
             this.ucComboBoxViTri2 = new TSCD_GUI.MyUserControl.ucComboBoxViTri();
             this.ucComboBoxViTri1 = new TSCD_GUI.MyUserControl.ucComboBoxViTri();
-            this.lblTextTenTS = new DevExpress.XtraEditors.LabelControl();
-            this.lblTextMaTS = new DevExpress.XtraEditors.LabelControl();
+            this.txtMaTS = new DevExpress.XtraEditors.TextEdit();
+            this.txtTenTS = new DevExpress.XtraEditors.MemoEdit();
             ((System.ComponentModel.ISupportInitialize)(this.txtGhiChu.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSoLuong.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMaTS.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTenTS.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // txtGhiChu
             // 
-            this.txtGhiChu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtGhiChu.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtGhiChu.Location = new System.Drawing.Point(89, 168);
+            this.txtGhiChu.Location = new System.Drawing.Point(89, 188);
             this.txtGhiChu.Name = "txtGhiChu";
             this.txtGhiChu.Size = new System.Drawing.Size(379, 75);
             this.txtGhiChu.TabIndex = 8;
@@ -62,7 +65,7 @@
             // 
             // lblSoLuong
             // 
-            this.lblSoLuong.Location = new System.Drawing.Point(10, 67);
+            this.lblSoLuong.Location = new System.Drawing.Point(10, 87);
             this.lblSoLuong.Name = "lblSoLuong";
             this.lblSoLuong.Size = new System.Drawing.Size(46, 13);
             this.lblSoLuong.TabIndex = 5;
@@ -77,7 +80,7 @@
             0,
             0,
             0});
-            this.txtSoLuong.Location = new System.Drawing.Point(89, 64);
+            this.txtSoLuong.Location = new System.Drawing.Point(89, 84);
             this.txtSoLuong.Name = "txtSoLuong";
             this.txtSoLuong.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -89,7 +92,7 @@
             // 
             // lblPhong
             // 
-            this.lblPhong.Location = new System.Drawing.Point(10, 92);
+            this.lblPhong.Location = new System.Drawing.Point(10, 112);
             this.lblPhong.Name = "lblPhong";
             this.lblPhong.Size = new System.Drawing.Size(34, 13);
             this.lblPhong.TabIndex = 7;
@@ -97,7 +100,7 @@
             // 
             // lblViTri
             // 
-            this.lblViTri.Location = new System.Drawing.Point(10, 118);
+            this.lblViTri.Location = new System.Drawing.Point(10, 138);
             this.lblViTri.Name = "lblViTri";
             this.lblViTri.Size = new System.Drawing.Size(25, 13);
             this.lblViTri.TabIndex = 8;
@@ -105,7 +108,7 @@
             // 
             // lblDonViQL
             // 
-            this.lblDonViQL.Location = new System.Drawing.Point(10, 145);
+            this.lblDonViQL.Location = new System.Drawing.Point(10, 165);
             this.lblDonViQL.Name = "lblDonViQL";
             this.lblDonViQL.Size = new System.Drawing.Size(73, 13);
             this.lblDonViQL.TabIndex = 9;
@@ -113,7 +116,7 @@
             // 
             // lblGhiChu
             // 
-            this.lblGhiChu.Location = new System.Drawing.Point(9, 171);
+            this.lblGhiChu.Location = new System.Drawing.Point(9, 191);
             this.lblGhiChu.Name = "lblGhiChu";
             this.lblGhiChu.Size = new System.Drawing.Size(39, 13);
             this.lblGhiChu.TabIndex = 11;
@@ -121,9 +124,9 @@
             // 
             // btnOK
             // 
-            this.btnOK.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnOK.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnOK.Image = ((System.Drawing.Image)(resources.GetObject("btnOK.Image")));
-            this.btnOK.Location = new System.Drawing.Point(160, 249);
+            this.btnOK.Location = new System.Drawing.Point(166, 269);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 9;
@@ -132,9 +135,9 @@
             // 
             // btnHuy
             // 
-            this.btnHuy.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnHuy.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnHuy.Image = ((System.Drawing.Image)(resources.GetObject("btnHuy.Image")));
-            this.btnHuy.Location = new System.Drawing.Point(241, 249);
+            this.btnHuy.Location = new System.Drawing.Point(247, 269);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(75, 23);
             this.btnHuy.TabIndex = 10;
@@ -144,7 +147,7 @@
             // lbltxtDonViTinh
             // 
             this.lbltxtDonViTinh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbltxtDonViTinh.Location = new System.Drawing.Point(390, 67);
+            this.lbltxtDonViTinh.Location = new System.Drawing.Point(390, 87);
             this.lbltxtDonViTinh.Name = "lbltxtDonViTinh";
             this.lbltxtDonViTinh.Size = new System.Drawing.Size(60, 13);
             this.lbltxtDonViTinh.TabIndex = 14;
@@ -172,7 +175,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ucComboBoxDonVi1.DonVi = null;
             this.ucComboBoxDonVi1.EditValue = null;
-            this.ucComboBoxDonVi1.Location = new System.Drawing.Point(89, 142);
+            this.ucComboBoxDonVi1.Location = new System.Drawing.Point(89, 162);
             this.ucComboBoxDonVi1.Name = "ucComboBoxDonVi1";
             this.ucComboBoxDonVi1.Size = new System.Drawing.Size(379, 20);
             this.ucComboBoxDonVi1.TabIndex = 7;
@@ -182,7 +185,7 @@
             this.ucComboBoxViTri2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ucComboBoxViTri2.EditValue = null;
-            this.ucComboBoxViTri2.Location = new System.Drawing.Point(89, 116);
+            this.ucComboBoxViTri2.Location = new System.Drawing.Point(89, 136);
             this.ucComboBoxViTri2.Name = "ucComboBoxViTri2";
             this.ucComboBoxViTri2.Phong = null;
             this.ucComboBoxViTri2.Size = new System.Drawing.Size(379, 20);
@@ -194,36 +197,41 @@
             this.ucComboBoxViTri1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ucComboBoxViTri1.EditValue = null;
-            this.ucComboBoxViTri1.Location = new System.Drawing.Point(89, 90);
+            this.ucComboBoxViTri1.Location = new System.Drawing.Point(89, 110);
             this.ucComboBoxViTri1.Name = "ucComboBoxViTri1";
             this.ucComboBoxViTri1.Phong = null;
             this.ucComboBoxViTri1.Size = new System.Drawing.Size(379, 20);
             this.ucComboBoxViTri1.TabIndex = 5;
             this.ucComboBoxViTri1.ViTri = null;
             // 
-            // lblTextTenTS
+            // txtMaTS
             // 
-            this.lblTextTenTS.Location = new System.Drawing.Point(89, 41);
-            this.lblTextTenTS.Name = "lblTextTenTS";
-            this.lblTextTenTS.Size = new System.Drawing.Size(12, 13);
-            this.lblTextTenTS.TabIndex = 33;
-            this.lblTextTenTS.Text = "...";
+            this.txtMaTS.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtMaTS.Location = new System.Drawing.Point(89, 12);
+            this.txtMaTS.Name = "txtMaTS";
+            this.txtMaTS.Properties.ReadOnly = true;
+            this.txtMaTS.Size = new System.Drawing.Size(379, 20);
+            this.txtMaTS.TabIndex = 33;
             // 
-            // lblTextMaTS
+            // txtTenTS
             // 
-            this.lblTextMaTS.Location = new System.Drawing.Point(89, 15);
-            this.lblTextMaTS.Name = "lblTextMaTS";
-            this.lblTextMaTS.Size = new System.Drawing.Size(12, 13);
-            this.lblTextMaTS.TabIndex = 34;
-            this.lblTextMaTS.Text = "...";
+            this.txtTenTS.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtTenTS.Location = new System.Drawing.Point(89, 38);
+            this.txtTenTS.Name = "txtTenTS";
+            this.txtTenTS.Properties.ReadOnly = true;
+            this.txtTenTS.Size = new System.Drawing.Size(379, 40);
+            this.txtTenTS.TabIndex = 34;
+            this.txtTenTS.UseOptimizedRendering = true;
             // 
             // frmInputViTri_DonVi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(483, 278);
-            this.Controls.Add(this.lblTextMaTS);
-            this.Controls.Add(this.lblTextTenTS);
+            this.ClientSize = new System.Drawing.Size(483, 299);
+            this.Controls.Add(this.txtTenTS);
+            this.Controls.Add(this.txtMaTS);
             this.Controls.Add(this.lblTenTaiSan);
             this.Controls.Add(this.lblMaTaiSan);
             this.Controls.Add(this.lbltxtDonViTinh);
@@ -245,6 +253,8 @@
             this.Text = "Nhập thông tin";
             ((System.ComponentModel.ISupportInitialize)(this.txtGhiChu.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSoLuong.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMaTS.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTenTS.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -267,7 +277,7 @@
         private DevExpress.XtraEditors.LabelControl lbltxtDonViTinh;
         private DevExpress.XtraEditors.LabelControl lblTenTaiSan;
         private DevExpress.XtraEditors.LabelControl lblMaTaiSan;
-        private DevExpress.XtraEditors.LabelControl lblTextTenTS;
-        private DevExpress.XtraEditors.LabelControl lblTextMaTS;
+        private DevExpress.XtraEditors.TextEdit txtMaTS;
+        private DevExpress.XtraEditors.MemoEdit txtTenTS;
     }
 }

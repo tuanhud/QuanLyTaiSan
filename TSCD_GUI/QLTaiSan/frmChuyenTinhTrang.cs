@@ -39,8 +39,8 @@ namespace TSCD_GUI.QLTaiSan
 
         private void setData()
         {
-            lblTextMaTS.Text = objCTTaiSan.subId;
-            lblTextTenTS.Text = objCTTaiSan.taisan.ten;
+            txtMaTS.Text = objCTTaiSan.subId;
+            txtTenTS.Text = objCTTaiSan.taisan.ten;
             //objChungTu = objCTTaiSan.chungtu;
             //dateNgayGhi.EditValue = objCTTaiSan.ngay;
             //dateNgay_CT.EditValue = objCTTaiSan.chungtu.ngay;

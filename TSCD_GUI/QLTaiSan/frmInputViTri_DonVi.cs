@@ -49,8 +49,8 @@ namespace TSCD_GUI.QLTaiSan
             {
                 objCTTaiSan = _objCTTaiSan;
                 //objChungTu = objCTTaiSan.chungtu;
-                lblTextMaTS.Text = objCTTaiSan.subId;
-                lblTextTenTS.Text = objCTTaiSan.taisan.ten;
+                txtMaTS.Text = objCTTaiSan.subId;
+                txtTenTS.Text = objCTTaiSan.taisan.ten;
                 //dateNgayGhi.EditValue = objCTTaiSan.ngay;
                 //dateNgay_CT.EditValue = objCTTaiSan.chungtu != null ? objCTTaiSan.chungtu.ngay : null;
                 //txtSoHieu_CT.Text = objCTTaiSan.chungtu != null ? objCTTaiSan.chungtu.sohieu : "";
@@ -71,8 +71,8 @@ namespace TSCD_GUI.QLTaiSan
             try
             {
                 //objChungTu = objCTTaiSan.chungtu;
-                lblTextMaTS.Text = objCTTaiSan.subId;
-                lblTextTenTS.Text = objCTTaiSan.taisan.ten;
+                txtMaTS.Text = objCTTaiSan.subId;
+                txtTenTS.Text = objCTTaiSan.taisan.ten;
                 //dateNgayGhi.EditValue = objCTTaiSan.ngay;
                 //dateNgay_CT.EditValue = objCTTaiSan.chungtu.ngay;
                 //txtSoHieu_CT.Text = objCTTaiSan.chungtu.sohieu;
@@ -121,7 +121,7 @@ namespace TSCD_GUI.QLTaiSan
             }
             catch (Exception ex)
             {
-                Debug.WriteLine(this.Name + "->setData:" + ex.Message);
+                Debug.WriteLine(this.Name + "->loadData:" + ex.Message);
             }
         }
 
