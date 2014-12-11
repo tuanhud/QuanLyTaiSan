@@ -88,6 +88,14 @@ namespace TSCD.Entities
                 }
             }
         }
+        public static OurDBContext createInstance()
+        {
+            return new OurDBContext();
+        }
+        /// <summary>
+        /// for multi thread, report form
+        /// </summary>
+        public static Boolean _ENABLE_RENEW = true;
         /// <summary>
         /// Bắt buộc phải gọi mới thấy được sự thay đổi CSDL do nơi khác chỉnh sửa,
         /// Tất cả Object get ra bởi DBInstace cũ sẽ phải reload mới có thể tiếp tục sử dụng lại được,
@@ -95,6 +103,11 @@ namespace TSCD.Entities
         /// </summary>
         public static void reNew()
         {
+            if(!_ENABLE_RENEW)
+            {
+                //DO NOT THING
+                return;
+            }
             if (db != null)
             {
                 db.Dispose();
