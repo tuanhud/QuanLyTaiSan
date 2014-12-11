@@ -879,7 +879,7 @@
             this.spinSoLuongDonVi.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.spinSoLuongDonVi.EditValue = new decimal(new int[] {
-            0,
+            1,
             0,
             0,
             0});
@@ -890,8 +890,19 @@
             this.spinSoLuongDonVi.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Default;
             this.spinSoLuongDonVi.Properties.Mask.EditMask = "N00";
             this.spinSoLuongDonVi.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.None;
+            this.spinSoLuongDonVi.Properties.MaxValue = new decimal(new int[] {
+            999,
+            0,
+            0,
+            0});
+            this.spinSoLuongDonVi.Properties.MinValue = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.spinSoLuongDonVi.Size = new System.Drawing.Size(295, 20);
             this.spinSoLuongDonVi.TabIndex = 15;
+            this.spinSoLuongDonVi.EditValueChanged += new System.EventHandler(this.spinSoLuongDonVi_EditValueChanged);
             // 
             // xtraTabPageTinhTrang
             // 
@@ -940,7 +951,7 @@
             this.spinSoLuongTinhTrang.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.spinSoLuongTinhTrang.EditValue = new decimal(new int[] {
-            0,
+            1,
             0,
             0,
             0});
@@ -951,6 +962,16 @@
             this.spinSoLuongTinhTrang.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Default;
             this.spinSoLuongTinhTrang.Properties.Mask.EditMask = "N00";
             this.spinSoLuongTinhTrang.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.None;
+            this.spinSoLuongTinhTrang.Properties.MaxValue = new decimal(new int[] {
+            999,
+            0,
+            0,
+            0});
+            this.spinSoLuongTinhTrang.Properties.MinValue = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.spinSoLuongTinhTrang.Size = new System.Drawing.Size(320, 20);
             this.spinSoLuongTinhTrang.TabIndex = 46;
             // 

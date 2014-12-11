@@ -72,6 +72,16 @@ namespace TSCD_GUI.QLTaiSan
         private void init()
         {
             ucComboBoxLoaiTS1.editValueChanged = new MyUserControl.ucComboBoxLoaiTS.EditValueChanged(setDonViTinh);
+            if (isEdit)
+            {
+
+            }
+            else
+            {
+                spinSoLuongDonVi.Enabled = false;
+                xtraTabPageDonVi.Text = "Đơn vị";
+                xtraTabPageTinhTrang.PageVisible = false;
+            }
         }
 
         public frmAddTaiSan()
@@ -210,10 +220,10 @@ namespace TSCD_GUI.QLTaiSan
                 ucComboBoxViTri1.Phong = objCTTaiSan.phong;
                 ucComboBoxViTri2.ViTri = objCTTaiSan.vitri;
                 ucComboBoxDonVi1.DonVi = objCTTaiSan.donviquanly;
-                spinSoLuongDonVi.Properties.MinValue = 1;
                 spinSoLuongDonVi.Properties.MaxValue = obj.soluong;
                 //tabTinhTrang
                 lookUpChuyenTinhTrang.EditValue = obj.tinhtrang_id;
+                spinSoLuongTinhTrang.Properties.MaxValue = obj.soluong;
             }
             catch (Exception ex)
             {
@@ -309,6 +319,36 @@ namespace TSCD_GUI.QLTaiSan
                 if (!isChild)
                 {
                     int re = obj.add();//ONly call add on CTTaiSan
+                    //chuyen don vi
+                    int soLuongDV = Convert.ToInt32(txtSoLuong.EditValue);
+                    Phong phong = ucComboBoxViTri1.Phong;
+                    ViTri viTri = ucComboBoxViTri2.ViTri;
+                    DonVi donViQL = ucComboBoxDonVi1.DonVi;
+                    String ghiChuDV = txtGhiChu.Text;
+                    if (objCTTaiSan.phong != phong || objCTTaiSan.vitri != viTri || objCTTaiSan.donviquanly != donViQL)
+                    {
+                        CTTaiSan tmp = objCTTaiSan.chuyenDonVi(donViQL, null, viTri, phong, objCTTaiSan.parent, objCTTaiSan.chungtu, soLuongDV, ghiChuDV);
+                        if (tmp != null)
+                            objCTTaiSan = tmp;
+                        else
+                        {
+                            XtraMessageBox.Show("Thêm tài sản không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return Guid.Empty;
+                        }
+                    }
+                    //chuyen tinh trang
+                    int soLuongTT = Convert.ToInt32(txtSoLuong.EditValue);
+                    TinhTrang tinhTrang = TinhTrang.getById(lookUpTinhTrang.EditValue);
+                    String ghiChuTT = txtGhiChu.Text;
+                    if (objCTTaiSan.tinhtrang != tinhTrang)
+                    {
+                        CTTaiSan tmp = objCTTaiSan.chuyenTinhTrang(objCTTaiSan.chungtu, tinhTrang, soLuongTT, ghiChuTT);
+                        if (tmp == null)
+                        {
+                            XtraMessageBox.Show("Thêm tài sản không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return Guid.Empty;
+                        }
+                    }
                     re = DBInstance.commit();
                     if (re > 0)
                     {
@@ -355,6 +395,36 @@ namespace TSCD_GUI.QLTaiSan
                 objCTTaiSan.mota = txtGhiChu.Text;
                 objCTTaiSan.childs = listCTTaiSan;
                 int re = objCTTaiSan.update();//ONly call add on CTTaiSan
+                //chuyen don vi
+                int soLuongDV = Convert.ToInt32(txtSoLuong.EditValue);
+                Phong phong = ucComboBoxViTri1.Phong;
+                ViTri viTri = ucComboBoxViTri2.ViTri;
+                DonVi donViQL = ucComboBoxDonVi1.DonVi;
+                String ghiChuDV = txtGhiChu.Text;
+                if (objCTTaiSan.phong != phong || objCTTaiSan.vitri != viTri || objCTTaiSan.donviquanly != donViQL)
+                {
+                    CTTaiSan tmp = objCTTaiSan.chuyenDonVi(donViQL, null, viTri, phong, objCTTaiSan.parent, objCTTaiSan.chungtu, soLuongDV, ghiChuDV);
+                    if (tmp != null)
+                         objCTTaiSan = tmp;
+                    else
+                    {
+                        XtraMessageBox.Show("Sửa tài sản không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return Guid.Empty;
+                    }
+                }
+                //chuyen tinh trang
+                int soLuongTT = Convert.ToInt32(txtSoLuong.EditValue);
+                TinhTrang tinhTrang = TinhTrang.getById(lookUpTinhTrang.EditValue);
+                String ghiChuTT = txtGhiChu.Text;
+                if (objCTTaiSan.tinhtrang != tinhTrang)
+                {
+                    CTTaiSan tmp = objCTTaiSan.chuyenTinhTrang(objCTTaiSan.chungtu, tinhTrang, soLuongTT, ghiChuTT);
+                    if (tmp == null)
+                    {
+                        XtraMessageBox.Show("Sửa tài sản không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return Guid.Empty;
+                    }
+                }
                 if (!isChild)
                     re = DBInstance.commit();
                 if (re > 0)
@@ -378,6 +448,7 @@ namespace TSCD_GUI.QLTaiSan
         private void txtSoLuong_EditValueChanged(object sender, EventArgs e)
         {
             //setThanhTien();
+            spinSoLuongDonVi.EditValue = spinSoLuongDonVi.Properties.MaxValue = Convert.ToInt32(txtSoLuong.EditValue);
         }
 
         private void txtDonGia_EditValueChanged(object sender, EventArgs e)
@@ -513,6 +584,11 @@ namespace TSCD_GUI.QLTaiSan
         private void btnTinhTrang1_Click(object sender, EventArgs e)
         {
             btnTinhTrang.PerformClick();
+        }
+
+        private void spinSoLuongDonVi_EditValueChanged(object sender, EventArgs e)
+        {
+            spinSoLuongTinhTrang.EditValue = spinSoLuongTinhTrang.Properties.MaxValue = Convert.ToInt32(spinSoLuongDonVi.EditValue);
         }
 
     }
