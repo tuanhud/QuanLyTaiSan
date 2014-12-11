@@ -11,6 +11,7 @@ using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraReports.UI;
 using TSCD.DataFilter;
 using TSCD_GUI.ReportTSCD;
+using DevExpress.LookAndFeel;
 
 namespace TSCD_GUI.ThongKe
 {
@@ -154,8 +155,26 @@ namespace TSCD_GUI.ThongKe
 
         private void barBtnXuatBaoCao_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            ReportTSCD.frmReport _frmReport = new ReportTSCD.frmReport();
-            _frmReport.ShowDialog();
+            barBtnXuatBaoCao.Enabled = false;
+
+            System.Threading.Thread _Thread = new System.Threading.Thread(new System.Threading.ThreadStart(() =>
+            {
+                DevExpress.UserSkins.BonusSkins.Register();
+                Application.EnableVisualStyles();
+                UserLookAndFeel.Default.SetSkinStyle(TSCD.Global.local_setting.ApplicationSkinName);
+                DevExpress.Skins.SkinManager.EnableFormSkins();
+
+                ReportTSCD.frmReport _frmReport = new ReportTSCD.frmReport();
+                _frmReport._SendMessage = new ReportTSCD.frmReport.SendMessage(EnableXuatBaoCao);
+                Application.Run(_frmReport);
+            }));
+
+            _Thread.Start();
+        }
+
+        public void EnableXuatBaoCao()
+        {
+            barBtnXuatBaoCao.Enabled = true;
         }
 
         private void barButtonItemXuatThongKe_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -430,7 +449,7 @@ namespace TSCD_GUI.ThongKe
                     {
                         DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitFormLoad), true, true, false);
                         DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang Export...");
-                        if (TSCD_GUI.Libraries.ExcelDataBaseHelper.insert_data_to_Excel(_ucTKTHTaiSan.taisans.OrderBy(c=>c.loaits).ToList(), save.FileName))
+                        if (TSCD_GUI.Libraries.ExcelDataBaseHelper.insert_data_to_Excel(_ucTKTHTaiSan.taisans.OrderBy(c => c.loaits).ToList(), save.FileName))
                         {
                             DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
                             XtraMessageBox.Show("Export thành công!");

@@ -19,6 +19,9 @@ namespace TSCD_GUI.ReportTSCD
     {
         List<DonVi> ListDonVi = new List<DonVi>();
 
+        public delegate void SendMessage();
+        public SendMessage _SendMessage;
+
         public frmReport()
         {
             InitializeComponent();
@@ -108,26 +111,26 @@ namespace TSCD_GUI.ReportTSCD
                     }
                     if (checkEdit_XuatBaoCao.Checked)
                     {
-                        splashScreenManager_Report.ShowWaitForm();
-                        splashScreenManager_Report.SetWaitFormCaption("Đang tạo report");
-                        splashScreenManager_Report.SetWaitFormDescription("Vui lòng chờ trong giây lát...");
+                        //splashScreenManager_Report.ShowWaitForm();
+                        //splashScreenManager_Report.SetWaitFormCaption("Đang tạo report");
+                        //splashScreenManager_Report.SetWaitFormDescription("Vui lòng chờ trong giây lát...");
 
                         TSCD_GUI.ReportTSCD.XtraReport_BaoCaoTangGiamTSCD _XtraReport_BaoCaoTangGiamTSCD = new ReportTSCD.XtraReport_BaoCaoTangGiamTSCD(TK_TangGiam_TheoLoaiTS.getAll(((DateTime)dateEdit_TuNgay.EditValue).Date, ((DateTime)dateEdit_DenNgay.EditValue).Date), ((DateTime)dateEdit_TuNgay.EditValue).Date, ((DateTime)dateEdit_DenNgay.EditValue).Date);
                         ReportPrintTool printTool = new ReportPrintTool(_XtraReport_BaoCaoTangGiamTSCD);
 
-                        splashScreenManager_Report.CloseWaitForm();
+                        //splashScreenManager_Report.CloseWaitForm();
                         printTool.ShowPreviewDialog();
                     }
                     else if (checkEdit_ThietKe.Checked)
                     {
-                        splashScreenManager_Report.ShowWaitForm();
-                        splashScreenManager_Report.SetWaitFormCaption("Đang tạo report");
-                        splashScreenManager_Report.SetWaitFormDescription("Vui lòng chờ trong giây lát...");
+                        //splashScreenManager_Report.ShowWaitForm();
+                        //splashScreenManager_Report.SetWaitFormCaption("Đang tạo report");
+                        //splashScreenManager_Report.SetWaitFormDescription("Vui lòng chờ trong giây lát...");
 
                         TSCD_GUI.ReportTSCD.XtraReport_BaoCaoTangGiamTSCD _XtraReport_BaoCaoTangGiamTSCD = new ReportTSCD.XtraReport_BaoCaoTangGiamTSCD(TK_TangGiam_TheoLoaiTS.getAll(((DateTime)dateEdit_TuNgay.EditValue).Date, ((DateTime)dateEdit_DenNgay.EditValue).Date), ((DateTime)dateEdit_TuNgay.EditValue).Date, ((DateTime)dateEdit_DenNgay.EditValue).Date);
                         ReportDesignTool designTool = new ReportDesignTool(_XtraReport_BaoCaoTangGiamTSCD);
 
-                        splashScreenManager_Report.CloseWaitForm();
+                        //splashScreenManager_Report.CloseWaitForm();
                         designTool.ShowDesignerDialog();
 
                         ReportPrintTool printTool = new ReportPrintTool(designTool.Report);
@@ -159,26 +162,26 @@ namespace TSCD_GUI.ReportTSCD
                     }
                     if (checkEdit_XuatBaoCao.Checked)
                     {
-                        splashScreenManager_Report.ShowWaitForm();
-                        splashScreenManager_Report.SetWaitFormCaption("Đang tạo report");
-                        splashScreenManager_Report.SetWaitFormDescription("Vui lòng chờ trong giây lát...");
+                        //splashScreenManager_Report.ShowWaitForm();
+                        //splashScreenManager_Report.SetWaitFormCaption("Đang tạo report");
+                        //splashScreenManager_Report.SetWaitFormDescription("Vui lòng chờ trong giây lát...");
 
                         TSCD_GUI.ReportTSCD.XtraReport_SoTaiSanCoDinh _XtraReport_SoTaiSanCoDinh = new ReportTSCD.XtraReport_SoTaiSanCoDinh(TaiSan_ThongKe.getAll(ListCoSo, ListLoaiTS, null));
                         ReportPrintTool printTool = new ReportPrintTool(_XtraReport_SoTaiSanCoDinh);
 
-                        splashScreenManager_Report.CloseWaitForm();
+                        //splashScreenManager_Report.CloseWaitForm();
                         printTool.ShowPreviewDialog();
                     }
                     else if (checkEdit_ThietKe.Checked)
                     {
-                        splashScreenManager_Report.ShowWaitForm();
-                        splashScreenManager_Report.SetWaitFormCaption("Đang tạo report");
-                        splashScreenManager_Report.SetWaitFormDescription("Vui lòng chờ trong giây lát...");
+                        //splashScreenManager_Report.ShowWaitForm();
+                        //splashScreenManager_Report.SetWaitFormCaption("Đang tạo report");
+                        //splashScreenManager_Report.SetWaitFormDescription("Vui lòng chờ trong giây lát...");
 
                         TSCD_GUI.ReportTSCD.XtraReport_SoTaiSanCoDinh _XtraReport_SoTaiSanCoDinh = new ReportTSCD.XtraReport_SoTaiSanCoDinh(TaiSan_ThongKe.getAll(ListCoSo, ListLoaiTS, null));
                         ReportDesignTool designTool = new ReportDesignTool(_XtraReport_SoTaiSanCoDinh);
 
-                        splashScreenManager_Report.CloseWaitForm();
+                        //splashScreenManager_Report.CloseWaitForm();
                         designTool.ShowDesignerDialog();
 
                         ReportPrintTool printTool = new ReportPrintTool(designTool.Report);
@@ -198,28 +201,28 @@ namespace TSCD_GUI.ReportTSCD
                     }
                     if (checkEdit_XuatBaoCao.Checked)
                     {
-                        splashScreenManager_Report.ShowWaitForm();
-                        splashScreenManager_Report.SetWaitFormCaption("Đang tạo report");
-                        splashScreenManager_Report.SetWaitFormDescription("Vui lòng chờ trong giây lát...");
+                        //splashScreenManager_Report.ShowWaitForm();
+                        //splashScreenManager_Report.SetWaitFormCaption("Đang tạo report");
+                        //splashScreenManager_Report.SetWaitFormDescription("Vui lòng chờ trong giây lát...");
 
                         var DonViSelected = ucComboBoxDonVi_ChonDonVi.DonVi;
                         TSCD_GUI.ReportTSCD.XtraReport_SoChiTietTaiSanCoDinh _XtraReport_SoChiTietTaiSanCoDinh = new ReportTSCD.XtraReport_SoChiTietTaiSanCoDinh(TaiSanHienThi.Convert(DonViSelected.cttaisans), DonViSelected);
                         ReportPrintTool printTool = new ReportPrintTool(_XtraReport_SoChiTietTaiSanCoDinh);
 
-                        splashScreenManager_Report.CloseWaitForm();
+                        //splashScreenManager_Report.CloseWaitForm();
                         printTool.ShowPreviewDialog();
                     }
                     else if (checkEdit_ThietKe.Checked)
                     {
-                        splashScreenManager_Report.ShowWaitForm();
-                        splashScreenManager_Report.SetWaitFormCaption("Đang tạo report");
-                        splashScreenManager_Report.SetWaitFormDescription("Vui lòng chờ trong giây lát...");
+                        //splashScreenManager_Report.ShowWaitForm();
+                        //splashScreenManager_Report.SetWaitFormCaption("Đang tạo report");
+                        //splashScreenManager_Report.SetWaitFormDescription("Vui lòng chờ trong giây lát...");
 
                         var DonViSelected = ucComboBoxDonVi_ChonDonVi.DonVi;
                         TSCD_GUI.ReportTSCD.XtraReport_SoChiTietTaiSanCoDinh _XtraReport_SoChiTietTaiSanCoDinh = new ReportTSCD.XtraReport_SoChiTietTaiSanCoDinh(TaiSanHienThi.Convert(DonViSelected.cttaisans), DonViSelected);
                         ReportDesignTool designTool = new ReportDesignTool(_XtraReport_SoChiTietTaiSanCoDinh);
 
-                        splashScreenManager_Report.CloseWaitForm();
+                        //splashScreenManager_Report.CloseWaitForm();
                         designTool.ShowDesignerDialog();
 
                         ReportPrintTool printTool = new ReportPrintTool(designTool.Report);
@@ -239,26 +242,26 @@ namespace TSCD_GUI.ReportTSCD
                     }
                     if (checkEdit_XuatBaoCao.Checked)
                     {
-                        splashScreenManager_Report.ShowWaitForm();
-                        splashScreenManager_Report.SetWaitFormCaption("Đang tạo report");
-                        splashScreenManager_Report.SetWaitFormDescription("Vui lòng chờ trong giây lát...");
+                        //splashScreenManager_Report.ShowWaitForm();
+                        //splashScreenManager_Report.SetWaitFormCaption("Đang tạo report");
+                        //splashScreenManager_Report.SetWaitFormDescription("Vui lòng chờ trong giây lát...");
 
                         TSCD_GUI.ReportTSCD.XtraReport_SoTheoDoiTSCDTaiNoiSuDung _XtraReport_PhongBan = new ReportTSCD.XtraReport_SoTheoDoiTSCDTaiNoiSuDung(TaiSan_ThongKe.getAll(null, null, ucComboBoxDonVi_ChonDonVi.DonVi), ucComboBoxDonVi_ChonDonVi.DonVi);
                         ReportPrintTool printTool = new ReportPrintTool(_XtraReport_PhongBan);
 
-                        splashScreenManager_Report.CloseWaitForm();
+                        //splashScreenManager_Report.CloseWaitForm();
                         printTool.ShowPreviewDialog();
                     }
                     else if (checkEdit_ThietKe.Checked)
                     {
-                        splashScreenManager_Report.ShowWaitForm();
-                        splashScreenManager_Report.SetWaitFormCaption("Đang tạo report");
-                        splashScreenManager_Report.SetWaitFormDescription("Vui lòng chờ trong giây lát...");
+                        //splashScreenManager_Report.ShowWaitForm();
+                        //splashScreenManager_Report.SetWaitFormCaption("Đang tạo report");
+                        //splashScreenManager_Report.SetWaitFormDescription("Vui lòng chờ trong giây lát...");
 
                         TSCD_GUI.ReportTSCD.XtraReport_SoTheoDoiTSCDTaiNoiSuDung _XtraReport_PhongBan = new ReportTSCD.XtraReport_SoTheoDoiTSCDTaiNoiSuDung(TaiSan_ThongKe.getAll(null, null, ucComboBoxDonVi_ChonDonVi.DonVi), ucComboBoxDonVi_ChonDonVi.DonVi);
                         ReportDesignTool designTool = new ReportDesignTool(_XtraReport_PhongBan);
 
-                        splashScreenManager_Report.CloseWaitForm();
+                        //splashScreenManager_Report.CloseWaitForm();
                         designTool.ShowDesignerDialog();
 
                         ReportPrintTool printTool = new ReportPrintTool(designTool.Report);
@@ -271,6 +274,11 @@ namespace TSCD_GUI.ReportTSCD
                 default:
                     break;
             }
+        }
+
+        private void frmReport_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            _SendMessage();
         }
     }
 }

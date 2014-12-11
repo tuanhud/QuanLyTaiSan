@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmReport));
             this.comboBoxEdit_LoaiBaoCao = new DevExpress.XtraEditors.ComboBoxEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
@@ -39,12 +40,13 @@
             this.checkEdit_ThietKe = new DevExpress.XtraEditors.CheckEdit();
             this.simpleButton_Thoat = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton_Xuat = new DevExpress.XtraEditors.SimpleButton();
-            this.ucComboBoxDonVi_ChonDonVi = new TSCD_GUI.MyUserControl.ucComboBoxDonVi();
-            this.splashScreenManager_Report = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::TSCD_GUI.QLTaiSan.WaitForm_Report), true, true);
-            this.ucComboBoxLoaiTS_LoaiTaiSan = new TSCD_GUI.MyUserControl.ucComboBoxLoaiTS();
             this.checkedComboBoxEdit_ChonCoSo = new DevExpress.XtraEditors.CheckedComboBoxEdit();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
+            this.marqueeProgressBarControl1 = new DevExpress.XtraEditors.MarqueeProgressBarControl();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.ucComboBoxLoaiTS_LoaiTaiSan = new TSCD_GUI.MyUserControl.ucComboBoxLoaiTS();
+            this.ucComboBoxDonVi_ChonDonVi = new TSCD_GUI.MyUserControl.ucComboBoxDonVi();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit_LoaiBaoCao.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit_TuNgay.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit_TuNgay.Properties)).BeginInit();
@@ -53,6 +55,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit_XuatBaoCao.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit_ThietKe.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkedComboBoxEdit_ChonCoSo.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.marqueeProgressBarControl1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // comboBoxEdit_LoaiBaoCao
@@ -167,24 +170,9 @@
             this.simpleButton_Xuat.Text = "Xuất";
             this.simpleButton_Xuat.Click += new System.EventHandler(this.simpleButton_Xuat_Click);
             // 
-            // ucComboBoxDonVi_ChonDonVi
-            // 
-            this.ucComboBoxDonVi_ChonDonVi.DonVi = null;
-            this.ucComboBoxDonVi_ChonDonVi.Location = new System.Drawing.Point(116, 116);
-            this.ucComboBoxDonVi_ChonDonVi.Name = "ucComboBoxDonVi_ChonDonVi";
-            this.ucComboBoxDonVi_ChonDonVi.Size = new System.Drawing.Size(180, 20);
-            this.ucComboBoxDonVi_ChonDonVi.TabIndex = 4;
-            // 
-            // ucComboBoxLoaiTS_LoaiTaiSan
-            // 
-            this.ucComboBoxLoaiTS_LoaiTaiSan.LoaiTS = null;
-            this.ucComboBoxLoaiTS_LoaiTaiSan.Location = new System.Drawing.Point(116, 90);
-            this.ucComboBoxLoaiTS_LoaiTaiSan.Name = "ucComboBoxLoaiTS_LoaiTaiSan";
-            this.ucComboBoxLoaiTS_LoaiTaiSan.Size = new System.Drawing.Size(180, 20);
-            this.ucComboBoxLoaiTS_LoaiTaiSan.TabIndex = 3;
-            // 
             // checkedComboBoxEdit_ChonCoSo
             // 
+            this.checkedComboBoxEdit_ChonCoSo.EditValue = "";
             this.checkedComboBoxEdit_ChonCoSo.Location = new System.Drawing.Point(116, 142);
             this.checkedComboBoxEdit_ChonCoSo.Name = "checkedComboBoxEdit_ChonCoSo";
             this.checkedComboBoxEdit_ChonCoSo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -210,15 +198,56 @@
             this.labelControl6.TabIndex = 1;
             this.labelControl6.Text = "Cơ sở:";
             // 
+            // marqueeProgressBarControl1
+            // 
+            this.marqueeProgressBarControl1.EditValue = 0;
+            this.marqueeProgressBarControl1.Location = new System.Drawing.Point(12, 232);
+            this.marqueeProgressBarControl1.Name = "marqueeProgressBarControl1";
+            this.marqueeProgressBarControl1.Size = new System.Drawing.Size(246, 12);
+            this.marqueeProgressBarControl1.TabIndex = 10;
+            // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.simpleButton1.Appearance.Options.UseBackColor = true;
+            this.simpleButton1.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.Image")));
+            this.simpleButton1.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.simpleButton1.Location = new System.Drawing.Point(264, 222);
+            this.simpleButton1.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+            this.simpleButton1.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(32, 32);
+            this.simpleButton1.TabIndex = 9;
+            // 
+            // ucComboBoxLoaiTS_LoaiTaiSan
+            // 
+            this.ucComboBoxLoaiTS_LoaiTaiSan.EditValue = null;
+            this.ucComboBoxLoaiTS_LoaiTaiSan.LoaiTS = null;
+            this.ucComboBoxLoaiTS_LoaiTaiSan.Location = new System.Drawing.Point(116, 90);
+            this.ucComboBoxLoaiTS_LoaiTaiSan.Name = "ucComboBoxLoaiTS_LoaiTaiSan";
+            this.ucComboBoxLoaiTS_LoaiTaiSan.Size = new System.Drawing.Size(180, 20);
+            this.ucComboBoxLoaiTS_LoaiTaiSan.TabIndex = 3;
+            // 
+            // ucComboBoxDonVi_ChonDonVi
+            // 
+            this.ucComboBoxDonVi_ChonDonVi.DonVi = null;
+            this.ucComboBoxDonVi_ChonDonVi.EditValue = null;
+            this.ucComboBoxDonVi_ChonDonVi.Location = new System.Drawing.Point(116, 116);
+            this.ucComboBoxDonVi_ChonDonVi.Name = "ucComboBoxDonVi_ChonDonVi";
+            this.ucComboBoxDonVi_ChonDonVi.Size = new System.Drawing.Size(180, 20);
+            this.ucComboBoxDonVi_ChonDonVi.TabIndex = 4;
+            // 
             // frmReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(308, 228);
+            this.ClientSize = new System.Drawing.Size(308, 270);
+            this.Controls.Add(this.marqueeProgressBarControl1);
             this.Controls.Add(this.checkedComboBoxEdit_ChonCoSo);
             this.Controls.Add(this.ucComboBoxLoaiTS_LoaiTaiSan);
             this.Controls.Add(this.simpleButton_Xuat);
+            this.Controls.Add(this.simpleButton1);
             this.Controls.Add(this.simpleButton_Thoat);
             this.Controls.Add(this.checkEdit_ThietKe);
             this.Controls.Add(this.checkEdit_XuatBaoCao);
@@ -236,6 +265,7 @@
             this.Name = "frmReport";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Xuất báo cáo";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmReport_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit_LoaiBaoCao.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit_TuNgay.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit_TuNgay.Properties)).EndInit();
@@ -244,6 +274,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit_XuatBaoCao.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit_ThietKe.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkedComboBoxEdit_ChonCoSo.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.marqueeProgressBarControl1.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -267,6 +298,7 @@
         private DevExpress.XtraEditors.CheckedComboBoxEdit checkedComboBoxEdit_ChonCoSo;
         private DevExpress.XtraEditors.LabelControl labelControl5;
         private DevExpress.XtraEditors.LabelControl labelControl6;
-        private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager_Report;
+        private DevExpress.XtraEditors.MarqueeProgressBarControl marqueeProgressBarControl1;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
     }
 }
