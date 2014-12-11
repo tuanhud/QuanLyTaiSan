@@ -81,7 +81,7 @@ namespace TSCD_GUI.QLTaiSan
             {
                 obj = ucTreeDonVi1.DonVi;
                 //gridControlTaiSan.DataSource = TaiSanHienThi.getAllByDonVi(obj);
-                if (obj != null)
+                if (obj != null && obj.id != Guid.Empty)
                 {
                     list = TaiSanHienThi.Convert(obj.getAllCTTaiSanRecursive());
                     ucGridControlTaiSan1.DataSource = list;
@@ -93,7 +93,7 @@ namespace TSCD_GUI.QLTaiSan
                 else
                 {
                     ucGridControlTaiSan1.DataSource = null;
-                    list = TaiSanHienThi.Convert(CTTaiSan.getQuery().Where(c => c.donviquanly == null));
+                    list = TaiSanHienThi.Convert(CTTaiSan.getQuery().Where(c => c.donviquanly == null && c.soluong > 0));
                     ucGridControlTaiSan1.DataSource = list;
 
                     bool isEnabled = list.Count > 0;
@@ -117,14 +117,14 @@ namespace TSCD_GUI.QLTaiSan
 
         private void barBtnThemTaiSan_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            //DonVi obj = ucTreeDonVi1.DonVi;
+            DonVi obj = ucTreeDonVi1.DonVi;
             //if (obj != null)
             //{
             //    frmAddTaiSanExist frm = new frmAddTaiSanExist(obj);
             //    frm.reloadAndFocused = new frmAddTaiSanExist.ReloadAndFocused(reloadAndFocused);
             //    frm.ShowDialog();
             //}
-            frmAddTaiSan frm = new frmAddTaiSan();
+            frmAddTaiSan frm = new frmAddTaiSan(obj);
             frm.reloadAndFocused = new frmAddTaiSan.ReloadAndFocused(reloadAndFocused);
             frm.ShowDialog();
         }
@@ -145,7 +145,7 @@ namespace TSCD_GUI.QLTaiSan
             CTTaiSan obj = ucGridControlTaiSan1.CTTaiSan;
             if (obj != null)
             {
-                frmAddTaiSan frm = new frmAddTaiSan(obj, true);
+                frmAddTaiSan frm = new frmAddTaiSan(obj);
                 frm.Text = "Sửa tài sản";
                 frm.reloadAndFocused = new frmAddTaiSan.ReloadAndFocused(reloadAndFocused);
                 frm.ShowDialog();

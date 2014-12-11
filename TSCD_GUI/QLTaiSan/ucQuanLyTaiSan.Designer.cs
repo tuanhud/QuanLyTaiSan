@@ -57,10 +57,10 @@
             this.btnSua_r = new DevExpress.XtraEditors.SimpleButton();
             this.btnThem_r = new DevExpress.XtraEditors.SimpleButton();
             this.panelControlTimKiem = new DevExpress.XtraEditors.PanelControl();
+            this.checkTenTS = new DevExpress.XtraEditors.CheckEdit();
+            this.checkTinhTrang = new DevExpress.XtraEditors.CheckEdit();
             this.checkedCbxTinhTrang = new DevExpress.XtraEditors.CheckedComboBoxEdit();
-            this.lblTinhTrang = new DevExpress.XtraEditors.LabelControl();
             this.btnClear = new DevExpress.XtraEditors.SimpleButton();
-            this.lblTenTS = new DevExpress.XtraEditors.LabelControl();
             this.ucComboBoxViTri1 = new TSCD_GUI.MyUserControl.ucComboBoxViTri();
             this.checkLoai = new DevExpress.XtraEditors.CheckEdit();
             this.checkViTri = new DevExpress.XtraEditors.CheckEdit();
@@ -74,6 +74,8 @@
             this.groupControlMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControlTimKiem)).BeginInit();
             this.panelControlTimKiem.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.checkTenTS.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkTinhTrang.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkedCbxTinhTrang.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkLoai.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkViTri.Properties)).BeginInit();
@@ -104,7 +106,7 @@
             this.rbnControlTaiSan.Name = "rbnControlTaiSan";
             this.rbnControlTaiSan.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbnPageTaiSan});
-            this.rbnControlTaiSan.Size = new System.Drawing.Size(858, 145);
+            this.rbnControlTaiSan.Size = new System.Drawing.Size(1000, 145);
             // 
             // barBtnThemTaiSan
             // 
@@ -301,7 +303,7 @@
             this.groupControlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControlMain.Location = new System.Drawing.Point(0, 145);
             this.groupControlMain.Name = "groupControlMain";
-            this.groupControlMain.Size = new System.Drawing.Size(858, 364);
+            this.groupControlMain.Size = new System.Drawing.Size(1000, 364);
             this.groupControlMain.TabIndex = 3;
             this.groupControlMain.Text = "Tài sản";
             // 
@@ -310,7 +312,7 @@
             this.ucGridControlTaiSan1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ucGridControlTaiSan1.Location = new System.Drawing.Point(2, 106);
             this.ucGridControlTaiSan1.Name = "ucGridControlTaiSan1";
-            this.ucGridControlTaiSan1.Size = new System.Drawing.Size(854, 256);
+            this.ucGridControlTaiSan1.Size = new System.Drawing.Size(996, 256);
             this.ucGridControlTaiSan1.TabIndex = 12;
             // 
             // btnXoa_r
@@ -318,7 +320,7 @@
             this.btnXoa_r.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnXoa_r.Image = global::TSCD_GUI.Properties.Resources.delete_19;
             this.btnXoa_r.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btnXoa_r.Location = new System.Drawing.Point(821, 0);
+            this.btnXoa_r.Location = new System.Drawing.Point(963, 0);
             this.btnXoa_r.Name = "btnXoa_r";
             this.btnXoa_r.Size = new System.Drawing.Size(23, 23);
             this.btnXoa_r.TabIndex = 2;
@@ -330,7 +332,7 @@
             this.btnSua_r.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSua_r.Image = global::TSCD_GUI.Properties.Resources.pencil_19;
             this.btnSua_r.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btnSua_r.Location = new System.Drawing.Point(795, 0);
+            this.btnSua_r.Location = new System.Drawing.Point(937, 0);
             this.btnSua_r.Name = "btnSua_r";
             this.btnSua_r.Size = new System.Drawing.Size(23, 23);
             this.btnSua_r.TabIndex = 1;
@@ -342,7 +344,7 @@
             this.btnThem_r.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnThem_r.Image = global::TSCD_GUI.Properties.Resources.plus_19;
             this.btnThem_r.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btnThem_r.Location = new System.Drawing.Point(769, 0);
+            this.btnThem_r.Location = new System.Drawing.Point(911, 0);
             this.btnThem_r.Name = "btnThem_r";
             this.btnThem_r.Size = new System.Drawing.Size(23, 23);
             this.btnThem_r.TabIndex = 0;
@@ -352,10 +354,10 @@
             // panelControlTimKiem
             // 
             this.panelControlTimKiem.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControlTimKiem.Controls.Add(this.checkTenTS);
+            this.panelControlTimKiem.Controls.Add(this.checkTinhTrang);
             this.panelControlTimKiem.Controls.Add(this.checkedCbxTinhTrang);
-            this.panelControlTimKiem.Controls.Add(this.lblTinhTrang);
             this.panelControlTimKiem.Controls.Add(this.btnClear);
-            this.panelControlTimKiem.Controls.Add(this.lblTenTS);
             this.panelControlTimKiem.Controls.Add(this.ucComboBoxViTri1);
             this.panelControlTimKiem.Controls.Add(this.checkLoai);
             this.panelControlTimKiem.Controls.Add(this.checkViTri);
@@ -367,67 +369,71 @@
             this.panelControlTimKiem.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControlTimKiem.Location = new System.Drawing.Point(2, 24);
             this.panelControlTimKiem.Name = "panelControlTimKiem";
-            this.panelControlTimKiem.Size = new System.Drawing.Size(854, 82);
+            this.panelControlTimKiem.Size = new System.Drawing.Size(996, 82);
             this.panelControlTimKiem.TabIndex = 2;
+            // 
+            // checkTenTS
+            // 
+            this.checkTenTS.Location = new System.Drawing.Point(3, 6);
+            this.checkTenTS.MenuManager = this.rbnControlTaiSan;
+            this.checkTenTS.Name = "checkTenTS";
+            this.checkTenTS.Properties.Caption = "Tên tài sản:";
+            this.checkTenTS.Size = new System.Drawing.Size(80, 19);
+            this.checkTenTS.TabIndex = 1;
+            // 
+            // checkTinhTrang
+            // 
+            this.checkTinhTrang.Location = new System.Drawing.Point(3, 32);
+            this.checkTinhTrang.MenuManager = this.rbnControlTaiSan;
+            this.checkTinhTrang.Name = "checkTinhTrang";
+            this.checkTinhTrang.Properties.Caption = "Tình trạng:";
+            this.checkTinhTrang.Size = new System.Drawing.Size(80, 19);
+            this.checkTinhTrang.TabIndex = 3;
             // 
             // checkedCbxTinhTrang
             // 
-            this.checkedCbxTinhTrang.Location = new System.Drawing.Point(72, 32);
+            this.checkedCbxTinhTrang.Location = new System.Drawing.Point(87, 32);
             this.checkedCbxTinhTrang.Name = "checkedCbxTinhTrang";
             this.checkedCbxTinhTrang.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.checkedCbxTinhTrang.Properties.DisplayMember = "value";
             this.checkedCbxTinhTrang.Properties.ValueMember = "id";
-            this.checkedCbxTinhTrang.Size = new System.Drawing.Size(200, 20);
-            this.checkedCbxTinhTrang.TabIndex = 21;
-            // 
-            // lblTinhTrang
-            // 
-            this.lblTinhTrang.Location = new System.Drawing.Point(9, 35);
-            this.lblTinhTrang.Name = "lblTinhTrang";
-            this.lblTinhTrang.Size = new System.Drawing.Size(53, 13);
-            this.lblTinhTrang.TabIndex = 14;
-            this.lblTinhTrang.Text = "Tình trạng:";
+            this.checkedCbxTinhTrang.Size = new System.Drawing.Size(160, 20);
+            this.checkedCbxTinhTrang.TabIndex = 4;
+            this.checkedCbxTinhTrang.EditValueChanged += new System.EventHandler(this.checkedCbxTinhTrang_EditValueChanged);
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(773, 16);
+            this.btnClear.Image = ((System.Drawing.Image)(resources.GetObject("btnClear.Image")));
+            this.btnClear.Location = new System.Drawing.Point(623, 29);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(75, 23);
-            this.btnClear.TabIndex = 13;
+            this.btnClear.TabIndex = 12;
             this.btnClear.Text = "Làm sạch";
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
-            // 
-            // lblTenTS
-            // 
-            this.lblTenTS.Location = new System.Drawing.Point(9, 9);
-            this.lblTenTS.Name = "lblTenTS";
-            this.lblTenTS.Size = new System.Drawing.Size(57, 13);
-            this.lblTenTS.TabIndex = 12;
-            this.lblTenTS.Text = "Tên tài sản:";
             // 
             // ucComboBoxViTri1
             // 
             this.ucComboBoxViTri1.EditValue = null;
-            this.ucComboBoxViTri1.Location = new System.Drawing.Point(435, 58);
+            this.ucComboBoxViTri1.Location = new System.Drawing.Point(405, 32);
             this.ucComboBoxViTri1.Name = "ucComboBoxViTri1";
             this.ucComboBoxViTri1.Phong = null;
-            this.ucComboBoxViTri1.Size = new System.Drawing.Size(200, 20);
+            this.ucComboBoxViTri1.Size = new System.Drawing.Size(160, 20);
             this.ucComboBoxViTri1.TabIndex = 10;
             this.ucComboBoxViTri1.ViTri = null;
             // 
             // checkLoai
             // 
-            this.checkLoai.Location = new System.Drawing.Point(331, 7);
+            this.checkLoai.Location = new System.Drawing.Point(3, 57);
             this.checkLoai.MenuManager = this.rbnControlTaiSan;
             this.checkLoai.Name = "checkLoai";
             this.checkLoai.Properties.Caption = "Loại tài sản:";
             this.checkLoai.Size = new System.Drawing.Size(80, 19);
-            this.checkLoai.TabIndex = 7;
+            this.checkLoai.TabIndex = 5;
             // 
             // checkViTri
             // 
-            this.checkViTri.Location = new System.Drawing.Point(331, 57);
+            this.checkViTri.Location = new System.Drawing.Point(301, 31);
             this.checkViTri.MenuManager = this.rbnControlTaiSan;
             this.checkViTri.Name = "checkViTri";
             this.checkViTri.Properties.Caption = "Vị trí:";
@@ -436,17 +442,17 @@
             // 
             // checkDVQL
             // 
-            this.checkDVQL.Location = new System.Drawing.Point(331, 32);
+            this.checkDVQL.Location = new System.Drawing.Point(301, 6);
             this.checkDVQL.MenuManager = this.rbnControlTaiSan;
             this.checkDVQL.Name = "checkDVQL";
             this.checkDVQL.Properties.Caption = "Đơn vị quản lý:";
             this.checkDVQL.Size = new System.Drawing.Size(98, 19);
-            this.checkDVQL.TabIndex = 5;
+            this.checkDVQL.TabIndex = 7;
             // 
             // btnTim
             // 
             this.btnTim.Image = ((System.Drawing.Image)(resources.GetObject("btnTim.Image")));
-            this.btnTim.Location = new System.Drawing.Point(692, 16);
+            this.btnTim.Location = new System.Drawing.Point(623, 4);
             this.btnTim.Name = "btnTim";
             this.btnTim.Size = new System.Drawing.Size(75, 23);
             this.btnTim.TabIndex = 11;
@@ -457,26 +463,27 @@
             // 
             this.ucComboBoxDonVi1.DonVi = null;
             this.ucComboBoxDonVi1.EditValue = null;
-            this.ucComboBoxDonVi1.Location = new System.Drawing.Point(435, 32);
+            this.ucComboBoxDonVi1.Location = new System.Drawing.Point(405, 6);
             this.ucComboBoxDonVi1.Name = "ucComboBoxDonVi1";
-            this.ucComboBoxDonVi1.Size = new System.Drawing.Size(200, 20);
-            this.ucComboBoxDonVi1.TabIndex = 6;
+            this.ucComboBoxDonVi1.Size = new System.Drawing.Size(160, 20);
+            this.ucComboBoxDonVi1.TabIndex = 8;
             // 
             // ucComboBoxLoaiTS1
             // 
             this.ucComboBoxLoaiTS1.EditValue = null;
             this.ucComboBoxLoaiTS1.LoaiTS = null;
-            this.ucComboBoxLoaiTS1.Location = new System.Drawing.Point(435, 6);
+            this.ucComboBoxLoaiTS1.Location = new System.Drawing.Point(87, 57);
             this.ucComboBoxLoaiTS1.Name = "ucComboBoxLoaiTS1";
-            this.ucComboBoxLoaiTS1.Size = new System.Drawing.Size(200, 20);
-            this.ucComboBoxLoaiTS1.TabIndex = 8;
+            this.ucComboBoxLoaiTS1.Size = new System.Drawing.Size(160, 20);
+            this.ucComboBoxLoaiTS1.TabIndex = 6;
             // 
             // txtTen
             // 
-            this.txtTen.Location = new System.Drawing.Point(72, 6);
+            this.txtTen.Location = new System.Drawing.Point(87, 6);
             this.txtTen.Name = "txtTen";
-            this.txtTen.Size = new System.Drawing.Size(200, 20);
-            this.txtTen.TabIndex = 4;
+            this.txtTen.Size = new System.Drawing.Size(160, 20);
+            this.txtTen.TabIndex = 2;
+            this.txtTen.EditValueChanged += new System.EventHandler(this.txtTen_EditValueChanged);
             // 
             // ucQuanLyTaiSan
             // 
@@ -485,13 +492,14 @@
             this.Controls.Add(this.groupControlMain);
             this.Controls.Add(this.rbnControlTaiSan);
             this.Name = "ucQuanLyTaiSan";
-            this.Size = new System.Drawing.Size(858, 509);
+            this.Size = new System.Drawing.Size(1000, 509);
             ((System.ComponentModel.ISupportInitialize)(this.rbnControlTaiSan)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControlMain)).EndInit();
             this.groupControlMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControlTimKiem)).EndInit();
             this.panelControlTimKiem.ResumeLayout(false);
-            this.panelControlTimKiem.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.checkTenTS.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkTinhTrang.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkedCbxTinhTrang.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkLoai.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkViTri.Properties)).EndInit();
@@ -538,11 +546,11 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupAttachment;
         private DevExpress.XtraBars.BarButtonItem barBtnAttachment;
         private DevExpress.XtraBars.BarButtonItem barBtnChuyenDonVi;
-        private DevExpress.XtraEditors.LabelControl lblTenTS;
         private DevExpress.XtraEditors.SimpleButton btnClear;
         private DevExpress.XtraBars.BarButtonItem barBtnExpandAll;
         private DevExpress.XtraBars.BarButtonItem barBtnCollapseAll;
-        private DevExpress.XtraEditors.LabelControl lblTinhTrang;
         private DevExpress.XtraEditors.CheckedComboBoxEdit checkedCbxTinhTrang;
+        private DevExpress.XtraEditors.CheckEdit checkTenTS;
+        private DevExpress.XtraEditors.CheckEdit checkTinhTrang;
     }
 }
