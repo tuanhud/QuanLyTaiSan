@@ -172,7 +172,7 @@
             // 
             // barBtnAttachment
             // 
-            this.barBtnAttachment.Caption = "File chứng từ";
+            this.barBtnAttachment.Caption = "Đính kèm";
             this.barBtnAttachment.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnAttachment.Glyph")));
             this.barBtnAttachment.Id = 11;
             this.barBtnAttachment.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnAttachment.LargeGlyph")));
@@ -209,7 +209,7 @@
             this.rbnGroupAttachment});
             this.rbnPageDonVi_TaiSan.Image = ((System.Drawing.Image)(resources.GetObject("rbnPageDonVi_TaiSan.Image")));
             this.rbnPageDonVi_TaiSan.Name = "rbnPageDonVi_TaiSan";
-            this.rbnPageDonVi_TaiSan.Text = "Tài sản - Đơn vị";
+            this.rbnPageDonVi_TaiSan.Text = "Tài sản";
             // 
             // rbnGroupTaiSan
             // 
@@ -248,6 +248,7 @@
             this.rbnGroupImport.Name = "rbnGroupImport";
             this.rbnGroupImport.ShowCaptionButton = false;
             this.rbnGroupImport.Text = "Import";
+            this.rbnGroupImport.Visible = false;
             // 
             // rbnGroupLayout
             // 
@@ -294,7 +295,7 @@
             this.navBarGroupControlContainerDonVi.Controls.Add(this.ucTreeDonVi1);
             this.navBarGroupControlContainerDonVi.Controls.Add(this.treeListDonVi);
             this.navBarGroupControlContainerDonVi.Name = "navBarGroupControlContainerDonVi";
-            this.navBarGroupControlContainerDonVi.Size = new System.Drawing.Size(305, 287);
+            this.navBarGroupControlContainerDonVi.Size = new System.Drawing.Size(307, 276);
             this.navBarGroupControlContainerDonVi.TabIndex = 0;
             // 
             // ucTreeDonVi1
@@ -303,7 +304,7 @@
             this.ucTreeDonVi1.DonVi = null;
             this.ucTreeDonVi1.Location = new System.Drawing.Point(0, 0);
             this.ucTreeDonVi1.Name = "ucTreeDonVi1";
-            this.ucTreeDonVi1.Size = new System.Drawing.Size(305, 287);
+            this.ucTreeDonVi1.Size = new System.Drawing.Size(307, 276);
             this.ucTreeDonVi1.TabIndex = 1;
             // 
             // treeListDonVi
@@ -311,7 +312,7 @@
             this.treeListDonVi.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeListDonVi.Location = new System.Drawing.Point(0, 0);
             this.treeListDonVi.Name = "treeListDonVi";
-            this.treeListDonVi.Size = new System.Drawing.Size(305, 287);
+            this.treeListDonVi.Size = new System.Drawing.Size(307, 276);
             this.treeListDonVi.TabIndex = 0;
             // 
             // groupControlMain

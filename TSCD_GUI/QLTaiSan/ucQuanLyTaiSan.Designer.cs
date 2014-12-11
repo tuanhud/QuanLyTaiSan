@@ -57,6 +57,8 @@
             this.btnSua_r = new DevExpress.XtraEditors.SimpleButton();
             this.btnThem_r = new DevExpress.XtraEditors.SimpleButton();
             this.panelControlTimKiem = new DevExpress.XtraEditors.PanelControl();
+            this.checkedCbxTinhTrang = new DevExpress.XtraEditors.CheckedComboBoxEdit();
+            this.lblTinhTrang = new DevExpress.XtraEditors.LabelControl();
             this.btnClear = new DevExpress.XtraEditors.SimpleButton();
             this.lblTenTS = new DevExpress.XtraEditors.LabelControl();
             this.ucComboBoxViTri1 = new TSCD_GUI.MyUserControl.ucComboBoxViTri();
@@ -67,18 +69,16 @@
             this.ucComboBoxDonVi1 = new TSCD_GUI.MyUserControl.ucComboBoxDonVi();
             this.ucComboBoxLoaiTS1 = new TSCD_GUI.MyUserControl.ucComboBoxLoaiTS();
             this.txtTen = new DevExpress.XtraEditors.TextEdit();
-            this.lblTinhTrang = new DevExpress.XtraEditors.LabelControl();
-            this.checkedCbxTinhTrang = new DevExpress.XtraEditors.CheckedComboBoxEdit();
             ((System.ComponentModel.ISupportInitialize)(this.rbnControlTaiSan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControlMain)).BeginInit();
             this.groupControlMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControlTimKiem)).BeginInit();
             this.panelControlTimKiem.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.checkedCbxTinhTrang.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkLoai.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkViTri.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkDVQL.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkedCbxTinhTrang.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // rbnControlTaiSan
@@ -322,6 +322,7 @@
             this.btnXoa_r.Name = "btnXoa_r";
             this.btnXoa_r.Size = new System.Drawing.Size(23, 23);
             this.btnXoa_r.TabIndex = 2;
+            this.btnXoa_r.Visible = false;
             this.btnXoa_r.Click += new System.EventHandler(this.btnXoa_r_Click);
             // 
             // btnSua_r
@@ -333,6 +334,7 @@
             this.btnSua_r.Name = "btnSua_r";
             this.btnSua_r.Size = new System.Drawing.Size(23, 23);
             this.btnSua_r.TabIndex = 1;
+            this.btnSua_r.Visible = false;
             this.btnSua_r.Click += new System.EventHandler(this.btnSua_r_Click);
             // 
             // btnThem_r
@@ -367,6 +369,25 @@
             this.panelControlTimKiem.Name = "panelControlTimKiem";
             this.panelControlTimKiem.Size = new System.Drawing.Size(854, 82);
             this.panelControlTimKiem.TabIndex = 2;
+            // 
+            // checkedCbxTinhTrang
+            // 
+            this.checkedCbxTinhTrang.Location = new System.Drawing.Point(72, 32);
+            this.checkedCbxTinhTrang.Name = "checkedCbxTinhTrang";
+            this.checkedCbxTinhTrang.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.checkedCbxTinhTrang.Properties.DisplayMember = "value";
+            this.checkedCbxTinhTrang.Properties.ValueMember = "id";
+            this.checkedCbxTinhTrang.Size = new System.Drawing.Size(200, 20);
+            this.checkedCbxTinhTrang.TabIndex = 21;
+            // 
+            // lblTinhTrang
+            // 
+            this.lblTinhTrang.Location = new System.Drawing.Point(9, 35);
+            this.lblTinhTrang.Name = "lblTinhTrang";
+            this.lblTinhTrang.Size = new System.Drawing.Size(53, 13);
+            this.lblTinhTrang.TabIndex = 14;
+            this.lblTinhTrang.Text = "Tình trạng:";
             // 
             // btnClear
             // 
@@ -457,25 +478,6 @@
             this.txtTen.Size = new System.Drawing.Size(200, 20);
             this.txtTen.TabIndex = 4;
             // 
-            // lblTinhTrang
-            // 
-            this.lblTinhTrang.Location = new System.Drawing.Point(9, 35);
-            this.lblTinhTrang.Name = "lblTinhTrang";
-            this.lblTinhTrang.Size = new System.Drawing.Size(53, 13);
-            this.lblTinhTrang.TabIndex = 14;
-            this.lblTinhTrang.Text = "Tình trạng:";
-            // 
-            // checkedCbxTinhTrang
-            // 
-            this.checkedCbxTinhTrang.Location = new System.Drawing.Point(72, 32);
-            this.checkedCbxTinhTrang.Name = "checkedCbxTinhTrang";
-            this.checkedCbxTinhTrang.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.checkedCbxTinhTrang.Properties.DisplayMember = "value";
-            this.checkedCbxTinhTrang.Properties.ValueMember = "id";
-            this.checkedCbxTinhTrang.Size = new System.Drawing.Size(200, 20);
-            this.checkedCbxTinhTrang.TabIndex = 21;
-            // 
             // ucQuanLyTaiSan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -490,11 +492,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControlTimKiem)).EndInit();
             this.panelControlTimKiem.ResumeLayout(false);
             this.panelControlTimKiem.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.checkedCbxTinhTrang.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkLoai.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkViTri.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkDVQL.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkedCbxTinhTrang.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

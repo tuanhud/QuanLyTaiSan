@@ -127,7 +127,7 @@ namespace TSCD_GUI.ThongKe
                     bool isViTri = true;
                     if (vitri == null)
                         isViTri = false;
-                    List<TaiSanHienThi> tmp = TaiSanHienThi.Convert(CTTaiSanSF.search(null, loai, checkDonVi.Checked, DVQL, false, null, isViTri && checkViTri.Checked, vitri, !isViTri && checkViTri.Checked, phong, checkTinhTrang.Checked ? tinhtrangs : null));
+                    List<CTTaiSan> tmp = CTTaiSanSF.search(null, loai, checkDonVi.Checked, DVQL, false, null, isViTri && checkViTri.Checked, vitri, !isViTri && checkViTri.Checked, phong, checkTinhTrang.Checked ? tinhtrangs : null).ToList();
                     List<TaiSanHienThi> list = TaiSanHienThi.Convert(tmp, dateNgayTK.DateTime.Year);
                     gridControlHaoMon.DataSource = list;
 

@@ -39,33 +39,24 @@
             this.btnOK = new DevExpress.XtraEditors.SimpleButton();
             this.btnHuy = new DevExpress.XtraEditors.SimpleButton();
             this.lbltxtDonViTinh = new DevExpress.XtraEditors.LabelControl();
-            this.lblChungTu = new DevExpress.XtraEditors.LabelControl();
-            this.lblNgay_CT = new DevExpress.XtraEditors.LabelControl();
-            this.lblSoHieu_CT = new DevExpress.XtraEditors.LabelControl();
-            this.lblNgayGhi = new DevExpress.XtraEditors.LabelControl();
-            this.txtSoHieu_CT = new DevExpress.XtraEditors.TextEdit();
-            this.dateNgay_CT = new DevExpress.XtraEditors.DateEdit();
-            this.dateNgayGhi = new DevExpress.XtraEditors.DateEdit();
+            this.lblTenTaiSan = new DevExpress.XtraEditors.LabelControl();
+            this.lblMaTaiSan = new DevExpress.XtraEditors.LabelControl();
             this.ucComboBoxDonVi1 = new TSCD_GUI.MyUserControl.ucComboBoxDonVi();
             this.ucComboBoxViTri2 = new TSCD_GUI.MyUserControl.ucComboBoxViTri();
             this.ucComboBoxViTri1 = new TSCD_GUI.MyUserControl.ucComboBoxViTri();
-            this.btnAttachment = new DevExpress.XtraEditors.SimpleButton();
+            this.lblTextTenTS = new DevExpress.XtraEditors.LabelControl();
+            this.lblTextMaTS = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.txtGhiChu.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSoLuong.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSoHieu_CT.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateNgay_CT.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateNgay_CT.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateNgayGhi.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateNgayGhi.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // txtGhiChu
             // 
             this.txtGhiChu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtGhiChu.Location = new System.Drawing.Point(93, 168);
+            this.txtGhiChu.Location = new System.Drawing.Point(89, 168);
             this.txtGhiChu.Name = "txtGhiChu";
-            this.txtGhiChu.Size = new System.Drawing.Size(375, 75);
+            this.txtGhiChu.Size = new System.Drawing.Size(379, 75);
             this.txtGhiChu.TabIndex = 8;
             this.txtGhiChu.UseOptimizedRendering = true;
             // 
@@ -86,14 +77,14 @@
             0,
             0,
             0});
-            this.txtSoLuong.Location = new System.Drawing.Point(93, 64);
+            this.txtSoLuong.Location = new System.Drawing.Point(89, 64);
             this.txtSoLuong.Name = "txtSoLuong";
             this.txtSoLuong.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.txtSoLuong.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Default;
             this.txtSoLuong.Properties.Mask.EditMask = "N00";
             this.txtSoLuong.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.None;
-            this.txtSoLuong.Size = new System.Drawing.Size(291, 20);
+            this.txtSoLuong.Size = new System.Drawing.Size(295, 20);
             this.txtSoLuong.TabIndex = 4;
             // 
             // lblPhong
@@ -159,77 +150,31 @@
             this.lbltxtDonViTinh.TabIndex = 14;
             this.lbltxtDonViTinh.Text = "[Đơn vị tính]";
             // 
-            // lblChungTu
+            // lblTenTaiSan
             // 
-            this.lblChungTu.Location = new System.Drawing.Point(10, 41);
-            this.lblChungTu.Name = "lblChungTu";
-            this.lblChungTu.Size = new System.Drawing.Size(50, 13);
-            this.lblChungTu.TabIndex = 32;
-            this.lblChungTu.Text = "Chứng từ:";
+            this.lblTenTaiSan.Location = new System.Drawing.Point(10, 41);
+            this.lblTenTaiSan.Name = "lblTenTaiSan";
+            this.lblTenTaiSan.Size = new System.Drawing.Size(57, 13);
+            this.lblTenTaiSan.TabIndex = 32;
+            this.lblTenTaiSan.Text = "Tên tài sản:";
             // 
-            // lblNgay_CT
+            // lblMaTaiSan
             // 
-            this.lblNgay_CT.Location = new System.Drawing.Point(259, 41);
-            this.lblNgay_CT.Name = "lblNgay_CT";
-            this.lblNgay_CT.Size = new System.Drawing.Size(60, 13);
-            this.lblNgay_CT.TabIndex = 31;
-            this.lblNgay_CT.Text = "Ngày tháng:";
-            // 
-            // lblSoHieu_CT
-            // 
-            this.lblSoHieu_CT.Location = new System.Drawing.Point(93, 41);
-            this.lblSoHieu_CT.Name = "lblSoHieu_CT";
-            this.lblSoHieu_CT.Size = new System.Drawing.Size(39, 13);
-            this.lblSoHieu_CT.TabIndex = 30;
-            this.lblSoHieu_CT.Text = "Số hiệu:";
-            // 
-            // lblNgayGhi
-            // 
-            this.lblNgayGhi.Location = new System.Drawing.Point(10, 15);
-            this.lblNgayGhi.Name = "lblNgayGhi";
-            this.lblNgayGhi.Size = new System.Drawing.Size(71, 13);
-            this.lblNgayGhi.TabIndex = 29;
-            this.lblNgayGhi.Text = "Ngày sử dụng:";
-            // 
-            // txtSoHieu_CT
-            // 
-            this.txtSoHieu_CT.Location = new System.Drawing.Point(138, 38);
-            this.txtSoHieu_CT.Name = "txtSoHieu_CT";
-            this.txtSoHieu_CT.Size = new System.Drawing.Size(100, 20);
-            this.txtSoHieu_CT.TabIndex = 1;
-            // 
-            // dateNgay_CT
-            // 
-            this.dateNgay_CT.EditValue = null;
-            this.dateNgay_CT.Location = new System.Drawing.Point(325, 38);
-            this.dateNgay_CT.Name = "dateNgay_CT";
-            this.dateNgay_CT.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateNgay_CT.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateNgay_CT.Size = new System.Drawing.Size(114, 20);
-            this.dateNgay_CT.TabIndex = 2;
-            // 
-            // dateNgayGhi
-            // 
-            this.dateNgayGhi.EditValue = null;
-            this.dateNgayGhi.Location = new System.Drawing.Point(93, 12);
-            this.dateNgayGhi.Name = "dateNgayGhi";
-            this.dateNgayGhi.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateNgayGhi.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateNgayGhi.Size = new System.Drawing.Size(280, 20);
-            this.dateNgayGhi.TabIndex = 0;
+            this.lblMaTaiSan.Location = new System.Drawing.Point(10, 15);
+            this.lblMaTaiSan.Name = "lblMaTaiSan";
+            this.lblMaTaiSan.Size = new System.Drawing.Size(53, 13);
+            this.lblMaTaiSan.TabIndex = 29;
+            this.lblMaTaiSan.Text = "Mã tài sản:";
             // 
             // ucComboBoxDonVi1
             // 
             this.ucComboBoxDonVi1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ucComboBoxDonVi1.DonVi = null;
-            this.ucComboBoxDonVi1.Location = new System.Drawing.Point(93, 142);
+            this.ucComboBoxDonVi1.EditValue = null;
+            this.ucComboBoxDonVi1.Location = new System.Drawing.Point(89, 142);
             this.ucComboBoxDonVi1.Name = "ucComboBoxDonVi1";
-            this.ucComboBoxDonVi1.Size = new System.Drawing.Size(375, 20);
+            this.ucComboBoxDonVi1.Size = new System.Drawing.Size(379, 20);
             this.ucComboBoxDonVi1.TabIndex = 7;
             // 
             // ucComboBoxViTri2
@@ -237,10 +182,10 @@
             this.ucComboBoxViTri2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ucComboBoxViTri2.EditValue = null;
-            this.ucComboBoxViTri2.Location = new System.Drawing.Point(93, 116);
+            this.ucComboBoxViTri2.Location = new System.Drawing.Point(89, 116);
             this.ucComboBoxViTri2.Name = "ucComboBoxViTri2";
             this.ucComboBoxViTri2.Phong = null;
-            this.ucComboBoxViTri2.Size = new System.Drawing.Size(375, 20);
+            this.ucComboBoxViTri2.Size = new System.Drawing.Size(379, 20);
             this.ucComboBoxViTri2.TabIndex = 6;
             this.ucComboBoxViTri2.ViTri = null;
             // 
@@ -249,36 +194,38 @@
             this.ucComboBoxViTri1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ucComboBoxViTri1.EditValue = null;
-            this.ucComboBoxViTri1.Location = new System.Drawing.Point(93, 90);
+            this.ucComboBoxViTri1.Location = new System.Drawing.Point(89, 90);
             this.ucComboBoxViTri1.Name = "ucComboBoxViTri1";
             this.ucComboBoxViTri1.Phong = null;
-            this.ucComboBoxViTri1.Size = new System.Drawing.Size(375, 20);
+            this.ucComboBoxViTri1.Size = new System.Drawing.Size(379, 20);
             this.ucComboBoxViTri1.TabIndex = 5;
             this.ucComboBoxViTri1.ViTri = null;
             // 
-            // btnAttachment
+            // lblTextTenTS
             // 
-            this.btnAttachment.Image = ((System.Drawing.Image)(resources.GetObject("btnAttachment.Image")));
-            this.btnAttachment.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btnAttachment.Location = new System.Drawing.Point(445, 36);
-            this.btnAttachment.Name = "btnAttachment";
-            this.btnAttachment.Size = new System.Drawing.Size(23, 23);
-            this.btnAttachment.TabIndex = 3;
-            this.btnAttachment.Click += new System.EventHandler(this.btnAttachment_Click);
+            this.lblTextTenTS.Location = new System.Drawing.Point(89, 41);
+            this.lblTextTenTS.Name = "lblTextTenTS";
+            this.lblTextTenTS.Size = new System.Drawing.Size(12, 13);
+            this.lblTextTenTS.TabIndex = 33;
+            this.lblTextTenTS.Text = "...";
+            // 
+            // lblTextMaTS
+            // 
+            this.lblTextMaTS.Location = new System.Drawing.Point(89, 15);
+            this.lblTextMaTS.Name = "lblTextMaTS";
+            this.lblTextMaTS.Size = new System.Drawing.Size(12, 13);
+            this.lblTextMaTS.TabIndex = 34;
+            this.lblTextMaTS.Text = "...";
             // 
             // frmInputViTri_DonVi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(483, 278);
-            this.Controls.Add(this.btnAttachment);
-            this.Controls.Add(this.lblChungTu);
-            this.Controls.Add(this.lblNgay_CT);
-            this.Controls.Add(this.lblSoHieu_CT);
-            this.Controls.Add(this.lblNgayGhi);
-            this.Controls.Add(this.txtSoHieu_CT);
-            this.Controls.Add(this.dateNgay_CT);
-            this.Controls.Add(this.dateNgayGhi);
+            this.Controls.Add(this.lblTextMaTS);
+            this.Controls.Add(this.lblTextTenTS);
+            this.Controls.Add(this.lblTenTaiSan);
+            this.Controls.Add(this.lblMaTaiSan);
             this.Controls.Add(this.lbltxtDonViTinh);
             this.Controls.Add(this.btnHuy);
             this.Controls.Add(this.btnOK);
@@ -298,11 +245,6 @@
             this.Text = "Nhập thông tin";
             ((System.ComponentModel.ISupportInitialize)(this.txtGhiChu.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSoLuong.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSoHieu_CT.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateNgay_CT.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateNgay_CT.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateNgayGhi.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateNgayGhi.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -323,13 +265,9 @@
         private DevExpress.XtraEditors.SimpleButton btnOK;
         private DevExpress.XtraEditors.SimpleButton btnHuy;
         private DevExpress.XtraEditors.LabelControl lbltxtDonViTinh;
-        private DevExpress.XtraEditors.LabelControl lblChungTu;
-        private DevExpress.XtraEditors.LabelControl lblNgay_CT;
-        private DevExpress.XtraEditors.LabelControl lblSoHieu_CT;
-        private DevExpress.XtraEditors.LabelControl lblNgayGhi;
-        private DevExpress.XtraEditors.TextEdit txtSoHieu_CT;
-        private DevExpress.XtraEditors.DateEdit dateNgay_CT;
-        private DevExpress.XtraEditors.DateEdit dateNgayGhi;
-        private DevExpress.XtraEditors.SimpleButton btnAttachment;
+        private DevExpress.XtraEditors.LabelControl lblTenTaiSan;
+        private DevExpress.XtraEditors.LabelControl lblMaTaiSan;
+        private DevExpress.XtraEditors.LabelControl lblTextTenTS;
+        private DevExpress.XtraEditors.LabelControl lblTextMaTS;
     }
 }

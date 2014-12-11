@@ -30,7 +30,7 @@ namespace TSCD_GUI
         ucQuanLyPhong _ucQuanLyPhong = null;
         ucQuanLyDonVi _ucQuanLyDonVi = null;
         ucQuanLyLoaiTS _ucQuanLyLoaiTS = null;
-        ucQuanLyTaiSan _ucQuanLyTaiSan = null;
+        //ucQuanLyTaiSan _ucQuanLyTaiSan = null;
         ucQuanLyDonVi_TaiSan _ucQuanLyDonVi_TaiSan = null;
         ucPhanQuyen _ucPhanQuyen = null;
         ucThongKe _ucThongKe = null;
@@ -85,7 +85,7 @@ namespace TSCD_GUI
             _ucQuanLyPhong.selectPageDonViTaiSan = new ucQuanLyPhong.SelectPageDonViTaiSan(SelectPageDonViTaiSan);
             _ucQuanLyDonVi = new ucQuanLyDonVi();
             _ucQuanLyLoaiTS = new ucQuanLyLoaiTS();
-            _ucQuanLyTaiSan = new ucQuanLyTaiSan();
+            //_ucQuanLyTaiSan = new ucQuanLyTaiSan();
             _ucQuanLyDonVi_TaiSan = new ucQuanLyDonVi_TaiSan();
             _ucPhanQuyen = new ucPhanQuyen();
             _ucThongKe = new ucThongKe();
@@ -95,7 +95,7 @@ namespace TSCD_GUI
             _ucQuanLyPhong.Dock = DockStyle.Fill;
             _ucQuanLyDonVi.Dock = DockStyle.Fill;
             _ucQuanLyLoaiTS.Dock = DockStyle.Fill;
-            _ucQuanLyTaiSan.Dock = DockStyle.Fill;
+            //_ucQuanLyTaiSan.Dock = DockStyle.Fill;
             _ucQuanLyDonVi_TaiSan.Dock = DockStyle.Fill;
             _ucPhanQuyen.Dock = DockStyle.Fill;
             _ucThongKe.Dock = DockStyle.Fill;
@@ -105,7 +105,7 @@ namespace TSCD_GUI
             addRibbonPage(_ucQuanLyPhong.getRibbonControl());
             addRibbonPage(_ucQuanLyDonVi.getRibbonControl());
             addRibbonPage(_ucQuanLyLoaiTS.getRibbonControl());
-            addRibbonPage(_ucQuanLyTaiSan.getRibbonControl());
+            //addRibbonPage(_ucQuanLyTaiSan.getRibbonControl());
             addRibbonPage(_ucQuanLyDonVi_TaiSan.getRibbonControl());
             addRibbonPage(_ucPhanQuyen.getRibbonControl());
             addRibbonPage(_ucThongKe.getRibbonControl());
@@ -159,12 +159,12 @@ namespace TSCD_GUI
                         panelControlMain.Controls.Clear();
                         panelControlMain.Controls.Add(_ucQuanLyLoaiTS);
                     }
-                    else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName(rbnPageTaiSan)))
-                    {
-                        _ucQuanLyTaiSan.loadData();
-                        panelControlMain.Controls.Clear();
-                        panelControlMain.Controls.Add(_ucQuanLyTaiSan);
-                    }
+                    //else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName(rbnPageTaiSan)))
+                    //{
+                    //    _ucQuanLyTaiSan.loadData();
+                    //    panelControlMain.Controls.Clear();
+                    //    panelControlMain.Controls.Add(_ucQuanLyTaiSan);
+                    //}
                     else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName(rbnPageDonVi_TaiSan)))
                     {
                         _ucQuanLyDonVi_TaiSan.loadData(DonVi.getById(donvi_id), Phong.getById(phong_id));

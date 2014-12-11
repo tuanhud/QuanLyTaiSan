@@ -17,7 +17,7 @@ namespace TSCD_GUI.QLTaiSan
     public partial class frmInputViTri_DonVi : DevExpress.XtraEditors.XtraForm
     {
         CTTaiSan objCTTaiSan = null;
-        ChungTu objChungTu = null;
+        //ChungTu objChungTu = null;
         bool isChuyen = false;
 
         public delegate void ReloadAndFocused(Guid id);
@@ -48,10 +48,12 @@ namespace TSCD_GUI.QLTaiSan
             try
             {
                 objCTTaiSan = _objCTTaiSan;
-                objChungTu = objCTTaiSan.chungtu;
-                dateNgayGhi.EditValue = objCTTaiSan.ngay;
-                dateNgay_CT.EditValue = objCTTaiSan.chungtu != null ? objCTTaiSan.chungtu.ngay : null;
-                txtSoHieu_CT.Text = objCTTaiSan.chungtu != null ? objCTTaiSan.chungtu.sohieu : "";
+                //objChungTu = objCTTaiSan.chungtu;
+                lblTextMaTS.Text = objCTTaiSan.subId;
+                lblTextTenTS.Text = objCTTaiSan.taisan.ten;
+                //dateNgayGhi.EditValue = objCTTaiSan.ngay;
+                //dateNgay_CT.EditValue = objCTTaiSan.chungtu != null ? objCTTaiSan.chungtu.ngay : null;
+                //txtSoHieu_CT.Text = objCTTaiSan.chungtu != null ? objCTTaiSan.chungtu.sohieu : "";
                 ucComboBoxDonVi1.DonVi = _objDonVi;
                 txtSoLuong.Properties.MinValue = 1;
                 txtSoLuong.Properties.MaxValue = objCTTaiSan.soluong;
@@ -68,10 +70,12 @@ namespace TSCD_GUI.QLTaiSan
         {
             try
             {
-                objChungTu = objCTTaiSan.chungtu;
-                dateNgayGhi.EditValue = objCTTaiSan.ngay;
-                dateNgay_CT.EditValue = objCTTaiSan.chungtu.ngay;
-                txtSoHieu_CT.Text = objCTTaiSan.chungtu.sohieu;
+                //objChungTu = objCTTaiSan.chungtu;
+                lblTextMaTS.Text = objCTTaiSan.subId;
+                lblTextTenTS.Text = objCTTaiSan.taisan.ten;
+                //dateNgayGhi.EditValue = objCTTaiSan.ngay;
+                //dateNgay_CT.EditValue = objCTTaiSan.chungtu.ngay;
+                //txtSoHieu_CT.Text = objCTTaiSan.chungtu.sohieu;
                 ucComboBoxViTri1.Phong = objCTTaiSan.phong;
                 ucComboBoxViTri2.ViTri = objCTTaiSan.vitri;
                 ucComboBoxDonVi1.DonVi = objCTTaiSan.donviquanly;
@@ -129,15 +133,15 @@ namespace TSCD_GUI.QLTaiSan
                 {
                     DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this, typeof(WaitFormLoad), true, true, false);
                     DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang xử lý...");
-                    DateTime ngayGhi = dateNgayGhi.EditValue != null ? dateNgayGhi.DateTime : DateTime.Now;
-                    objChungTu.sohieu = txtSoHieu_CT.Text;
-                    objChungTu.ngay = dateNgay_CT.EditValue != null ? dateNgay_CT.DateTime : DateTime.Now;
+                    //DateTime ngayGhi = dateNgayGhi.EditValue != null ? dateNgayGhi.DateTime : DateTime.Now;
+                    //objChungTu.sohieu = txtSoHieu_CT.Text;
+                    //objChungTu.ngay = dateNgay_CT.EditValue != null ? dateNgay_CT.DateTime : DateTime.Now;
                     int soLuong = Convert.ToInt32(txtSoLuong.EditValue);
                     Phong phong = ucComboBoxViTri1.Phong;
                     ViTri viTri = ucComboBoxViTri2.ViTri;
                     DonVi donViQL = ucComboBoxDonVi1.DonVi;
                     String ghiChu = txtGhiChu.Text;
-                    int re = objCTTaiSan.chuyenDonVi(donViQL, null, viTri, phong, objCTTaiSan.parent, objChungTu, soLuong, ghiChu, ngayGhi);
+                    int re = objCTTaiSan.chuyenDonVi(donViQL, null, viTri, phong, objCTTaiSan.parent, objCTTaiSan.chungtu, soLuong, ghiChu);
                     if (re > 0 && DBInstance.commit() > 0)
                     {
                         DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
@@ -215,14 +219,14 @@ namespace TSCD_GUI.QLTaiSan
                 ucComboBoxViTri2.ViTri = obj.vitri;
         }
 
-        private void btnAttachment_Click(object sender, EventArgs e)
-        {
-            if (objChungTu != null)
-            {
-                frmFileChungTu frm = new frmFileChungTu(objChungTu);
-                if (frm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                    objChungTu = frm.ct;
-            }
-        }
+        //private void btnAttachment_Click(object sender, EventArgs e)
+        //{
+        //    if (objChungTu != null)
+        //    {
+        //        frmFileChungTu frm = new frmFileChungTu(objChungTu);
+        //        if (frm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+        //            objChungTu = frm.ct;
+        //    }
+        //}
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucQuanLyViTri));
             this.rbnControlViTri = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barBtnThemCoSo = new DevExpress.XtraBars.BarButtonItem();
@@ -65,7 +66,7 @@
             this.btnSua_r = new DevExpress.XtraEditors.SimpleButton();
             this.btnThem_r = new DevExpress.XtraEditors.SimpleButton();
             this.txtMoTa = new DevExpress.XtraEditors.MemoEdit();
-            this.dxErrorProviderInfo = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider();
+            this.dxErrorProviderInfo = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.rbnControlViTri)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControlMain)).BeginInit();
             this.splitContainerControlMain.SuspendLayout();
@@ -252,6 +253,7 @@
             this.rbnGroupImport.Name = "rbnGroupImport";
             this.rbnGroupImport.ShowCaptionButton = false;
             this.rbnGroupImport.Text = "Import";
+            this.rbnGroupImport.Visible = false;
             // 
             // splitContainerControlMain
             // 
@@ -286,7 +288,7 @@
             this.treeListViTri.OptionsFind.HighlightFindResults = false;
             this.treeListViTri.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.treeListViTri.ParentFieldName = "parent_id";
-            this.treeListViTri.Size = new System.Drawing.Size(478, 372);
+            this.treeListViTri.Size = new System.Drawing.Size(477, 372);
             this.treeListViTri.TabIndex = 0;
             this.treeListViTri.FocusedNodeChanged += new DevExpress.XtraTreeList.FocusedNodeChangedEventHandler(this.treeListViTri_FocusedNodeChanged);
             this.treeListViTri.FilterNode += new DevExpress.XtraTreeList.FilterNodeEventHandler(this.OnFilterNode);

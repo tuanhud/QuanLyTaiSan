@@ -44,8 +44,9 @@
             this.barBtnExport = new DevExpress.XtraBars.BarButtonItem();
             this.rbnPageThongKe = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbnGroupThongKe = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.rbnGroupLayout = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rbnGroupXuatThongKe = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnGroupBaoCao = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rbnGroupLayout = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnGroupKiemKe = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.panelControlMain = new DevExpress.XtraEditors.PanelControl();
             ((System.ComponentModel.ISupportInitialize)(this.rbnControlThongKe)).BeginInit();
@@ -70,7 +71,7 @@
             this.barBtnImport,
             this.barBtnExport});
             this.rbnControlThongKe.Location = new System.Drawing.Point(0, 0);
-            this.rbnControlThongKe.MaxItemId = 14;
+            this.rbnControlThongKe.MaxItemId = 16;
             this.rbnControlThongKe.Name = "rbnControlThongKe";
             this.rbnControlThongKe.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbnPageThongKe});
@@ -136,7 +137,7 @@
             // 
             // barButtonItemXuatThongKe
             // 
-            this.barButtonItemXuatThongKe.Caption = "Xuất thống kê";
+            this.barButtonItemXuatThongKe.Caption = "Xuất kết quả thống kê";
             this.barButtonItemXuatThongKe.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItemXuatThongKe.Glyph")));
             this.barButtonItemXuatThongKe.Id = 8;
             this.barButtonItemXuatThongKe.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItemXuatThongKe.LargeGlyph")));
@@ -195,12 +196,13 @@
             // 
             this.rbnPageThongKe.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.rbnGroupThongKe,
-            this.rbnGroupLayout,
+            this.rbnGroupXuatThongKe,
             this.rbnGroupBaoCao,
+            this.rbnGroupLayout,
             this.rbnGroupKiemKe});
             this.rbnPageThongKe.Image = ((System.Drawing.Image)(resources.GetObject("rbnPageThongKe.Image")));
             this.rbnPageThongKe.Name = "rbnPageThongKe";
-            this.rbnPageThongKe.Text = "Thống kê";
+            this.rbnPageThongKe.Text = "Thống kê - Báo cáo";
             // 
             // rbnGroupThongKe
             // 
@@ -213,6 +215,20 @@
             this.rbnGroupThongKe.ShowCaptionButton = false;
             this.rbnGroupThongKe.Text = "Thống kê";
             // 
+            // rbnGroupXuatThongKe
+            // 
+            this.rbnGroupXuatThongKe.ItemLinks.Add(this.barButtonItemXuatThongKe);
+            this.rbnGroupXuatThongKe.Name = "rbnGroupXuatThongKe";
+            this.rbnGroupXuatThongKe.ShowCaptionButton = false;
+            this.rbnGroupXuatThongKe.Text = "Xuất thống kê";
+            // 
+            // rbnGroupBaoCao
+            // 
+            this.rbnGroupBaoCao.ItemLinks.Add(this.barBtnXuatBaoCao);
+            this.rbnGroupBaoCao.Name = "rbnGroupBaoCao";
+            this.rbnGroupBaoCao.ShowCaptionButton = false;
+            this.rbnGroupBaoCao.Text = "Báo cáo";
+            // 
             // rbnGroupLayout
             // 
             this.rbnGroupLayout.ItemLinks.Add(this.barBtnDefault);
@@ -220,15 +236,7 @@
             this.rbnGroupLayout.ItemLinks.Add(this.barBtnCollapseAll);
             this.rbnGroupLayout.Name = "rbnGroupLayout";
             this.rbnGroupLayout.ShowCaptionButton = false;
-            this.rbnGroupLayout.Text = "Trình bài";
-            // 
-            // rbnGroupBaoCao
-            // 
-            this.rbnGroupBaoCao.ItemLinks.Add(this.barBtnXuatBaoCao);
-            this.rbnGroupBaoCao.ItemLinks.Add(this.barButtonItemXuatThongKe);
-            this.rbnGroupBaoCao.Name = "rbnGroupBaoCao";
-            this.rbnGroupBaoCao.ShowCaptionButton = false;
-            this.rbnGroupBaoCao.Text = "Báo cáo";
+            this.rbnGroupLayout.Text = "Trình bày";
             // 
             // rbnGroupKiemKe
             // 
@@ -237,6 +245,7 @@
             this.rbnGroupKiemKe.Name = "rbnGroupKiemKe";
             this.rbnGroupKiemKe.ShowCaptionButton = false;
             this.rbnGroupKiemKe.Text = "Kiểm kê tài sản";
+            this.rbnGroupKiemKe.Visible = false;
             // 
             // panelControlMain
             // 
@@ -284,5 +293,6 @@
         private DevExpress.XtraBars.BarButtonItem barBtnExport;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupKiemKe;
         private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager_Report;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupXuatThongKe;
     }
 }

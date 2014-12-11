@@ -1,0 +1,3 @@
+tiêu đề khi sửa tài sản
+nút thêm, đơn vị tính của loại tài sản. một số 1 nút thêm tab khác tương tự
+thêm loại tài sản ->thuộc->đơn vị tính
