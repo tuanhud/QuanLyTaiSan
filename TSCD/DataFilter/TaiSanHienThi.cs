@@ -30,13 +30,13 @@ namespace TSCD.DataFilter
         public ICollection<CTTaiSan> childs { get; set; }
         public CTTaiSan obj { get; set; }
 
-        public double phantramhaomon_32_nhan100
+        public double phantramhm1nam
         {
             get
             {
                 try
                 {
-                    return obj.taisan.loaitaisan.phantramhaomon_32 * 100;
+                    return obj.taisan.loaitaisan.phantramhaomon_32;
                 }
                 catch (Exception ex)
                 {
@@ -149,8 +149,9 @@ namespace TSCD.DataFilter
             }
         }
         #region Khau hao
+        public long haomon_1nam { get; set; }
         public long giatriconlai_final { get; set; }
-        public long sonamsudungconlai_final { get; set; }
+        public int sonamsudungconlai_final { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -166,6 +167,7 @@ namespace TSCD.DataFilter
             {
                 id = ct.id,
                 ngay = ct.ngay,
+                haomon_1nam = ct.sonamsudungconlai_final(namthongke)<=0?0:ct.haomon_1nam,
                 giatriconlai_final = ct.giatriconlai_final(namthongke),
                 sonamsudungconlai_final = ct.sonamsudungconlai_final(namthongke),
                 sohieu_ct = ct.chungtu != null ? ct.chungtu.sohieu : "",
@@ -175,7 +177,7 @@ namespace TSCD.DataFilter
                 donvitinh = ct.taisan.loaitaisan.donvitinh != null ? ct.taisan.loaitaisan.donvitinh.ten : "",
                 soluong = ct.soluong,
                 dongia = ct.taisan.dongia,
-                thanhtien = ct.soluong * ct.taisan.dongia,
+                thanhtien = ct.thanhtien,
                 nuocsx = ct.taisan.nuocsx,
                 nguongoc = ct.nguongoc,
                 tinhtrang = ct.tinhtrang.value,

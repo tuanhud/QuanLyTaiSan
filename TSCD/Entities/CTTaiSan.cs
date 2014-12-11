@@ -638,7 +638,7 @@ namespace TSCD.Entities
         /// So nam su dung con lai tinh den het nam 2008 theo QD 32 moi nhat cua Bo tai chinh
         /// </summary>
         [NotMapped]
-        public long sonamsudungconlai_32
+        public int sonamsudungconlai_32
         {
             get
             {
@@ -670,7 +670,7 @@ namespace TSCD.Entities
             }
         }
         //[NotMapped]
-        public long sonamsudungconlai_final(int namthongke)
+        public int sonamsudungconlai_final(int namthongke)
         {
             if(namthongke<=2008 || namthongke<namsudung)
             {
@@ -686,13 +686,17 @@ namespace TSCD.Entities
             else
             {
                 //tmp: so nam su dung con lai tinh den het nam thong ke
-                long tmp = sonamsudungconlai_32 - (namthongke - 2008);
+                int tmp = sonamsudungconlai_32 - (namthongke - 2008);
                 return tmp < 0 ? 0 : tmp;
             }
         }
         //[NotMapped]
         public long giatriconlai_final(int namthongke)
         {
+            if (sonamsudungconlai_final(namthongke)<=0)
+            {
+                return 0;
+            }
             //tmp: so nam da su dung tinh den het nam thong ke
             int tmp = 0;
             if (namsudung > 2008)

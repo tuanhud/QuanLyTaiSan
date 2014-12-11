@@ -46,15 +46,8 @@
             this.coldvql = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colphong = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colvitri = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colphantramhaomon_351 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colphantramhaomon_32 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colsonamdasudung_cuoi2008 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colsonamsudung_351 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colsonamsudung_32 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colsonamsudungconlai_351 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colsonamsudungconlai_32 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colgiatriconlai_351 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colgiatriconlai_32 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colphantramhm1nam = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colhaomon_1nam = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colsonamsudungconlai_final = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colgiatriconlai_final = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelSearch = new DevExpress.XtraEditors.PanelControl();
@@ -115,15 +108,8 @@
             this.coldvql,
             this.colphong,
             this.colvitri,
-            this.colphantramhaomon_351,
-            this.colphantramhaomon_32,
-            this.colsonamdasudung_cuoi2008,
-            this.colsonamsudung_351,
-            this.colsonamsudung_32,
-            this.colsonamsudungconlai_351,
-            this.colsonamsudungconlai_32,
-            this.colgiatriconlai_351,
-            this.colgiatriconlai_32,
+            this.colphantramhm1nam,
+            this.colhaomon_1nam,
             this.colsonamsudungconlai_final,
             this.colgiatriconlai_final});
             this.gridViewHaoMon.GridControl = this.gridControlHaoMon;
@@ -146,7 +132,7 @@
             this.colsohieuct.FieldName = "sohieu_ct";
             this.colsohieuct.Name = "colsohieuct";
             this.colsohieuct.Visible = true;
-            this.colsohieuct.VisibleIndex = 1;
+            this.colsohieuct.VisibleIndex = 0;
             // 
             // colngayct
             // 
@@ -154,7 +140,7 @@
             this.colngayct.FieldName = "ngay_ct";
             this.colngayct.Name = "colngayct";
             this.colngayct.Visible = true;
-            this.colngayct.VisibleIndex = 0;
+            this.colngayct.VisibleIndex = 1;
             // 
             // colten
             // 
@@ -253,85 +239,25 @@
             this.colvitri.Visible = true;
             this.colvitri.VisibleIndex = 12;
             // 
-            // colphantramhaomon_351
+            // colphantramhm1nam
             // 
-            this.colphantramhaomon_351.Caption = "Tỷ lệ hao mòn theo QĐ 351";
-            this.colphantramhaomon_351.DisplayFormat.FormatString = "p";
-            this.colphantramhaomon_351.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.colphantramhaomon_351.FieldName = "phantramhaomon_351";
-            this.colphantramhaomon_351.Name = "colphantramhaomon_351";
-            this.colphantramhaomon_351.Visible = true;
-            this.colphantramhaomon_351.VisibleIndex = 13;
+            this.colphantramhm1nam.Caption = "Tỷ lệ hao mòn 1 năm";
+            this.colphantramhm1nam.DisplayFormat.FormatString = "p";
+            this.colphantramhm1nam.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colphantramhm1nam.FieldName = "phantramhm1nam";
+            this.colphantramhm1nam.Name = "colphantramhm1nam";
+            this.colphantramhm1nam.Visible = true;
+            this.colphantramhm1nam.VisibleIndex = 13;
             // 
-            // colphantramhaomon_32
+            // colhaomon_1nam
             // 
-            this.colphantramhaomon_32.Caption = "Tỷ lệ hao mòn theo QĐ 32";
-            this.colphantramhaomon_32.DisplayFormat.FormatString = "p";
-            this.colphantramhaomon_32.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.colphantramhaomon_32.FieldName = "phantramhaomon_32";
-            this.colphantramhaomon_32.Name = "colphantramhaomon_32";
-            this.colphantramhaomon_32.Visible = true;
-            this.colphantramhaomon_32.VisibleIndex = 14;
-            // 
-            // colsonamdasudung_cuoi2008
-            // 
-            this.colsonamdasudung_cuoi2008.Caption = "Số năm đã sử dụng tính đến cuối năm 2008";
-            this.colsonamdasudung_cuoi2008.FieldName = "sonamdasudung_cuoi2008";
-            this.colsonamdasudung_cuoi2008.Name = "colsonamdasudung_cuoi2008";
-            this.colsonamdasudung_cuoi2008.Visible = true;
-            this.colsonamdasudung_cuoi2008.VisibleIndex = 15;
-            // 
-            // colsonamsudung_351
-            // 
-            this.colsonamsudung_351.Caption = "Thời gian sử dụng theo QĐ 351";
-            this.colsonamsudung_351.FieldName = "sonamsudung_351";
-            this.colsonamsudung_351.Name = "colsonamsudung_351";
-            this.colsonamsudung_351.Visible = true;
-            this.colsonamsudung_351.VisibleIndex = 16;
-            // 
-            // colsonamsudung_32
-            // 
-            this.colsonamsudung_32.Caption = "Thời gian sử dụng theo QĐ 32";
-            this.colsonamsudung_32.FieldName = "sonamsudung_32";
-            this.colsonamsudung_32.Name = "colsonamsudung_32";
-            this.colsonamsudung_32.Visible = true;
-            this.colsonamsudung_32.VisibleIndex = 17;
-            // 
-            // colsonamsudungconlai_351
-            // 
-            this.colsonamsudungconlai_351.Caption = "Số năm sử dụng còn lại theo QĐ 351";
-            this.colsonamsudungconlai_351.FieldName = "sonamsudungconlai_351";
-            this.colsonamsudungconlai_351.Name = "colsonamsudungconlai_351";
-            this.colsonamsudungconlai_351.Visible = true;
-            this.colsonamsudungconlai_351.VisibleIndex = 18;
-            // 
-            // colsonamsudungconlai_32
-            // 
-            this.colsonamsudungconlai_32.Caption = "Số năm sử dụng còn lại theo QĐ 32";
-            this.colsonamsudungconlai_32.FieldName = "sonamsudungconlai_32";
-            this.colsonamsudungconlai_32.Name = "colsonamsudungconlai_32";
-            this.colsonamsudungconlai_32.Visible = true;
-            this.colsonamsudungconlai_32.VisibleIndex = 19;
-            // 
-            // colgiatriconlai_351
-            // 
-            this.colgiatriconlai_351.Caption = "Giá trị còn lại theo QĐ 351";
-            this.colgiatriconlai_351.DisplayFormat.FormatString = "### ### ### ##0";
-            this.colgiatriconlai_351.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.colgiatriconlai_351.FieldName = "giatriconlai_351";
-            this.colgiatriconlai_351.Name = "colgiatriconlai_351";
-            this.colgiatriconlai_351.Visible = true;
-            this.colgiatriconlai_351.VisibleIndex = 20;
-            // 
-            // colgiatriconlai_32
-            // 
-            this.colgiatriconlai_32.Caption = "Giá trị còn lại theo QĐ 32";
-            this.colgiatriconlai_32.DisplayFormat.FormatString = "### ### ### ##0";
-            this.colgiatriconlai_32.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.colgiatriconlai_32.FieldName = "giatriconlai_32";
-            this.colgiatriconlai_32.Name = "colgiatriconlai_32";
-            this.colgiatriconlai_32.Visible = true;
-            this.colgiatriconlai_32.VisibleIndex = 21;
+            this.colhaomon_1nam.Caption = "Giá trị hao mòn 1 năm";
+            this.colhaomon_1nam.DisplayFormat.FormatString = "### ### ### ##0";
+            this.colhaomon_1nam.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colhaomon_1nam.FieldName = "haomon_1nam";
+            this.colhaomon_1nam.Name = "colhaomon_1nam";
+            this.colhaomon_1nam.Visible = true;
+            this.colhaomon_1nam.VisibleIndex = 14;
             // 
             // colsonamsudungconlai_final
             // 
@@ -339,7 +265,7 @@
             this.colsonamsudungconlai_final.FieldName = "sonamsudungconlai_final";
             this.colsonamsudungconlai_final.Name = "colsonamsudungconlai_final";
             this.colsonamsudungconlai_final.Visible = true;
-            this.colsonamsudungconlai_final.VisibleIndex = 22;
+            this.colsonamsudungconlai_final.VisibleIndex = 15;
             // 
             // colgiatriconlai_final
             // 
@@ -349,7 +275,7 @@
             this.colgiatriconlai_final.FieldName = "giatriconlai_final";
             this.colgiatriconlai_final.Name = "colgiatriconlai_final";
             this.colgiatriconlai_final.Visible = true;
-            this.colgiatriconlai_final.VisibleIndex = 23;
+            this.colgiatriconlai_final.VisibleIndex = 16;
             // 
             // panelSearch
             // 
@@ -373,11 +299,11 @@
             // 
             // checkTinhTrang
             // 
-            this.checkTinhTrang.Location = new System.Drawing.Point(5, 29);
+            this.checkTinhTrang.Location = new System.Drawing.Point(5, 55);
             this.checkTinhTrang.Name = "checkTinhTrang";
             this.checkTinhTrang.Properties.Caption = "Tình trạng:";
             this.checkTinhTrang.Size = new System.Drawing.Size(82, 19);
-            this.checkTinhTrang.TabIndex = 17;
+            this.checkTinhTrang.TabIndex = 5;
             // 
             // checkNamTK
             // 
@@ -387,11 +313,12 @@
             this.checkNamTK.Properties.Caption = "Năm thống kê:";
             this.checkNamTK.Properties.ReadOnly = true;
             this.checkNamTK.Size = new System.Drawing.Size(93, 19);
-            this.checkNamTK.TabIndex = 16;
+            this.checkNamTK.TabIndex = 1;
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(765, 29);
+            this.btnClear.Image = ((System.Drawing.Image)(resources.GetObject("btnClear.Image")));
+            this.btnClear.Location = new System.Drawing.Point(679, 29);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(75, 23);
             this.btnClear.TabIndex = 15;
@@ -401,7 +328,7 @@
             // btnTim
             // 
             this.btnTim.Image = ((System.Drawing.Image)(resources.GetObject("btnTim.Image")));
-            this.btnTim.Location = new System.Drawing.Point(684, 29);
+            this.btnTim.Location = new System.Drawing.Point(679, 3);
             this.btnTim.Name = "btnTim";
             this.btnTim.Size = new System.Drawing.Size(75, 23);
             this.btnTim.TabIndex = 14;
@@ -411,66 +338,66 @@
             // ucComboBoxViTri1
             // 
             this.ucComboBoxViTri1.EditValue = null;
-            this.ucComboBoxViTri1.Location = new System.Drawing.Point(400, 54);
+            this.ucComboBoxViTri1.Location = new System.Drawing.Point(437, 31);
             this.ucComboBoxViTri1.Name = "ucComboBoxViTri1";
             this.ucComboBoxViTri1.Phong = null;
-            this.ucComboBoxViTri1.Size = new System.Drawing.Size(200, 20);
-            this.ucComboBoxViTri1.TabIndex = 12;
+            this.ucComboBoxViTri1.Size = new System.Drawing.Size(160, 20);
+            this.ucComboBoxViTri1.TabIndex = 10;
             this.ucComboBoxViTri1.ViTri = null;
             // 
             // ucComboBoxLoaiTS1
             // 
             this.ucComboBoxLoaiTS1.EditValue = null;
             this.ucComboBoxLoaiTS1.LoaiTS = null;
-            this.ucComboBoxLoaiTS1.Location = new System.Drawing.Point(400, 29);
+            this.ucComboBoxLoaiTS1.Location = new System.Drawing.Point(101, 32);
             this.ucComboBoxLoaiTS1.Name = "ucComboBoxLoaiTS1";
-            this.ucComboBoxLoaiTS1.Size = new System.Drawing.Size(200, 20);
-            this.ucComboBoxLoaiTS1.TabIndex = 11;
+            this.ucComboBoxLoaiTS1.Size = new System.Drawing.Size(160, 20);
+            this.ucComboBoxLoaiTS1.TabIndex = 4;
             // 
             // checkViTri
             // 
-            this.checkViTri.Location = new System.Drawing.Point(304, 54);
+            this.checkViTri.Location = new System.Drawing.Point(341, 31);
             this.checkViTri.Name = "checkViTri";
             this.checkViTri.Properties.Caption = "Vị trí:";
             this.checkViTri.Size = new System.Drawing.Size(58, 19);
-            this.checkViTri.TabIndex = 10;
+            this.checkViTri.TabIndex = 9;
             // 
             // checkLoaiTS
             // 
-            this.checkLoaiTS.Location = new System.Drawing.Point(304, 29);
+            this.checkLoaiTS.Location = new System.Drawing.Point(5, 31);
             this.checkLoaiTS.Name = "checkLoaiTS";
             this.checkLoaiTS.Properties.Caption = "Loại tài sản:";
             this.checkLoaiTS.Size = new System.Drawing.Size(82, 19);
-            this.checkLoaiTS.TabIndex = 9;
+            this.checkLoaiTS.TabIndex = 3;
             // 
             // checkDonVi
             // 
-            this.checkDonVi.Location = new System.Drawing.Point(304, 5);
+            this.checkDonVi.Location = new System.Drawing.Point(341, 5);
             this.checkDonVi.Name = "checkDonVi";
             this.checkDonVi.Properties.Caption = "Đơn vị quản lý:";
             this.checkDonVi.Size = new System.Drawing.Size(93, 19);
-            this.checkDonVi.TabIndex = 8;
+            this.checkDonVi.TabIndex = 7;
             // 
             // checkedCbxTinhTrang
             // 
-            this.checkedCbxTinhTrang.Location = new System.Drawing.Point(101, 32);
+            this.checkedCbxTinhTrang.Location = new System.Drawing.Point(101, 58);
             this.checkedCbxTinhTrang.Name = "checkedCbxTinhTrang";
             this.checkedCbxTinhTrang.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.checkedCbxTinhTrang.Properties.DisplayMember = "value";
             this.checkedCbxTinhTrang.Properties.ValueMember = "id";
-            this.checkedCbxTinhTrang.Size = new System.Drawing.Size(130, 20);
-            this.checkedCbxTinhTrang.TabIndex = 7;
+            this.checkedCbxTinhTrang.Size = new System.Drawing.Size(160, 20);
+            this.checkedCbxTinhTrang.TabIndex = 6;
             this.checkedCbxTinhTrang.EditValueChanged += new System.EventHandler(this.checkedCbxTinhTrang_EditValueChanged);
             // 
             // ucComboBoxDonVi1
             // 
             this.ucComboBoxDonVi1.DonVi = null;
             this.ucComboBoxDonVi1.EditValue = null;
-            this.ucComboBoxDonVi1.Location = new System.Drawing.Point(400, 5);
+            this.ucComboBoxDonVi1.Location = new System.Drawing.Point(437, 5);
             this.ucComboBoxDonVi1.Name = "ucComboBoxDonVi1";
-            this.ucComboBoxDonVi1.Size = new System.Drawing.Size(200, 20);
-            this.ucComboBoxDonVi1.TabIndex = 6;
+            this.ucComboBoxDonVi1.Size = new System.Drawing.Size(160, 20);
+            this.ucComboBoxDonVi1.TabIndex = 8;
             // 
             // dateNgayTK
             // 
@@ -487,8 +414,8 @@
             this.dateNgayTK.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dateNgayTK.Properties.Mask.EditMask = "yyyy";
             this.dateNgayTK.Properties.VistaCalendarViewStyle = DevExpress.XtraEditors.VistaCalendarViewStyle.YearsGroupView;
-            this.dateNgayTK.Size = new System.Drawing.Size(130, 20);
-            this.dateNgayTK.TabIndex = 5;
+            this.dateNgayTK.Size = new System.Drawing.Size(160, 20);
+            this.dateNgayTK.TabIndex = 2;
             // 
             // ucTKHaoMon
             // 
@@ -542,17 +469,10 @@
         private DevExpress.XtraGrid.Columns.GridColumn coldvql;
         private DevExpress.XtraGrid.Columns.GridColumn colphong;
         private DevExpress.XtraGrid.Columns.GridColumn colvitri;
-        private DevExpress.XtraGrid.Columns.GridColumn colphantramhaomon_351;
-        private DevExpress.XtraGrid.Columns.GridColumn colphantramhaomon_32;
-        private DevExpress.XtraGrid.Columns.GridColumn colsonamdasudung_cuoi2008;
-        private DevExpress.XtraGrid.Columns.GridColumn colsonamsudung_351;
+        private DevExpress.XtraGrid.Columns.GridColumn colphantramhm1nam;
         private DevExpress.XtraGrid.Columns.GridColumn colsohieuct;
         private DevExpress.XtraGrid.Columns.GridColumn colngaysudung;
-        private DevExpress.XtraGrid.Columns.GridColumn colsonamsudung_32;
-        private DevExpress.XtraGrid.Columns.GridColumn colsonamsudungconlai_351;
-        private DevExpress.XtraGrid.Columns.GridColumn colsonamsudungconlai_32;
-        private DevExpress.XtraGrid.Columns.GridColumn colgiatriconlai_351;
-        private DevExpress.XtraGrid.Columns.GridColumn colgiatriconlai_32;
+        private DevExpress.XtraGrid.Columns.GridColumn colhaomon_1nam;
         private DevExpress.XtraGrid.Columns.GridColumn colngayct;
         private DevExpress.XtraGrid.Columns.GridColumn colsonamsudungconlai_final;
         private DevExpress.XtraGrid.Columns.GridColumn colgiatriconlai_final;
