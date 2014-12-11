@@ -110,19 +110,20 @@ namespace TSCD.Entities
         /// Chuyển tình trạng, vd báo giảm tài sản khi -> Thanh lý (Thanh lý.giam_taisan = true)
         /// </summary>
         /// <returns></returns>
-        public int chuyenTinhTrang(
+        public CTTaiSan chuyenTinhTrang(
             ChungTu chungtu_moi,
             TinhTrang tinhtrang_moi, int soluong_moi=-1, String ghichu_moi="")
         {
+            CTTaiSan final = null;
             Boolean re = true;
             //xét ràng buộc
             if(tinhtrang_moi==null)
             {
-                return -1;
+                return null;
             }
             if (soluong_moi > this.soluong)
             {
-                return -1;
+                return null;
             }
             if (soluong_moi < 0)
             {
@@ -131,7 +132,7 @@ namespace TSCD.Entities
             //this đã bị báo là giảm tài sản rồi, không cho chuyển ngược lại
             if(this.tinhtrang.giam_taisan)
             {
-                return -1;
+                return null;
             }
 
             //begin common business
@@ -152,6 +153,7 @@ namespace TSCD.Entities
                     log.chuyenden_chuyendi = 0;//importance, do chỉ là đổi tình trạng trong cùng 1 đơn vị
                     re = re && log.add() > 0;
                 }
+                final = this;
             }
             //chuyển một phần
             else
@@ -187,10 +189,11 @@ namespace TSCD.Entities
                     log.chuyenden_chuyendi = 0;//importance, do chỉ là đổi tình trạng trong cùng 1 đơn vị
                     re = re && log.add() > 0;
                 }
+                final = ctts;
             }
             
             //end
-            return re ? 1 : -1;
+            return final;// re ? 1 : -1;
         }
         /// <summary>
         /// Chuyển đổi đơn vị quản lý, nhung KHÔNG cho phép kèm tình trạng,
@@ -206,7 +209,7 @@ namespace TSCD.Entities
         /// <param name="ghichu_moi"></param>
         /// <param name="ngay_moi"></param>
         /// <returns></returns>
-        public int chuyenDonVi(
+        public CTTaiSan chuyenDonVi(
             DonVi donviquanly_moi,
             DonVi donvisudung_moi,
             ViTri vitri_moi,
@@ -223,13 +226,14 @@ namespace TSCD.Entities
             //So luong chuyen phai hop le
             if (soluong_moi > this.soluong)
             {
-                return -1;
+                return null;
             }
             //tự chuyển đổi
             if(soluong_moi<0)
             {
                 soluong_moi = this.soluong;
             }
+            CTTaiSan final = null;
             //begin business
             Boolean cungdonviquanly = donviquanly != null && donviquanly_moi != null && donviquanly.id == donviquanly_moi.id;
             #region Chuyển toàn bộ
@@ -248,6 +252,8 @@ namespace TSCD.Entities
                     this.phong = phong_moi;
                     this.vitri = vitri_moi;
                     re = re && this.update() > 0;
+
+                    final = this;
                 }
                 //khac don vi quan ly
                 else
@@ -288,20 +294,23 @@ namespace TSCD.Entities
                     log2.tang_giam_donvi = -1;
                     log2.chuyenden_chuyendi = -1;
                     re = re && log2.add()>0;
+
+                    final = ctts;
                 }
                 //end
-                return re ? 1 : -1;
+                return final;// re ? 1 : -1;
             }
             #endregion
             #region Chuyển 1 phần số lượng
             else
             //Chuyen 1 phan so luong
             {
+                CTTaiSan ctts = null;
                 //cung don vi quan ly
                 if (cungdonviquanly)
                 {
                     //Tao CTTS moi
-                    CTTaiSan ctts = new CTTaiSan();
+                    ctts = new CTTaiSan();
                     ctts.chungtu = chungtu_moi;
                     ctts.donvisudung = donvisudung_moi;
                     ctts.ghichu = ghichu_moi;
@@ -328,7 +337,7 @@ namespace TSCD.Entities
                 else
                 {
                     //Step 1: Tao CTTS moi -> add
-                    CTTaiSan ctts = new CTTaiSan();
+                    ctts = new CTTaiSan();
                     ctts.chungtu = chungtu_moi;
                     ctts.donviquanly = donviquanly_moi;
                     ctts.donvisudung = donvisudung_moi;
@@ -364,9 +373,11 @@ namespace TSCD.Entities
                     log2.chuyenden_chuyendi = -1;
                     log2.add();
                 }
+
+                final = ctts;
             }
             #endregion
-            return re?1:-1;
+            return final;// re ? 1 : -1;
         }
         /// <summary>
         /// Copy moi thuoc tinh,
