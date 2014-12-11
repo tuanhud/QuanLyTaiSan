@@ -13,6 +13,7 @@ using TSCD_GUI.MyUserControl;
 using DevExpress.XtraTreeList.Columns;
 using DevExpress.XtraTreeList.Nodes;
 using DevExpress.XtraTreeList;
+using TSCD_GUI.QLTaiSan;
 
 namespace TSCD_GUI.QLDonVi
 {
@@ -120,6 +121,7 @@ namespace TSCD_GUI.QLDonVi
             barBtnXoaDonVi.Enabled = _enable;
             btnSua_r.Enabled = _enable;
             btnXoa_r.Enabled = _enable;
+            btnThemTS.Enabled = _enable;
         }
         private void clearText()
         {
@@ -432,6 +434,16 @@ namespace TSCD_GUI.QLDonVi
             foreach (TreeListNode n in node.Nodes)
                 if (IsNodeMatchFilter(n, column)) return true;
             return false;
+        }
+
+        private void btnThemTS_Click(object sender, EventArgs e)
+        {
+            if (objDonVi != null)
+            {
+                frmAddTaiSanExist frm = new frmAddTaiSanExist(objDonVi);
+                //frm.reloadAndFocused = new frmAddTaiSanExist.ReloadAndFocused(reloadAndFocused);
+                frm.ShowDialog();
+            }
         }
     }
 }

@@ -64,6 +64,7 @@
             this.txtMa = new DevExpress.XtraEditors.TextEdit();
             this.txtMoTa = new DevExpress.XtraEditors.MemoEdit();
             this.dxErrorProviderInfo = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider();
+            this.btnThemTS = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.rbnControlDonVi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControlMain)).BeginInit();
             this.splitContainerControlMain.SuspendLayout();
@@ -187,7 +188,7 @@
             this.treeListDonVi.ParentFieldName = "parent_id";
             this.treeListDonVi.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryLookUpLoai});
-            this.treeListDonVi.Size = new System.Drawing.Size(467, 363);
+            this.treeListDonVi.Size = new System.Drawing.Size(466, 363);
             this.treeListDonVi.TabIndex = 0;
             this.treeListDonVi.FocusedNodeChanged += new DevExpress.XtraTreeList.FocusedNodeChangedEventHandler(this.treeListDonVi_FocusedNodeChanged);
             this.treeListDonVi.FilterNode += new DevExpress.XtraTreeList.FilterNodeEventHandler(this.OnFilterNode);
@@ -230,6 +231,7 @@
             // 
             this.groupControlInfo.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupControlInfo.AppearanceCaption.Options.UseFont = true;
+            this.groupControlInfo.Controls.Add(this.btnThemTS);
             this.groupControlInfo.Controls.Add(this.panelControlParent);
             this.groupControlInfo.Controls.Add(this.btnLoaiDonVi);
             this.groupControlInfo.Controls.Add(this.btnHuy);
@@ -277,7 +279,7 @@
             // btnHuy
             // 
             this.btnHuy.Image = ((System.Drawing.Image)(resources.GetObject("btnHuy.Image")));
-            this.btnHuy.Location = new System.Drawing.Point(181, 212);
+            this.btnHuy.Location = new System.Drawing.Point(181, 239);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(75, 23);
             this.btnHuy.TabIndex = 11;
@@ -287,7 +289,7 @@
             // btnOK
             // 
             this.btnOK.Image = ((System.Drawing.Image)(resources.GetObject("btnOK.Image")));
-            this.btnOK.Location = new System.Drawing.Point(100, 212);
+            this.btnOK.Location = new System.Drawing.Point(100, 239);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 10;
@@ -446,6 +448,15 @@
             // 
             this.dxErrorProviderInfo.ContainerControl = this;
             // 
+            // btnThemTS
+            // 
+            this.btnThemTS.Location = new System.Drawing.Point(100, 210);
+            this.btnThemTS.Name = "btnThemTS";
+            this.btnThemTS.Size = new System.Drawing.Size(131, 23);
+            this.btnThemTS.TabIndex = 12;
+            this.btnThemTS.Text = "Thêm tài sản vào đơn vị";
+            this.btnThemTS.Click += new System.EventHandler(this.btnThemTS_Click);
+            // 
             // ucQuanLyDonVi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -511,5 +522,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colid_g;
         private DevExpress.XtraGrid.Columns.GridColumn colten_g;
         private DevExpress.XtraEditors.PanelControl panelControlParent;
+        private DevExpress.XtraEditors.SimpleButton btnThemTS;
     }
 }

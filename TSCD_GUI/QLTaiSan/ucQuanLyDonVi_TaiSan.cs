@@ -81,7 +81,7 @@ namespace TSCD_GUI.QLTaiSan
             {
                 obj = ucTreeDonVi1.DonVi;
                 //gridControlTaiSan.DataSource = TaiSanHienThi.getAllByDonVi(obj);
-                if (obj != null)
+                if (obj != null && obj.id != Guid.Empty)
                 {
                     list = TaiSanHienThi.Convert(obj.getAllCTTaiSanRecursive());
                     ucGridControlTaiSan1.DataSource = list;
@@ -93,7 +93,7 @@ namespace TSCD_GUI.QLTaiSan
                 else
                 {
                     ucGridControlTaiSan1.DataSource = null;
-                    list = TaiSanHienThi.Convert(CTTaiSan.getQuery().Where(c => c.donviquanly == null));
+                    list = TaiSanHienThi.Convert(CTTaiSan.getQuery().Where(c => c.donviquanly == null && c.soluong > 0));
                     ucGridControlTaiSan1.DataSource = list;
 
                     bool isEnabled = list.Count > 0;
