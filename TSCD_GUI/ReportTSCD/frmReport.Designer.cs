@@ -43,8 +43,9 @@
             this.checkedComboBoxEdit_ChonCoSo = new DevExpress.XtraEditors.CheckedComboBoxEdit();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
-            this.marqueeProgressBarControl1 = new DevExpress.XtraEditors.MarqueeProgressBarControl();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.marqueeProgressBarControl_Status = new DevExpress.XtraEditors.MarqueeProgressBarControl();
+            this.simpleButton_Stop = new DevExpress.XtraEditors.SimpleButton();
+            this.labelControl_Status = new DevExpress.XtraEditors.LabelControl();
             this.ucComboBoxLoaiTS_LoaiTaiSan = new TSCD_GUI.MyUserControl.ucComboBoxLoaiTS();
             this.ucComboBoxDonVi_ChonDonVi = new TSCD_GUI.MyUserControl.ucComboBoxDonVi();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit_LoaiBaoCao.Properties)).BeginInit();
@@ -55,7 +56,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit_XuatBaoCao.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit_ThietKe.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkedComboBoxEdit_ChonCoSo.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.marqueeProgressBarControl1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.marqueeProgressBarControl_Status.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // comboBoxEdit_LoaiBaoCao
@@ -198,26 +199,38 @@
             this.labelControl6.TabIndex = 1;
             this.labelControl6.Text = "Cơ sở:";
             // 
-            // marqueeProgressBarControl1
+            // marqueeProgressBarControl_Status
             // 
-            this.marqueeProgressBarControl1.EditValue = 0;
-            this.marqueeProgressBarControl1.Location = new System.Drawing.Point(12, 232);
-            this.marqueeProgressBarControl1.Name = "marqueeProgressBarControl1";
-            this.marqueeProgressBarControl1.Size = new System.Drawing.Size(246, 12);
-            this.marqueeProgressBarControl1.TabIndex = 10;
+            this.marqueeProgressBarControl_Status.EditValue = 0;
+            this.marqueeProgressBarControl_Status.Enabled = false;
+            this.marqueeProgressBarControl_Status.Location = new System.Drawing.Point(12, 251);
+            this.marqueeProgressBarControl_Status.Name = "marqueeProgressBarControl_Status";
+            this.marqueeProgressBarControl_Status.Size = new System.Drawing.Size(246, 12);
+            this.marqueeProgressBarControl_Status.TabIndex = 10;
             // 
-            // simpleButton1
+            // simpleButton_Stop
             // 
-            this.simpleButton1.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.simpleButton1.Appearance.Options.UseBackColor = true;
-            this.simpleButton1.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.Image")));
-            this.simpleButton1.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.simpleButton1.Location = new System.Drawing.Point(264, 222);
-            this.simpleButton1.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-            this.simpleButton1.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(32, 32);
-            this.simpleButton1.TabIndex = 9;
+            this.simpleButton_Stop.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.simpleButton_Stop.Appearance.Options.UseBackColor = true;
+            this.simpleButton_Stop.Enabled = false;
+            this.simpleButton_Stop.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton_Stop.Image")));
+            this.simpleButton_Stop.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.simpleButton_Stop.Location = new System.Drawing.Point(264, 241);
+            this.simpleButton_Stop.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+            this.simpleButton_Stop.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.simpleButton_Stop.Name = "simpleButton_Stop";
+            this.simpleButton_Stop.Size = new System.Drawing.Size(32, 32);
+            this.simpleButton_Stop.TabIndex = 9;
+            this.simpleButton_Stop.Click += new System.EventHandler(this.simpleButton_Stop_Click);
+            // 
+            // labelControl_Status
+            // 
+            this.labelControl_Status.Location = new System.Drawing.Point(12, 222);
+            this.labelControl_Status.Name = "labelControl_Status";
+            this.labelControl_Status.Size = new System.Drawing.Size(31, 13);
+            this.labelControl_Status.TabIndex = 11;
+            this.labelControl_Status.Text = "Status";
+            this.labelControl_Status.Visible = false;
             // 
             // ucComboBoxLoaiTS_LoaiTaiSan
             // 
@@ -242,12 +255,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(308, 270);
-            this.Controls.Add(this.marqueeProgressBarControl1);
+            this.ClientSize = new System.Drawing.Size(308, 285);
+            this.Controls.Add(this.labelControl_Status);
+            this.Controls.Add(this.marqueeProgressBarControl_Status);
             this.Controls.Add(this.checkedComboBoxEdit_ChonCoSo);
             this.Controls.Add(this.ucComboBoxLoaiTS_LoaiTaiSan);
             this.Controls.Add(this.simpleButton_Xuat);
-            this.Controls.Add(this.simpleButton1);
+            this.Controls.Add(this.simpleButton_Stop);
             this.Controls.Add(this.simpleButton_Thoat);
             this.Controls.Add(this.checkEdit_ThietKe);
             this.Controls.Add(this.checkEdit_XuatBaoCao);
@@ -265,6 +279,7 @@
             this.Name = "frmReport";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Xuất báo cáo";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmReport_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmReport_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit_LoaiBaoCao.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit_TuNgay.Properties.CalendarTimeProperties)).EndInit();
@@ -274,7 +289,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit_XuatBaoCao.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit_ThietKe.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkedComboBoxEdit_ChonCoSo.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.marqueeProgressBarControl1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.marqueeProgressBarControl_Status.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -298,7 +313,8 @@
         private DevExpress.XtraEditors.CheckedComboBoxEdit checkedComboBoxEdit_ChonCoSo;
         private DevExpress.XtraEditors.LabelControl labelControl5;
         private DevExpress.XtraEditors.LabelControl labelControl6;
-        private DevExpress.XtraEditors.MarqueeProgressBarControl marqueeProgressBarControl1;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.MarqueeProgressBarControl marqueeProgressBarControl_Status;
+        private DevExpress.XtraEditors.SimpleButton simpleButton_Stop;
+        private DevExpress.XtraEditors.LabelControl labelControl_Status;
     }
 }
