@@ -117,14 +117,14 @@ namespace TSCD_GUI.QLTaiSan
 
         private void barBtnThemTaiSan_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            //DonVi obj = ucTreeDonVi1.DonVi;
+            DonVi obj = ucTreeDonVi1.DonVi;
             //if (obj != null)
             //{
             //    frmAddTaiSanExist frm = new frmAddTaiSanExist(obj);
             //    frm.reloadAndFocused = new frmAddTaiSanExist.ReloadAndFocused(reloadAndFocused);
             //    frm.ShowDialog();
             //}
-            frmAddTaiSan frm = new frmAddTaiSan();
+            frmAddTaiSan frm = new frmAddTaiSan(obj);
             frm.reloadAndFocused = new frmAddTaiSan.ReloadAndFocused(reloadAndFocused);
             frm.ShowDialog();
         }
@@ -145,7 +145,7 @@ namespace TSCD_GUI.QLTaiSan
             CTTaiSan obj = ucGridControlTaiSan1.CTTaiSan;
             if (obj != null)
             {
-                frmAddTaiSan frm = new frmAddTaiSan(obj, true);
+                frmAddTaiSan frm = new frmAddTaiSan(obj);
                 frm.Text = "Sửa tài sản";
                 frm.reloadAndFocused = new frmAddTaiSan.ReloadAndFocused(reloadAndFocused);
                 frm.ShowDialog();
