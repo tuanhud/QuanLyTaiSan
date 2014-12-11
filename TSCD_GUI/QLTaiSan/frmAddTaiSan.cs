@@ -35,7 +35,7 @@ namespace TSCD_GUI.QLTaiSan
         public frmAddTaiSan(CTTaiSan _obj)
         {
             InitializeComponent();
-            loadData();
+            //loadData();
             objCTTaiSan = _obj;
             isEdit = true;
             init();
@@ -71,6 +71,7 @@ namespace TSCD_GUI.QLTaiSan
 
         private void init()
         {
+            loadData();
             ucComboBoxLoaiTS1.editValueChanged = new MyUserControl.ucComboBoxLoaiTS.EditValueChanged(setDonViTinh);
             if (isEdit)
             {
@@ -87,7 +88,7 @@ namespace TSCD_GUI.QLTaiSan
         public frmAddTaiSan(DonVi obj = null)
         {
             InitializeComponent();
-            loadData();
+            //loadData();
             init();
             ucComboBoxDonVi1.DonVi = obj;
         }
