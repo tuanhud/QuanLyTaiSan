@@ -183,6 +183,7 @@
             this.rbnGroupImport.Name = "rbnGroupImport";
             this.rbnGroupImport.ShowCaptionButton = false;
             this.rbnGroupImport.Text = "Import";
+            this.rbnGroupImport.Visible = false;
             // 
             // splitContainerControlMain
             // 

@@ -212,7 +212,7 @@ namespace TSCD_GUI.QLTaiSan
                 txtNSX.Text = obj.taisan.nuocsx;
                 txtNguonGoc.Text = obj.nguongoc;
                 txtGhiChu.Text = obj.mota;
-                listCTTaiSan = obj.childs.ToList();
+                listCTTaiSan = obj.childs != null ? obj.childs.ToList() : null;
                 gridControlTaiSan.DataSource = TaiSanHienThi.Convert(listCTTaiSan);
                 objChungTu = obj.chungtu;
                 //tabDonVi
@@ -325,11 +325,11 @@ namespace TSCD_GUI.QLTaiSan
                     ViTri viTri = ucComboBoxViTri2.ViTri;
                     DonVi donViQL = ucComboBoxDonVi1.DonVi;
                     String ghiChuDV = txtGhiChu.Text;
-                    if (objCTTaiSan.phong != phong || objCTTaiSan.vitri != viTri || objCTTaiSan.donviquanly != donViQL)
+                    if (!Object.Equals(obj.phong, phong) || !Object.Equals(obj.vitri, viTri) || !Object.Equals(obj.donviquanly, donViQL))
                     {
-                        CTTaiSan tmp = objCTTaiSan.chuyenDonVi(donViQL, null, viTri, phong, objCTTaiSan.parent, objCTTaiSan.chungtu, soLuongDV, ghiChuDV);
+                        CTTaiSan tmp = obj.chuyenDonVi(donViQL, null, viTri, phong, obj.parent, obj.chungtu, soLuongDV, ghiChuDV);
                         if (tmp != null)
-                            objCTTaiSan = tmp;
+                            obj = tmp;
                         else
                         {
                             XtraMessageBox.Show("Thêm tài sản không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -337,18 +337,18 @@ namespace TSCD_GUI.QLTaiSan
                         }
                     }
                     //chuyen tinh trang
-                    int soLuongTT = Convert.ToInt32(txtSoLuong.EditValue);
-                    TinhTrang tinhTrang = TinhTrang.getById(lookUpTinhTrang.EditValue);
-                    String ghiChuTT = txtGhiChu.Text;
-                    if (objCTTaiSan.tinhtrang != tinhTrang)
-                    {
-                        CTTaiSan tmp = objCTTaiSan.chuyenTinhTrang(objCTTaiSan.chungtu, tinhTrang, soLuongTT, ghiChuTT);
-                        if (tmp == null)
-                        {
-                            XtraMessageBox.Show("Thêm tài sản không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return Guid.Empty;
-                        }
-                    }
+                    //int soLuongTT = Convert.ToInt32(txtSoLuong.EditValue);
+                    //TinhTrang tinhTrang = TinhTrang.getById(lookUpTinhTrang.EditValue);
+                    //String ghiChuTT = txtGhiChu.Text;
+                    //if (!Object.Equals(obj.tinhtrang, tinhTrang))
+                    //{
+                    //    CTTaiSan tmp = obj.chuyenTinhTrang(obj.chungtu, tinhTrang, soLuongTT, ghiChuTT);
+                    //    if (tmp == null)
+                    //    {
+                    //        XtraMessageBox.Show("Thêm tài sản không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //        return Guid.Empty;
+                    //    }
+                    //}
                     re = DBInstance.commit();
                     if (re > 0)
                     {
@@ -396,12 +396,12 @@ namespace TSCD_GUI.QLTaiSan
                 objCTTaiSan.childs = listCTTaiSan;
                 int re = objCTTaiSan.update();//ONly call add on CTTaiSan
                 //chuyen don vi
-                int soLuongDV = Convert.ToInt32(txtSoLuong.EditValue);
+                int soLuongDV = Convert.ToInt32(spinSoLuongDonVi.EditValue);
                 Phong phong = ucComboBoxViTri1.Phong;
                 ViTri viTri = ucComboBoxViTri2.ViTri;
                 DonVi donViQL = ucComboBoxDonVi1.DonVi;
                 String ghiChuDV = txtGhiChu.Text;
-                if (objCTTaiSan.phong != phong || objCTTaiSan.vitri != viTri || objCTTaiSan.donviquanly != donViQL)
+                if (!Object.Equals(objCTTaiSan.phong, phong) || !Object.Equals(objCTTaiSan.vitri, viTri) || !Object.Equals(objCTTaiSan.donviquanly, donViQL))
                 {
                     CTTaiSan tmp = objCTTaiSan.chuyenDonVi(donViQL, null, viTri, phong, objCTTaiSan.parent, objCTTaiSan.chungtu, soLuongDV, ghiChuDV);
                     if (tmp != null)
@@ -413,10 +413,10 @@ namespace TSCD_GUI.QLTaiSan
                     }
                 }
                 //chuyen tinh trang
-                int soLuongTT = Convert.ToInt32(txtSoLuong.EditValue);
-                TinhTrang tinhTrang = TinhTrang.getById(lookUpTinhTrang.EditValue);
+                int soLuongTT = Convert.ToInt32(spinSoLuongTinhTrang.EditValue);
+                TinhTrang tinhTrang = TinhTrang.getById(lookUpChuyenTinhTrang.EditValue);
                 String ghiChuTT = txtGhiChu.Text;
-                if (objCTTaiSan.tinhtrang != tinhTrang)
+                if (!Object.Equals(objCTTaiSan.tinhtrang, tinhTrang))
                 {
                     CTTaiSan tmp = objCTTaiSan.chuyenTinhTrang(objCTTaiSan.chungtu, tinhTrang, soLuongTT, ghiChuTT);
                     if (tmp == null)
