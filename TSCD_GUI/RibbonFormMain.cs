@@ -32,9 +32,9 @@ namespace TSCD_GUI
         ucQuanLyLoaiTS _ucQuanLyLoaiTS = null;
         //ucQuanLyTaiSan _ucQuanLyTaiSan = null;
         ucQuanLyDonVi_TaiSan _ucQuanLyDonVi_TaiSan = null;
-        //ucPhanQuyen _ucPhanQuyen = null;
+        ucPhanQuyen _ucPhanQuyen = null;
         ucThongKe _ucThongKe = null;
-        //ucLogHeThong _ucLogHeThong = null;
+        ucLogHeThong _ucLogHeThong = null;
 
         const String rbnPageViTri = "rbnPageViTri";
         const String rbnPagePhong = "rbnPagePhong";
@@ -50,6 +50,7 @@ namespace TSCD_GUI
         ucGiaoDienvaNgonNgu _ucGiaoDienvaNgonNgu = null;
         ucCapNhatPhanMem _ucCapNhatPhanMem = null;
         ucThongTinPhanMem _ucThongTinPhanMem = null;
+        ucImport _ucImport = null;
 
         bool drawEnd = false;
 
@@ -114,7 +115,7 @@ namespace TSCD_GUI
             drawEnd = true;
             ribbonMain.SelectedPage = ribbonMain.Pages.GetPageByName(rbnPageLoaiTS);
             ribbonMain.SelectedPage = ribbonMain.Pages.GetPageByName(rbnPageViTri);
-            backstageViewControl.SelectedTabIndex = 6;
+            BackstageHideAllOnlyShowThongTinPhanMem();
             ThongTinPhanMem();
         }
 
@@ -173,24 +174,24 @@ namespace TSCD_GUI
                         donvi_id = null;
                         phong_id = null;
                     }
-                    //else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName(rbnPagePhanQuyen)))
-                    //{
-                    //    _ucPhanQuyen.loadData();
-                    //    panelControlMain.Controls.Clear();
-                    //    panelControlMain.Controls.Add(_ucPhanQuyen);
-                    //}
+                    else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName(rbnPagePhanQuyen)))
+                    {
+                        _ucPhanQuyen.loadData();
+                        panelControlMain.Controls.Clear();
+                        panelControlMain.Controls.Add(_ucPhanQuyen);
+                    }
                     else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName(rbnPageThongKe)))
                     {
                         _ucThongKe.loadData();
                         panelControlMain.Controls.Clear();
                         panelControlMain.Controls.Add(_ucThongKe);
                     }
-                    //else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName(rbnPageLogHeThong)))
-                    //{
-                    //    _ucLogHeThong.loadData();
-                    //    panelControlMain.Controls.Clear();
-                    //    panelControlMain.Controls.Add(_ucLogHeThong);
-                    //}
+                    else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName(rbnPageLogHeThong)))
+                    {
+                        _ucLogHeThong.loadData();
+                        panelControlMain.Controls.Clear();
+                        panelControlMain.Controls.Add(_ucLogHeThong);
+                    }
                     DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
                 }
             }
@@ -273,6 +274,12 @@ namespace TSCD_GUI
 
         private void backstageViewControl_Hidden(object sender, EventArgs e)
         {
+            BackstageHideAllOnlyShowThongTinPhanMem();
+        }
+
+        public void BackstageHideAllOnlyShowThongTinPhanMem()
+        {
+            backstageViewTabItem7.Selected = backstageViewTabItemCaiDatCauHinh.Selected = backstageViewTabItemCapNhatPhanMem.Selected = backstageViewTabItemGiaoDienVaNgonNgu.Selected = backstageViewTabItemImport.Selected = backstageViewTabItemKhoiDongLai.Selected = backstageViewTabItemLogHeThong.Selected = backstageViewTabItemPhanQuyen.Selected = backstageViewTabItemThoat.Selected = false;
             backstageViewTabItemThongTinPhanMem.Selected = true;
         }
 
@@ -319,6 +326,87 @@ namespace TSCD_GUI
             SuaThongTinCaNhan frm = new SuaThongTinCaNhan();
             frm.StartPosition = FormStartPosition.CenterScreen;
             frm.ShowDialog();
+        }
+
+        private void backstageViewTabItemPhanQuyen_ItemPressed(object sender, BackstageViewItemEventArgs e)
+        {
+            DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this, typeof(WaitFormLoad), true, true, false);
+            DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang tải dữ liệu...");
+            DBInstance.reNew();
+            if (_ucPhanQuyen != null)
+            {
+                ribbonMain.Pages.Remove(ribbonMain.Pages.GetPageByName(rbnPagePhanQuyen));
+            }
+
+            _ucPhanQuyen = new ucPhanQuyen();
+            _ucPhanQuyen.Dock = DockStyle.Fill;
+            addRibbonPage(_ucPhanQuyen.getRibbonControl());
+
+            _ucPhanQuyen.loadData();
+            panelControlMain.Controls.Clear();
+            panelControlMain.Controls.Add(_ucPhanQuyen);
+
+            ribbonMain.SelectedPage = ribbonMain.Pages.GetPageByName(rbnPagePhanQuyen);
+
+            DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
+
+            _ucPhanQuyen.barButtonItemDongTab.ItemClick += barButtonPhanQuyenItemDongTab_ItemClick;
+        }
+
+        public void barButtonPhanQuyenItemDongTab_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            removeRibbonPhanQuyen();
+        }
+
+        private void removeRibbonPhanQuyen()
+        {
+            ribbonMain.Pages.Remove(ribbonMain.Pages.GetPageByName(rbnPagePhanQuyen));
+            ribbonMain.SelectedPage = ribbonMain.Pages.GetPageByName(rbnPageViTri);
+        }
+
+        private void backstageViewTabItemLogHeThong_ItemPressed(object sender, BackstageViewItemEventArgs e)
+        {
+            DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this, typeof(WaitFormLoad), true, true, false);
+            DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang tải dữ liệu...");
+            DBInstance.reNew();
+            if (_ucLogHeThong != null)
+            {
+                ribbonMain.Pages.Remove(ribbonMain.Pages.GetPageByName(rbnPageLogHeThong));
+            }
+
+            _ucLogHeThong = new ucLogHeThong();
+            _ucLogHeThong.Dock = DockStyle.Fill;
+            addRibbonPage(_ucLogHeThong.getRibbonControl());
+
+            _ucLogHeThong.loadData();
+            panelControlMain.Controls.Clear();
+            panelControlMain.Controls.Add(_ucLogHeThong);
+
+            ribbonMain.SelectedPage = ribbonMain.Pages.GetPageByName(rbnPageLogHeThong);
+
+            DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
+
+            _ucLogHeThong.barButtonItemDongTab.ItemClick += barButtonLogHeThongItemDongTab_ItemClick;
+        }
+        public void barButtonLogHeThongItemDongTab_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            removeRibbonLogHeThong();
+        }
+
+        private void removeRibbonLogHeThong()
+        {
+            ribbonMain.Pages.Remove(ribbonMain.Pages.GetPageByName(rbnPageLogHeThong));
+            ribbonMain.SelectedPage = ribbonMain.Pages.GetPageByName(rbnPageViTri);
+        }
+
+        private void backstageViewTabItemImport_SelectedChanged(object sender, BackstageViewItemEventArgs e)
+        {
+            if (backstageViewClientControlImport.Visible)
+            {
+                if (_ucImport == null) _ucImport = new ucImport();
+                _ucImport.Dock = DockStyle.Fill;
+                backstageViewClientControlImport.Controls.Add(_ucImport);
+            }
         }
     }
 }

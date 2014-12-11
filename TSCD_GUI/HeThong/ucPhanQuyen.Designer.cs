@@ -53,6 +53,8 @@
             this.rbnPagePhanQuyen = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbnGroupNhomQuyen = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.barBtnNhomQuyen = new DevExpress.XtraBars.BarButtonItem();
+            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.barButtonItemDongTab = new DevExpress.XtraBars.BarButtonItem();
             this.splitContainerControlMain = new DevExpress.XtraEditors.SplitContainerControl();
             this.gridControlQTV = new DevExpress.XtraGrid.GridControl();
             this.gridViewQTV = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -284,7 +286,8 @@
             // 
             this.rbnPagePhanQuyen.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.rbnGroupQTV,
-            this.rbnGroupNhomQuyen});
+            this.rbnGroupNhomQuyen,
+            this.ribbonPageGroup1});
             this.rbnPagePhanQuyen.Image = global::TSCD_GUI.Properties.Resources.phanquyen;
             this.rbnPagePhanQuyen.Name = "rbnPagePhanQuyen";
             this.rbnPagePhanQuyen.Text = "Phân quyền";
@@ -303,6 +306,22 @@
             this.barBtnNhomQuyen.LargeGlyph = global::TSCD_GUI.Properties.Resources.User_Group_icon;
             this.barBtnNhomQuyen.Name = "barBtnNhomQuyen";
             this.barBtnNhomQuyen.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnNhomQuyen_ItemClick);
+            // 
+            // ribbonPageGroup1
+            // 
+            this.ribbonPageGroup1.AllowTextClipping = false;
+            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItemDongTab);
+            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
+            this.ribbonPageGroup1.ShowCaptionButton = false;
+            this.ribbonPageGroup1.Text = "Đóng tab";
+            // 
+            // barButtonItemDongTab
+            // 
+            this.barButtonItemDongTab.Caption = "Đóng tab";
+            this.barButtonItemDongTab.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItemDongTab.Glyph")));
+            this.barButtonItemDongTab.Id = 9;
+            this.barButtonItemDongTab.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItemDongTab.LargeGlyph")));
+            this.barButtonItemDongTab.Name = "barButtonItemDongTab";
             // 
             // splitContainerControlMain
             // 
@@ -500,9 +519,10 @@
             this.barBtnThemQTV,
             this.barBtnSuaQTV,
             this.barBtnXoaQTV,
-            this.barBtnNhomQuyen});
+            this.barBtnNhomQuyen,
+            this.barButtonItemDongTab});
             this.rbnPhanQuyen.Location = new System.Drawing.Point(0, 0);
-            this.rbnPhanQuyen.MaxItemId = 9;
+            this.rbnPhanQuyen.MaxItemId = 10;
             this.rbnPhanQuyen.Name = "rbnPhanQuyen";
             this.rbnPhanQuyen.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbnPagePhanQuyen});
@@ -604,5 +624,7 @@
         private DevExpress.XtraEditors.SimpleButton btnThem_r;
         private DevExpress.XtraGrid.Columns.GridColumn colid;
         private DevExpress.XtraEditors.SimpleButton btnNhomQuyen;
+        public DevExpress.XtraBars.BarButtonItem barButtonItemDongTab;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
     }
 }

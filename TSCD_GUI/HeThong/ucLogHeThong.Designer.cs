@@ -44,6 +44,8 @@
             this.barBtnViewLog = new DevExpress.XtraBars.BarButtonItem();
             this.rbnPageLogHeThong = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbnGroupLogHeThong = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.barButtonItemDongTab = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlLogHeThong)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewLogHeThong)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonLogHeThong)).BeginInit();
@@ -115,9 +117,10 @@
             this.barEditTuNgay,
             this.barEditDenNgay,
             this.barEditGioiHan,
-            this.barBtnViewLog});
+            this.barBtnViewLog,
+            this.barButtonItemDongTab});
             this.ribbonLogHeThong.Location = new System.Drawing.Point(0, 0);
-            this.ribbonLogHeThong.MaxItemId = 5;
+            this.ribbonLogHeThong.MaxItemId = 6;
             this.ribbonLogHeThong.Name = "ribbonLogHeThong";
             this.ribbonLogHeThong.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbnPageLogHeThong});
@@ -199,7 +202,8 @@
             // rbnPageLogHeThong
             // 
             this.rbnPageLogHeThong.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.rbnGroupLogHeThong});
+            this.rbnGroupLogHeThong,
+            this.ribbonPageGroup1});
             this.rbnPageLogHeThong.Image = global::TSCD_GUI.Properties.Resources.log_icon_16;
             this.rbnPageLogHeThong.Name = "rbnPageLogHeThong";
             this.rbnPageLogHeThong.Text = "Log hệ thống";
@@ -213,6 +217,21 @@
             this.rbnGroupLogHeThong.Name = "rbnGroupLogHeThong";
             this.rbnGroupLogHeThong.ShowCaptionButton = false;
             this.rbnGroupLogHeThong.Text = "Log hệ thống";
+            // 
+            // ribbonPageGroup1
+            // 
+            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItemDongTab);
+            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
+            this.ribbonPageGroup1.ShowCaptionButton = false;
+            this.ribbonPageGroup1.Text = "Đóng tab";
+            // 
+            // barButtonItemDongTab
+            // 
+            this.barButtonItemDongTab.Caption = "Đóng tab";
+            this.barButtonItemDongTab.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItemDongTab.Glyph")));
+            this.barButtonItemDongTab.Id = 5;
+            this.barButtonItemDongTab.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItemDongTab.LargeGlyph")));
+            this.barButtonItemDongTab.Name = "barButtonItemDongTab";
             // 
             // ucLogHeThong
             // 
@@ -252,5 +271,7 @@
         private DevExpress.XtraBars.BarButtonItem barBtnViewLog;
         private DevExpress.XtraBars.Ribbon.RibbonPage rbnPageLogHeThong;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupLogHeThong;
+        public DevExpress.XtraBars.BarButtonItem barButtonItemDongTab;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
     }
 }

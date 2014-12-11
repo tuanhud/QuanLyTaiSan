@@ -385,6 +385,12 @@
     <Compile Include="ReportTSCD\XtraReport_SoChiTietTaiSanCoDinh.Designer.cs">
       <DependentUpon>XtraReport_SoChiTietTaiSanCoDinh.cs</DependentUpon>
     </Compile>
+    <Compile Include="Settings\ucImport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Settings\ucImport.Designer.cs">
+      <DependentUpon>ucImport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Test.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -622,6 +628,9 @@
     <EmbeddedResource Include="ReportTSCD\XtraReport_SoChiTietTaiSanCoDinh.resx">
       <DependentUpon>XtraReport_SoChiTietTaiSanCoDinh.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Settings\ucImport.resx">
+      <DependentUpon>ucImport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Test.resx">
       <DependentUpon>Test.cs</DependentUpon>
     </EmbeddedResource>
@@ -724,6 +733,7 @@
     <None Include="Resources\plus_24.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\importexcel.png" />
     <None Include="Resources\pencil_19.png" />
     <None Include="Resources\plus_19.png" />
     <None Include="Resources\pencil_32.png" />
