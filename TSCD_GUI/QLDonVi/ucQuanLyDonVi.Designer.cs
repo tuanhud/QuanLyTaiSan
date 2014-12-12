@@ -44,6 +44,7 @@
             this.colloai = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.repositoryLookUpLoai = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.groupControlInfo = new DevExpress.XtraEditors.GroupControl();
+            this.btnThemTS = new DevExpress.XtraEditors.SimpleButton();
             this.panelControlParent = new DevExpress.XtraEditors.PanelControl();
             this.btnLoaiDonVi = new DevExpress.XtraEditors.SimpleButton();
             this.btnHuy = new DevExpress.XtraEditors.SimpleButton();
@@ -64,7 +65,6 @@
             this.txtMa = new DevExpress.XtraEditors.TextEdit();
             this.txtMoTa = new DevExpress.XtraEditors.MemoEdit();
             this.dxErrorProviderInfo = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider();
-            this.btnThemTS = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.rbnControlDonVi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControlMain)).BeginInit();
             this.splitContainerControlMain.SuspendLayout();
@@ -254,6 +254,16 @@
             this.groupControlInfo.Size = new System.Drawing.Size(381, 363);
             this.groupControlInfo.TabIndex = 0;
             this.groupControlInfo.Text = "Chi tiết";
+            // 
+            // btnThemTS
+            // 
+            this.btnThemTS.Image = ((System.Drawing.Image)(resources.GetObject("btnThemTS.Image")));
+            this.btnThemTS.Location = new System.Drawing.Point(100, 210);
+            this.btnThemTS.Name = "btnThemTS";
+            this.btnThemTS.Size = new System.Drawing.Size(156, 23);
+            this.btnThemTS.TabIndex = 12;
+            this.btnThemTS.Text = "Thêm tài sản vào đơn vị";
+            this.btnThemTS.Click += new System.EventHandler(this.btnThemTS_Click);
             // 
             // panelControlParent
             // 
@@ -447,15 +457,6 @@
             // dxErrorProviderInfo
             // 
             this.dxErrorProviderInfo.ContainerControl = this;
-            // 
-            // btnThemTS
-            // 
-            this.btnThemTS.Location = new System.Drawing.Point(100, 210);
-            this.btnThemTS.Name = "btnThemTS";
-            this.btnThemTS.Size = new System.Drawing.Size(131, 23);
-            this.btnThemTS.TabIndex = 12;
-            this.btnThemTS.Text = "Thêm tài sản vào đơn vị";
-            this.btnThemTS.Click += new System.EventHandler(this.btnThemTS_Click);
             // 
             // ucQuanLyDonVi
             // 

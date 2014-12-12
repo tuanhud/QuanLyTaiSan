@@ -114,7 +114,7 @@
             // 
             // barBtnChuyen
             // 
-            this.barBtnChuyen.Caption = "Chuyển đơn vị";
+            this.barBtnChuyen.Caption = "Chuyển vị trí";
             this.barBtnChuyen.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnChuyen.Glyph")));
             this.barBtnChuyen.Id = 5;
             this.barBtnChuyen.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnChuyen.LargeGlyph")));
