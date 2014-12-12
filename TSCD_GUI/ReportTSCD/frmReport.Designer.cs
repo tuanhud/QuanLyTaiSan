@@ -46,6 +46,8 @@
             this.marqueeProgressBarControl_Status = new DevExpress.XtraEditors.MarqueeProgressBarControl();
             this.simpleButton_Stop = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl_Status = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
+            this.dateEdit_Nam = new DevExpress.XtraEditors.DateEdit();
             this.ucComboBoxLoaiTS_LoaiTaiSan = new TSCD_GUI.MyUserControl.ucComboBoxLoaiTS();
             this.ucComboBoxDonVi_ChonDonVi = new TSCD_GUI.MyUserControl.ucComboBoxDonVi();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit_LoaiBaoCao.Properties)).BeginInit();
@@ -57,6 +59,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit_ThietKe.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkedComboBoxEdit_ChonCoSo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.marqueeProgressBarControl_Status.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit_Nam.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit_Nam.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // comboBoxEdit_LoaiBaoCao
@@ -85,7 +89,7 @@
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(12, 119);
+            this.labelControl2.Location = new System.Drawing.Point(12, 145);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(61, 13);
             this.labelControl2.TabIndex = 1;
@@ -134,7 +138,7 @@
             // checkEdit_XuatBaoCao
             // 
             this.checkEdit_XuatBaoCao.EditValue = true;
-            this.checkEdit_XuatBaoCao.Location = new System.Drawing.Point(114, 168);
+            this.checkEdit_XuatBaoCao.Location = new System.Drawing.Point(114, 194);
             this.checkEdit_XuatBaoCao.Name = "checkEdit_XuatBaoCao";
             this.checkEdit_XuatBaoCao.Properties.Caption = "Xuất báo cáo";
             this.checkEdit_XuatBaoCao.Properties.CheckStyle = DevExpress.XtraEditors.Controls.CheckStyles.Radio;
@@ -144,7 +148,7 @@
             // 
             // checkEdit_ThietKe
             // 
-            this.checkEdit_ThietKe.Location = new System.Drawing.Point(217, 168);
+            this.checkEdit_ThietKe.Location = new System.Drawing.Point(217, 194);
             this.checkEdit_ThietKe.Name = "checkEdit_ThietKe";
             this.checkEdit_ThietKe.Properties.Caption = "Thiết kế";
             this.checkEdit_ThietKe.Properties.CheckStyle = DevExpress.XtraEditors.Controls.CheckStyles.Radio;
@@ -155,7 +159,7 @@
             // 
             // simpleButton_Thoat
             // 
-            this.simpleButton_Thoat.Location = new System.Drawing.Point(221, 193);
+            this.simpleButton_Thoat.Location = new System.Drawing.Point(221, 219);
             this.simpleButton_Thoat.Name = "simpleButton_Thoat";
             this.simpleButton_Thoat.Size = new System.Drawing.Size(75, 23);
             this.simpleButton_Thoat.TabIndex = 9;
@@ -164,7 +168,7 @@
             // 
             // simpleButton_Xuat
             // 
-            this.simpleButton_Xuat.Location = new System.Drawing.Point(116, 193);
+            this.simpleButton_Xuat.Location = new System.Drawing.Point(116, 219);
             this.simpleButton_Xuat.Name = "simpleButton_Xuat";
             this.simpleButton_Xuat.Size = new System.Drawing.Size(75, 23);
             this.simpleButton_Xuat.TabIndex = 8;
@@ -174,7 +178,7 @@
             // checkedComboBoxEdit_ChonCoSo
             // 
             this.checkedComboBoxEdit_ChonCoSo.EditValue = "";
-            this.checkedComboBoxEdit_ChonCoSo.Location = new System.Drawing.Point(116, 142);
+            this.checkedComboBoxEdit_ChonCoSo.Location = new System.Drawing.Point(116, 168);
             this.checkedComboBoxEdit_ChonCoSo.Name = "checkedComboBoxEdit_ChonCoSo";
             this.checkedComboBoxEdit_ChonCoSo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -193,7 +197,7 @@
             // 
             // labelControl6
             // 
-            this.labelControl6.Location = new System.Drawing.Point(12, 145);
+            this.labelControl6.Location = new System.Drawing.Point(12, 171);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(31, 13);
             this.labelControl6.TabIndex = 1;
@@ -202,7 +206,7 @@
             // marqueeProgressBarControl_Status
             // 
             this.marqueeProgressBarControl_Status.EditValue = 0;
-            this.marqueeProgressBarControl_Status.Location = new System.Drawing.Point(12, 251);
+            this.marqueeProgressBarControl_Status.Location = new System.Drawing.Point(12, 277);
             this.marqueeProgressBarControl_Status.Name = "marqueeProgressBarControl_Status";
             this.marqueeProgressBarControl_Status.Size = new System.Drawing.Size(246, 12);
             this.marqueeProgressBarControl_Status.TabIndex = 10;
@@ -214,7 +218,7 @@
             this.simpleButton_Stop.Appearance.Options.UseBackColor = true;
             this.simpleButton_Stop.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton_Stop.Image")));
             this.simpleButton_Stop.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.simpleButton_Stop.Location = new System.Drawing.Point(264, 241);
+            this.simpleButton_Stop.Location = new System.Drawing.Point(264, 267);
             this.simpleButton_Stop.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
             this.simpleButton_Stop.LookAndFeel.UseDefaultLookAndFeel = false;
             this.simpleButton_Stop.Name = "simpleButton_Stop";
@@ -225,12 +229,34 @@
             // 
             // labelControl_Status
             // 
-            this.labelControl_Status.Location = new System.Drawing.Point(12, 222);
+            this.labelControl_Status.Location = new System.Drawing.Point(12, 248);
             this.labelControl_Status.Name = "labelControl_Status";
             this.labelControl_Status.Size = new System.Drawing.Size(31, 13);
             this.labelControl_Status.TabIndex = 11;
             this.labelControl_Status.Text = "Status";
             this.labelControl_Status.Visible = false;
+            // 
+            // labelControl7
+            // 
+            this.labelControl7.Location = new System.Drawing.Point(12, 119);
+            this.labelControl7.Name = "labelControl7";
+            this.labelControl7.Size = new System.Drawing.Size(25, 13);
+            this.labelControl7.TabIndex = 1;
+            this.labelControl7.Text = "Năm:";
+            // 
+            // dateEdit_Nam
+            // 
+            this.dateEdit_Nam.EditValue = null;
+            this.dateEdit_Nam.Location = new System.Drawing.Point(116, 116);
+            this.dateEdit_Nam.Name = "dateEdit_Nam";
+            this.dateEdit_Nam.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEdit_Nam.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEdit_Nam.Properties.Mask.EditMask = "yyyy";
+            this.dateEdit_Nam.Properties.VistaCalendarViewStyle = ((DevExpress.XtraEditors.VistaCalendarViewStyle)((DevExpress.XtraEditors.VistaCalendarViewStyle.YearsGroupView | DevExpress.XtraEditors.VistaCalendarViewStyle.CenturyView)));
+            this.dateEdit_Nam.Size = new System.Drawing.Size(180, 20);
+            this.dateEdit_Nam.TabIndex = 2;
             // 
             // ucComboBoxLoaiTS_LoaiTaiSan
             // 
@@ -245,7 +271,7 @@
             // 
             this.ucComboBoxDonVi_ChonDonVi.DonVi = null;
             this.ucComboBoxDonVi_ChonDonVi.EditValue = null;
-            this.ucComboBoxDonVi_ChonDonVi.Location = new System.Drawing.Point(116, 116);
+            this.ucComboBoxDonVi_ChonDonVi.Location = new System.Drawing.Point(116, 142);
             this.ucComboBoxDonVi_ChonDonVi.Name = "ucComboBoxDonVi_ChonDonVi";
             this.ucComboBoxDonVi_ChonDonVi.Size = new System.Drawing.Size(180, 20);
             this.ucComboBoxDonVi_ChonDonVi.TabIndex = 4;
@@ -255,7 +281,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(308, 281);
+            this.ClientSize = new System.Drawing.Size(308, 311);
             this.Controls.Add(this.labelControl_Status);
             this.Controls.Add(this.marqueeProgressBarControl_Status);
             this.Controls.Add(this.checkedComboBoxEdit_ChonCoSo);
@@ -265,8 +291,10 @@
             this.Controls.Add(this.simpleButton_Thoat);
             this.Controls.Add(this.checkEdit_ThietKe);
             this.Controls.Add(this.checkEdit_XuatBaoCao);
+            this.Controls.Add(this.dateEdit_Nam);
             this.Controls.Add(this.dateEdit_DenNgay);
             this.Controls.Add(this.dateEdit_TuNgay);
+            this.Controls.Add(this.labelControl7);
             this.Controls.Add(this.labelControl5);
             this.Controls.Add(this.labelControl4);
             this.Controls.Add(this.ucComboBoxDonVi_ChonDonVi);
@@ -290,6 +318,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit_ThietKe.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkedComboBoxEdit_ChonCoSo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.marqueeProgressBarControl_Status.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit_Nam.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit_Nam.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -316,5 +346,7 @@
         private DevExpress.XtraEditors.MarqueeProgressBarControl marqueeProgressBarControl_Status;
         private DevExpress.XtraEditors.SimpleButton simpleButton_Stop;
         private DevExpress.XtraEditors.LabelControl labelControl_Status;
+        private DevExpress.XtraEditors.LabelControl labelControl7;
+        private DevExpress.XtraEditors.DateEdit dateEdit_Nam;
     }
 }

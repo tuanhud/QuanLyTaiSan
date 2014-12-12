@@ -20,7 +20,7 @@ namespace TSCD_GUI.ReportTSCD
     public partial class frmReport : DevExpress.XtraEditors.XtraForm
     {
         List<DonVi> ListDonVi = new List<DonVi>();
-        int HeightNormal = 270, HeightHaveProgress = 320;
+        int HeightNormal = 300, HeightHaveProgress = 350;
         OurDBContext MyNewDbContext = null;
 
         public delegate void SendMessage();
@@ -34,8 +34,9 @@ namespace TSCD_GUI.ReportTSCD
 
             comboBoxEdit_LoaiBaoCao.SelectedIndex = 0;
 
-            dateEdit_TuNgay.EditValue = DateTime.Today.Date;
-            dateEdit_DenNgay.EditValue = DateTime.Today.Date;
+            dateEdit_TuNgay.DateTime = DateTime.Today.Date;
+            dateEdit_DenNgay.DateTime = DateTime.Today.Date;
+            dateEdit_Nam.DateTime = DateTime.Today.Date;
 
             ucComboBoxLoaiTS_LoaiTaiSan.showCheck();
             ucComboBoxLoaiTS_LoaiTaiSan.DataSource = LoaiTSHienThi.Convert(LoaiTaiSan.getQuery().OrderBy(c => c.parent_id).ThenBy(c => c.ten));
@@ -60,6 +61,7 @@ namespace TSCD_GUI.ReportTSCD
                     dateEdit_TuNgay.Enabled = true;
                     dateEdit_DenNgay.Enabled = true;
                     ucComboBoxLoaiTS_LoaiTaiSan.Enabled = false;
+                    dateEdit_Nam.Enabled = false;
                     ucComboBoxDonVi_ChonDonVi.Enabled = false;
                     checkedComboBoxEdit_ChonCoSo.Enabled = false;
                     break;
@@ -67,6 +69,7 @@ namespace TSCD_GUI.ReportTSCD
                     dateEdit_TuNgay.Enabled = false;
                     dateEdit_DenNgay.Enabled = false;
                     ucComboBoxLoaiTS_LoaiTaiSan.Enabled = true;
+                    dateEdit_Nam.Enabled = false;
                     ucComboBoxDonVi_ChonDonVi.Enabled = false;
                     checkedComboBoxEdit_ChonCoSo.Enabled = true;
                     break;
@@ -74,6 +77,7 @@ namespace TSCD_GUI.ReportTSCD
                     dateEdit_TuNgay.Enabled = false;
                     dateEdit_DenNgay.Enabled = false;
                     ucComboBoxLoaiTS_LoaiTaiSan.Enabled = false;
+                    dateEdit_Nam.Enabled = true;
                     ucComboBoxDonVi_ChonDonVi.Enabled = true;
                     checkedComboBoxEdit_ChonCoSo.Enabled = false;
                     break;
@@ -81,6 +85,7 @@ namespace TSCD_GUI.ReportTSCD
                     dateEdit_TuNgay.Enabled = false;
                     dateEdit_DenNgay.Enabled = false;
                     ucComboBoxLoaiTS_LoaiTaiSan.Enabled = false;
+                    dateEdit_Nam.Enabled = false;
                     ucComboBoxDonVi_ChonDonVi.Enabled = true;
                     checkedComboBoxEdit_ChonCoSo.Enabled = false;
                     break;
@@ -99,19 +104,19 @@ namespace TSCD_GUI.ReportTSCD
                 #region Báo cáo tăng giảm tài sản cố định
 
                 case 0:
-                    if (((DateTime)dateEdit_TuNgay.EditValue).Date > DateTime.Today.Date)
+                    if (dateEdit_TuNgay.DateTime.Date > DateTime.Today.Date)
                     {
                         XtraMessageBox.Show("Ngày từ không được lớn hơn ngày hiện tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         dateEdit_TuNgay.Focus();
                         return;
                     }
-                    if (((DateTime)dateEdit_DenNgay.EditValue).Date > DateTime.Today.Date)
+                    if (dateEdit_DenNgay.DateTime.Date > DateTime.Today.Date)
                     {
                         XtraMessageBox.Show("Ngày đến không được lớn hơn ngày hiện tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         dateEdit_DenNgay.Focus();
                         return;
                     }
-                    if (((DateTime)dateEdit_TuNgay.EditValue).Date > ((DateTime)dateEdit_DenNgay.EditValue).Date)
+                    if (dateEdit_TuNgay.DateTime.Date > dateEdit_DenNgay.DateTime.Date)
                     {
                         XtraMessageBox.Show("Ngày từ không được lớn hơn ngày đến", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         dateEdit_TuNgay.Focus();
@@ -138,7 +143,7 @@ namespace TSCD_GUI.ReportTSCD
                             }
                             MyNewDbContext = new OurDBContext(TSCD.Global.working_database.get_connection_string(), false);
 
-                            DateTime From = ((DateTime)dateEdit_TuNgay.EditValue).Date, To = ((DateTime)dateEdit_DenNgay.EditValue).Date;
+                            DateTime From = dateEdit_TuNgay.DateTime.Date, To = dateEdit_DenNgay.DateTime.Date;
                             List<TK_TangGiam_TheoLoaiTS> Data = new List<TK_TangGiam_TheoLoaiTS>();
 
                             var list_loaits = MyNewDbContext.LOAITAISANS.ToList();
@@ -223,7 +228,7 @@ namespace TSCD_GUI.ReportTSCD
                             }
                             MyNewDbContext = new OurDBContext(TSCD.Global.working_database.get_connection_string(), false);
 
-                            DateTime From = ((DateTime)dateEdit_TuNgay.EditValue).Date, To = ((DateTime)dateEdit_DenNgay.EditValue).Date;
+                            DateTime From = dateEdit_TuNgay.DateTime.Date, To = dateEdit_DenNgay.DateTime.Date;
                             List<TK_TangGiam_TheoLoaiTS> Data = new List<TK_TangGiam_TheoLoaiTS>();
 
                             var list_loaits = MyNewDbContext.LOAITAISANS.ToList();
@@ -505,7 +510,12 @@ namespace TSCD_GUI.ReportTSCD
                 #region Sổ chi tiết tài sản cố định
 
                 case 2:
-                    if (Object.Equals(ucComboBoxDonVi_ChonDonVi.DonVi, null))
+                    if (dateEdit_TuNgay.DateTime.Year > DateTime.Today.Year)
+                    {
+                        XtraMessageBox.Show("Năm lớn hơn năm hiện tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    else if (Object.Equals(ucComboBoxDonVi_ChonDonVi.DonVi, null))
                     {
                         XtraMessageBox.Show("Chưa chọn đơn vị", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
@@ -529,6 +539,7 @@ namespace TSCD_GUI.ReportTSCD
 
                             #region Get Data
 
+                            int namthongke = dateEdit_TuNgay.DateTime.Year;
                             var DonViSelected = ucComboBoxDonVi_ChonDonVi.DonVi;
                             DonVi DonViToProcess = null;
                             List<TaiSanHienThi> Data = new List<TaiSanHienThi>();
@@ -546,6 +557,11 @@ namespace TSCD_GUI.ReportTSCD
                                 {
                                     id = ct.id,
                                     ngay = ct.ngay,
+                                    haomon_1nam = ct.sonamsudungconlai_final(namthongke) <= 0 ? 0 : ct.haomon_1nam,
+                                    giatriconlai_final = ct.giatriconlai_final(namthongke),
+                                    sonamsudungconlai_final = ct.sonamsudungconlai_final(namthongke),
+                                    haomonluyke = ct.haomonluyke(namthongke),
+                                    haomonnamtruocchuyensang = ct.haomonnamtruocchuyensang(namthongke),
                                     sohieu_ct = ct.chungtu != null ? ct.chungtu.sohieu : "",
                                     ngay_ct = ct.chungtu != null ? ct.chungtu.ngay : null,
                                     ten = ct.taisan.ten,
@@ -553,7 +569,7 @@ namespace TSCD_GUI.ReportTSCD
                                     donvitinh = ct.taisan.loaitaisan.donvitinh != null ? ct.taisan.loaitaisan.donvitinh.ten : "",
                                     soluong = ct.soluong,
                                     dongia = ct.taisan.dongia,
-                                    thanhtien = ct.soluong * ct.taisan.dongia,
+                                    thanhtien = ct.thanhtien,
                                     nuocsx = ct.taisan.nuocsx,
                                     nguongoc = ct.nguongoc,
                                     tinhtrang = ct.tinhtrang.value,
@@ -564,7 +580,7 @@ namespace TSCD_GUI.ReportTSCD
                                     ct.vitri.day.ten + (ct.vitri.tang != null ? " - " + ct.vitri.tang.ten : "") : "") : "") : "",
                                     dvquanly = ct.donviquanly != null ? ct.donviquanly.ten : "",
                                     dvsudung = ct.donvisudung != null ? ct.donvisudung.ten : "",
-                                    obj = ct,
+                                    obj = ct
                                 }).ToList();
                             }
 
@@ -596,6 +612,7 @@ namespace TSCD_GUI.ReportTSCD
 
                             #region Get Data
 
+                            int namthongke = dateEdit_TuNgay.DateTime.Year;
                             var DonViSelected = ucComboBoxDonVi_ChonDonVi.DonVi;
                             DonVi DonViToProcess = null;
                             List<TaiSanHienThi> Data = new List<TaiSanHienThi>();
@@ -613,6 +630,11 @@ namespace TSCD_GUI.ReportTSCD
                                 {
                                     id = ct.id,
                                     ngay = ct.ngay,
+                                    haomon_1nam = ct.sonamsudungconlai_final(namthongke) <= 0 ? 0 : ct.haomon_1nam,
+                                    giatriconlai_final = ct.giatriconlai_final(namthongke),
+                                    sonamsudungconlai_final = ct.sonamsudungconlai_final(namthongke),
+                                    haomonluyke = ct.haomonluyke(namthongke),
+                                    haomonnamtruocchuyensang = ct.haomonnamtruocchuyensang(namthongke),
                                     sohieu_ct = ct.chungtu != null ? ct.chungtu.sohieu : "",
                                     ngay_ct = ct.chungtu != null ? ct.chungtu.ngay : null,
                                     ten = ct.taisan.ten,
@@ -620,7 +642,7 @@ namespace TSCD_GUI.ReportTSCD
                                     donvitinh = ct.taisan.loaitaisan.donvitinh != null ? ct.taisan.loaitaisan.donvitinh.ten : "",
                                     soluong = ct.soluong,
                                     dongia = ct.taisan.dongia,
-                                    thanhtien = ct.soluong * ct.taisan.dongia,
+                                    thanhtien = ct.thanhtien,
                                     nuocsx = ct.taisan.nuocsx,
                                     nguongoc = ct.nguongoc,
                                     tinhtrang = ct.tinhtrang.value,
@@ -631,7 +653,7 @@ namespace TSCD_GUI.ReportTSCD
                                     ct.vitri.day.ten + (ct.vitri.tang != null ? " - " + ct.vitri.tang.ten : "") : "") : "") : "",
                                     dvquanly = ct.donviquanly != null ? ct.donviquanly.ten : "",
                                     dvsudung = ct.donvisudung != null ? ct.donvisudung.ten : "",
-                                    obj = ct,
+                                    obj = ct
                                 }).ToList();
                             }
 

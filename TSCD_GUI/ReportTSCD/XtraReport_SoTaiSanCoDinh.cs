@@ -36,7 +36,8 @@ namespace TSCD_GUI.ReportTSCD
                 xrTableCell_NguyenGia.DataBindings.Add("Text", null, "dongia_tang", "{0:### ### ### ###}");
                 xrTableCell_TyLeHaoMon.DataBindings.Add("Text", null, "phantramhaomon_32", "{0:0.00}");
                 xrTableCell_SoTienHaoMon.DataBindings.Add("Text", null, "sotientrongmotnam", "{0:### ### ### ###}");
-                //xrTableCell_SoHMChuyenGiao.DataBindings.Add("Text", null, "dongia_tang", "{0:### ### ### ###}");
+                
+                xrTableCell_SoHMChuyenGiao.DataBindings.Add("Text", null, "dongia_tang", "{0:### ### ### ###}");
                 //xrTableCell_SoHMLuyKe.DataBindings.Add("Text", null, "dongia_tang", "{0:### ### ### ###}");
 
                 xrTableCell_SoHieuGiam.DataBindings.Add("Text", null, "sohieu_ct_giam");

@@ -46,6 +46,22 @@ namespace TSCD.DataFilter
             }
         }
 
+        public double phantramhm1nam_nhan100
+        {
+            get
+            {
+                try
+                {
+                    return obj.taisan.loaitaisan.phantramhaomon_32*100;
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex);
+                    return 1;
+                }
+            }
+        }
+
         public static List<TaiSanHienThi> Convert(ICollection<CTTaiSan> list)
         {
             try
