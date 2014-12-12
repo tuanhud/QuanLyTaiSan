@@ -134,10 +134,12 @@ namespace TSCD_GUI.QLLoaiTaiSan
         }
         private void clearText()
         {
+            spinHaoMon32.EditValue = 0;
+            spinHaoMon351.EditValue = 0;
             txtMa.Text = "";
             txtTen.Text = "";
             txtMoTa.Text = "";
-            _ucComboBoxLoaiTS.LoaiTS = new LoaiTaiSan();
+            _ucComboBoxLoaiTS.EditValue = null;
             gridLookUpDonVi.EditValue = null;
         }
         private void setDataView()

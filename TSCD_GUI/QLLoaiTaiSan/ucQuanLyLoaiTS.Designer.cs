@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucQuanLyLoaiTS));
             this.rbnControlLoaiTS = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barBtnThemLoaiTS = new DevExpress.XtraBars.BarButtonItem();
@@ -74,7 +73,7 @@
             this.btnSua_r = new DevExpress.XtraEditors.SimpleButton();
             this.btnThem_r = new DevExpress.XtraEditors.SimpleButton();
             this.txtMoTa = new DevExpress.XtraEditors.MemoEdit();
-            this.dxErrorProviderInfo = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
+            this.dxErrorProviderInfo = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider();
             ((System.ComponentModel.ISupportInitialize)(this.rbnControlLoaiTS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControlMain)).BeginInit();
             this.splitContainerControlMain.SuspendLayout();
@@ -491,6 +490,7 @@
             this.gridLookUpDonVi.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.gridLookUpDonVi.Properties.DisplayMember = "ten";
+            this.gridLookUpDonVi.Properties.NullText = "";
             this.gridLookUpDonVi.Properties.ValueMember = "id";
             this.gridLookUpDonVi.Properties.View = this.gridLookUpDonViView;
             this.gridLookUpDonVi.Size = new System.Drawing.Size(265, 20);
