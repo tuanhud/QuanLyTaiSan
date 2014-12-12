@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucTKTHPhong));
             this.panelSearch = new DevExpress.XtraEditors.PanelControl();
+            this.checkLoaiPhong = new DevExpress.XtraEditors.CheckEdit();
+            this.checkSoLuongChoNgoi = new DevExpress.XtraEditors.CheckEdit();
             this.spinSoChoNgoi = new DevExpress.XtraEditors.SpinEdit();
             this.cbxEquation = new DevExpress.XtraEditors.ComboBoxEdit();
             this.btnClear = new DevExpress.XtraEditors.SimpleButton();
@@ -49,10 +51,10 @@
             this.colcoso = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colday = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coltang = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.checkSoLuongChoNgoi = new DevExpress.XtraEditors.CheckEdit();
-            this.checkLoaiPhong = new DevExpress.XtraEditors.CheckEdit();
             ((System.ComponentModel.ISupportInitialize)(this.panelSearch)).BeginInit();
             this.panelSearch.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.checkLoaiPhong.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkSoLuongChoNgoi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinSoChoNgoi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbxEquation.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkDonVi.Properties)).BeginInit();
@@ -60,8 +62,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.checkedCbxLoaiPhong.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlPhong)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewPhong)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkSoLuongChoNgoi.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkLoaiPhong.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelSearch
@@ -82,6 +82,22 @@
             this.panelSearch.Name = "panelSearch";
             this.panelSearch.Size = new System.Drawing.Size(834, 56);
             this.panelSearch.TabIndex = 0;
+            // 
+            // checkLoaiPhong
+            // 
+            this.checkLoaiPhong.Location = new System.Drawing.Point(5, 6);
+            this.checkLoaiPhong.Name = "checkLoaiPhong";
+            this.checkLoaiPhong.Properties.Caption = "Loại phòng:";
+            this.checkLoaiPhong.Size = new System.Drawing.Size(78, 19);
+            this.checkLoaiPhong.TabIndex = 36;
+            // 
+            // checkSoLuongChoNgoi
+            // 
+            this.checkSoLuongChoNgoi.Location = new System.Drawing.Point(5, 31);
+            this.checkSoLuongChoNgoi.Name = "checkSoLuongChoNgoi";
+            this.checkSoLuongChoNgoi.Properties.Caption = "Số lượng chỗ ngồi:";
+            this.checkSoLuongChoNgoi.Size = new System.Drawing.Size(113, 19);
+            this.checkSoLuongChoNgoi.TabIndex = 35;
             // 
             // spinSoChoNgoi
             // 
@@ -203,6 +219,7 @@
             this.colday,
             this.coltang});
             this.gridViewPhong.GridControl = this.gridControlPhong;
+            this.gridViewPhong.GroupCount = 1;
             this.gridViewPhong.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Count, "ten", this.colten, ""),
             new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Sum, "sochongoi", this.colsochongoi, ""),
@@ -212,6 +229,8 @@
             this.gridViewPhong.OptionsBehavior.ReadOnly = true;
             this.gridViewPhong.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gridViewPhong.OptionsView.ShowFooter = true;
+            this.gridViewPhong.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colloai, DevExpress.Data.ColumnSortOrder.Ascending)});
             this.gridViewPhong.CustomSummaryCalculate += new DevExpress.Data.CustomSummaryEventHandler(this.gridViewPhong_CustomSummaryCalculate);
             // 
             // colid
@@ -246,7 +265,7 @@
             this.colsochongoi.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum)});
             this.colsochongoi.Visible = true;
-            this.colsochongoi.VisibleIndex = 2;
+            this.colsochongoi.VisibleIndex = 1;
             // 
             // coltonggiatritaisan
             // 
@@ -258,7 +277,7 @@
             this.coltonggiatritaisan.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "tonggiatritaisan", "{0:### ### ### ##0}")});
             this.coltonggiatritaisan.Visible = true;
-            this.coltonggiatritaisan.VisibleIndex = 3;
+            this.coltonggiatritaisan.VisibleIndex = 2;
             // 
             // colcoso
             // 
@@ -266,7 +285,7 @@
             this.colcoso.FieldName = "coso";
             this.colcoso.Name = "colcoso";
             this.colcoso.Visible = true;
-            this.colcoso.VisibleIndex = 4;
+            this.colcoso.VisibleIndex = 3;
             // 
             // colday
             // 
@@ -274,7 +293,7 @@
             this.colday.FieldName = "day";
             this.colday.Name = "colday";
             this.colday.Visible = true;
-            this.colday.VisibleIndex = 5;
+            this.colday.VisibleIndex = 4;
             // 
             // coltang
             // 
@@ -282,23 +301,7 @@
             this.coltang.FieldName = "tang";
             this.coltang.Name = "coltang";
             this.coltang.Visible = true;
-            this.coltang.VisibleIndex = 6;
-            // 
-            // checkSoLuongChoNgoi
-            // 
-            this.checkSoLuongChoNgoi.Location = new System.Drawing.Point(5, 31);
-            this.checkSoLuongChoNgoi.Name = "checkSoLuongChoNgoi";
-            this.checkSoLuongChoNgoi.Properties.Caption = "Số lượng chỗ ngồi:";
-            this.checkSoLuongChoNgoi.Size = new System.Drawing.Size(113, 19);
-            this.checkSoLuongChoNgoi.TabIndex = 35;
-            // 
-            // checkLoaiPhong
-            // 
-            this.checkLoaiPhong.Location = new System.Drawing.Point(5, 6);
-            this.checkLoaiPhong.Name = "checkLoaiPhong";
-            this.checkLoaiPhong.Properties.Caption = "Loại phòng:";
-            this.checkLoaiPhong.Size = new System.Drawing.Size(78, 19);
-            this.checkLoaiPhong.TabIndex = 36;
+            this.coltang.VisibleIndex = 5;
             // 
             // ucTKTHPhong
             // 
@@ -311,6 +314,8 @@
             this.Leave += new System.EventHandler(this.ucTKTHPhong_Leave);
             ((System.ComponentModel.ISupportInitialize)(this.panelSearch)).EndInit();
             this.panelSearch.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.checkLoaiPhong.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkSoLuongChoNgoi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinSoChoNgoi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbxEquation.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkDonVi.Properties)).EndInit();
@@ -318,8 +323,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.checkedCbxLoaiPhong.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlPhong)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewPhong)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkSoLuongChoNgoi.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkLoaiPhong.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

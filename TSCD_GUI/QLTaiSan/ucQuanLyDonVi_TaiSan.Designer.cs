@@ -56,6 +56,8 @@
             this.groupControlMain = new DevExpress.XtraEditors.GroupControl();
             this.ucGridControlTaiSan1 = new TSCD_GUI.MyUserControl.ucGridControlTaiSan();
             this.splashScreenManager_Report = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::TSCD_GUI.QLTaiSan.WaitForm_Report), true, true, DevExpress.XtraSplashScreen.ParentType.UserControl);
+            this.rbnGroupTinhTrang = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.barBtnTinhTrang = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.rbnControlDonVi_TaiSan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControlLeft)).BeginInit();
             this.navBarControlLeft.SuspendLayout();
@@ -80,9 +82,10 @@
             this.barBtnChuyenTinhTrang,
             this.barBtnAttachment,
             this.barBtnExpandAll,
-            this.barBtnCollapseAll});
+            this.barBtnCollapseAll,
+            this.barBtnTinhTrang});
             this.rbnControlDonVi_TaiSan.Location = new System.Drawing.Point(0, 0);
-            this.rbnControlDonVi_TaiSan.MaxItemId = 14;
+            this.rbnControlDonVi_TaiSan.MaxItemId = 15;
             this.rbnControlDonVi_TaiSan.Name = "rbnControlDonVi_TaiSan";
             this.rbnControlDonVi_TaiSan.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbnPageDonVi_TaiSan});
@@ -189,6 +192,7 @@
             // 
             this.rbnPageDonVi_TaiSan.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.rbnGroupTaiSan,
+            this.rbnGroupTinhTrang,
             this.rbnGroupChuyen,
             this.rbnGroupLog,
             this.rbnGroupImport,
@@ -315,6 +319,22 @@
             this.ucGridControlTaiSan1.Size = new System.Drawing.Size(550, 353);
             this.ucGridControlTaiSan1.TabIndex = 0;
             // 
+            // rbnGroupTinhTrang
+            // 
+            this.rbnGroupTinhTrang.ItemLinks.Add(this.barBtnTinhTrang);
+            this.rbnGroupTinhTrang.Name = "rbnGroupTinhTrang";
+            this.rbnGroupTinhTrang.ShowCaptionButton = false;
+            this.rbnGroupTinhTrang.Text = "Tình trạng";
+            // 
+            // barBtnTinhTrang
+            // 
+            this.barBtnTinhTrang.Caption = "Tình trạng";
+            this.barBtnTinhTrang.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnTinhTrang.Glyph")));
+            this.barBtnTinhTrang.Id = 14;
+            this.barBtnTinhTrang.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnTinhTrang.LargeGlyph")));
+            this.barBtnTinhTrang.Name = "barBtnTinhTrang";
+            this.barBtnTinhTrang.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnTinhTrang_ItemClick);
+            // 
             // ucQuanLyDonVi_TaiSan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -364,6 +384,8 @@
         private DevExpress.XtraBars.BarButtonItem barBtnAttachment;
         private DevExpress.XtraBars.BarButtonItem barBtnExpandAll;
         private DevExpress.XtraBars.BarButtonItem barBtnCollapseAll;
+        private DevExpress.XtraBars.BarButtonItem barBtnTinhTrang;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupTinhTrang;
         private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager_Report;
     }
 }

@@ -269,5 +269,11 @@ namespace TSCD_GUI.QLTaiSan
         {
             ucGridControlTaiSan1.CollapseAllGroups();
         }
+
+        private void barBtnTinhTrang_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmQuanLyTinhTrang frm = new frmQuanLyTinhTrang();
+            frm.ShowDialog();
+        }
     }
 }
