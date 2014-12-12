@@ -202,17 +202,16 @@
             // marqueeProgressBarControl_Status
             // 
             this.marqueeProgressBarControl_Status.EditValue = 0;
-            this.marqueeProgressBarControl_Status.Enabled = false;
             this.marqueeProgressBarControl_Status.Location = new System.Drawing.Point(12, 251);
             this.marqueeProgressBarControl_Status.Name = "marqueeProgressBarControl_Status";
             this.marqueeProgressBarControl_Status.Size = new System.Drawing.Size(246, 12);
             this.marqueeProgressBarControl_Status.TabIndex = 10;
+            this.marqueeProgressBarControl_Status.Visible = false;
             // 
             // simpleButton_Stop
             // 
             this.simpleButton_Stop.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.simpleButton_Stop.Appearance.Options.UseBackColor = true;
-            this.simpleButton_Stop.Enabled = false;
             this.simpleButton_Stop.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton_Stop.Image")));
             this.simpleButton_Stop.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.simpleButton_Stop.Location = new System.Drawing.Point(264, 241);
@@ -221,6 +220,7 @@
             this.simpleButton_Stop.Name = "simpleButton_Stop";
             this.simpleButton_Stop.Size = new System.Drawing.Size(32, 32);
             this.simpleButton_Stop.TabIndex = 9;
+            this.simpleButton_Stop.Visible = false;
             this.simpleButton_Stop.Click += new System.EventHandler(this.simpleButton_Stop_Click);
             // 
             // labelControl_Status
@@ -255,7 +255,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(308, 285);
+            this.ClientSize = new System.Drawing.Size(308, 281);
             this.Controls.Add(this.labelControl_Status);
             this.Controls.Add(this.marqueeProgressBarControl_Status);
             this.Controls.Add(this.checkedComboBoxEdit_ChonCoSo);

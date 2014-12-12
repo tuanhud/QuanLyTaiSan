@@ -19,6 +19,7 @@ namespace TSCD_GUI.ReportTSCD
     public partial class frmReport : DevExpress.XtraEditors.XtraForm
     {
         List<DonVi> ListDonVi = new List<DonVi>();
+        int HeightNormal = 270, HeightHaveProgress = 320;
 
         public delegate void SendMessage();
         public SendMessage _SendMessage;
@@ -27,6 +28,7 @@ namespace TSCD_GUI.ReportTSCD
         public frmReport()
         {
             InitializeComponent();
+            this.Size = new System.Drawing.Size(this.Size.Width, HeightNormal);
 
             comboBoxEdit_LoaiBaoCao.SelectedIndex = 0;
 
@@ -368,6 +370,20 @@ namespace TSCD_GUI.ReportTSCD
 
         private void ShowAndHide(Boolean _Enable)
         {
+            if (_Enable)
+            {
+                this.Invoke((MethodInvoker)delegate
+                {
+                    this.Size = new System.Drawing.Size(this.Size.Width, HeightNormal);
+                });
+            }
+            else
+            {
+                this.Invoke((MethodInvoker)delegate
+                {
+                    this.Size = new System.Drawing.Size(this.Size.Width, HeightHaveProgress);
+                });
+            }
             simpleButton_Xuat.Invoke((MethodInvoker)delegate
             {
                 simpleButton_Xuat.Enabled = _Enable;
@@ -380,10 +396,12 @@ namespace TSCD_GUI.ReportTSCD
             marqueeProgressBarControl_Status.Invoke((MethodInvoker)delegate
             {
                 marqueeProgressBarControl_Status.Enabled = !_Enable;
+                marqueeProgressBarControl_Status.Visible = !_Enable;
             });
             simpleButton_Stop.Invoke((MethodInvoker)delegate
             {
                 simpleButton_Stop.Enabled = !_Enable;
+                simpleButton_Stop.Visible = !_Enable;
             });
         }
 
