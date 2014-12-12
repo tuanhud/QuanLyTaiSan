@@ -1893,5 +1893,81 @@ namespace TSCD_GUI.Libraries
                 return false;
             }
         }
+
+        public static bool UpdateNSX(String fileName, String sheet)
+        {
+            try
+            {
+                int line = 0;
+                System.Data.DataTable dt = new System.Data.DataTable();
+
+                const int ID = 0;
+                const int TEN = 6;
+                const int NSX = 24;
+
+                dt = OpenFile(fileName, sheet);
+                if (dt != null)
+                {
+                    int lines = dt.Rows.Count;
+                    foreach (System.Data.DataRow row in dt.Rows)
+                    {
+                        line++;
+                        DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang Import... " +
+                            String.Format(System.Globalization.CultureInfo.InvariantCulture, "{0:0.00}", (line * 1.0 / lines) * 100) + "%");
+                        if (row[NSX] != DBNull.Value && row[TEN] != DBNull.Value)
+                        {
+                            String ten = row[TEN].ToString().Trim();
+                            TaiSan obj = TaiSan.getQuery().Where(c => c.ten.Equals(ten) && (c.nuocsx == null || c.nuocsx.Equals(""))).FirstOrDefault();
+                            if (obj != null)
+                            {
+                                obj.nuocsx = row[NSX].ToString();
+                                obj.update();
+                                DBInstance.commit();
+                                //WriteNSX(fileName, sheet, row[ID].ToString().Trim(), obj.nuocsx);
+
+                            }
+                            else
+                            {
+                                //WriteLoaiTS(fileName, sheet, row[ID].ToString().Trim(), "none");
+                            }
+                        }
+                    }
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("ExcelDataBaseHelper->ImportTaiSan: " + ex.Message);
+                return false;
+            }
+        }
+
+        private static void WriteNSX(String fileName, String sheet, String stt, String text)
+        {
+            try
+            {
+                if (!stt.Equals(""))
+                {
+                    //Ghi file Excel
+                    using (System.Data.OleDb.OleDbConnection MyConnection = new System.Data.OleDb.OleDbConnection(GetConnectionString(fileName)))
+                    {
+                        System.Data.OleDb.OleDbCommand myCommand = new System.Data.OleDb.OleDbCommand();
+                        string sql = null;
+                        MyConnection.Open();
+                        myCommand.Connection = MyConnection;
+                        sql = String.Format("Update [{0}$] set NSX = @nsx where STT = @stt", sheet);
+                        myCommand.CommandText = sql;
+                        myCommand.Parameters.AddWithValue("@nsx", text);
+                        myCommand.Parameters.AddWithValue("@stt", stt);
+                        myCommand.ExecuteNonQuery();
+                        MyConnection.Close();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("ExcelDataBaseHelper->WriteFileWithRange: " + ex.Message);
+            }
+        }
     }
 }

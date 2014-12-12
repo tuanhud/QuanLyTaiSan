@@ -702,24 +702,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\plus_2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\pencil_edit.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\minus_2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\plus_2_24.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\pencil_edit_24.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\minus_2_24.png" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\SHARED\SHARED.csproj">
       <Project>{84ef1cd9-9dd3-4c1e-878a-3e6d2f8d496c}</Project>
       <Name>SHARED</Name>
@@ -728,9 +710,6 @@
       <Project>{1790a3f3-4540-4524-b031-6a159ad400da}</Project>
       <Name>TSCD</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\plus_24.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\importexcel.png" />
