@@ -121,7 +121,7 @@ namespace TSCD_GUI.QLDonVi
             barBtnXoaDonVi.Enabled = _enable;
             btnSua_r.Enabled = _enable;
             btnXoa_r.Enabled = _enable;
-            btnThemTS.Enabled = _enable;
+            btnThemTS.Visible = _enable;
         }
         private void clearText()
         {
