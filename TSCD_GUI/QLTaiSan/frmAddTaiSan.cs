@@ -75,12 +75,15 @@ namespace TSCD_GUI.QLTaiSan
             ucComboBoxLoaiTS1.editValueChanged = new MyUserControl.ucComboBoxLoaiTS.EditValueChanged(setDonViTinh);
             if (isEdit)
             {
-
+                xtraTabPageDonViNew.PageVisible = false;
+                xtraTabPageDonVi.PageVisible = true;
+                xtraTabPageTinhTrang.PageVisible = true;
             }
             else
             {
                 spinSoLuongDonVi.Enabled = false;
-                xtraTabPageDonVi.Text = "Đơn vị";
+                xtraTabPageDonViNew.PageVisible = true;
+                xtraTabPageDonVi.PageVisible = false;
                 xtraTabPageTinhTrang.PageVisible = false;
             }
         }
@@ -90,7 +93,7 @@ namespace TSCD_GUI.QLTaiSan
             InitializeComponent();
             //loadData();
             init();
-            ucComboBoxDonVi1.DonVi = obj;
+            ucComboBoxDonVi_DonViN.DonVi = ucComboBoxDonVi1.DonVi = obj;
         }
 
         private void loadData()
@@ -105,8 +108,9 @@ namespace TSCD_GUI.QLTaiSan
                 objNULL.ten = "[Không có đơn vị]";
                 objNULL.parent = null;
                 list.Insert(0, objNULL);
-                ucComboBoxDonVi1.DataSource = list;
+                ucComboBoxDonVi_DonViN.DataSource = ucComboBoxDonVi1.DataSource = list;
                 ucComboBoxViTri1.init(false, true);
+                ucComboBoxViTri_PhongN.init(false, true);
                 List<ViTriHienThi> listPhong = ViTriHienThi.getAllHavePhong();
                 ViTriHienThi objPhongNULL = new ViTriHienThi();
                 objPhongNULL.id = Guid.Empty;
@@ -114,7 +118,7 @@ namespace TSCD_GUI.QLTaiSan
                 objPhongNULL.loai = typeof(Phong).Name;
                 objPhongNULL.parent_id = Guid.Empty;
                 listPhong.Insert(0, objPhongNULL);
-                ucComboBoxViTri1.DataSource = listPhong;
+                ucComboBoxViTri_PhongN.DataSource = ucComboBoxViTri1.DataSource = listPhong;
                 List<ViTriHienThi> listViTri = ViTriHienThi.getAll();
                 ViTriHienThi objViTriNULL = new ViTriHienThi();
                 objViTriNULL.id = Guid.Empty;
@@ -122,7 +126,7 @@ namespace TSCD_GUI.QLTaiSan
                 objViTriNULL.loai = typeof(CoSo).Name;
                 objViTriNULL.parent_id = Guid.Empty;
                 listViTri.Insert(0, objViTriNULL);
-                ucComboBoxViTri2.DataSource = listViTri;
+                ucComboBoxViTri_ViTriN.DataSource = ucComboBoxViTri2.DataSource = listViTri;
             }
             catch (Exception ex)
             {
@@ -323,10 +327,10 @@ namespace TSCD_GUI.QLTaiSan
                     int re = obj.add();//ONly call add on CTTaiSan
                     //chuyen don vi
                     int soLuongDV = Convert.ToInt32(txtSoLuong.EditValue);
-                    Phong phong = ucComboBoxViTri1.Phong;
-                    ViTri viTri = ucComboBoxViTri2.ViTri;
-                    DonVi donViQL = ucComboBoxDonVi1.DonVi;
-                    String ghiChuDV = txtGhiChuDonVi.Text;
+                    Phong phong = ucComboBoxViTri_PhongN.Phong;
+                    ViTri viTri = ucComboBoxViTri_ViTriN.ViTri;
+                    DonVi donViQL = ucComboBoxDonVi_DonViN.DonVi;
+                    String ghiChuDV = txtGhiChu.Text;
                     if (!Object.Equals(obj.phong, phong) || !Object.Equals(obj.vitri, viTri) || !Object.Equals(obj.donviquanly, donViQL))
                     {
                         CTTaiSan tmp = obj.chuyenDonVi(donViQL, null, viTri, phong, obj.parent, obj.chungtu, soLuongDV, ghiChuDV);
@@ -366,10 +370,10 @@ namespace TSCD_GUI.QLTaiSan
                 else
                 {
                     int soLuongDV = Convert.ToInt32(txtSoLuong.EditValue);
-                    Phong phong = ucComboBoxViTri1.Phong;
-                    ViTri viTri = ucComboBoxViTri2.ViTri;
-                    DonVi donViQL = ucComboBoxDonVi1.DonVi;
-                    String ghiChuDV = txtGhiChuDonVi.Text;
+                    Phong phong = ucComboBoxViTri_PhongN.Phong;
+                    ViTri viTri = ucComboBoxViTri_ViTriN.ViTri;
+                    DonVi donViQL = ucComboBoxDonVi_DonViN.DonVi;
+                    String ghiChuDV = txtGhiChu.Text;
                     obj.add();
                     if (!Object.Equals(obj.phong, phong) || !Object.Equals(obj.vitri, viTri) || !Object.Equals(obj.donviquanly, donViQL))
                     {

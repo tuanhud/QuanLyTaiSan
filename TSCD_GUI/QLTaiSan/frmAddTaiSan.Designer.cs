@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAddTaiSan));
             this.dateNgaySD = new DevExpress.XtraEditors.DateEdit();
             this.dateNgay_CT = new DevExpress.XtraEditors.DateEdit();
@@ -57,7 +56,7 @@
             this.btnTinhTrang = new DevExpress.XtraEditors.SimpleButton();
             this.lblMa = new DevExpress.XtraEditors.LabelControl();
             this.txtMa = new DevExpress.XtraEditors.TextEdit();
-            this.dxErrorProviderInfo = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
+            this.dxErrorProviderInfo = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider();
             this.ucComboBoxLoaiTS1 = new TSCD_GUI.MyUserControl.ucComboBoxLoaiTS();
             this.btnSua = new DevExpress.XtraEditors.SimpleButton();
             this.btnXoa = new DevExpress.XtraEditors.SimpleButton();
@@ -109,6 +108,13 @@
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.lookUpChuyenTinhTrang = new DevExpress.XtraEditors.LookUpEdit();
             this.xtraTabPageTSKemTheo = new DevExpress.XtraTab.XtraTabPage();
+            this.xtraTabPageDonViNew = new DevExpress.XtraTab.XtraTabPage();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
+            this.ucComboBoxDonVi_DonViN = new TSCD_GUI.MyUserControl.ucComboBoxDonVi();
+            this.ucComboBoxViTri_ViTriN = new TSCD_GUI.MyUserControl.ucComboBoxViTri();
+            this.ucComboBoxViTri_PhongN = new TSCD_GUI.MyUserControl.ucComboBoxViTri();
             ((System.ComponentModel.ISupportInitialize)(this.dateNgaySD.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateNgaySD.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateNgay_CT.Properties.CalendarTimeProperties)).BeginInit();
@@ -135,6 +141,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtGhiChuTinhTrang.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpChuyenTinhTrang.Properties)).BeginInit();
             this.xtraTabPageTSKemTheo.SuspendLayout();
+            this.xtraTabPageDonViNew.SuspendLayout();
             this.SuspendLayout();
             // 
             // dateNgaySD
@@ -741,6 +748,7 @@
             this.xtraTabChuyen.Size = new System.Drawing.Size(460, 190);
             this.xtraTabChuyen.TabIndex = 41;
             this.xtraTabChuyen.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
+            this.xtraTabPageDonViNew,
             this.xtraTabPageDonVi,
             this.xtraTabPageTinhTrang,
             this.xtraTabPageTSKemTheo});
@@ -1011,6 +1019,77 @@
             this.xtraTabPageTSKemTheo.Size = new System.Drawing.Size(454, 162);
             this.xtraTabPageTSKemTheo.Text = "Tài sản kèm theo";
             // 
+            // xtraTabPageDonViNew
+            // 
+            this.xtraTabPageDonViNew.Controls.Add(this.labelControl1);
+            this.xtraTabPageDonViNew.Controls.Add(this.labelControl4);
+            this.xtraTabPageDonViNew.Controls.Add(this.labelControl9);
+            this.xtraTabPageDonViNew.Controls.Add(this.ucComboBoxDonVi_DonViN);
+            this.xtraTabPageDonViNew.Controls.Add(this.ucComboBoxViTri_ViTriN);
+            this.xtraTabPageDonViNew.Controls.Add(this.ucComboBoxViTri_PhongN);
+            this.xtraTabPageDonViNew.Name = "xtraTabPageDonViNew";
+            this.xtraTabPageDonViNew.Size = new System.Drawing.Size(454, 162);
+            this.xtraTabPageDonViNew.Text = "Đơn vị";
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Location = new System.Drawing.Point(8, 59);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(73, 13);
+            this.labelControl1.TabIndex = 29;
+            this.labelControl1.Text = "Đơn vị quản lý:";
+            // 
+            // labelControl4
+            // 
+            this.labelControl4.Location = new System.Drawing.Point(8, 32);
+            this.labelControl4.Name = "labelControl4";
+            this.labelControl4.Size = new System.Drawing.Size(25, 13);
+            this.labelControl4.TabIndex = 28;
+            this.labelControl4.Text = "Vị trí:";
+            // 
+            // labelControl9
+            // 
+            this.labelControl9.Location = new System.Drawing.Point(8, 6);
+            this.labelControl9.Name = "labelControl9";
+            this.labelControl9.Size = new System.Drawing.Size(34, 13);
+            this.labelControl9.TabIndex = 26;
+            this.labelControl9.Text = "Phòng:";
+            // 
+            // ucComboBoxDonVi_DonViN
+            // 
+            this.ucComboBoxDonVi_DonViN.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ucComboBoxDonVi_DonViN.DonVi = null;
+            this.ucComboBoxDonVi_DonViN.EditValue = null;
+            this.ucComboBoxDonVi_DonViN.Location = new System.Drawing.Point(87, 56);
+            this.ucComboBoxDonVi_DonViN.Name = "ucComboBoxDonVi_DonViN";
+            this.ucComboBoxDonVi_DonViN.Size = new System.Drawing.Size(361, 20);
+            this.ucComboBoxDonVi_DonViN.TabIndex = 27;
+            // 
+            // ucComboBoxViTri_ViTriN
+            // 
+            this.ucComboBoxViTri_ViTriN.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ucComboBoxViTri_ViTriN.EditValue = null;
+            this.ucComboBoxViTri_ViTriN.Location = new System.Drawing.Point(87, 30);
+            this.ucComboBoxViTri_ViTriN.Name = "ucComboBoxViTri_ViTriN";
+            this.ucComboBoxViTri_ViTriN.Phong = null;
+            this.ucComboBoxViTri_ViTriN.Size = new System.Drawing.Size(361, 20);
+            this.ucComboBoxViTri_ViTriN.TabIndex = 25;
+            this.ucComboBoxViTri_ViTriN.ViTri = null;
+            // 
+            // ucComboBoxViTri_PhongN
+            // 
+            this.ucComboBoxViTri_PhongN.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ucComboBoxViTri_PhongN.EditValue = null;
+            this.ucComboBoxViTri_PhongN.Location = new System.Drawing.Point(87, 4);
+            this.ucComboBoxViTri_PhongN.Name = "ucComboBoxViTri_PhongN";
+            this.ucComboBoxViTri_PhongN.Phong = null;
+            this.ucComboBoxViTri_PhongN.Size = new System.Drawing.Size(361, 20);
+            this.ucComboBoxViTri_PhongN.TabIndex = 24;
+            this.ucComboBoxViTri_PhongN.ViTri = null;
+            // 
             // frmAddTaiSan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1080,6 +1159,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtGhiChuTinhTrang.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpChuyenTinhTrang.Properties)).EndInit();
             this.xtraTabPageTSKemTheo.ResumeLayout(false);
+            this.xtraTabPageDonViNew.ResumeLayout(false);
+            this.xtraTabPageDonViNew.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1166,5 +1247,12 @@
         private DevExpress.XtraGrid.Columns.GridColumn coldvquanly;
         private DevExpress.XtraGrid.Columns.GridColumn coldvsudung;
         private DevExpress.XtraGrid.Columns.GridColumn colnuocsx;
+        private DevExpress.XtraTab.XtraTabPage xtraTabPageDonViNew;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraEditors.LabelControl labelControl4;
+        private DevExpress.XtraEditors.LabelControl labelControl9;
+        private MyUserControl.ucComboBoxDonVi ucComboBoxDonVi_DonViN;
+        private MyUserControl.ucComboBoxViTri ucComboBoxViTri_ViTriN;
+        private MyUserControl.ucComboBoxViTri ucComboBoxViTri_PhongN;
     }
 }
