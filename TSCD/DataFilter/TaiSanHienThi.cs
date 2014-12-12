@@ -152,6 +152,8 @@ namespace TSCD.DataFilter
         public long haomon_1nam { get; set; }
         public long giatriconlai_final { get; set; }
         public int sonamsudungconlai_final { get; set; }
+        public long haomonluyke { get; set; }
+        public long haomonnamtruocchuyensang { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -170,6 +172,8 @@ namespace TSCD.DataFilter
                 haomon_1nam = ct.sonamsudungconlai_final(namthongke)<=0?0:ct.haomon_1nam,
                 giatriconlai_final = ct.giatriconlai_final(namthongke),
                 sonamsudungconlai_final = ct.sonamsudungconlai_final(namthongke),
+                haomonluyke = ct.haomonluyke(namthongke),
+                haomonnamtruocchuyensang = ct.haomonnamtruocchuyensang(namthongke),
                 sohieu_ct = ct.chungtu != null ? ct.chungtu.sohieu : "",
                 ngay_ct = ct.chungtu != null ? ct.chungtu.ngay : null,
                 ten = ct.taisan.ten,

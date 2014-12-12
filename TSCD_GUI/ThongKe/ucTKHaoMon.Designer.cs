@@ -113,12 +113,15 @@
             this.colsonamsudungconlai_final,
             this.colgiatriconlai_final});
             this.gridViewHaoMon.GridControl = this.gridControlHaoMon;
+            this.gridViewHaoMon.GroupCount = 1;
             this.gridViewHaoMon.Name = "gridViewHaoMon";
             this.gridViewHaoMon.OptionsBehavior.Editable = false;
             this.gridViewHaoMon.OptionsBehavior.ReadOnly = true;
             this.gridViewHaoMon.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gridViewHaoMon.OptionsView.ColumnAutoWidth = false;
             this.gridViewHaoMon.OptionsView.RowAutoHeight = true;
+            this.gridViewHaoMon.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colloaits, DevExpress.Data.ColumnSortOrder.Ascending)});
             // 
             // colid
             // 
@@ -133,6 +136,7 @@
             this.colsohieuct.Name = "colsohieuct";
             this.colsohieuct.Visible = true;
             this.colsohieuct.VisibleIndex = 0;
+            this.colsohieuct.Width = 97;
             // 
             // colngayct
             // 
@@ -141,6 +145,7 @@
             this.colngayct.Name = "colngayct";
             this.colngayct.Visible = true;
             this.colngayct.VisibleIndex = 1;
+            this.colngayct.Width = 86;
             // 
             // colten
             // 
@@ -150,6 +155,7 @@
             this.colten.Name = "colten";
             this.colten.Visible = true;
             this.colten.VisibleIndex = 2;
+            this.colten.Width = 153;
             // 
             // repositoryMemoTen
             // 
@@ -169,7 +175,7 @@
             this.coldonvitinh.FieldName = "donvitinh";
             this.coldonvitinh.Name = "coldonvitinh";
             this.coldonvitinh.Visible = true;
-            this.coldonvitinh.VisibleIndex = 4;
+            this.coldonvitinh.VisibleIndex = 3;
             // 
             // colnuocsx
             // 
@@ -177,7 +183,8 @@
             this.colnuocsx.FieldName = "nuocsx";
             this.colnuocsx.Name = "colnuocsx";
             this.colnuocsx.Visible = true;
-            this.colnuocsx.VisibleIndex = 5;
+            this.colnuocsx.VisibleIndex = 4;
+            this.colnuocsx.Width = 86;
             // 
             // colngaysudung
             // 
@@ -185,7 +192,7 @@
             this.colngaysudung.FieldName = "ngay";
             this.colngaysudung.Name = "colngaysudung";
             this.colngaysudung.Visible = true;
-            this.colngaysudung.VisibleIndex = 6;
+            this.colngaysudung.VisibleIndex = 5;
             // 
             // coldongia
             // 
@@ -195,7 +202,7 @@
             this.coldongia.FieldName = "dongia";
             this.coldongia.Name = "coldongia";
             this.coldongia.Visible = true;
-            this.coldongia.VisibleIndex = 8;
+            this.coldongia.VisibleIndex = 7;
             // 
             // colsoluong
             // 
@@ -203,7 +210,7 @@
             this.colsoluong.FieldName = "soluong";
             this.colsoluong.Name = "colsoluong";
             this.colsoluong.Visible = true;
-            this.colsoluong.VisibleIndex = 7;
+            this.colsoluong.VisibleIndex = 6;
             // 
             // colthanhtien
             // 
@@ -213,7 +220,8 @@
             this.colthanhtien.FieldName = "thanhtien";
             this.colthanhtien.Name = "colthanhtien";
             this.colthanhtien.Visible = true;
-            this.colthanhtien.VisibleIndex = 9;
+            this.colthanhtien.VisibleIndex = 8;
+            this.colthanhtien.Width = 84;
             // 
             // coldvql
             // 
@@ -221,7 +229,8 @@
             this.coldvql.FieldName = "dvquanly";
             this.coldvql.Name = "coldvql";
             this.coldvql.Visible = true;
-            this.coldvql.VisibleIndex = 10;
+            this.coldvql.VisibleIndex = 9;
+            this.coldvql.Width = 118;
             // 
             // colphong
             // 
@@ -229,7 +238,8 @@
             this.colphong.FieldName = "phong";
             this.colphong.Name = "colphong";
             this.colphong.Visible = true;
-            this.colphong.VisibleIndex = 11;
+            this.colphong.VisibleIndex = 10;
+            this.colphong.Width = 77;
             // 
             // colvitri
             // 
@@ -237,7 +247,8 @@
             this.colvitri.FieldName = "vitri";
             this.colvitri.Name = "colvitri";
             this.colvitri.Visible = true;
-            this.colvitri.VisibleIndex = 12;
+            this.colvitri.VisibleIndex = 11;
+            this.colvitri.Width = 82;
             // 
             // colphantramhm1nam
             // 
@@ -247,7 +258,8 @@
             this.colphantramhm1nam.FieldName = "phantramhm1nam";
             this.colphantramhm1nam.Name = "colphantramhm1nam";
             this.colphantramhm1nam.Visible = true;
-            this.colphantramhm1nam.VisibleIndex = 13;
+            this.colphantramhm1nam.VisibleIndex = 12;
+            this.colphantramhm1nam.Width = 112;
             // 
             // colhaomon_1nam
             // 
@@ -257,25 +269,28 @@
             this.colhaomon_1nam.FieldName = "haomon_1nam";
             this.colhaomon_1nam.Name = "colhaomon_1nam";
             this.colhaomon_1nam.Visible = true;
-            this.colhaomon_1nam.VisibleIndex = 14;
+            this.colhaomon_1nam.VisibleIndex = 13;
+            this.colhaomon_1nam.Width = 112;
             // 
             // colsonamsudungconlai_final
             // 
-            this.colsonamsudungconlai_final.Caption = "Số năm sử dụng còn lại sau cùng";
+            this.colsonamsudungconlai_final.Caption = "Số năm sử dụng còn lại";
             this.colsonamsudungconlai_final.FieldName = "sonamsudungconlai_final";
             this.colsonamsudungconlai_final.Name = "colsonamsudungconlai_final";
             this.colsonamsudungconlai_final.Visible = true;
-            this.colsonamsudungconlai_final.VisibleIndex = 15;
+            this.colsonamsudungconlai_final.VisibleIndex = 14;
+            this.colsonamsudungconlai_final.Width = 123;
             // 
             // colgiatriconlai_final
             // 
-            this.colgiatriconlai_final.Caption = "Giá trị còn lại sau cùng";
+            this.colgiatriconlai_final.Caption = "Giá trị còn lại";
             this.colgiatriconlai_final.DisplayFormat.FormatString = "### ### ### ##0";
             this.colgiatriconlai_final.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colgiatriconlai_final.FieldName = "giatriconlai_final";
             this.colgiatriconlai_final.Name = "colgiatriconlai_final";
             this.colgiatriconlai_final.Visible = true;
-            this.colgiatriconlai_final.VisibleIndex = 16;
+            this.colgiatriconlai_final.VisibleIndex = 15;
+            this.colgiatriconlai_final.Width = 87;
             // 
             // panelSearch
             // 

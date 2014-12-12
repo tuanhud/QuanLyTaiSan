@@ -135,6 +135,7 @@ namespace TSCD_GUI.QLTaiSan
             if (obj != null)
             {
                 frmInputViTri_DonVi frm = new frmInputViTri_DonVi(obj);
+                frm.Text = "Chuyển vị trí";
                 frm.reloadAndFocused = new frmInputViTri_DonVi.ReloadAndFocused(reloadAndFocused);
                 frm.ShowDialog();
             }
@@ -267,6 +268,12 @@ namespace TSCD_GUI.QLTaiSan
         private void barBtnCollapseAll_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             ucGridControlTaiSan1.CollapseAllGroups();
+        }
+
+        private void barBtnTinhTrang_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmQuanLyTinhTrang frm = new frmQuanLyTinhTrang();
+            frm.ShowDialog();
         }
     }
 }

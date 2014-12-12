@@ -250,7 +250,7 @@
             this.MinimumSize = new System.Drawing.Size(470, 316);
             this.Name = "frmInputViTri_DonVi";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Nhập thông tin";
+            this.Text = "Nhập thông tin vị trí";
             ((System.ComponentModel.ISupportInitialize)(this.txtGhiChu.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSoLuong.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaTS.Properties)).EndInit();

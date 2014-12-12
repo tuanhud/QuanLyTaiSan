@@ -307,6 +307,7 @@
             this.colphong,
             this.coldvql});
             this.gridViewTaiSan.GridControl = this.gridControlTaiSan;
+            this.gridViewTaiSan.GroupCount = 1;
             this.gridViewTaiSan.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Sum, "soluong", this.colsoluong, ""),
             new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Sum, "dongia", this.coldongia, "{0:### ### ### ##0}"),
@@ -315,8 +316,11 @@
             this.gridViewTaiSan.OptionsBehavior.Editable = false;
             this.gridViewTaiSan.OptionsBehavior.ReadOnly = true;
             this.gridViewTaiSan.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridViewTaiSan.OptionsView.ColumnAutoWidth = false;
             this.gridViewTaiSan.OptionsView.RowAutoHeight = true;
             this.gridViewTaiSan.OptionsView.ShowFooter = true;
+            this.gridViewTaiSan.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colloaits, DevExpress.Data.ColumnSortOrder.Ascending)});
             this.gridViewTaiSan.CustomSummaryCalculate += new DevExpress.Data.CustomSummaryEventHandler(this.gridViewTaiSan_CustomSummaryCalculate);
             // 
             // colid
@@ -332,6 +336,7 @@
             this.colngay_ct.Name = "colngay_ct";
             this.colngay_ct.Visible = true;
             this.colngay_ct.VisibleIndex = 1;
+            this.colngay_ct.Width = 96;
             // 
             // colsohieuct
             // 
@@ -340,6 +345,7 @@
             this.colsohieuct.Name = "colsohieuct";
             this.colsohieuct.Visible = true;
             this.colsohieuct.VisibleIndex = 0;
+            this.colsohieuct.Width = 96;
             // 
             // colten
             // 
@@ -349,6 +355,7 @@
             this.colten.Name = "colten";
             this.colten.Visible = true;
             this.colten.VisibleIndex = 2;
+            this.colten.Width = 163;
             // 
             // repositoryMemoTen
             // 
@@ -368,7 +375,8 @@
             this.coldonvitinh.FieldName = "donvitinh";
             this.coldonvitinh.Name = "coldonvitinh";
             this.coldonvitinh.Visible = true;
-            this.coldonvitinh.VisibleIndex = 4;
+            this.coldonvitinh.VisibleIndex = 3;
+            this.coldonvitinh.Width = 88;
             // 
             // colngaysudung
             // 
@@ -376,7 +384,8 @@
             this.colngaysudung.FieldName = "ngay";
             this.colngaysudung.Name = "colngaysudung";
             this.colngaysudung.Visible = true;
-            this.colngaysudung.VisibleIndex = 5;
+            this.colngaysudung.VisibleIndex = 4;
+            this.colngaysudung.Width = 88;
             // 
             // coldongia
             // 
@@ -388,7 +397,8 @@
             this.coldongia.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "dongia", "{0:### ### ### ##0}")});
             this.coldongia.Visible = true;
-            this.coldongia.VisibleIndex = 8;
+            this.coldongia.VisibleIndex = 7;
+            this.coldongia.Width = 88;
             // 
             // colsoluong
             // 
@@ -398,7 +408,8 @@
             this.colsoluong.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum)});
             this.colsoluong.Visible = true;
-            this.colsoluong.VisibleIndex = 7;
+            this.colsoluong.VisibleIndex = 6;
+            this.colsoluong.Width = 88;
             // 
             // colthanhtien
             // 
@@ -410,7 +421,8 @@
             this.colthanhtien.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "thanhtien", "{0:### ### ### ##0}")});
             this.colthanhtien.Visible = true;
-            this.colthanhtien.VisibleIndex = 9;
+            this.colthanhtien.VisibleIndex = 8;
+            this.colthanhtien.Width = 88;
             // 
             // colnuocsx
             // 
@@ -418,7 +430,8 @@
             this.colnuocsx.FieldName = "nuocsx";
             this.colnuocsx.Name = "colnuocsx";
             this.colnuocsx.Visible = true;
-            this.colnuocsx.VisibleIndex = 6;
+            this.colnuocsx.VisibleIndex = 5;
+            this.colnuocsx.Width = 88;
             // 
             // coltinhtrang
             // 
@@ -426,7 +439,8 @@
             this.coltinhtrang.FieldName = "tinhtrang";
             this.coltinhtrang.Name = "coltinhtrang";
             this.coltinhtrang.Visible = true;
-            this.coltinhtrang.VisibleIndex = 10;
+            this.coltinhtrang.VisibleIndex = 9;
+            this.coltinhtrang.Width = 88;
             // 
             // colvitri
             // 
@@ -434,7 +448,8 @@
             this.colvitri.FieldName = "vitri";
             this.colvitri.Name = "colvitri";
             this.colvitri.Visible = true;
-            this.colvitri.VisibleIndex = 13;
+            this.colvitri.VisibleIndex = 12;
+            this.colvitri.Width = 103;
             // 
             // colphong
             // 
@@ -442,7 +457,8 @@
             this.colphong.FieldName = "phong";
             this.colphong.Name = "colphong";
             this.colphong.Visible = true;
-            this.colphong.VisibleIndex = 12;
+            this.colphong.VisibleIndex = 11;
+            this.colphong.Width = 96;
             // 
             // coldvql
             // 
@@ -450,7 +466,8 @@
             this.coldvql.FieldName = "dvquanly";
             this.coldvql.Name = "coldvql";
             this.coldvql.Visible = true;
-            this.coldvql.VisibleIndex = 11;
+            this.coldvql.VisibleIndex = 10;
+            this.coldvql.Width = 101;
             // 
             // ucTKTHTaiSan
             // 

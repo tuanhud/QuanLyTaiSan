@@ -245,7 +245,6 @@
             this.rbnGroupKiemKe.Name = "rbnGroupKiemKe";
             this.rbnGroupKiemKe.ShowCaptionButton = false;
             this.rbnGroupKiemKe.Text = "Kiểm kê tài sản";
-            this.rbnGroupKiemKe.Visible = false;
             // 
             // panelControlMain
             // 
