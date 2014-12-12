@@ -111,11 +111,11 @@
             // 
             this.colngayghi2.AppearanceHeader.Options.UseTextOptions = true;
             this.colngayghi2.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.colngayghi2.Caption = "Ngày, tháng ghi sổ";
-            this.colngayghi2.FieldName = "ngayghi";
+            this.colngayghi2.Caption = "Ngày sử dụng";
+            this.colngayghi2.FieldName = "ngay";
             this.colngayghi2.Name = "colngayghi2";
             this.colngayghi2.Visible = true;
-            this.colngayghi2.VisibleIndex = 0;
+            this.colngayghi2.VisibleIndex = 4;
             this.colngayghi2.Width = 87;
             // 
             // colsohieu_ct2
@@ -127,16 +127,17 @@
             this.colsohieu_ct2.Name = "colsohieu_ct2";
             this.colsohieu_ct2.Visible = true;
             this.colsohieu_ct2.VisibleIndex = 1;
+            this.colsohieu_ct2.Width = 106;
             // 
             // colngay_ct2
             // 
             this.colngay_ct2.AppearanceHeader.Options.UseTextOptions = true;
             this.colngay_ct2.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.colngay_ct2.Caption = "Ngày tháng chứng từ";
+            this.colngay_ct2.Caption = "Ngày chứng từ";
             this.colngay_ct2.FieldName = "ngay_ct";
             this.colngay_ct2.Name = "colngay_ct2";
             this.colngay_ct2.Visible = true;
-            this.colngay_ct2.VisibleIndex = 2;
+            this.colngay_ct2.VisibleIndex = 0;
             this.colngay_ct2.Width = 80;
             // 
             // colten2
@@ -147,7 +148,7 @@
             this.colten2.FieldName = "ten";
             this.colten2.Name = "colten2";
             this.colten2.Visible = true;
-            this.colten2.VisibleIndex = 3;
+            this.colten2.VisibleIndex = 2;
             this.colten2.Width = 155;
             // 
             // colloai2
@@ -158,7 +159,7 @@
             this.colloai2.FieldName = "loaits";
             this.colloai2.Name = "colloai2";
             this.colloai2.Visible = true;
-            this.colloai2.VisibleIndex = 4;
+            this.colloai2.VisibleIndex = 5;
             this.colloai2.Width = 63;
             // 
             // coldonvitinh2
@@ -169,7 +170,7 @@
             this.coldonvitinh2.FieldName = "donvitinh";
             this.coldonvitinh2.Name = "coldonvitinh2";
             this.coldonvitinh2.Visible = true;
-            this.coldonvitinh2.VisibleIndex = 4;
+            this.coldonvitinh2.VisibleIndex = 3;
             this.coldonvitinh2.Width = 65;
             // 
             // colsoluong2
@@ -254,7 +255,7 @@
             this.colphong2.FieldName = "phong";
             this.colphong2.Name = "colphong2";
             this.colphong2.Visible = true;
-            this.colphong2.VisibleIndex = 9;
+            this.colphong2.VisibleIndex = 10;
             this.colphong2.Width = 90;
             // 
             // colvitri2
@@ -263,7 +264,7 @@
             this.colvitri2.FieldName = "vitri";
             this.colvitri2.Name = "colvitri2";
             this.colvitri2.Visible = true;
-            this.colvitri2.VisibleIndex = 10;
+            this.colvitri2.VisibleIndex = 11;
             this.colvitri2.Width = 90;
             // 
             // coldvquanly2
@@ -272,7 +273,7 @@
             this.coldvquanly2.FieldName = "dvquanly";
             this.coldvquanly2.Name = "coldvquanly2";
             this.coldvquanly2.Visible = true;
-            this.coldvquanly2.VisibleIndex = 11;
+            this.coldvquanly2.VisibleIndex = 9;
             this.coldvquanly2.Width = 90;
             // 
             // coldvsudung2
@@ -370,7 +371,7 @@
             // 
             this.colngayct.AppearanceHeader.Options.UseTextOptions = true;
             this.colngayct.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.colngayct.Caption = "Ngày tháng chứng từ";
+            this.colngayct.Caption = "Ngày chứng từ";
             this.colngayct.FieldName = "ngay_ct";
             this.colngayct.Name = "colngayct";
             this.colngayct.Visible = true;

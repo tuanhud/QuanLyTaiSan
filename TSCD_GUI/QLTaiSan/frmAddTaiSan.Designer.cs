@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAddTaiSan));
             this.dateNgaySD = new DevExpress.XtraEditors.DateEdit();
             this.dateNgay_CT = new DevExpress.XtraEditors.DateEdit();
@@ -56,7 +57,7 @@
             this.btnTinhTrang = new DevExpress.XtraEditors.SimpleButton();
             this.lblMa = new DevExpress.XtraEditors.LabelControl();
             this.txtMa = new DevExpress.XtraEditors.TextEdit();
-            this.dxErrorProviderInfo = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider();
+            this.dxErrorProviderInfo = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
             this.ucComboBoxLoaiTS1 = new TSCD_GUI.MyUserControl.ucComboBoxLoaiTS();
             this.btnSua = new DevExpress.XtraEditors.SimpleButton();
             this.btnXoa = new DevExpress.XtraEditors.SimpleButton();
@@ -551,7 +552,7 @@
             // 
             this.colngayct.AppearanceHeader.Options.UseTextOptions = true;
             this.colngayct.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.colngayct.Caption = "Ngày tháng chứng từ";
+            this.colngayct.Caption = "Ngày chứng từ";
             this.colngayct.FieldName = "ngay_ct";
             this.colngayct.Name = "colngayct";
             this.colngayct.Visible = true;

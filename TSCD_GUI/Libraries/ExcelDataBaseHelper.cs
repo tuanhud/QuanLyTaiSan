@@ -1302,9 +1302,9 @@ namespace TSCD_GUI.Libraries
                 const String DONGIA = "J";
                 const String THANHTIEN = "K";
                 const String TINHTRANG = "L";
-                const String VITRI = "M";
+                const String VITRI = "O";
                 const String PHONG = "N";
-                const String DONVI_QL = "O";
+                const String DONVI_QL = "M";
                 const String GHICHU = "P";
                 
                 String currentPath = Directory.GetCurrentDirectory();
@@ -1396,9 +1396,9 @@ namespace TSCD_GUI.Libraries
                 //const int DONGIA = 9;
                 //const int THANHTIEN = 10;
                 const int TINHTRANG = 11;
-                const int VITRI = 12;
+                const int VITRI = 14;
                 const int PHONG = 13;
-                const int DONVI_QL = 14;
+                const int DONVI_QL = 12;
                 const int GHICHU = 15;
                 const int CHECK = 16;
 

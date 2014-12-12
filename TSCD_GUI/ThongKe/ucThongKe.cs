@@ -67,6 +67,7 @@ namespace TSCD_GUI.ThongKe
                 barBtnTKHaoMon.Down = false;
                 barBtnTKTHPhong.Down = false;
                 barBtnTKTHTaiSan.Down = false;
+                rbnGroupKiemKe.Enabled = false;
                 panelControlMain.Controls.Clear();
                 panelControlMain.Controls.Add(_ucTKPhong);
                 current = _ucTKPhong;
@@ -132,6 +133,7 @@ namespace TSCD_GUI.ThongKe
                 barBtnTKHaoMon.Down = false;
                 barBtnTKTHPhong.Down = false;
                 barBtnTKTHTaiSan.Down = false;
+                rbnGroupKiemKe.Enabled = false;
                 panelControlMain.Controls.Clear();
                 panelControlMain.Controls.Add(_ucTKTaiSan);
                 current = _ucTKTaiSan;
@@ -368,6 +370,7 @@ namespace TSCD_GUI.ThongKe
                 barBtnTKTaiSan.Down = false;
                 barBtnTKTHPhong.Down = false;
                 barBtnTKTHTaiSan.Down = false;
+                rbnGroupKiemKe.Enabled = false;
                 panelControlMain.Controls.Clear();
                 panelControlMain.Controls.Add(_ucTKHaoMon);
                 current = _ucTKHaoMon;
@@ -385,6 +388,7 @@ namespace TSCD_GUI.ThongKe
                 barBtnTKTaiSan.Down = false;
                 barBtnTKTHTaiSan.Down = false;
                 barBtnTKHaoMon.Down = false;
+                rbnGroupKiemKe.Enabled = false;
                 panelControlMain.Controls.Clear();
                 panelControlMain.Controls.Add(_ucTKTHPhong);
                 current = _ucTKTHPhong;
@@ -402,6 +406,7 @@ namespace TSCD_GUI.ThongKe
                 barBtnTKTaiSan.Down = false;
                 barBtnTKTHPhong.Down = false;
                 barBtnTKHaoMon.Down = false;
+                rbnGroupKiemKe.Enabled = true;
                 panelControlMain.Controls.Clear();
                 panelControlMain.Controls.Add(_ucTKTHTaiSan);
                 current = _ucTKTHTaiSan;
