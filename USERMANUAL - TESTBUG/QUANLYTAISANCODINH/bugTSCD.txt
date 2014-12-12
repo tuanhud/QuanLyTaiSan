@@ -1,3 +1,1 @@
-tiêu đề khi sửa tài sản
-nút thêm, đơn vị tính của loại tài sản. một số 1 nút thêm tab khác tương tự
-thêm loại tài sản ->thuộc->đơn vị tính
+thêm mới loại tài sản đã có -> fails => fails hết. thêm lại ko đc, phải renew DB mới đc
