@@ -12,25 +12,23 @@ namespace TSCD_GUI.ReportTSCD
 {
     public partial class XtraReport_SoTheoDoiTSCDTaiNoiSuDung : DevExpress.XtraReports.UI.XtraReport
     {
-        DonVi obj = null;
-
         public XtraReport_SoTheoDoiTSCDTaiNoiSuDung()
         {
             InitializeComponent();
         }
 
-        public XtraReport_SoTheoDoiTSCDTaiNoiSuDung(List<TaiSan_ThongKe> list, DonVi obj)
+        public XtraReport_SoTheoDoiTSCDTaiNoiSuDung(Object Data, String strTenDonVi)
         {
             InitializeComponent();
-            this.DataSource = list;
-            this.obj = obj;
+            this.DataSource = Data;
+            xrLabel_PhongBan.Text = "Phòng ban: " + strTenDonVi;
             IntReport();
         }
 
-        public XtraReport_SoTheoDoiTSCDTaiNoiSuDung(List<TaiSan_ThongKe> list)
+        public XtraReport_SoTheoDoiTSCDTaiNoiSuDung(Object Data)
         {
             InitializeComponent();
-            this.DataSource = list;
+            this.DataSource = Data;
             IntReport();
         }
 
@@ -54,10 +52,6 @@ namespace TSCD_GUI.ReportTSCD
 
                 IntSUM();
             }
-            if (!Object.Equals(obj, null))
-            {
-                xrLabel_PhongBan.Text = "Phòng ban: " + obj.ten;
-            }
         }
 
         private void IntSUM()
@@ -68,6 +62,13 @@ namespace TSCD_GUI.ReportTSCD
             xrTableCell_SUM_SoLuongTang.Summary.Func = SummaryFunc.Sum;
             xrTableCell_SUM_SoLuongTang.Summary.Running = SummaryRunning.Report;
             xrTableCell_SUM_SoLuongTang.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+
+            xrTableCell_SUM_DonGiaTang.DataBindings.Add("Text", this.DataSource, "dongia_tang");
+            xrTableCell_SUM_DonGiaTang.Summary.FormatString = "{0:### ### ### ### ### ###}";
+            xrTableCell_SUM_DonGiaTang.Summary.IgnoreNullValues = true;
+            xrTableCell_SUM_DonGiaTang.Summary.Func = SummaryFunc.Sum;
+            xrTableCell_SUM_DonGiaTang.Summary.Running = SummaryRunning.Report;
+            xrTableCell_SUM_DonGiaTang.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
 
             xrTableCell_SUM_ThanhTienTang.DataBindings.Add("Text", this.DataSource, "thanhtien_tang");
             xrTableCell_SUM_ThanhTienTang.Summary.FormatString = "{0:### ### ### ### ### ###}";
@@ -82,6 +83,13 @@ namespace TSCD_GUI.ReportTSCD
             xrTableCell_SUM_SoLuongGiam.Summary.Func = SummaryFunc.Sum;
             xrTableCell_SUM_SoLuongGiam.Summary.Running = SummaryRunning.Report;
             xrTableCell_SUM_SoLuongGiam.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+
+            xrTableCell_SUM_DonGiaGiam.DataBindings.Add("Text", this.DataSource, "dongia_giam");
+            xrTableCell_SUM_DonGiaGiam.Summary.FormatString = "{0:### ### ### ### ### ###}";
+            xrTableCell_SUM_DonGiaGiam.Summary.IgnoreNullValues = true;
+            xrTableCell_SUM_DonGiaGiam.Summary.Func = SummaryFunc.Sum;
+            xrTableCell_SUM_DonGiaGiam.Summary.Running = SummaryRunning.Report;
+            xrTableCell_SUM_DonGiaGiam.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
 
             xrTableCell_SUM_ThanhTienGiam.DataBindings.Add("Text", this.DataSource, "thanhtien_giam");
             xrTableCell_SUM_ThanhTienGiam.Summary.FormatString = "{0:### ### ### ### ### ###}";

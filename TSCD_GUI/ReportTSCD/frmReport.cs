@@ -14,6 +14,7 @@ using TSCD.DataFilter.SearchFilter;
 using TSCD_GUI.Libraries;
 using DevExpress.LookAndFeel;
 using System.Threading;
+using MoreLinq;
 
 namespace TSCD_GUI.ReportTSCD
 {
@@ -26,6 +27,7 @@ namespace TSCD_GUI.ReportTSCD
         public delegate void SendMessage();
         public SendMessage _SendMessage;
         System.Threading.Thread _ThreadReport;
+        static Boolean IsDesign = false;
 
         public frmReport()
         {
@@ -69,7 +71,7 @@ namespace TSCD_GUI.ReportTSCD
                     dateEdit_TuNgay.Enabled = false;
                     dateEdit_DenNgay.Enabled = false;
                     ucComboBoxLoaiTS_LoaiTaiSan.Enabled = true;
-                    dateEdit_Nam.Enabled = false;
+                    dateEdit_Nam.Enabled = true;
                     ucComboBoxDonVi_ChonDonVi.Enabled = false;
                     checkedComboBoxEdit_ChonCoSo.Enabled = true;
                     break;
@@ -124,163 +126,29 @@ namespace TSCD_GUI.ReportTSCD
                     }
                     if (checkEdit_XuatBaoCao.Checked)
                     {
-                        ShowAndHide(false);
-                        labelControl_Status.Text = "Đang tạo report, vui lòng chờ trong giây lát...";
-
-                        _ThreadReport = new System.Threading.Thread(() =>
-                        {
-                            DevExpress.UserSkins.BonusSkins.Register();
-                            Application.EnableVisualStyles();
-                            UserLookAndFeel.Default.SetSkinStyle(TSCD.Global.local_setting.ApplicationSkinName);
-                            DevExpress.Skins.SkinManager.EnableFormSkins();
-
-                            #region Get Data
-
-                            if (!Object.Equals(MyNewDbContext, null))
-                            {
-                                MyNewDbContext.Dispose();
-                                MyNewDbContext = null;
-                            }
-                            MyNewDbContext = new OurDBContext(TSCD.Global.working_database.get_connection_string(), false);
-
-                            DateTime From = dateEdit_TuNgay.DateTime.Date, To = dateEdit_DenNgay.DateTime.Date;
-                            List<TK_TangGiam_TheoLoaiTS> Data = new List<TK_TangGiam_TheoLoaiTS>();
-
-                            var list_loaits = MyNewDbContext.LOAITAISANS.ToList();
-                            foreach (var item in list_loaits)
-                            {
-                                TK_TangGiam_TheoLoaiTS obj = new TK_TangGiam_TheoLoaiTS();
-                                obj.tenloai = item.ten;
-                                obj.id_loai = item.id;
-                                obj.donvitinh = item.donvitinh == null ? "" : item.donvitinh.ten;
-
-                                foreach (var taisan in item.taisans)
-                                {
-                                    //Tính số đầu năm
-                                    foreach (var ctts in taisan.cttaisans.Where(
-                                        c =>
-                                            c.soluong > 0
-                                            &&
-                                            (
-                                                (c.ngay != null && c.ngay < From)
-                                            )
-                                        )
-                                    )
-                                    {
-                                        obj.sodaunam_soluong += ctts.soluong;
-                                        obj.sodaunam_giatri += ctts.thanhtien;
-                                    }
-                                    var list_log_ctts = taisan.logtanggiamtaisans.Where(c => c.ngay != null && c.ngay >= From && c.ngay <= To && c.soluong > 0);
-                                    //Tính tăng/giảm trong năm
-                                    foreach (var ctts in list_log_ctts.Where(c => c.tang_giam == 1 || c.tang_giam == -1))
-                                    {
-                                        if (ctts.tang_giam == 1)
-                                        {
-                                            obj.tangtrongnam_soluong += ctts.soluong;
-                                            obj.tangtrongnam_giatri += ctts.thanhtien;
-                                        }
-                                        else if (ctts.tang_giam == -1)
-                                        {
-                                            obj.giamtrongnam_soluong += ctts.soluong;
-                                            obj.giamtrongnam_giatri += ctts.thanhtien;
-                                        }
-                                    }
-                                    //Tính số cuối năm
-                                    obj.socuoinam_soluong = obj.sodaunam_soluong + obj.tangtrongnam_soluong - obj.giamtrongnam_soluong;
-                                    obj.socuoinam_giatri = obj.sodaunam_giatri + obj.tangtrongnam_giatri - obj.giamtrongnam_giatri;
-                                }
-                                //add to list
-                                Data.Add(obj);
-                            }
-
-                            #endregion
-
-                            TSCD_GUI.ReportTSCD.XtraReport_BaoCaoTangGiamTSCD _XtraReport_BaoCaoTangGiamTSCD = new ReportTSCD.XtraReport_BaoCaoTangGiamTSCD(Data, From, To);
-                            ReportPrintTool printTool = new ReportPrintTool(_XtraReport_BaoCaoTangGiamTSCD);
-
-                            ReportCompeleted();
-
-                            printTool.ShowPreviewDialog();
-
-                            ShowAndHide(true);
-                        });
-                        _ThreadReport.SetApartmentState(ApartmentState.STA);
-                        _ThreadReport.Start();
+                        IsDesign = false;
                     }
                     else if (checkEdit_ThietKe.Checked)
                     {
-                        ShowAndHide(false);
-                        labelControl_Status.Text = "Đang tạo report, vui lòng chờ trong giây lát...";
+                        IsDesign = true;
+                    }
 
-                        _ThreadReport = new System.Threading.Thread(() =>
+                    ShowAndHide(false);
+                    labelControl_Status.Text = "Đang tạo report, vui lòng chờ trong giây lát...";
+
+                    _ThreadReport = new System.Threading.Thread(() =>
+                    {
+                        DevExpress.UserSkins.BonusSkins.Register();
+                        Application.EnableVisualStyles();
+                        UserLookAndFeel.Default.SetSkinStyle(TSCD.Global.local_setting.ApplicationSkinName);
+                        DevExpress.Skins.SkinManager.EnableFormSkins();
+
+                        DateTime From = dateEdit_TuNgay.DateTime.Date, To = dateEdit_DenNgay.DateTime.Date;
+                        List<TK_TangGiam_TheoLoaiTS> Data = GetData_BaoCaoTangGiamTaiSanCoDinh(From, To);
+
+                        TSCD_GUI.ReportTSCD.XtraReport_BaoCaoTangGiamTSCD _XtraReport_BaoCaoTangGiamTSCD = new ReportTSCD.XtraReport_BaoCaoTangGiamTSCD(Data, From, To);
+                        if (IsDesign)
                         {
-                            DevExpress.UserSkins.BonusSkins.Register();
-                            Application.EnableVisualStyles();
-                            UserLookAndFeel.Default.SetSkinStyle(TSCD.Global.local_setting.ApplicationSkinName);
-                            DevExpress.Skins.SkinManager.EnableFormSkins();
-
-                            #region Get Data
-
-                            if (!Object.Equals(MyNewDbContext, null))
-                            {
-                                MyNewDbContext.Dispose();
-                                MyNewDbContext = null;
-                            }
-                            MyNewDbContext = new OurDBContext(TSCD.Global.working_database.get_connection_string(), false);
-
-                            DateTime From = dateEdit_TuNgay.DateTime.Date, To = dateEdit_DenNgay.DateTime.Date;
-                            List<TK_TangGiam_TheoLoaiTS> Data = new List<TK_TangGiam_TheoLoaiTS>();
-
-                            var list_loaits = MyNewDbContext.LOAITAISANS.ToList();
-                            foreach (var item in list_loaits)
-                            {
-                                TK_TangGiam_TheoLoaiTS obj = new TK_TangGiam_TheoLoaiTS();
-                                obj.tenloai = item.ten;
-                                obj.id_loai = item.id;
-                                obj.donvitinh = item.donvitinh == null ? "" : item.donvitinh.ten;
-
-                                foreach (var taisan in item.taisans)
-                                {
-                                    //Tính số đầu năm
-                                    foreach (var ctts in taisan.cttaisans.Where(
-                                        c =>
-                                            c.soluong > 0
-                                            &&
-                                            (
-                                                (c.ngay != null && c.ngay < From)
-                                            )
-                                        )
-                                    )
-                                    {
-                                        obj.sodaunam_soluong += ctts.soluong;
-                                        obj.sodaunam_giatri += ctts.thanhtien;
-                                    }
-                                    var list_log_ctts = taisan.logtanggiamtaisans.Where(c => c.ngay != null && c.ngay >= From && c.ngay <= To && c.soluong > 0);
-                                    //Tính tăng/giảm trong năm
-                                    foreach (var ctts in list_log_ctts.Where(c => c.tang_giam == 1 || c.tang_giam == -1))
-                                    {
-                                        if (ctts.tang_giam == 1)
-                                        {
-                                            obj.tangtrongnam_soluong += ctts.soluong;
-                                            obj.tangtrongnam_giatri += ctts.thanhtien;
-                                        }
-                                        else if (ctts.tang_giam == -1)
-                                        {
-                                            obj.giamtrongnam_soluong += ctts.soluong;
-                                            obj.giamtrongnam_giatri += ctts.thanhtien;
-                                        }
-                                    }
-                                    //Tính số cuối năm
-                                    obj.socuoinam_soluong = obj.sodaunam_soluong + obj.tangtrongnam_soluong - obj.giamtrongnam_soluong;
-                                    obj.socuoinam_giatri = obj.sodaunam_giatri + obj.tangtrongnam_giatri - obj.giamtrongnam_giatri;
-                                }
-                                //add to list
-                                Data.Add(obj);
-                            }
-
-                            #endregion
-
-                            TSCD_GUI.ReportTSCD.XtraReport_BaoCaoTangGiamTSCD _XtraReport_BaoCaoTangGiamTSCD = new ReportTSCD.XtraReport_BaoCaoTangGiamTSCD(Data, From, To);
                             ReportDesignTool designTool = new ReportDesignTool(_XtraReport_BaoCaoTangGiamTSCD);
 
                             ReportCompeleted();
@@ -291,10 +159,20 @@ namespace TSCD_GUI.ReportTSCD
                             printTool.ShowPreviewDialog();
 
                             ShowAndHide(true);
-                        });
-                        _ThreadReport.SetApartmentState(ApartmentState.STA);
-                        _ThreadReport.Start();
-                    }
+                        }
+                        else
+                        {
+                            ReportPrintTool printTool = new ReportPrintTool(_XtraReport_BaoCaoTangGiamTSCD);
+
+                            ReportCompeleted();
+
+                            printTool.ShowPreviewDialog();
+
+                            ShowAndHide(true);
+                        }
+                    });
+                    _ThreadReport.SetApartmentState(ApartmentState.STA);
+                    _ThreadReport.Start();
                     break;
 
                 #endregion
@@ -302,13 +180,18 @@ namespace TSCD_GUI.ReportTSCD
                 #region Sổ tài sản cố định
 
                 case 1:
-                    List<Guid> ListLoaiTS = ucComboBoxLoaiTS_LoaiTaiSan.list_loaitaisan;
-                    if (Object.Equals(ListLoaiTS, null))
+                    if (dateEdit_Nam.DateTime.Year > DateTime.Today.Year)
+                    {
+                        XtraMessageBox.Show("Năm lớn hơn năm hiện tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    List<Guid> ListLoaiTaiSan = ucComboBoxLoaiTS_LoaiTaiSan.list_loaitaisan;
+                    if (Object.Equals(ListLoaiTaiSan, null))
                     {
                         XtraMessageBox.Show("Chưa chọn loại tài sản cần thống kê", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
-                    if (!(ListLoaiTS.Count > 0))
+                    if (!(ListLoaiTaiSan.Count > 0))
                     {
                         XtraMessageBox.Show("Chưa chọn loại tài sản cần thống kê", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
@@ -326,169 +209,28 @@ namespace TSCD_GUI.ReportTSCD
                     }
                     if (checkEdit_XuatBaoCao.Checked)
                     {
-                        ShowAndHide(false);
-                        labelControl_Status.Text = "Đang tạo report, vui lòng chờ trong giây lát...";
-
-                        _ThreadReport = new System.Threading.Thread(() =>
-                        {
-                            DevExpress.UserSkins.BonusSkins.Register();
-                            Application.EnableVisualStyles();
-                            UserLookAndFeel.Default.SetSkinStyle(TSCD.Global.local_setting.ApplicationSkinName);
-                            DevExpress.Skins.SkinManager.EnableFormSkins();
-
-                            #region Get Data
-
-                            if (!Object.Equals(MyNewDbContext, null))
-                            {
-                                MyNewDbContext.Dispose();
-                                MyNewDbContext = null;
-                            }
-                            MyNewDbContext = new OurDBContext(TSCD.Global.working_database.get_connection_string(), false);
-                            List<TaiSan_ThongKe> Data = new List<TaiSan_ThongKe>();
-                            DonVi donvi = null;
-
-                            IQueryable<CTTaiSan> query = MyNewDbContext.CTTAISANS.AsQueryable<CTTaiSan>();
-                            query = query.Where(x => x.soluong > 0);
-                            if (donvi != null)
-                            {
-                                List<Guid> list_donviquanly = donvi.getAllChildsRecursive().Select(x => x.id).ToList();
-                                query = query.Where(x => x.donviquanly != null && list_donviquanly.Contains(x.donviquanly.id));
-                            }
-                            //LTB
-                            if (ListLoaiTS != null && ListLoaiTS.Count > 0)
-                            {
-                                query = query.Where(x => x.taisan.loaitaisan == null || ListLoaiTS.Contains(x.taisan.loaitaisan.id));
-                            }
-                            //COSO
-                            if (ListCoSo != null && ListCoSo.Count > 0)
-                            {
-                                List<Guid> list_phong = Phong.getQuery().Where(x => ListCoSo.Contains(x.vitri.coso.id)).Select(c => c.id).ToList();
-                                query = query.Where(x => ListCoSo.Contains(x.vitri.coso.id) || list_phong.Contains(x.phong.id));
-                            }
-                            Data = query.Select(x => new TaiSan_ThongKe
-                            {
-                                id = x.id,
-                                ngay = x.ngay,
-                                sohieu_ct = x.chungtu != null ? x.chungtu.sohieu : "",
-                                ngay_ct = x.chungtu != null ? x.chungtu.ngay : null,
-                                ten = x.taisan.ten,
-                                loaits = x.taisan.loaitaisan.ten,
-                                donvitinh = x.taisan.loaitaisan.donvitinh != null ? x.taisan.loaitaisan.donvitinh.ten : "",
-                                soluong_tang = !x.tinhtrang.giam_taisan ? (int?)x.soluong : null,
-                                dongia_tang = !x.tinhtrang.giam_taisan ? (long?)x.taisan.dongia : null,
-                                thanhtien_tang = !x.tinhtrang.giam_taisan ? (long?)x.soluong * x.taisan.dongia : null,
-                                soluong_giam = x.tinhtrang.giam_taisan ? (int?)x.soluong : null,
-                                dongia_giam = x.tinhtrang.giam_taisan ? (long?)x.taisan.dongia : null,
-                                thanhtien_giam = x.tinhtrang.giam_taisan ? (long?)x.soluong * x.taisan.dongia : null,
-                                sohieu_ct_tang = !x.tinhtrang.giam_taisan ? (x.chungtu != null ? x.chungtu.sohieu : "") : "",
-                                ngay_ct_tang = !x.tinhtrang.giam_taisan ? (x.chungtu != null ? x.chungtu.ngay : null) : null,
-                                sohieu_ct_giam = x.tinhtrang.giam_taisan ? (x.chungtu != null ? x.chungtu.sohieu : "") : "",
-                                ngay_ct_giam = x.tinhtrang.giam_taisan ? (x.chungtu != null ? x.chungtu.ngay : null) : null,
-                                nuocsx = x.taisan.nuocsx,
-                                nguongoc = x.nguongoc,
-                                tinhtrang = x.tinhtrang.value,
-                                ghichu = x.mota,
-                                childs = x.childs,
-                                phong = x.phong != null ? x.phong.ten : "",
-                                vitri = x.vitri != null ? (x.vitri.coso != null ? x.vitri.coso.ten + (x.vitri.day != null ? " - " +
-                                x.vitri.day.ten + (x.vitri.tang != null ? " - " + x.vitri.tang.ten : "") : "") : "") : "",
-                                dvquanly = x.donviquanly != null ? x.donviquanly.ten : "",
-                                dvsudung = x.donvisudung != null ? x.donvisudung.ten : "",
-                                phantramhaomon_32 = Object.Equals(x.taisan, null) ? 0 : Object.Equals(x.taisan.loaitaisan, null) ? 0 : x.taisan.loaitaisan.phantramhaomon_32 * 100,
-                                sotientrongmotnam = Object.Equals(x.taisan, null) ? 0 : Object.Equals(x.taisan.loaitaisan, null) ? 0 : (long)(x.taisan.dongia * x.taisan.loaitaisan.phantramhaomon_32),
-                            }).ToList();
-
-                            #endregion
-
-                            TSCD_GUI.ReportTSCD.XtraReport_SoTaiSanCoDinh _XtraReport_SoTaiSanCoDinh = new ReportTSCD.XtraReport_SoTaiSanCoDinh(Data);
-                            ReportPrintTool printTool = new ReportPrintTool(_XtraReport_SoTaiSanCoDinh);
-
-                            ReportCompeleted();
-
-                            printTool.ShowPreviewDialog();
-
-                            ShowAndHide(true);
-                        });
-                        _ThreadReport.SetApartmentState(ApartmentState.STA);
-                        _ThreadReport.Start();
+                        IsDesign = false;
                     }
                     else if (checkEdit_ThietKe.Checked)
                     {
-                        ShowAndHide(false);
-                        labelControl_Status.Text = "Đang tạo report, vui lòng chờ trong giây lát...";
+                        IsDesign = true;
+                    }
 
-                        _ThreadReport = new System.Threading.Thread(() =>
+                    ShowAndHide(false);
+                    labelControl_Status.Text = "Đang tạo report, vui lòng chờ trong giây lát...";
+
+                    _ThreadReport = new System.Threading.Thread(() =>
+                    {
+                        DevExpress.UserSkins.BonusSkins.Register();
+                        Application.EnableVisualStyles();
+                        UserLookAndFeel.Default.SetSkinStyle(TSCD.Global.local_setting.ApplicationSkinName);
+                        DevExpress.Skins.SkinManager.EnableFormSkins();
+
+                        Object Data = GetData_SoTaiSanCoDinh(ListLoaiTaiSan, ListCoSo, dateEdit_Nam.DateTime.Year);
+
+                        TSCD_GUI.ReportTSCD.XtraReport_SoTaiSanCoDinh _XtraReport_SoTaiSanCoDinh = new ReportTSCD.XtraReport_SoTaiSanCoDinh(Data, dateEdit_Nam.DateTime.Year);
+                        if (IsDesign)
                         {
-                            DevExpress.UserSkins.BonusSkins.Register();
-                            Application.EnableVisualStyles();
-                            UserLookAndFeel.Default.SetSkinStyle(TSCD.Global.local_setting.ApplicationSkinName);
-                            DevExpress.Skins.SkinManager.EnableFormSkins();
-
-                            #region Get Data
-
-                            if (!Object.Equals(MyNewDbContext, null))
-                            {
-                                MyNewDbContext.Dispose();
-                                MyNewDbContext = null;
-                            }
-                            MyNewDbContext = new OurDBContext(TSCD.Global.working_database.get_connection_string(), false);
-                            List<TaiSan_ThongKe> Data = new List<TaiSan_ThongKe>();
-                            DonVi donvi = null;
-
-                            IQueryable<CTTaiSan> query = MyNewDbContext.CTTAISANS.AsQueryable<CTTaiSan>();
-                            query = query.Where(x => x.soluong > 0);
-                            if (donvi != null)
-                            {
-                                List<Guid> list_donviquanly = donvi.getAllChildsRecursive().Select(x => x.id).ToList();
-                                query = query.Where(x => x.donviquanly != null && list_donviquanly.Contains(x.donviquanly.id));
-                            }
-                            //LTB
-                            if (ListLoaiTS != null && ListLoaiTS.Count > 0)
-                            {
-                                query = query.Where(x => x.taisan.loaitaisan == null || ListLoaiTS.Contains(x.taisan.loaitaisan.id));
-                            }
-                            //COSO
-                            if (ListCoSo != null && ListCoSo.Count > 0)
-                            {
-                                List<Guid> list_phong = Phong.getQuery().Where(x => ListCoSo.Contains(x.vitri.coso.id)).Select(c => c.id).ToList();
-                                query = query.Where(x => ListCoSo.Contains(x.vitri.coso.id) || list_phong.Contains(x.phong.id));
-                            }
-                            Data = query.Select(x => new TaiSan_ThongKe
-                            {
-                                id = x.id,
-                                ngay = x.ngay,
-                                sohieu_ct = x.chungtu != null ? x.chungtu.sohieu : "",
-                                ngay_ct = x.chungtu != null ? x.chungtu.ngay : null,
-                                ten = x.taisan.ten,
-                                loaits = x.taisan.loaitaisan.ten,
-                                donvitinh = x.taisan.loaitaisan.donvitinh != null ? x.taisan.loaitaisan.donvitinh.ten : "",
-                                soluong_tang = !x.tinhtrang.giam_taisan ? (int?)x.soluong : null,
-                                dongia_tang = !x.tinhtrang.giam_taisan ? (long?)x.taisan.dongia : null,
-                                thanhtien_tang = !x.tinhtrang.giam_taisan ? (long?)x.soluong * x.taisan.dongia : null,
-                                soluong_giam = x.tinhtrang.giam_taisan ? (int?)x.soluong : null,
-                                dongia_giam = x.tinhtrang.giam_taisan ? (long?)x.taisan.dongia : null,
-                                thanhtien_giam = x.tinhtrang.giam_taisan ? (long?)x.soluong * x.taisan.dongia : null,
-                                sohieu_ct_tang = !x.tinhtrang.giam_taisan ? (x.chungtu != null ? x.chungtu.sohieu : "") : "",
-                                ngay_ct_tang = !x.tinhtrang.giam_taisan ? (x.chungtu != null ? x.chungtu.ngay : null) : null,
-                                sohieu_ct_giam = x.tinhtrang.giam_taisan ? (x.chungtu != null ? x.chungtu.sohieu : "") : "",
-                                ngay_ct_giam = x.tinhtrang.giam_taisan ? (x.chungtu != null ? x.chungtu.ngay : null) : null,
-                                nuocsx = x.taisan.nuocsx,
-                                nguongoc = x.nguongoc,
-                                tinhtrang = x.tinhtrang.value,
-                                ghichu = x.mota,
-                                childs = x.childs,
-                                phong = x.phong != null ? x.phong.ten : "",
-                                vitri = x.vitri != null ? (x.vitri.coso != null ? x.vitri.coso.ten + (x.vitri.day != null ? " - " +
-                                x.vitri.day.ten + (x.vitri.tang != null ? " - " + x.vitri.tang.ten : "") : "") : "") : "",
-                                dvquanly = x.donviquanly != null ? x.donviquanly.ten : "",
-                                dvsudung = x.donvisudung != null ? x.donvisudung.ten : "",
-                                phantramhaomon_32 = Object.Equals(x.taisan, null) ? 0 : Object.Equals(x.taisan.loaitaisan, null) ? 0 : x.taisan.loaitaisan.phantramhaomon_32 * 100,
-                                sotientrongmotnam = Object.Equals(x.taisan, null) ? 0 : Object.Equals(x.taisan.loaitaisan, null) ? 0 : (long)(x.taisan.dongia * x.taisan.loaitaisan.phantramhaomon_32),
-                            }).ToList();
-
-                            #endregion
-
-                            TSCD_GUI.ReportTSCD.XtraReport_SoTaiSanCoDinh _XtraReport_SoTaiSanCoDinh = new ReportTSCD.XtraReport_SoTaiSanCoDinh(Data);
                             ReportDesignTool designTool = new ReportDesignTool(_XtraReport_SoTaiSanCoDinh);
 
                             ReportCompeleted();
@@ -499,10 +241,20 @@ namespace TSCD_GUI.ReportTSCD
                             printTool.ShowPreviewDialog();
 
                             ShowAndHide(true);
-                        });
-                        _ThreadReport.SetApartmentState(ApartmentState.STA);
-                        _ThreadReport.Start();
-                    }
+                        }
+                        else
+                        {
+                            ReportPrintTool printTool = new ReportPrintTool(_XtraReport_SoTaiSanCoDinh);
+
+                            ReportCompeleted();
+
+                            printTool.ShowPreviewDialog();
+
+                            ShowAndHide(true);
+                        }
+                    });
+                    _ThreadReport.SetApartmentState(ApartmentState.STA);
+                    _ThreadReport.Start();
                     break;
 
                 #endregion
@@ -510,7 +262,7 @@ namespace TSCD_GUI.ReportTSCD
                 #region Sổ chi tiết tài sản cố định
 
                 case 2:
-                    if (dateEdit_TuNgay.DateTime.Year > DateTime.Today.Year)
+                    if (dateEdit_Nam.DateTime.Year > DateTime.Today.Year)
                     {
                         XtraMessageBox.Show("Năm lớn hơn năm hiện tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
@@ -527,139 +279,35 @@ namespace TSCD_GUI.ReportTSCD
                     }
                     if (checkEdit_XuatBaoCao.Checked)
                     {
-                        ShowAndHide(false);
-                        labelControl_Status.Text = "Đang tạo report, vui lòng chờ trong giây lát...";
-
-                        _ThreadReport = new System.Threading.Thread(() =>
-                        {
-                            DevExpress.UserSkins.BonusSkins.Register();
-                            Application.EnableVisualStyles();
-                            UserLookAndFeel.Default.SetSkinStyle(TSCD.Global.local_setting.ApplicationSkinName);
-                            DevExpress.Skins.SkinManager.EnableFormSkins();
-
-                            #region Get Data
-
-                            int namthongke = dateEdit_TuNgay.DateTime.Year;
-                            var DonViSelected = ucComboBoxDonVi_ChonDonVi.DonVi;
-                            DonVi DonViToProcess = null;
-                            List<TaiSanHienThi> Data = new List<TaiSanHienThi>();
-                            if (!Object.Equals(DonViSelected, null))
-                            {
-                                if (!Object.Equals(MyNewDbContext, null))
-                                {
-                                    MyNewDbContext.Dispose();
-                                    MyNewDbContext = null;
-                                }
-                                MyNewDbContext = new OurDBContext(TSCD.Global.working_database.get_connection_string(), false);
-                                DonViToProcess = MyNewDbContext.DONVIS.Find(DonViSelected.id);
-
-                                Data = DonViToProcess.cttaisans.Select(ct => new TaiSanHienThi
-                                {
-                                    id = ct.id,
-                                    ngay = ct.ngay,
-                                    haomon_1nam = ct.sonamsudungconlai_final(namthongke) <= 0 ? 0 : ct.haomon_1nam,
-                                    giatriconlai_final = ct.giatriconlai_final(namthongke),
-                                    sonamsudungconlai_final = ct.sonamsudungconlai_final(namthongke),
-                                    haomonluyke = ct.haomonluyke(namthongke),
-                                    haomonnamtruocchuyensang = ct.haomonnamtruocchuyensang(namthongke),
-                                    sohieu_ct = ct.chungtu != null ? ct.chungtu.sohieu : "",
-                                    ngay_ct = ct.chungtu != null ? ct.chungtu.ngay : null,
-                                    ten = ct.taisan.ten,
-                                    loaits = ct.taisan.loaitaisan.ten,
-                                    donvitinh = ct.taisan.loaitaisan.donvitinh != null ? ct.taisan.loaitaisan.donvitinh.ten : "",
-                                    soluong = ct.soluong,
-                                    dongia = ct.taisan.dongia,
-                                    thanhtien = ct.thanhtien,
-                                    nuocsx = ct.taisan.nuocsx,
-                                    nguongoc = ct.nguongoc,
-                                    tinhtrang = ct.tinhtrang.value,
-                                    ghichu = ct.mota,
-                                    childs = ct.childs,
-                                    phong = ct.phong != null ? ct.phong.ten : "",
-                                    vitri = ct.vitri != null ? (ct.vitri.coso != null ? ct.vitri.coso.ten + (ct.vitri.day != null ? " - " +
-                                    ct.vitri.day.ten + (ct.vitri.tang != null ? " - " + ct.vitri.tang.ten : "") : "") : "") : "",
-                                    dvquanly = ct.donviquanly != null ? ct.donviquanly.ten : "",
-                                    dvsudung = ct.donvisudung != null ? ct.donvisudung.ten : "",
-                                    obj = ct
-                                }).ToList();
-                            }
-
-                            #endregion
-
-                            TSCD_GUI.ReportTSCD.XtraReport_SoChiTietTaiSanCoDinh _XtraReport_SoChiTietTaiSanCoDinh = new ReportTSCD.XtraReport_SoChiTietTaiSanCoDinh(Data, DonViToProcess);
-                            ReportPrintTool printTool = new ReportPrintTool(_XtraReport_SoChiTietTaiSanCoDinh);
-
-                            ReportCompeleted();
-
-                            printTool.ShowPreviewDialog();
-
-                            ShowAndHide(true);
-                        });
-                        _ThreadReport.SetApartmentState(ApartmentState.STA);
-                        _ThreadReport.Start();
+                        IsDesign = false;
                     }
                     else if (checkEdit_ThietKe.Checked)
                     {
-                        ShowAndHide(false);
-                        labelControl_Status.Text = "Đang tạo report, vui lòng chờ trong giây lát...";
+                        IsDesign = true;
+                    }
 
-                        _ThreadReport = new System.Threading.Thread(() =>
+                    ShowAndHide(false);
+                    labelControl_Status.Text = "Đang tạo report, vui lòng chờ trong giây lát...";
+
+                    _ThreadReport = new System.Threading.Thread(() =>
+                    {
+                        DevExpress.UserSkins.BonusSkins.Register();
+                        Application.EnableVisualStyles();
+                        UserLookAndFeel.Default.SetSkinStyle(TSCD.Global.local_setting.ApplicationSkinName);
+                        DevExpress.Skins.SkinManager.EnableFormSkins();
+
+                        var DonViSelected = ucComboBoxDonVi_ChonDonVi.DonVi;
+                        Object Data = new Object();
+                        String strTenDonVi = "";
+                        if (!Object.Equals(DonViSelected, null))
                         {
-                            DevExpress.UserSkins.BonusSkins.Register();
-                            Application.EnableVisualStyles();
-                            UserLookAndFeel.Default.SetSkinStyle(TSCD.Global.local_setting.ApplicationSkinName);
-                            DevExpress.Skins.SkinManager.EnableFormSkins();
+                            strTenDonVi = DonViSelected.ten;
+                            Data = GetData_SoChiTietTaiSanCoDinh(DonViSelected.id, dateEdit_Nam.DateTime.Year);
+                        }
 
-                            #region Get Data
-
-                            int namthongke = dateEdit_TuNgay.DateTime.Year;
-                            var DonViSelected = ucComboBoxDonVi_ChonDonVi.DonVi;
-                            DonVi DonViToProcess = null;
-                            List<TaiSanHienThi> Data = new List<TaiSanHienThi>();
-                            if (!Object.Equals(DonViSelected, null))
-                            {
-                                if (!Object.Equals(MyNewDbContext, null))
-                                {
-                                    MyNewDbContext.Dispose();
-                                    MyNewDbContext = null;
-                                }
-                                MyNewDbContext = new OurDBContext(TSCD.Global.working_database.get_connection_string(), false);
-                                DonViToProcess = MyNewDbContext.DONVIS.Find(DonViSelected.id);
-
-                                Data = DonViToProcess.cttaisans.Select(ct => new TaiSanHienThi
-                                {
-                                    id = ct.id,
-                                    ngay = ct.ngay,
-                                    haomon_1nam = ct.sonamsudungconlai_final(namthongke) <= 0 ? 0 : ct.haomon_1nam,
-                                    giatriconlai_final = ct.giatriconlai_final(namthongke),
-                                    sonamsudungconlai_final = ct.sonamsudungconlai_final(namthongke),
-                                    haomonluyke = ct.haomonluyke(namthongke),
-                                    haomonnamtruocchuyensang = ct.haomonnamtruocchuyensang(namthongke),
-                                    sohieu_ct = ct.chungtu != null ? ct.chungtu.sohieu : "",
-                                    ngay_ct = ct.chungtu != null ? ct.chungtu.ngay : null,
-                                    ten = ct.taisan.ten,
-                                    loaits = ct.taisan.loaitaisan.ten,
-                                    donvitinh = ct.taisan.loaitaisan.donvitinh != null ? ct.taisan.loaitaisan.donvitinh.ten : "",
-                                    soluong = ct.soluong,
-                                    dongia = ct.taisan.dongia,
-                                    thanhtien = ct.thanhtien,
-                                    nuocsx = ct.taisan.nuocsx,
-                                    nguongoc = ct.nguongoc,
-                                    tinhtrang = ct.tinhtrang.value,
-                                    ghichu = ct.mota,
-                                    childs = ct.childs,
-                                    phong = ct.phong != null ? ct.phong.ten : "",
-                                    vitri = ct.vitri != null ? (ct.vitri.coso != null ? ct.vitri.coso.ten + (ct.vitri.day != null ? " - " +
-                                    ct.vitri.day.ten + (ct.vitri.tang != null ? " - " + ct.vitri.tang.ten : "") : "") : "") : "",
-                                    dvquanly = ct.donviquanly != null ? ct.donviquanly.ten : "",
-                                    dvsudung = ct.donvisudung != null ? ct.donvisudung.ten : "",
-                                    obj = ct
-                                }).ToList();
-                            }
-
-                            #endregion
-
-                            TSCD_GUI.ReportTSCD.XtraReport_SoChiTietTaiSanCoDinh _XtraReport_SoChiTietTaiSanCoDinh = new ReportTSCD.XtraReport_SoChiTietTaiSanCoDinh(Data, DonViToProcess);
+                        TSCD_GUI.ReportTSCD.XtraReport_SoChiTietTaiSanCoDinh _XtraReport_SoChiTietTaiSanCoDinh = new ReportTSCD.XtraReport_SoChiTietTaiSanCoDinh(Data, dateEdit_Nam.DateTime.Year, strTenDonVi);
+                        if (IsDesign)
+                        {
                             ReportDesignTool designTool = new ReportDesignTool(_XtraReport_SoChiTietTaiSanCoDinh);
 
                             ReportCompeleted();
@@ -670,10 +318,20 @@ namespace TSCD_GUI.ReportTSCD
                             printTool.ShowPreviewDialog();
 
                             ShowAndHide(true);
-                        });
-                        _ThreadReport.SetApartmentState(ApartmentState.STA);
-                        _ThreadReport.Start();
-                    }
+                        }
+                        else
+                        {
+                            ReportPrintTool printTool = new ReportPrintTool(_XtraReport_SoChiTietTaiSanCoDinh);
+
+                            ReportCompeleted();
+
+                            printTool.ShowPreviewDialog();
+
+                            ShowAndHide(true);
+                        }
+                    });
+                    _ThreadReport.SetApartmentState(ApartmentState.STA);
+                    _ThreadReport.Start();
                     break;
 
                 #endregion
@@ -693,162 +351,36 @@ namespace TSCD_GUI.ReportTSCD
                     }
                     if (checkEdit_XuatBaoCao.Checked)
                     {
-                        ShowAndHide(false);
-                        labelControl_Status.Text = "Đang tạo report, vui lòng chờ trong giây lát...";
-
-                        _ThreadReport = new System.Threading.Thread(() =>
-                        {
-                            DevExpress.UserSkins.BonusSkins.Register();
-                            Application.EnableVisualStyles();
-                            UserLookAndFeel.Default.SetSkinStyle(TSCD.Global.local_setting.ApplicationSkinName);
-                            DevExpress.Skins.SkinManager.EnableFormSkins();
-
-                            #region Get Data
-
-                            var DonViSelected = ucComboBoxDonVi_ChonDonVi.DonVi;
-                            DonVi DonViToProcess = null;
-                            List<TaiSan_ThongKe> Data = new List<TaiSan_ThongKe>();
-                            if (!Object.Equals(DonViSelected, null))
-                            {
-                                if (!Object.Equals(MyNewDbContext, null))
-                                {
-                                    MyNewDbContext.Dispose();
-                                    MyNewDbContext = null;
-                                }
-                                MyNewDbContext = new OurDBContext(TSCD.Global.working_database.get_connection_string(), false);
-                                DonViToProcess = MyNewDbContext.DONVIS.Find(DonViSelected.id);
-
-                                IQueryable<CTTaiSan> query = MyNewDbContext.CTTAISANS.AsQueryable<CTTaiSan>();
-                                query = query.Where(x => x.soluong > 0);
-                                if (DonViToProcess != null)
-                                {
-                                    List<Guid> list_donviquanly = DonViToProcess.getAllChildsRecursive().Select(x => x.id).ToList();
-                                    query = query.Where(x => x.donviquanly != null && list_donviquanly.Contains(x.donviquanly.id));
-                                }
-                                //FINAL SELECT
-                                Data = query.Select(x => new TaiSan_ThongKe
-                                {
-                                    id = x.id,
-                                    ngay = x.ngay,
-                                    sohieu_ct = x.chungtu != null ? x.chungtu.sohieu : "",
-                                    ngay_ct = x.chungtu != null ? x.chungtu.ngay : null,
-                                    ten = x.taisan.ten,
-                                    loaits = x.taisan.loaitaisan.ten,
-                                    donvitinh = x.taisan.loaitaisan.donvitinh != null ? x.taisan.loaitaisan.donvitinh.ten : "",
-                                    soluong_tang = !x.tinhtrang.giam_taisan ? (int?)x.soluong : null,
-                                    dongia_tang = !x.tinhtrang.giam_taisan ? (long?)x.taisan.dongia : null,
-                                    thanhtien_tang = !x.tinhtrang.giam_taisan ? (long?)x.soluong * x.taisan.dongia : null,
-                                    soluong_giam = x.tinhtrang.giam_taisan ? (int?)x.soluong : null,
-                                    dongia_giam = x.tinhtrang.giam_taisan ? (long?)x.taisan.dongia : null,
-                                    thanhtien_giam = x.tinhtrang.giam_taisan ? (long?)x.soluong * x.taisan.dongia : null,
-                                    sohieu_ct_tang = !x.tinhtrang.giam_taisan ? (x.chungtu != null ? x.chungtu.sohieu : "") : "",
-                                    ngay_ct_tang = !x.tinhtrang.giam_taisan ? (x.chungtu != null ? x.chungtu.ngay : null) : null,
-                                    sohieu_ct_giam = x.tinhtrang.giam_taisan ? (x.chungtu != null ? x.chungtu.sohieu : "") : "",
-                                    ngay_ct_giam = x.tinhtrang.giam_taisan ? (x.chungtu != null ? x.chungtu.ngay : null) : null,
-                                    nuocsx = x.taisan.nuocsx,
-                                    nguongoc = x.nguongoc,
-                                    tinhtrang = x.tinhtrang.value,
-                                    ghichu = x.mota,
-                                    childs = x.childs,
-                                    phong = x.phong != null ? x.phong.ten : "",
-                                    vitri = x.vitri != null ? (x.vitri.coso != null ? x.vitri.coso.ten + (x.vitri.day != null ? " - " +
-                                    x.vitri.day.ten + (x.vitri.tang != null ? " - " + x.vitri.tang.ten : "") : "") : "") : "",
-                                    dvquanly = x.donviquanly != null ? x.donviquanly.ten : "",
-                                    dvsudung = x.donvisudung != null ? x.donvisudung.ten : "",
-                                    phantramhaomon_32 = Object.Equals(x.taisan, null) ? 0 : Object.Equals(x.taisan.loaitaisan, null) ? 0 : x.taisan.loaitaisan.phantramhaomon_32 * 100,
-                                    sotientrongmotnam = Object.Equals(x.taisan, null) ? 0 : Object.Equals(x.taisan.loaitaisan, null) ? 0 : (long)(x.taisan.dongia * x.taisan.loaitaisan.phantramhaomon_32),
-                                }
-                                ).ToList();
-                            }
-
-                            #endregion
-
-                            TSCD_GUI.ReportTSCD.XtraReport_SoTheoDoiTSCDTaiNoiSuDung _XtraReport_PhongBan = new ReportTSCD.XtraReport_SoTheoDoiTSCDTaiNoiSuDung(Data, DonViToProcess);
-                            ReportPrintTool printTool = new ReportPrintTool(_XtraReport_PhongBan);
-
-                            ReportCompeleted();
-
-                            printTool.ShowPreviewDialog();
-
-                            ShowAndHide(true);
-                        });
-                        _ThreadReport.SetApartmentState(ApartmentState.STA);
-                        _ThreadReport.Start();
+                        IsDesign = false;
                     }
                     else if (checkEdit_ThietKe.Checked)
                     {
-                        ShowAndHide(false);
-                        labelControl_Status.Text = "Đang tạo report, vui lòng chờ trong giây lát...";
+                        IsDesign = true;
+                    }
 
-                        _ThreadReport = new System.Threading.Thread(() =>
+                    ShowAndHide(false);
+                    labelControl_Status.Text = "Đang tạo report, vui lòng chờ trong giây lát...";
+
+                    _ThreadReport = new System.Threading.Thread(() =>
+                    {
+                        DevExpress.UserSkins.BonusSkins.Register();
+                        Application.EnableVisualStyles();
+                        UserLookAndFeel.Default.SetSkinStyle(TSCD.Global.local_setting.ApplicationSkinName);
+                        DevExpress.Skins.SkinManager.EnableFormSkins();
+
+                        var DonViSelected = ucComboBoxDonVi_ChonDonVi.DonVi;
+                        Object Data = new Object();
+                        String strTenDonVi = "";
+                        if (!Object.Equals(DonViSelected, null))
                         {
-                            DevExpress.UserSkins.BonusSkins.Register();
-                            Application.EnableVisualStyles();
-                            UserLookAndFeel.Default.SetSkinStyle(TSCD.Global.local_setting.ApplicationSkinName);
-                            DevExpress.Skins.SkinManager.EnableFormSkins();
+                            strTenDonVi = DonViSelected.ten;
+                            Data = GetData_SoTheoDoiTaiSanCoDinhTaiNoiSuDung(DonViSelected.id);
+                        }
 
-                            #region Get Data
-
-                            var DonViSelected = ucComboBoxDonVi_ChonDonVi.DonVi;
-                            DonVi DonViToProcess = null;
-                            List<TaiSan_ThongKe> Data = new List<TaiSan_ThongKe>();
-                            if (!Object.Equals(DonViSelected, null))
-                            {
-                                if (!Object.Equals(MyNewDbContext, null))
-                                {
-                                    MyNewDbContext.Dispose();
-                                    MyNewDbContext = null;
-                                }
-                                MyNewDbContext = new OurDBContext(TSCD.Global.working_database.get_connection_string(), false);
-                                DonViToProcess = MyNewDbContext.DONVIS.Find(DonViSelected.id);
-
-                                IQueryable<CTTaiSan> query = MyNewDbContext.CTTAISANS.AsQueryable<CTTaiSan>();
-                                query = query.Where(x => x.soluong > 0);
-                                if (DonViToProcess != null)
-                                {
-                                    List<Guid> list_donviquanly = DonViToProcess.getAllChildsRecursive().Select(x => x.id).ToList();
-                                    query = query.Where(x => x.donviquanly != null && list_donviquanly.Contains(x.donviquanly.id));
-                                }
-                                //FINAL SELECT
-                                Data = query.Select(x => new TaiSan_ThongKe
-                                {
-                                    id = x.id,
-                                    ngay = x.ngay,
-                                    sohieu_ct = x.chungtu != null ? x.chungtu.sohieu : "",
-                                    ngay_ct = x.chungtu != null ? x.chungtu.ngay : null,
-                                    ten = x.taisan.ten,
-                                    loaits = x.taisan.loaitaisan.ten,
-                                    donvitinh = x.taisan.loaitaisan.donvitinh != null ? x.taisan.loaitaisan.donvitinh.ten : "",
-                                    soluong_tang = !x.tinhtrang.giam_taisan ? (int?)x.soluong : null,
-                                    dongia_tang = !x.tinhtrang.giam_taisan ? (long?)x.taisan.dongia : null,
-                                    thanhtien_tang = !x.tinhtrang.giam_taisan ? (long?)x.soluong * x.taisan.dongia : null,
-                                    soluong_giam = x.tinhtrang.giam_taisan ? (int?)x.soluong : null,
-                                    dongia_giam = x.tinhtrang.giam_taisan ? (long?)x.taisan.dongia : null,
-                                    thanhtien_giam = x.tinhtrang.giam_taisan ? (long?)x.soluong * x.taisan.dongia : null,
-                                    sohieu_ct_tang = !x.tinhtrang.giam_taisan ? (x.chungtu != null ? x.chungtu.sohieu : "") : "",
-                                    ngay_ct_tang = !x.tinhtrang.giam_taisan ? (x.chungtu != null ? x.chungtu.ngay : null) : null,
-                                    sohieu_ct_giam = x.tinhtrang.giam_taisan ? (x.chungtu != null ? x.chungtu.sohieu : "") : "",
-                                    ngay_ct_giam = x.tinhtrang.giam_taisan ? (x.chungtu != null ? x.chungtu.ngay : null) : null,
-                                    nuocsx = x.taisan.nuocsx,
-                                    nguongoc = x.nguongoc,
-                                    tinhtrang = x.tinhtrang.value,
-                                    ghichu = x.mota,
-                                    childs = x.childs,
-                                    phong = x.phong != null ? x.phong.ten : "",
-                                    vitri = x.vitri != null ? (x.vitri.coso != null ? x.vitri.coso.ten + (x.vitri.day != null ? " - " +
-                                    x.vitri.day.ten + (x.vitri.tang != null ? " - " + x.vitri.tang.ten : "") : "") : "") : "",
-                                    dvquanly = x.donviquanly != null ? x.donviquanly.ten : "",
-                                    dvsudung = x.donvisudung != null ? x.donvisudung.ten : "",
-                                    phantramhaomon_32 = Object.Equals(x.taisan, null) ? 0 : Object.Equals(x.taisan.loaitaisan, null) ? 0 : x.taisan.loaitaisan.phantramhaomon_32 * 100,
-                                    sotientrongmotnam = Object.Equals(x.taisan, null) ? 0 : Object.Equals(x.taisan.loaitaisan, null) ? 0 : (long)(x.taisan.dongia * x.taisan.loaitaisan.phantramhaomon_32),
-                                }
-                                ).ToList();
-                            }
-
-                            #endregion
-
-                            TSCD_GUI.ReportTSCD.XtraReport_SoTheoDoiTSCDTaiNoiSuDung _XtraReport_PhongBan = new ReportTSCD.XtraReport_SoTheoDoiTSCDTaiNoiSuDung(Data, DonViToProcess);
-                            ReportDesignTool designTool = new ReportDesignTool(_XtraReport_PhongBan);
+                        TSCD_GUI.ReportTSCD.XtraReport_SoTheoDoiTSCDTaiNoiSuDung _XtraReport_SoTheoDoiTSCDTaiNoiSuDung = new ReportTSCD.XtraReport_SoTheoDoiTSCDTaiNoiSuDung(Data, strTenDonVi);
+                        if (IsDesign)
+                        {
+                            ReportDesignTool designTool = new ReportDesignTool(_XtraReport_SoTheoDoiTSCDTaiNoiSuDung);
 
                             ReportCompeleted();
 
@@ -858,10 +390,20 @@ namespace TSCD_GUI.ReportTSCD
                             printTool.ShowPreviewDialog();
 
                             ShowAndHide(true);
-                        });
-                        _ThreadReport.SetApartmentState(ApartmentState.STA);
-                        _ThreadReport.Start();
-                    }
+                        }
+                        else
+                        {
+                            ReportPrintTool printTool = new ReportPrintTool(_XtraReport_SoTheoDoiTSCDTaiNoiSuDung);
+
+                            ReportCompeleted();
+
+                            printTool.ShowPreviewDialog();
+
+                            ShowAndHide(true);
+                        }
+                    });
+                    _ThreadReport.SetApartmentState(ApartmentState.STA);
+                    _ThreadReport.Start();
                     break;
 
                 #endregion
@@ -872,6 +414,215 @@ namespace TSCD_GUI.ReportTSCD
                 default:
                     break;
             }
+        }
+
+        private void ResetDbContext()
+        {
+            if (!Object.Equals(MyNewDbContext, null))
+            {
+                MyNewDbContext.Dispose();
+                MyNewDbContext = null;
+            }
+            MyNewDbContext = new OurDBContext(TSCD.Global.working_database.get_connection_string(), false);
+        }
+
+        /// <summary>
+        /// Cai nay khong biet :v
+        /// </summary>
+        /// <param name="From"></param>
+        /// <param name="To"></param>
+        /// <returns></returns>
+        private List<TK_TangGiam_TheoLoaiTS> GetData_BaoCaoTangGiamTaiSanCoDinh(DateTime From, DateTime To)
+        {
+            ResetDbContext();
+            List<TK_TangGiam_TheoLoaiTS> Data = new List<TK_TangGiam_TheoLoaiTS>();
+            try
+            {
+                var list_loaits = MyNewDbContext.LOAITAISANS.ToList();
+                foreach (var item in list_loaits)
+                {
+                    TK_TangGiam_TheoLoaiTS obj = new TK_TangGiam_TheoLoaiTS();
+                    obj.tenloai = item.ten;
+                    obj.id_loai = item.id;
+                    obj.donvitinh = item.donvitinh == null ? "" : item.donvitinh.ten;
+
+                    foreach (var taisan in item.taisans)
+                    {
+                        //Tính số đầu năm
+                        foreach (var ctts in taisan.cttaisans.Where(
+                            c =>
+                                c.soluong > 0
+                                &&
+                                (
+                                    (c.ngay != null && c.ngay < From)
+                                )
+                            )
+                        )
+                        {
+                            obj.sodaunam_soluong += ctts.soluong;
+                            obj.sodaunam_giatri += ctts.thanhtien;
+                        }
+                        var list_log_ctts = taisan.logtanggiamtaisans.Where(c => c.ngay != null && c.ngay >= From && c.ngay <= To && c.soluong > 0);
+                        //Tính tăng/giảm trong năm
+                        foreach (var ctts in list_log_ctts.Where(c => c.tang_giam == 1 || c.tang_giam == -1))
+                        {
+                            if (ctts.tang_giam == 1)
+                            {
+                                obj.tangtrongnam_soluong += ctts.soluong;
+                                obj.tangtrongnam_giatri += ctts.thanhtien;
+                            }
+                            else if (ctts.tang_giam == -1)
+                            {
+                                obj.giamtrongnam_soluong += ctts.soluong;
+                                obj.giamtrongnam_giatri += ctts.thanhtien;
+                            }
+                        }
+                        //Tính số cuối năm
+                        obj.socuoinam_soluong = obj.sodaunam_soluong + obj.tangtrongnam_soluong - obj.giamtrongnam_soluong;
+                        obj.socuoinam_giatri = obj.sodaunam_giatri + obj.tangtrongnam_giatri - obj.giamtrongnam_giatri;
+                    }
+                    //add to list
+                    Data.Add(obj);
+                }
+            }
+            catch (Exception) { return new List<TK_TangGiam_TheoLoaiTS>(); }
+            return Data;
+        }
+
+        /// <summary>
+        /// Sai la cai chac, biet cho sai nhung khong them sua :v
+        /// </summary>
+        /// <param name="ListLoaiTaiSan"></param>
+        /// <param name="ListCoSo"></param>
+        /// <param name="Year"></param>
+        /// <returns></returns>
+        private Object GetData_SoTaiSanCoDinh(List<Guid> ListLoaiTaiSan, List<Guid> ListCoSo, int Year)
+        {
+            ResetDbContext();
+            IQueryable<CTTaiSan> IQueryable = MyNewDbContext.CTTAISANS.AsQueryable<CTTaiSan>();
+            IQueryable = IQueryable.Where(x => x.soluong > 0);
+            IQueryable = IQueryable.Where(item => Object.Equals(item.ngay, null) == false);
+            IQueryable = IQueryable.Where(item => ((DateTime)item.ngay).Year <= Year);
+
+            //LTB
+            if (ListLoaiTaiSan != null && ListLoaiTaiSan.Count > 0)
+            {
+                IQueryable = IQueryable.Where(x => x.taisan.loaitaisan == null || ListLoaiTaiSan.Contains(x.taisan.loaitaisan.id));
+            }
+            //COSO
+            if (ListCoSo != null && ListCoSo.Count > 0)
+            {
+                List<Guid> list_phong = Phong.getQuery().Where(x => ListCoSo.Contains(x.vitri.coso.id)).Select(c => c.id).ToList();
+                IQueryable = IQueryable.Where(x => ListCoSo.Contains(x.vitri.coso.id) || list_phong.Contains(x.phong.id));
+            }
+
+            var Data = IQueryable.OrderByDescending(item => item.date_create).DistinctBy(item => item.taisan_id).ToList().Select(x => new
+            {
+                //Phai dung it nhat 2 chi tiet tai san cua tai san nay de tinh tang, giam cua tai san
+
+                id = x.id,
+                ngay = x.ngay,
+                //Chung tu gi day (tang hay giam, phu thuoc tinh trang cua chi tiet tai san) -_-
+                sohieu_ct = x.chungtu != null ? x.chungtu.sohieu : "",
+                ten = x.taisan.ten,
+                nuocsx = x.taisan.nuocsx,
+
+                //Kiem chi tiet tai san ma tinh trang la tang tai san
+                dongia_tang = !x.tinhtrang.giam_taisan ? (long?)x.taisan.dongia : null,
+                sohieu_ct_tang = !x.tinhtrang.giam_taisan ? (x.chungtu != null ? x.chungtu.sohieu : "") : "",
+                ngay_ct_tang = !x.tinhtrang.giam_taisan ? (x.chungtu != null ? x.chungtu.ngay : null) : null,
+
+                //Kiem chi tiet tai san ma tinh trang la tang tai san
+                sohieu_ct_giam = x.tinhtrang.giam_taisan ? (x.chungtu != null ? x.chungtu.sohieu : "") : "",
+                ngay_ct_giam = x.tinhtrang.giam_taisan ? (x.chungtu != null ? x.chungtu.ngay : null) : null,
+                ghichu = x.tinhtrang.giam_taisan ? x.mota : null,
+
+                phantramhaomon_32 = Object.Equals(x.taisan, null) ? 0 : Object.Equals(x.taisan.loaitaisan, null) ? 0 : x.taisan.loaitaisan.phantramhaomon_32 * 100,
+                sotientrongmotnam = Object.Equals(x.taisan, null) ? 0 : Object.Equals(x.taisan.loaitaisan, null) ? 0 : Object.Equals(x.taisan.loaitaisan.phantramhaomon_32, null) ? 0 : (long)(x.taisan.dongia * x.taisan.loaitaisan.phantramhaomon_32),
+
+                haomon_1nam = x.sonamsudungconlai_final(Year) <= 0 ? 0 : x.haomon_1nam,
+                giatriconlai_final = x.giatriconlai_final(Year),
+                haomonluyke = x.haomonluyke(Year),
+                haomonnamtruocchuyensang = x.haomonnamtruocchuyensang(Year),
+            }).ToList();
+            return Data;
+        }
+
+        /// <summary>
+        /// Cai nay dung ne :v
+        /// </summary>
+        /// <param name="DonViId"></param>
+        /// <param name="Year"></param>
+        /// <returns></returns>
+        private Object GetData_SoChiTietTaiSanCoDinh(Guid DonViId, int Year)
+        {
+            ResetDbContext();
+            DonVi DonViSelected = MyNewDbContext.DONVIS.Find(DonViId);
+            if (Object.Equals(DonViSelected, null))
+            {
+                return new Object();
+            }
+            var Data = DonViSelected.cttaisans.Where(item => Object.Equals(item.ngay, null) == false).Where(item => ((DateTime)item.ngay).Year <= Year).OrderByDescending(item => item.date_create).DistinctBy(item => item.taisan_id).Select(x => new
+            {
+                ten = x.taisan.ten,
+                nuocsx = x.taisan.nuocsx,
+                ngay = x.ngay,
+                phantramhaomon_32 = Object.Equals(x.taisan, null) ? 0 : Object.Equals(x.taisan.loaitaisan, null) ? 0 : x.taisan.loaitaisan.phantramhaomon_32 * 100,
+                dongia = x.taisan.dongia,
+
+                giatriconlai_final = x.giatriconlai_final(Year),
+                haomonluyke = x.haomonluyke(Year),
+                haomonnamtruocchuyensang = x.haomonnamtruocchuyensang(Year),
+                haomon_1nam = x.sonamsudungconlai_final(Year) <= 0 ? 0 : x.haomon_1nam,
+            }).ToList();
+            return Data;
+        }
+
+        /// <summary>
+        /// Sai la cai chac, biet cho sai nhung khong them sua :v
+        /// </summary>
+        /// <param name="DonViId"></param>
+        /// <returns></returns>
+        private Object GetData_SoTheoDoiTaiSanCoDinhTaiNoiSuDung(Guid DonViId)
+        {
+            ResetDbContext();
+            int Year = DateTime.Today.Year;
+            IQueryable<CTTaiSan> IQueryable = MyNewDbContext.CTTAISANS.AsQueryable<CTTaiSan>();
+            IQueryable = IQueryable.Where(x => x.soluong > 0);
+            IQueryable = IQueryable.Where(item => Object.Equals(item.ngay, null) == false);
+            IQueryable = IQueryable.Where(item => ((DateTime)item.ngay).Year <= Year);
+
+            DonVi DonViSelected = MyNewDbContext.DONVIS.Find(DonViId);
+
+            if (Object.Equals(DonViSelected, null))
+            {
+                return new Object();
+            }
+            List<Guid> ListGuid = DonViSelected.getAllChildsRecursive().Select(x => x.id).ToList();
+            IQueryable = IQueryable.Where(x => x.donviquanly != null && ListGuid.Contains(x.donviquanly.id));
+
+            var Data = DonViSelected.cttaisans.Where(item => Object.Equals(item.ngay, null) == false).Where(item => ((DateTime)item.ngay).Year <= Year).OrderByDescending(item => item.date_create).DistinctBy(item => item.taisan_id).Select(x => new
+            {
+                //Phai dung nhung chi tiet tai san cua tai san de tinh toan tang, giam
+                sohieu_ct = x.chungtu != null ? x.chungtu.sohieu : "",
+                ngay_ct = x.chungtu != null ? x.chungtu.ngay : null,
+
+                ten = x.taisan.ten,
+                donvitinh = x.taisan.loaitaisan.donvitinh != null ? x.taisan.loaitaisan.donvitinh.ten : "",
+
+                //Phai kiem chi tiet tai san cua tai san nay ma no lam tang tai san
+                soluong_tang = !x.tinhtrang.giam_taisan ? (int?)x.soluong : null,
+                dongia_tang = !x.tinhtrang.giam_taisan ? (long?)x.taisan.dongia : null,
+                thanhtien_tang = !x.tinhtrang.giam_taisan ? (long?)x.soluong * x.taisan.dongia : null,
+
+                //Chi tiet tai san cua tai san nay ma no lam giam tai san
+                soluong_giam = x.tinhtrang.giam_taisan ? (int?)x.soluong : null,
+                dongia_giam = x.tinhtrang.giam_taisan ? (long?)x.taisan.dongia : null,
+                thanhtien_giam = x.tinhtrang.giam_taisan ? (long?)x.soluong * x.taisan.dongia : null,
+
+                ghichu = x.tinhtrang.giam_taisan ? x.mota : "",
+            }).ToList();
+            return Data;
         }
 
         private void ShowAndHide(Boolean _Enable)

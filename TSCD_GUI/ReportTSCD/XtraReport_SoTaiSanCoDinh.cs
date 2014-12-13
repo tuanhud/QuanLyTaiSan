@@ -15,11 +15,12 @@ namespace TSCD_GUI.ReportTSCD
             InitializeComponent();
         }
 
-        public XtraReport_SoTaiSanCoDinh(List<TaiSan_ThongKe> List)
+        public XtraReport_SoTaiSanCoDinh(Object List, int Year)
         {
             InitializeComponent();
             this.DataSource = List;
             IntReport();
+            xrLabel_Nam.Text = "Năm " + Year.ToString();
         }
 
         private void IntReport()
@@ -36,14 +37,15 @@ namespace TSCD_GUI.ReportTSCD
                 xrTableCell_NguyenGia.DataBindings.Add("Text", null, "dongia_tang", "{0:### ### ### ###}");
                 xrTableCell_TyLeHaoMon.DataBindings.Add("Text", null, "phantramhaomon_32", "{0:0.00}");
                 xrTableCell_SoTienHaoMon.DataBindings.Add("Text", null, "sotientrongmotnam", "{0:### ### ### ###}");
-                
-                xrTableCell_SoHMChuyenGiao.DataBindings.Add("Text", null, "dongia_tang", "{0:### ### ### ###}");
-                //xrTableCell_SoHMLuyKe.DataBindings.Add("Text", null, "dongia_tang", "{0:### ### ### ###}");
 
+                xrTableCell_SoHMChuyenGiao.DataBindings.Add("Text", null, "haomonnamtruocchuyensang", "{0:### ### ### ###}");
+                xrTableCell_SoHMNamNay.DataBindings.Add("Text", null, "haomon_1nam", "{0:### ### ### ###}");
+                xrTableCell_SoHMLuyKe.DataBindings.Add("Text", null, "haomonluyke", "{0:### ### ### ###}");
+                
                 xrTableCell_SoHieuGiam.DataBindings.Add("Text", null, "sohieu_ct_giam");
                 xrTableCell_NgayThangGiam.DataBindings.Add("Text", null, "ngay_ct_giam", "{0:dd/MM/yyyy}");
                 xrTableCell_LyDoGiam.DataBindings.Add("Text", null, "ghichu");
-
+                xrTableCell_GiaTriConLai.DataBindings.Add("Text", null, "giatriconlai_final", "{0:### ### ### ###}");
                 IntSUM();
             }
         }
@@ -57,13 +59,40 @@ namespace TSCD_GUI.ReportTSCD
             xrTableCell_SUM_NguyenGiaTang.Summary.Running = SummaryRunning.Report;
             xrTableCell_SUM_NguyenGiaTang.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
 
-
             xrTableCell_SUM_SoTienHM.DataBindings.Add("Text", this.DataSource, "sotientrongmotnam");
             xrTableCell_SUM_SoTienHM.Summary.FormatString = "{0:### ### ### ### ### ###}";
             xrTableCell_SUM_SoTienHM.Summary.IgnoreNullValues = true;
             xrTableCell_SUM_SoTienHM.Summary.Func = SummaryFunc.Sum;
             xrTableCell_SUM_SoTienHM.Summary.Running = SummaryRunning.Report;
             xrTableCell_SUM_SoTienHM.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+
+            xrTableCell_SUM_SoHMNam.DataBindings.Add("Text", this.DataSource, "haomonnamtruocchuyensang");
+            xrTableCell_SUM_SoHMNam.Summary.FormatString = "{0:### ### ### ### ### ###}";
+            xrTableCell_SUM_SoHMNam.Summary.IgnoreNullValues = true;
+            xrTableCell_SUM_SoHMNam.Summary.Func = SummaryFunc.Sum;
+            xrTableCell_SUM_SoHMNam.Summary.Running = SummaryRunning.Report;
+            xrTableCell_SUM_SoHMNam.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+
+            xrTableCell_SUM_SoHaoMonNamNay.DataBindings.Add("Text", this.DataSource, "haomon_1nam");
+            xrTableCell_SUM_SoHaoMonNamNay.Summary.FormatString = "{0:### ### ### ### ### ###}";
+            xrTableCell_SUM_SoHaoMonNamNay.Summary.IgnoreNullValues = true;
+            xrTableCell_SUM_SoHaoMonNamNay.Summary.Func = SummaryFunc.Sum;
+            xrTableCell_SUM_SoHaoMonNamNay.Summary.Running = SummaryRunning.Report;
+            xrTableCell_SUM_SoHaoMonNamNay.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+
+            xrTableCell_SUM_SoHMLuyKe.DataBindings.Add("Text", this.DataSource, "haomonluyke");
+            xrTableCell_SUM_SoHMLuyKe.Summary.FormatString = "{0:### ### ### ### ### ###}";
+            xrTableCell_SUM_SoHMLuyKe.Summary.IgnoreNullValues = true;
+            xrTableCell_SUM_SoHMLuyKe.Summary.Func = SummaryFunc.Sum;
+            xrTableCell_SUM_SoHMLuyKe.Summary.Running = SummaryRunning.Report;
+            xrTableCell_SUM_SoHMLuyKe.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+
+            xrTableCell_SUM_GiaTriConLai.DataBindings.Add("Text", this.DataSource, "giatriconlai_final");
+            xrTableCell_SUM_GiaTriConLai.Summary.FormatString = "{0:### ### ### ### ### ###}";
+            xrTableCell_SUM_GiaTriConLai.Summary.IgnoreNullValues = true;
+            xrTableCell_SUM_GiaTriConLai.Summary.Func = SummaryFunc.Sum;
+            xrTableCell_SUM_GiaTriConLai.Summary.Running = SummaryRunning.Report;
+            xrTableCell_SUM_GiaTriConLai.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
         }
     }
 }
