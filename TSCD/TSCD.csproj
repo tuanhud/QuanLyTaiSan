@@ -92,6 +92,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataFilter\ReportFilter\SoTaiSanCoDinh_DataFilter.cs" />
+    <Compile Include="DataFilter\ReportFilter\SoTheoDoiTaiSanCoDinhTaiNoiSuDung_DataFilter.cs" />
     <Compile Include="DataFilter\SearchFilter\CoSoSF.cs" />
     <Compile Include="DataFilter\SearchFilter\DayySF.cs" />
     <Compile Include="DataFilter\SearchFilter\DonViTaiSanFS.cs" />

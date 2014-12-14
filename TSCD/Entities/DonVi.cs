@@ -60,7 +60,7 @@ namespace TSCD.Entities
         /// </summary>
         public virtual ICollection<CTTaiSan> cttaisan_dangsudungs { get; set; }
 
-        
+
         public virtual ICollection<LogTangGiamTaiSan> logtaisan_dangquanlys { get; set; }
         public virtual ICollection<LogTangGiamTaiSan> logtaisan_dangsudungs { get; set; }
         #endregion
@@ -84,8 +84,14 @@ namespace TSCD.Entities
         /// <returns></returns>
         public IQueryable<CTTaiSan> getAllCTTaiSanRecursive()
         {
-            List<Guid> tmp = this.getAllChildsRecursive(true).Select(c=>c.id).ToList();
+            List<Guid> tmp = this.getAllChildsRecursive(true).Select(c => c.id).ToList();
             return CTTaiSan.getQuery().Where(c => c.soluong > 0 && ((c.donviquanly != null && tmp.Contains(c.donviquanly.id)) || (c.donvisudung != null && tmp.Contains(c.donvisudung.id))));
+        }
+
+        public IQueryable<CTTaiSan> getAllCTTaiSanRecursive_All(Boolean included_root_in_result = true)
+        {
+            List<Guid> tmp = this.getAllChildsRecursive(true).Select(c => c.id).ToList();
+            return CTTaiSan.getQuery().Where(c => ((c.donviquanly != null && tmp.Contains(c.donviquanly.id)) || (c.donvisudung != null && tmp.Contains(c.donvisudung.id))));
         }
         /// <summary>
         /// Lấy tất cả đám con cháu Đơn vị dưới root
@@ -93,7 +99,7 @@ namespace TSCD.Entities
         /// <param name="root"></param>
         /// <param name="included_root_in_result"></param>
         /// <returns></returns>
-        public List<DonVi> getAllChildsRecursive(Boolean included_root_in_result=true)
+        public List<DonVi> getAllChildsRecursive(Boolean included_root_in_result = true)
         {
             List<DonVi> tmp = new List<DonVi>();
             if (included_root_in_result)
@@ -121,7 +127,7 @@ namespace TSCD.Entities
         }
         public override string niceName()
         {
-            
+
             return loaidonvi.ten + ": " + ten;
         }
         protected override void init()

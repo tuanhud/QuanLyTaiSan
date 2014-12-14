@@ -100,6 +100,7 @@
             this.dateEdit_TuNgay.EditValue = null;
             this.dateEdit_TuNgay.Location = new System.Drawing.Point(116, 38);
             this.dateEdit_TuNgay.Name = "dateEdit_TuNgay";
+            this.dateEdit_TuNgay.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
             this.dateEdit_TuNgay.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateEdit_TuNgay.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -128,6 +129,7 @@
             this.dateEdit_DenNgay.EditValue = null;
             this.dateEdit_DenNgay.Location = new System.Drawing.Point(116, 64);
             this.dateEdit_DenNgay.Name = "dateEdit_DenNgay";
+            this.dateEdit_DenNgay.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
             this.dateEdit_DenNgay.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateEdit_DenNgay.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -249,10 +251,15 @@
             this.dateEdit_Nam.EditValue = null;
             this.dateEdit_Nam.Location = new System.Drawing.Point(116, 116);
             this.dateEdit_Nam.Name = "dateEdit_Nam";
+            this.dateEdit_Nam.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
             this.dateEdit_Nam.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateEdit_Nam.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEdit_Nam.Properties.DisplayFormat.FormatString = "yyyy";
+            this.dateEdit_Nam.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dateEdit_Nam.Properties.EditFormat.FormatString = "yyyy";
+            this.dateEdit_Nam.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dateEdit_Nam.Properties.Mask.EditMask = "yyyy";
             this.dateEdit_Nam.Properties.VistaCalendarViewStyle = ((DevExpress.XtraEditors.VistaCalendarViewStyle)((DevExpress.XtraEditors.VistaCalendarViewStyle.YearsGroupView | DevExpress.XtraEditors.VistaCalendarViewStyle.CenturyView)));
             this.dateEdit_Nam.Size = new System.Drawing.Size(180, 20);

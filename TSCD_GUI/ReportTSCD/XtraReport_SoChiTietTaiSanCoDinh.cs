@@ -19,17 +19,23 @@ namespace TSCD_GUI.ReportTSCD
         public XtraReport_SoChiTietTaiSanCoDinh(Object Data, int Year, String TenDonVi)
         {
             InitializeComponent();
-            this.DataSource = Data;
-            xrLabel_Nam.Text = "Năm " + Year.ToString();
-            xrLabel_PhongBan.Text = "Phòng ban: " + TenDonVi;
-            IntReport();
+            if (!Object.Equals(Data, null))
+            {
+                this.DataSource = Data;
+                xrLabel_Nam.Text = "Năm " + Year.ToString();
+                xrLabel_PhongBan.Text = "Phòng ban: " + TenDonVi;
+                IntReport();
+            }
         }
 
         public XtraReport_SoChiTietTaiSanCoDinh(Object Data)
         {
             InitializeComponent();
-            this.DataSource = Data;
-            IntReport();
+            if (!Object.Equals(Data, null))
+            {
+                this.DataSource = Data;
+                IntReport();
+            }
         }
 
         private void IntReport()

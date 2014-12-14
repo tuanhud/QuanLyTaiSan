@@ -297,7 +297,7 @@ namespace TSCD_GUI.ReportTSCD
                         DevExpress.Skins.SkinManager.EnableFormSkins();
 
                         var DonViSelected = ucComboBoxDonVi_ChonDonVi.DonVi;
-                        Object Data = new Object();
+                        Object Data = null;
                         String strTenDonVi = "";
                         if (!Object.Equals(DonViSelected, null))
                         {
@@ -369,7 +369,7 @@ namespace TSCD_GUI.ReportTSCD
                         DevExpress.Skins.SkinManager.EnableFormSkins();
 
                         var DonViSelected = ucComboBoxDonVi_ChonDonVi.DonVi;
-                        Object Data = new Object();
+                        Object Data = null;
                         String strTenDonVi = "";
                         if (!Object.Equals(DonViSelected, null))
                         {
@@ -426,12 +426,6 @@ namespace TSCD_GUI.ReportTSCD
             MyNewDbContext = new OurDBContext(TSCD.Global.working_database.get_connection_string(), false);
         }
 
-        /// <summary>
-        /// Cai nay khong biet :v
-        /// </summary>
-        /// <param name="From"></param>
-        /// <param name="To"></param>
-        /// <returns></returns>
         private List<TK_TangGiam_TheoLoaiTS> GetData_BaoCaoTangGiamTaiSanCoDinh(DateTime From, DateTime To)
         {
             ResetDbContext();
@@ -489,18 +483,12 @@ namespace TSCD_GUI.ReportTSCD
             return Data;
         }
 
-        /// <summary>
-        /// Sai la cai chac, biet cho sai nhung khong them sua :v
-        /// </summary>
-        /// <param name="ListLoaiTaiSan"></param>
-        /// <param name="ListCoSo"></param>
-        /// <param name="Year"></param>
-        /// <returns></returns>
         private Object GetData_SoTaiSanCoDinh(List<Guid> ListLoaiTaiSan, List<Guid> ListCoSo, int Year)
         {
             ResetDbContext();
             IQueryable<CTTaiSan> IQueryable = MyNewDbContext.CTTAISANS.AsQueryable<CTTaiSan>();
-            IQueryable = IQueryable.Where(x => x.soluong > 0);
+            //get luon so luong = 0, vi tinh tang giam
+            //IQueryable = IQueryable.Where(x => x.soluong > 0);
             IQueryable = IQueryable.Where(item => Object.Equals(item.ngay, null) == false);
             IQueryable = IQueryable.Where(item => ((DateTime)item.ngay).Year <= Year);
 
@@ -512,57 +500,93 @@ namespace TSCD_GUI.ReportTSCD
             //COSO
             if (ListCoSo != null && ListCoSo.Count > 0)
             {
-                List<Guid> list_phong = Phong.getQuery().Where(x => ListCoSo.Contains(x.vitri.coso.id)).Select(c => c.id).ToList();
-                IQueryable = IQueryable.Where(x => ListCoSo.Contains(x.vitri.coso.id) || list_phong.Contains(x.phong.id));
+                List<Guid> ListPhong = Phong.getQuery().Where(x => ListCoSo.Contains(x.vitri.coso.id)).Select(c => c.id).ToList();
+                IQueryable = IQueryable.Where(x => ListCoSo.Contains(x.vitri.coso.id) || ListPhong.Contains(x.phong.id) || Object.Equals(x.vitri, null));
             }
+            //var DataFiltered_Groups = IQueryable.OrderByDescending(item => item.date_create).DistinctBy(item => new { item.taisan_id, item.tinhtrang_id }).GroupBy(item => item.taisan_id).ToList();
+            var DataFiltered_Groups = IQueryable.OrderByDescending(item => item.date_create).GroupBy(item => item.taisan_id).ToList();
 
-            var Data = IQueryable.OrderByDescending(item => item.date_create).DistinctBy(item => item.taisan_id).ToList().Select(x => new
+            List<TSCD.DataFilter.ReportFilter.SoTaiSanCoDinh_DataFilter> Data = new List<TSCD.DataFilter.ReportFilter.SoTaiSanCoDinh_DataFilter>();
+            foreach (var _Group in DataFiltered_Groups)
             {
-                //Phai dung it nhat 2 chi tiet tai san cua tai san nay de tinh tang, giam cua tai san
+                int intCount = _Group.Count();
+                TSCD.DataFilter.ReportFilter.SoTaiSanCoDinh_DataFilter item = new TSCD.DataFilter.ReportFilter.SoTaiSanCoDinh_DataFilter();
+                if (intCount == 1)
+                {
+                    //CTTS nay la tang tai san, neu la giam thi ... -_-
+                    item.ngay = _Group.ElementAt(0).ngay;
+                    item.sohieu_ct = _Group.ElementAt(0).chungtu != null ? _Group.ElementAt(0).chungtu.sohieu : "";
+                    item.ten = _Group.ElementAt(0).taisan.ten;
+                    item.nuocsx = _Group.ElementAt(0).taisan.nuocsx;
+                    item.dongia_tang = !_Group.ElementAt(0).tinhtrang.giam_taisan ? _Group.ElementAt(0).taisan.dongia : 0;
+                    item.sohieu_ct_tang = !_Group.ElementAt(0).tinhtrang.giam_taisan ? (_Group.ElementAt(0).chungtu != null ? _Group.ElementAt(0).chungtu.sohieu : "") : "";
+                    item.ngay_ct_tang = !_Group.ElementAt(0).tinhtrang.giam_taisan ? (_Group.ElementAt(0).chungtu != null ? _Group.ElementAt(0).chungtu.ngay : null) : null;
+                    item.sohieu_ct_giam = _Group.ElementAt(0).tinhtrang.giam_taisan ? (_Group.ElementAt(0).chungtu != null ? _Group.ElementAt(0).chungtu.sohieu : "") : "";
+                    item.ngay_ct_giam = _Group.ElementAt(0).tinhtrang.giam_taisan ? (_Group.ElementAt(0).chungtu != null ? _Group.ElementAt(0).chungtu.ngay : null) : null;
+                    item.ghichu = _Group.ElementAt(0).tinhtrang.giam_taisan ? _Group.ElementAt(0).mota : null;
+                    item.phantramhaomon_32 = Object.Equals(_Group.ElementAt(0).taisan, null) ? 0 : Object.Equals(_Group.ElementAt(0).taisan.loaitaisan, null) ? 0 : _Group.ElementAt(0).taisan.loaitaisan.phantramhaomon_32 * 100;
+                    item.sotientrongmotnam = Object.Equals(_Group.ElementAt(0).taisan, null) ? 0 : Object.Equals(_Group.ElementAt(0).taisan.loaitaisan, null) ? 0 : Object.Equals(_Group.ElementAt(0).taisan.loaitaisan.phantramhaomon_32, null) ? 0 : (long)(_Group.ElementAt(0).taisan.dongia * _Group.ElementAt(0).taisan.loaitaisan.phantramhaomon_32);
+                    item.haomon_1nam = _Group.ElementAt(0).sonamsudungconlai_final(Year) <= 0 ? 0 : _Group.ElementAt(0).haomon_1nam;
+                    item.giatriconlai_final = _Group.ElementAt(0).giatriconlai_final(Year);
+                    item.haomonluyke = _Group.ElementAt(0).haomonluyke(Year);
+                    item.haomonnamtruocchuyensang = _Group.ElementAt(0).haomonnamtruocchuyensang(Year);
 
-                id = x.id,
-                ngay = x.ngay,
-                //Chung tu gi day (tang hay giam, phu thuoc tinh trang cua chi tiet tai san) -_-
-                sohieu_ct = x.chungtu != null ? x.chungtu.sohieu : "",
-                ten = x.taisan.ten,
-                nuocsx = x.taisan.nuocsx,
+                    Data.Add(item);
+                }
+                else if (intCount > 1)
+                {
+                    //Do giam tai san roi la khong duoc chuyen tinh trang nua, nen chi lay index 1 va 2
+                    /*int intIndexTang = -1, intIndexGiam = -1;
+                    for (int i = 0; i < intCount; i++)
+                    {
+                        //Lay 2 cai tang giam dau tien
+                        if (intIndexTang != -1 && intIndexGiam != -1)
+                            break;
+                        if (_Group.ElementAt(i).tinhtrang.giam_taisan)
+                        {
+                            if (intIndexGiam == -1)
+                                intIndexGiam = i;
+                        }
+                        else
+                        {
+                            if (intIndexTang == -1)
+                                intIndexTang = i;
+                        }
+                    }*/
+                    //0 hay 1 dieu duoc
+                    item.ngay = _Group.ElementAt(0).ngay;
+                    item.sohieu_ct = _Group.ElementAt(1).chungtu != null ? _Group.ElementAt(1).chungtu.sohieu : "";
+                    item.ten = _Group.ElementAt(0).taisan.ten;
+                    item.nuocsx = _Group.ElementAt(0).taisan.nuocsx;
+                    item.dongia_tang = !_Group.ElementAt(1).tinhtrang.giam_taisan ? _Group.ElementAt(1).taisan.dongia : 0;
+                    item.sohieu_ct_tang = !_Group.ElementAt(1).tinhtrang.giam_taisan ? (_Group.ElementAt(1).chungtu != null ? _Group.ElementAt(1).chungtu.sohieu : "") : "";
+                    item.ngay_ct_tang = !_Group.ElementAt(1).tinhtrang.giam_taisan ? (_Group.ElementAt(1).chungtu != null ? _Group.ElementAt(1).chungtu.ngay : null) : null;
+                    item.sohieu_ct_giam = _Group.ElementAt(0).tinhtrang.giam_taisan ? (_Group.ElementAt(0).chungtu != null ? _Group.ElementAt(0).chungtu.sohieu : "") : "";
+                    item.ngay_ct_giam = _Group.ElementAt(0).tinhtrang.giam_taisan ? (_Group.ElementAt(0).chungtu != null ? _Group.ElementAt(0).chungtu.ngay : null) : null;
+                    item.ghichu = _Group.ElementAt(0).tinhtrang.giam_taisan ? _Group.ElementAt(0).mota : null;
+                    item.phantramhaomon_32 = Object.Equals(_Group.ElementAt(0).taisan, null) ? 0 : Object.Equals(_Group.ElementAt(0).taisan.loaitaisan, null) ? 0 : _Group.ElementAt(0).taisan.loaitaisan.phantramhaomon_32 * 100;
+                    item.sotientrongmotnam = Object.Equals(_Group.ElementAt(0).taisan, null) ? 0 : Object.Equals(_Group.ElementAt(0).taisan.loaitaisan, null) ? 0 : Object.Equals(_Group.ElementAt(0).taisan.loaitaisan.phantramhaomon_32, null) ? 0 : (long)(_Group.ElementAt(0).taisan.dongia * _Group.ElementAt(0).taisan.loaitaisan.phantramhaomon_32);
+                    item.haomon_1nam = _Group.ElementAt(0).sonamsudungconlai_final(Year) <= 0 ? 0 : _Group.ElementAt(0).haomon_1nam;
+                    item.giatriconlai_final = _Group.ElementAt(0).giatriconlai_final(Year);
+                    item.haomonluyke = _Group.ElementAt(0).haomonluyke(Year);
+                    item.haomonnamtruocchuyensang = _Group.ElementAt(0).haomonnamtruocchuyensang(Year);
 
-                //Kiem chi tiet tai san ma tinh trang la tang tai san
-                dongia_tang = !x.tinhtrang.giam_taisan ? (long?)x.taisan.dongia : null,
-                sohieu_ct_tang = !x.tinhtrang.giam_taisan ? (x.chungtu != null ? x.chungtu.sohieu : "") : "",
-                ngay_ct_tang = !x.tinhtrang.giam_taisan ? (x.chungtu != null ? x.chungtu.ngay : null) : null,
-
-                //Kiem chi tiet tai san ma tinh trang la tang tai san
-                sohieu_ct_giam = x.tinhtrang.giam_taisan ? (x.chungtu != null ? x.chungtu.sohieu : "") : "",
-                ngay_ct_giam = x.tinhtrang.giam_taisan ? (x.chungtu != null ? x.chungtu.ngay : null) : null,
-                ghichu = x.tinhtrang.giam_taisan ? x.mota : null,
-
-                phantramhaomon_32 = Object.Equals(x.taisan, null) ? 0 : Object.Equals(x.taisan.loaitaisan, null) ? 0 : x.taisan.loaitaisan.phantramhaomon_32 * 100,
-                sotientrongmotnam = Object.Equals(x.taisan, null) ? 0 : Object.Equals(x.taisan.loaitaisan, null) ? 0 : Object.Equals(x.taisan.loaitaisan.phantramhaomon_32, null) ? 0 : (long)(x.taisan.dongia * x.taisan.loaitaisan.phantramhaomon_32),
-
-                haomon_1nam = x.sonamsudungconlai_final(Year) <= 0 ? 0 : x.haomon_1nam,
-                giatriconlai_final = x.giatriconlai_final(Year),
-                haomonluyke = x.haomonluyke(Year),
-                haomonnamtruocchuyensang = x.haomonnamtruocchuyensang(Year),
-            }).ToList();
-            return Data;
+                    Data.Add(item);
+                }
+            }
+            return Data.OrderBy(item => item.ngay).ToList(); ;
         }
 
-        /// <summary>
-        /// Cai nay dung ne :v
-        /// </summary>
-        /// <param name="DonViId"></param>
-        /// <param name="Year"></param>
-        /// <returns></returns>
         private Object GetData_SoChiTietTaiSanCoDinh(Guid DonViId, int Year)
         {
             ResetDbContext();
             DonVi DonViSelected = MyNewDbContext.DONVIS.Find(DonViId);
             if (Object.Equals(DonViSelected, null))
             {
-                return new Object();
+                return null;
             }
-            var Data = DonViSelected.cttaisans.Where(item => Object.Equals(item.ngay, null) == false).Where(item => ((DateTime)item.ngay).Year <= Year).OrderByDescending(item => item.date_create).DistinctBy(item => item.taisan_id).Select(x => new
+            //get so luong > 0 cung duoc
+            var Data = DonViSelected.getAllCTTaiSanRecursive().Where(item => Object.Equals(item.ngay, null) == false).Where(item => ((DateTime)item.ngay).Year <= Year).OrderByDescending(item => item.date_create).DistinctBy(item => item.taisan_id).ToList().Select(x => new
             {
                 ten = x.taisan.ten,
                 nuocsx = x.taisan.nuocsx,
@@ -574,55 +598,101 @@ namespace TSCD_GUI.ReportTSCD
                 haomonluyke = x.haomonluyke(Year),
                 haomonnamtruocchuyensang = x.haomonnamtruocchuyensang(Year),
                 haomon_1nam = x.sonamsudungconlai_final(Year) <= 0 ? 0 : x.haomon_1nam,
-            }).ToList();
+            }).OrderBy(item => item.ngay).ToList();
             return Data;
         }
 
-        /// <summary>
-        /// Sai la cai chac, biet cho sai nhung khong them sua :v
-        /// </summary>
-        /// <param name="DonViId"></param>
-        /// <returns></returns>
         private Object GetData_SoTheoDoiTaiSanCoDinhTaiNoiSuDung(Guid DonViId)
         {
             ResetDbContext();
             int Year = DateTime.Today.Year;
-            IQueryable<CTTaiSan> IQueryable = MyNewDbContext.CTTAISANS.AsQueryable<CTTaiSan>();
-            IQueryable = IQueryable.Where(x => x.soluong > 0);
-            IQueryable = IQueryable.Where(item => Object.Equals(item.ngay, null) == false);
-            IQueryable = IQueryable.Where(item => ((DateTime)item.ngay).Year <= Year);
-
             DonVi DonViSelected = MyNewDbContext.DONVIS.Find(DonViId);
 
             if (Object.Equals(DonViSelected, null))
             {
-                return new Object();
+                return null;
             }
-            List<Guid> ListGuid = DonViSelected.getAllChildsRecursive().Select(x => x.id).ToList();
-            IQueryable = IQueryable.Where(x => x.donviquanly != null && ListGuid.Contains(x.donviquanly.id));
+            var IQueryable = DonViSelected.getAllCTTaiSanRecursive_All();
+            IQueryable = IQueryable.Where(item => Object.Equals(item.ngay, null) == false);
+            IQueryable = IQueryable.Where(item => ((DateTime)item.ngay).Year <= Year);
 
-            var Data = DonViSelected.cttaisans.Where(item => Object.Equals(item.ngay, null) == false).Where(item => ((DateTime)item.ngay).Year <= Year).OrderByDescending(item => item.date_create).DistinctBy(item => item.taisan_id).Select(x => new
+            var DataFiltered_Groups = IQueryable.OrderByDescending(item => item.date_create).GroupBy(item => item.taisan_id).ToList();
+
+            List<TSCD.DataFilter.ReportFilter.SoTheoDoiTaiSanCoDinhTaiNoiSuDung_DataFilter> Data = new List<TSCD.DataFilter.ReportFilter.SoTheoDoiTaiSanCoDinhTaiNoiSuDung_DataFilter>();
+            foreach (var _Group in DataFiltered_Groups)
             {
-                //Phai dung nhung chi tiet tai san cua tai san de tinh toan tang, giam
-                sohieu_ct = x.chungtu != null ? x.chungtu.sohieu : "",
-                ngay_ct = x.chungtu != null ? x.chungtu.ngay : null,
+                int intCount = _Group.Count();
+                TSCD.DataFilter.ReportFilter.SoTheoDoiTaiSanCoDinhTaiNoiSuDung_DataFilter item = new TSCD.DataFilter.ReportFilter.SoTheoDoiTaiSanCoDinhTaiNoiSuDung_DataFilter();
+                if (intCount == 1)
+                {
+                    //CTTS nay la tang tai san, neu la giam thi ... -_-
+                    item.sohieu_ct = _Group.ElementAt(0).chungtu != null ? _Group.ElementAt(0).chungtu.sohieu : "";
+                    item.ngay_ct = _Group.ElementAt(0).chungtu != null ? _Group.ElementAt(0).chungtu.ngay : null;
 
-                ten = x.taisan.ten,
-                donvitinh = x.taisan.loaitaisan.donvitinh != null ? x.taisan.loaitaisan.donvitinh.ten : "",
+                    item.ten = _Group.ElementAt(0).taisan.ten;
+                    item.donvitinh = _Group.ElementAt(0).taisan.loaitaisan.donvitinh != null ? _Group.ElementAt(0).taisan.loaitaisan.donvitinh.ten : "";
 
-                //Phai kiem chi tiet tai san cua tai san nay ma no lam tang tai san
-                soluong_tang = !x.tinhtrang.giam_taisan ? (int?)x.soluong : null,
-                dongia_tang = !x.tinhtrang.giam_taisan ? (long?)x.taisan.dongia : null,
-                thanhtien_tang = !x.tinhtrang.giam_taisan ? (long?)x.soluong * x.taisan.dongia : null,
+                    item.soluong_tang = !_Group.ElementAt(0).tinhtrang.giam_taisan ? (int?)_Group.ElementAt(0).soluong : null;
+                    item.dongia_tang = !_Group.ElementAt(0).tinhtrang.giam_taisan ? (long?)_Group.ElementAt(0).taisan.dongia : null;
+                    item.thanhtien_tang = !_Group.ElementAt(0).tinhtrang.giam_taisan ? (long?)_Group.ElementAt(0).soluong * _Group.ElementAt(0).taisan.dongia : null;
 
-                //Chi tiet tai san cua tai san nay ma no lam giam tai san
-                soluong_giam = x.tinhtrang.giam_taisan ? (int?)x.soluong : null,
-                dongia_giam = x.tinhtrang.giam_taisan ? (long?)x.taisan.dongia : null,
-                thanhtien_giam = x.tinhtrang.giam_taisan ? (long?)x.soluong * x.taisan.dongia : null,
+                    item.soluong_giam = _Group.ElementAt(0).tinhtrang.giam_taisan ? (int?)_Group.ElementAt(0).soluong : null;
+                    item.dongia_giam = _Group.ElementAt(0).tinhtrang.giam_taisan ? (long?)_Group.ElementAt(0).taisan.dongia : null;
+                    item.thanhtien_giam = _Group.ElementAt(0).tinhtrang.giam_taisan ? (long?)_Group.ElementAt(0).soluong * _Group.ElementAt(0).taisan.dongia : null;
 
-                ghichu = x.tinhtrang.giam_taisan ? x.mota : "",
-            }).ToList();
-            return Data;
+                    item.ghichu = _Group.ElementAt(0).tinhtrang.giam_taisan ? _Group.ElementAt(0).mota : "";
+
+                    Data.Add(item);
+                }
+                else if (intCount > 1)
+                {
+                    //Do giam tai san roi la khong duoc chuyen tinh trang nua, nen chi lay index 1 va 2
+                    /*int intIndexTang = -1, intIndexGiam = -1;
+                    for (int i = 0; i < intCount; i++)
+                    {
+                        //Lay 2 cai tang giam dau tien
+                        if (intIndexTang != -1 && intIndexGiam != -1)
+                            break;
+                        if (_Group.ElementAt(i).tinhtrang.giam_taisan)
+                        {
+                            if (intIndexGiam == -1)
+                                intIndexGiam = i;
+                        }
+                        else
+                        {
+                            if (intIndexTang == -1)
+                                intIndexTang = i;
+                        }
+                    }*/
+
+                    item.sohieu_ct = _Group.ElementAt(1).chungtu != null ? _Group.ElementAt(1).chungtu.sohieu : "";
+                    item.ngay_ct = _Group.ElementAt(1).chungtu != null ? _Group.ElementAt(1).chungtu.ngay : null;
+
+                    item.ten = _Group.ElementAt(0).taisan.ten;
+                    item.donvitinh = _Group.ElementAt(0).taisan.loaitaisan.donvitinh != null ? _Group.ElementAt(0).taisan.loaitaisan.donvitinh.ten : "";
+
+                    //Co the phai lay record cuoi
+                    item.soluong_tang = !_Group.ElementAt(1).tinhtrang.giam_taisan ? (int?)_Group.ElementAt(1).soluong : null;
+                    item.dongia_tang = !_Group.ElementAt(1).tinhtrang.giam_taisan ? (long?)_Group.ElementAt(1).taisan.dongia : null;
+                    item.thanhtien_tang = !_Group.ElementAt(1).tinhtrang.giam_taisan ? (long?)_Group.ElementAt(1).soluong * _Group.ElementAt(1).taisan.dongia : null;
+
+                    //Record cuoi
+                    /*
+                    item.soluong_tang = !_Group.ElementAt(intCount - 1).tinhtrang.giam_taisan ? (int?)_Group.ElementAt(intCount - 1).soluong : null;
+                    item.dongia_tang = !_Group.ElementAt(intCount - 1).tinhtrang.giam_taisan ? (long?)_Group.ElementAt(intCount - 1).taisan.dongia : null;
+                    item.thanhtien_tang = !_Group.ElementAt(intCount - 1).tinhtrang.giam_taisan ? (long?)_Group.ElementAt(intCount - 1).soluong * _Group.ElementAt(intCount - 1).taisan.dongia : null;
+                    */
+
+                    item.soluong_giam = _Group.ElementAt(0).tinhtrang.giam_taisan ? (int?)_Group.ElementAt(0).soluong : null;
+                    item.dongia_giam = _Group.ElementAt(0).tinhtrang.giam_taisan ? (long?)_Group.ElementAt(0).taisan.dongia : null;
+                    item.thanhtien_giam = _Group.ElementAt(0).tinhtrang.giam_taisan ? (long?)_Group.ElementAt(0).soluong * _Group.ElementAt(0).taisan.dongia : null;
+
+                    item.ghichu = _Group.ElementAt(0).tinhtrang.giam_taisan ? _Group.ElementAt(0).mota : "";
+
+                    Data.Add(item);
+                }
+            }
+            return Data.OrderBy(item => item.ngay_ct).ToList();
         }
 
         private void ShowAndHide(Boolean _Enable)

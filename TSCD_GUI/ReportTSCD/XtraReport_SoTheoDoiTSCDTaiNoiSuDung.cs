@@ -20,16 +20,22 @@ namespace TSCD_GUI.ReportTSCD
         public XtraReport_SoTheoDoiTSCDTaiNoiSuDung(Object Data, String strTenDonVi)
         {
             InitializeComponent();
-            this.DataSource = Data;
-            xrLabel_PhongBan.Text = "Phòng ban: " + strTenDonVi;
-            IntReport();
+            if (!Object.Equals(Data, null))
+            {
+                this.DataSource = Data;
+                xrLabel_PhongBan.Text = "Phòng ban: " + strTenDonVi;
+                IntReport();
+            }
         }
 
         public XtraReport_SoTheoDoiTSCDTaiNoiSuDung(Object Data)
         {
             InitializeComponent();
-            this.DataSource = Data;
-            IntReport();
+            if (!Object.Equals(Data, null))
+            {
+                this.DataSource = Data;
+                IntReport();
+            }
         }
 
         private void IntReport()
