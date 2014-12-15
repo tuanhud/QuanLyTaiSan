@@ -510,20 +510,37 @@ namespace TSCD_GUI.ReportTSCD
             foreach (var _Group in DataFiltered_Groups)
             {
                 int intCount = _Group.Count();
-                TSCD.DataFilter.ReportFilter.SoTaiSanCoDinh_DataFilter item = new TSCD.DataFilter.ReportFilter.SoTaiSanCoDinh_DataFilter();
+
                 if (intCount == 1)
                 {
+                    TSCD.DataFilter.ReportFilter.SoTaiSanCoDinh_DataFilter item = new TSCD.DataFilter.ReportFilter.SoTaiSanCoDinh_DataFilter();
                     //CTTS nay la tang tai san, neu la giam thi ... -_-
                     item.ngay = _Group.ElementAt(0).ngay;
                     item.sohieu_ct = _Group.ElementAt(0).chungtu != null ? _Group.ElementAt(0).chungtu.sohieu : "";
                     item.ten = _Group.ElementAt(0).taisan.ten;
                     item.nuocsx = _Group.ElementAt(0).taisan.nuocsx;
+
+                    //Do chi co 1 CTTS ma no giam (dac thu la chuyen tinh trang soluong dau = soluong chuyen se khong phat
+                    //CTTS moi) nen du lieu tang = giam
+                    if (_Group.ElementAt(0).tinhtrang.giam_taisan)
+                    {
+                        item.sohieu_ct_giam = _Group.ElementAt(0).chungtu != null ? _Group.ElementAt(0).chungtu.sohieu : "";
+                        item.ngay_ct_giam = _Group.ElementAt(0).chungtu != null ? _Group.ElementAt(0).chungtu.ngay : null;
+                        item.ghichu = _Group.ElementAt(0).mota;
+                    }
+                    //Giam nen lay giam vo tang luon, gia tri ban dau
+                    item.dongia_tang = _Group.ElementAt(0).taisan.dongia;
+                    item.sohieu_ct_tang = _Group.ElementAt(0).chungtu != null ? _Group.ElementAt(0).chungtu.sohieu : "";
+                    item.ngay_ct_tang = _Group.ElementAt(0).chungtu != null ? _Group.ElementAt(0).chungtu.ngay : null;
+
                     item.dongia_tang = !_Group.ElementAt(0).tinhtrang.giam_taisan ? _Group.ElementAt(0).taisan.dongia : 0;
                     item.sohieu_ct_tang = !_Group.ElementAt(0).tinhtrang.giam_taisan ? (_Group.ElementAt(0).chungtu != null ? _Group.ElementAt(0).chungtu.sohieu : "") : "";
                     item.ngay_ct_tang = !_Group.ElementAt(0).tinhtrang.giam_taisan ? (_Group.ElementAt(0).chungtu != null ? _Group.ElementAt(0).chungtu.ngay : null) : null;
+
                     item.sohieu_ct_giam = _Group.ElementAt(0).tinhtrang.giam_taisan ? (_Group.ElementAt(0).chungtu != null ? _Group.ElementAt(0).chungtu.sohieu : "") : "";
                     item.ngay_ct_giam = _Group.ElementAt(0).tinhtrang.giam_taisan ? (_Group.ElementAt(0).chungtu != null ? _Group.ElementAt(0).chungtu.ngay : null) : null;
                     item.ghichu = _Group.ElementAt(0).tinhtrang.giam_taisan ? _Group.ElementAt(0).mota : null;
+
                     item.phantramhaomon_32 = Object.Equals(_Group.ElementAt(0).taisan, null) ? 0 : Object.Equals(_Group.ElementAt(0).taisan.loaitaisan, null) ? 0 : _Group.ElementAt(0).taisan.loaitaisan.phantramhaomon_32 * 100;
                     item.sotientrongmotnam = Object.Equals(_Group.ElementAt(0).taisan, null) ? 0 : Object.Equals(_Group.ElementAt(0).taisan.loaitaisan, null) ? 0 : Object.Equals(_Group.ElementAt(0).taisan.loaitaisan.phantramhaomon_32, null) ? 0 : (long)(_Group.ElementAt(0).taisan.dongia * _Group.ElementAt(0).taisan.loaitaisan.phantramhaomon_32);
                     item.haomon_1nam = _Group.ElementAt(0).sonamsudungconlai_final(Year) <= 0 ? 0 : _Group.ElementAt(0).haomon_1nam;
@@ -535,43 +552,66 @@ namespace TSCD_GUI.ReportTSCD
                 }
                 else if (intCount > 1)
                 {
-                    //Do giam tai san roi la khong duoc chuyen tinh trang nua, nen chi lay index 1 va 2
-                    /*int intIndexTang = -1, intIndexGiam = -1;
-                    for (int i = 0; i < intCount; i++)
+                    //Tai san nay co so luong > 1 nen se co n dong cho tai san nay
+                    foreach (var CTTS in _Group)
                     {
-                        //Lay 2 cai tang giam dau tien
-                        if (intIndexTang != -1 && intIndexGiam != -1)
-                            break;
-                        if (_Group.ElementAt(i).tinhtrang.giam_taisan)
+                        if (CTTS.tinhtrang.giam_taisan)
                         {
-                            if (intIndexGiam == -1)
-                                intIndexGiam = i;
+                            //Giam
+                            for (int i = 1; i <= CTTS.soluong; i++)
+                            {
+                                TSCD.DataFilter.ReportFilter.SoTaiSanCoDinh_DataFilter item = new TSCD.DataFilter.ReportFilter.SoTaiSanCoDinh_DataFilter();
+
+                                item.ngay = CTTS.ngay;
+                                item.sohieu_ct = CTTS.chungtu != null ? CTTS.chungtu.sohieu : "";
+                                item.ten = CTTS.taisan.ten;
+                                item.nuocsx = CTTS.taisan.nuocsx;
+
+                                item.dongia_tang = CTTS.taisan.dongia;
+                                item.sohieu_ct_tang = CTTS.chungtu != null ? CTTS.chungtu.sohieu : "";
+                                item.ngay_ct_tang = CTTS.chungtu != null ? CTTS.chungtu.ngay : null;
+
+                                item.sohieu_ct_giam = CTTS.chungtu != null ? CTTS.chungtu.sohieu : "";
+                                item.ngay_ct_giam = CTTS.chungtu != null ? CTTS.chungtu.ngay : null;
+                                item.ghichu = CTTS.mota;
+
+                                item.phantramhaomon_32 = Object.Equals(CTTS.taisan, null) ? 0 : Object.Equals(CTTS.taisan.loaitaisan, null) ? 0 : CTTS.taisan.loaitaisan.phantramhaomon_32 * 100;
+                                item.sotientrongmotnam = Object.Equals(CTTS.taisan, null) ? 0 : Object.Equals(CTTS.taisan.loaitaisan, null) ? 0 : Object.Equals(CTTS.taisan.loaitaisan.phantramhaomon_32, null) ? 0 : (long)(CTTS.taisan.dongia * CTTS.taisan.loaitaisan.phantramhaomon_32);
+                                item.haomon_1nam = CTTS.sonamsudungconlai_final(Year) <= 0 ? 0 : CTTS.haomon_1nam;
+                                item.giatriconlai_final = CTTS.giatriconlai_final(Year);
+                                item.haomonluyke = CTTS.haomonluyke(Year);
+                                item.haomonnamtruocchuyensang = CTTS.haomonnamtruocchuyensang(Year);
+
+                                Data.Add(item);
+                            }
                         }
                         else
                         {
-                            if (intIndexTang == -1)
-                                intIndexTang = i;
-                        }
-                    }*/
-                    //0 hay 1 dieu duoc
-                    item.ngay = _Group.ElementAt(0).ngay;
-                    item.sohieu_ct = _Group.ElementAt(1).chungtu != null ? _Group.ElementAt(1).chungtu.sohieu : "";
-                    item.ten = _Group.ElementAt(0).taisan.ten;
-                    item.nuocsx = _Group.ElementAt(0).taisan.nuocsx;
-                    item.dongia_tang = !_Group.ElementAt(1).tinhtrang.giam_taisan ? _Group.ElementAt(1).taisan.dongia : 0;
-                    item.sohieu_ct_tang = !_Group.ElementAt(1).tinhtrang.giam_taisan ? (_Group.ElementAt(1).chungtu != null ? _Group.ElementAt(1).chungtu.sohieu : "") : "";
-                    item.ngay_ct_tang = !_Group.ElementAt(1).tinhtrang.giam_taisan ? (_Group.ElementAt(1).chungtu != null ? _Group.ElementAt(1).chungtu.ngay : null) : null;
-                    item.sohieu_ct_giam = _Group.ElementAt(0).tinhtrang.giam_taisan ? (_Group.ElementAt(0).chungtu != null ? _Group.ElementAt(0).chungtu.sohieu : "") : "";
-                    item.ngay_ct_giam = _Group.ElementAt(0).tinhtrang.giam_taisan ? (_Group.ElementAt(0).chungtu != null ? _Group.ElementAt(0).chungtu.ngay : null) : null;
-                    item.ghichu = _Group.ElementAt(0).tinhtrang.giam_taisan ? _Group.ElementAt(0).mota : null;
-                    item.phantramhaomon_32 = Object.Equals(_Group.ElementAt(0).taisan, null) ? 0 : Object.Equals(_Group.ElementAt(0).taisan.loaitaisan, null) ? 0 : _Group.ElementAt(0).taisan.loaitaisan.phantramhaomon_32 * 100;
-                    item.sotientrongmotnam = Object.Equals(_Group.ElementAt(0).taisan, null) ? 0 : Object.Equals(_Group.ElementAt(0).taisan.loaitaisan, null) ? 0 : Object.Equals(_Group.ElementAt(0).taisan.loaitaisan.phantramhaomon_32, null) ? 0 : (long)(_Group.ElementAt(0).taisan.dongia * _Group.ElementAt(0).taisan.loaitaisan.phantramhaomon_32);
-                    item.haomon_1nam = _Group.ElementAt(0).sonamsudungconlai_final(Year) <= 0 ? 0 : _Group.ElementAt(0).haomon_1nam;
-                    item.giatriconlai_final = _Group.ElementAt(0).giatriconlai_final(Year);
-                    item.haomonluyke = _Group.ElementAt(0).haomonluyke(Year);
-                    item.haomonnamtruocchuyensang = _Group.ElementAt(0).haomonnamtruocchuyensang(Year);
+                            //Tang
+                            for (int i = 1; i <= CTTS.soluong; i++)
+                            {
+                                TSCD.DataFilter.ReportFilter.SoTaiSanCoDinh_DataFilter item = new TSCD.DataFilter.ReportFilter.SoTaiSanCoDinh_DataFilter();
 
-                    Data.Add(item);
+                                item.ngay = CTTS.ngay;
+                                item.sohieu_ct = _Group.ElementAt(1).chungtu != null ? _Group.ElementAt(1).chungtu.sohieu : "";
+                                item.ten = CTTS.taisan.ten;
+                                item.nuocsx = CTTS.taisan.nuocsx;
+
+                                item.dongia_tang = !_Group.ElementAt(1).tinhtrang.giam_taisan ? _Group.ElementAt(1).taisan.dongia : 0;
+                                item.sohieu_ct_tang = !_Group.ElementAt(1).tinhtrang.giam_taisan ? (_Group.ElementAt(1).chungtu != null ? _Group.ElementAt(1).chungtu.sohieu : "") : "";
+                                item.ngay_ct_tang = !_Group.ElementAt(1).tinhtrang.giam_taisan ? (_Group.ElementAt(1).chungtu != null ? _Group.ElementAt(1).chungtu.ngay : null) : null;
+
+                                item.phantramhaomon_32 = Object.Equals(CTTS.taisan, null) ? 0 : Object.Equals(CTTS.taisan.loaitaisan, null) ? 0 : CTTS.taisan.loaitaisan.phantramhaomon_32 * 100;
+                                item.sotientrongmotnam = Object.Equals(CTTS.taisan, null) ? 0 : Object.Equals(CTTS.taisan.loaitaisan, null) ? 0 : Object.Equals(CTTS.taisan.loaitaisan.phantramhaomon_32, null) ? 0 : (long)(CTTS.taisan.dongia * CTTS.taisan.loaitaisan.phantramhaomon_32);
+                                item.haomon_1nam = CTTS.sonamsudungconlai_final(Year) <= 0 ? 0 : CTTS.haomon_1nam;
+                                item.giatriconlai_final = CTTS.giatriconlai_final(Year);
+                                item.haomonluyke = CTTS.haomonluyke(Year);
+                                item.haomonnamtruocchuyensang = CTTS.haomonnamtruocchuyensang(Year);
+
+                                Data.Add(item);
+                            }
+                        }
+                    }
                 }
             }
             return Data.OrderBy(item => item.ngay).ToList(); ;
@@ -632,60 +672,51 @@ namespace TSCD_GUI.ReportTSCD
                     item.ten = _Group.ElementAt(0).taisan.ten;
                     item.donvitinh = _Group.ElementAt(0).taisan.loaitaisan.donvitinh != null ? _Group.ElementAt(0).taisan.loaitaisan.donvitinh.ten : "";
 
-                    item.soluong_tang = !_Group.ElementAt(0).tinhtrang.giam_taisan ? (int?)_Group.ElementAt(0).soluong : null;
-                    item.dongia_tang = !_Group.ElementAt(0).tinhtrang.giam_taisan ? (long?)_Group.ElementAt(0).taisan.dongia : null;
-                    item.thanhtien_tang = !_Group.ElementAt(0).tinhtrang.giam_taisan ? (long?)_Group.ElementAt(0).soluong * _Group.ElementAt(0).taisan.dongia : null;
-
-                    item.soluong_giam = _Group.ElementAt(0).tinhtrang.giam_taisan ? (int?)_Group.ElementAt(0).soluong : null;
-                    item.dongia_giam = _Group.ElementAt(0).tinhtrang.giam_taisan ? (long?)_Group.ElementAt(0).taisan.dongia : null;
-                    item.thanhtien_giam = _Group.ElementAt(0).tinhtrang.giam_taisan ? (long?)_Group.ElementAt(0).soluong * _Group.ElementAt(0).taisan.dongia : null;
-
-                    item.ghichu = _Group.ElementAt(0).tinhtrang.giam_taisan ? _Group.ElementAt(0).mota : "";
+                    if (_Group.ElementAt(0).tinhtrang.giam_taisan)
+                    {
+                        item.soluong_giam = (int?)_Group.ElementAt(0).soluong;
+                        item.dongia_giam = (long?)_Group.ElementAt(0).taisan.dongia;
+                        item.thanhtien_giam = (long?)_Group.ElementAt(0).soluong * _Group.ElementAt(0).taisan.dongia;
+                        item.ghichu = _Group.ElementAt(0).mota;
+                    }
+                    item.soluong_tang = (int?)_Group.ElementAt(0).soluong;
+                    item.dongia_tang = (long?)_Group.ElementAt(0).taisan.dongia;
+                    item.thanhtien_tang = (long?)_Group.ElementAt(0).soluong * _Group.ElementAt(0).taisan.dongia;
 
                     Data.Add(item);
                 }
                 else if (intCount > 1)
                 {
-                    //Do giam tai san roi la khong duoc chuyen tinh trang nua, nen chi lay index 1 va 2
-                    /*int intIndexTang = -1, intIndexGiam = -1;
-                    for (int i = 0; i < intCount; i++)
+                    int intSoLuongGiam = 0, intSoLuongTang = 0;
+                    foreach (var CTTS in _Group)
                     {
-                        //Lay 2 cai tang giam dau tien
-                        if (intIndexTang != -1 && intIndexGiam != -1)
-                            break;
-                        if (_Group.ElementAt(i).tinhtrang.giam_taisan)
-                        {
-                            if (intIndexGiam == -1)
-                                intIndexGiam = i;
-                        }
+                        if (CTTS.tinhtrang.giam_taisan)
+                            intSoLuongGiam += CTTS.soluong;
                         else
-                        {
-                            if (intIndexTang == -1)
-                                intIndexTang = i;
-                        }
-                    }*/
+                            intSoLuongTang += CTTS.soluong;
+                    }
 
-                    item.sohieu_ct = _Group.ElementAt(1).chungtu != null ? _Group.ElementAt(1).chungtu.sohieu : "";
-                    item.ngay_ct = _Group.ElementAt(1).chungtu != null ? _Group.ElementAt(1).chungtu.ngay : null;
+                    //Cung la 1 tai san nen lay o vi tri 0
+                    item.sohieu_ct = _Group.ElementAt(0).chungtu != null ? _Group.ElementAt(0).chungtu.sohieu : "";
+                    item.ngay_ct = _Group.ElementAt(0).chungtu != null ? _Group.ElementAt(0).chungtu.ngay : null;
 
                     item.ten = _Group.ElementAt(0).taisan.ten;
                     item.donvitinh = _Group.ElementAt(0).taisan.loaitaisan.donvitinh != null ? _Group.ElementAt(0).taisan.loaitaisan.donvitinh.ten : "";
 
-                    //Co the phai lay record cuoi
-                    item.soluong_tang = !_Group.ElementAt(1).tinhtrang.giam_taisan ? (int?)_Group.ElementAt(1).soluong : null;
-                    item.dongia_tang = !_Group.ElementAt(1).tinhtrang.giam_taisan ? (long?)_Group.ElementAt(1).taisan.dongia : null;
-                    item.thanhtien_tang = !_Group.ElementAt(1).tinhtrang.giam_taisan ? (long?)_Group.ElementAt(1).soluong * _Group.ElementAt(1).taisan.dongia : null;
+                    if (intSoLuongTang > 0)
+                    {
+                        item.soluong_tang = intSoLuongTang;
+                        item.dongia_tang = (long?)_Group.ElementAt(0).taisan.dongia;
+                        item.thanhtien_tang = (long?)intSoLuongTang * _Group.ElementAt(0).taisan.dongia;
+                    }
 
-                    //Record cuoi
-                    /*
-                    item.soluong_tang = !_Group.ElementAt(intCount - 1).tinhtrang.giam_taisan ? (int?)_Group.ElementAt(intCount - 1).soluong : null;
-                    item.dongia_tang = !_Group.ElementAt(intCount - 1).tinhtrang.giam_taisan ? (long?)_Group.ElementAt(intCount - 1).taisan.dongia : null;
-                    item.thanhtien_tang = !_Group.ElementAt(intCount - 1).tinhtrang.giam_taisan ? (long?)_Group.ElementAt(intCount - 1).soluong * _Group.ElementAt(intCount - 1).taisan.dongia : null;
-                    */
-
-                    item.soluong_giam = _Group.ElementAt(0).tinhtrang.giam_taisan ? (int?)_Group.ElementAt(0).soluong : null;
-                    item.dongia_giam = _Group.ElementAt(0).tinhtrang.giam_taisan ? (long?)_Group.ElementAt(0).taisan.dongia : null;
-                    item.thanhtien_giam = _Group.ElementAt(0).tinhtrang.giam_taisan ? (long?)_Group.ElementAt(0).soluong * _Group.ElementAt(0).taisan.dongia : null;
+                    if (intSoLuongGiam > 0)
+                    {
+                        item.soluong_giam = intSoLuongGiam;
+                        item.dongia_giam = (long?)_Group.ElementAt(0).taisan.dongia;
+                        item.thanhtien_giam = (long?)intSoLuongGiam * _Group.ElementAt(0).taisan.dongia;
+                    }
+                    
 
                     item.ghichu = _Group.ElementAt(0).tinhtrang.giam_taisan ? _Group.ElementAt(0).mota : "";
 
