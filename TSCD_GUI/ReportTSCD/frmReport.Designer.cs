@@ -212,7 +212,7 @@
             this.marqueeProgressBarControl_Status.EditValue = 0;
             this.marqueeProgressBarControl_Status.Location = new System.Drawing.Point(12, 302);
             this.marqueeProgressBarControl_Status.Name = "marqueeProgressBarControl_Status";
-            this.marqueeProgressBarControl_Status.Properties.MarqueeAnimationSpeed = 200;
+            this.marqueeProgressBarControl_Status.Properties.MarqueeAnimationSpeed = 50;
             this.marqueeProgressBarControl_Status.Size = new System.Drawing.Size(246, 12);
             this.marqueeProgressBarControl_Status.TabIndex = 10;
             this.marqueeProgressBarControl_Status.Visible = false;
