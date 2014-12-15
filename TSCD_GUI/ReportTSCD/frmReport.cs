@@ -28,7 +28,7 @@ namespace TSCD_GUI.ReportTSCD
         public SendMessage _SendMessage;
         System.Threading.Thread _ThreadReport;
         static Boolean IsDesign = false;
-
+        float Zoom = 1.2f;
         public frmReport()
         {
             InitializeComponent();
@@ -160,6 +160,7 @@ namespace TSCD_GUI.ReportTSCD
                             designTool.ShowDesignerDialog();
 
                             ReportPrintTool printTool = new ReportPrintTool(designTool.Report);
+                            printTool.PreviewForm.PrintControl.Zoom = Zoom;
                             printTool.ShowPreviewDialog();
 
                             ShowAndHide(true);
@@ -167,11 +168,11 @@ namespace TSCD_GUI.ReportTSCD
                         else
                         {
                             ReportPrintTool printTool = new ReportPrintTool(_XtraReport_BaoCaoTangGiamTSCD);
-
+                            printTool.PreviewForm.PrintControl.Zoom = Zoom;
                             ReportCompeleted();
 
                             printTool.ShowPreviewDialog();
-
+                            
                             ShowAndHide(true);
                         }
                     });
@@ -245,6 +246,7 @@ namespace TSCD_GUI.ReportTSCD
                             designTool.ShowDesignerDialog();
 
                             ReportPrintTool printTool = new ReportPrintTool(designTool.Report);
+                            printTool.PreviewForm.PrintControl.Zoom = Zoom;
                             printTool.ShowPreviewDialog();
 
                             ShowAndHide(true);
@@ -252,7 +254,7 @@ namespace TSCD_GUI.ReportTSCD
                         else
                         {
                             ReportPrintTool printTool = new ReportPrintTool(_XtraReport_SoTaiSanCoDinh);
-
+                            printTool.PreviewForm.PrintControl.Zoom = Zoom;
                             ReportCompeleted();
 
                             printTool.ShowPreviewDialog();
@@ -322,6 +324,7 @@ namespace TSCD_GUI.ReportTSCD
                             designTool.ShowDesignerDialog();
 
                             ReportPrintTool printTool = new ReportPrintTool(designTool.Report);
+                            printTool.PreviewForm.PrintControl.Zoom = Zoom;
                             printTool.ShowPreviewDialog();
 
                             ShowAndHide(true);
@@ -329,7 +332,7 @@ namespace TSCD_GUI.ReportTSCD
                         else
                         {
                             ReportPrintTool printTool = new ReportPrintTool(_XtraReport_SoChiTietTaiSanCoDinh);
-
+                            printTool.PreviewForm.PrintControl.Zoom = Zoom;
                             ReportCompeleted();
 
                             printTool.ShowPreviewDialog();
@@ -394,6 +397,7 @@ namespace TSCD_GUI.ReportTSCD
                             designTool.ShowDesignerDialog();
 
                             ReportPrintTool printTool = new ReportPrintTool(designTool.Report);
+                            printTool.PreviewForm.PrintControl.Zoom = Zoom;
                             printTool.ShowPreviewDialog();
 
                             ShowAndHide(true);
@@ -401,7 +405,7 @@ namespace TSCD_GUI.ReportTSCD
                         else
                         {
                             ReportPrintTool printTool = new ReportPrintTool(_XtraReport_SoTheoDoiTSCDTaiNoiSuDung);
-
+                            printTool.PreviewForm.PrintControl.Zoom = Zoom;
                             ReportCompeleted();
 
                             printTool.ShowPreviewDialog();
