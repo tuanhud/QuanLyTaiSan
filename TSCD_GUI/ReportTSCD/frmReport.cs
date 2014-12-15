@@ -21,7 +21,7 @@ namespace TSCD_GUI.ReportTSCD
     public partial class frmReport : DevExpress.XtraEditors.XtraForm
     {
         List<DonVi> ListDonVi = new List<DonVi>();
-        int HeightNormal = 300, HeightHaveProgress = 350;
+        int HeightNormal = 325, HeightHaveProgress = 375;
         OurDBContext MyNewDbContext = null;
 
         public delegate void SendMessage();
@@ -65,6 +65,7 @@ namespace TSCD_GUI.ReportTSCD
                     ucComboBoxLoaiTS_LoaiTaiSan.Enabled = false;
                     dateEdit_Nam.Enabled = false;
                     ucComboBoxDonVi_ChonDonVi.Enabled = false;
+                    checkEdit_ChuaCoViTri.Enabled = false;
                     checkedComboBoxEdit_ChonCoSo.Enabled = false;
                     break;
                 case 1:
@@ -73,6 +74,7 @@ namespace TSCD_GUI.ReportTSCD
                     ucComboBoxLoaiTS_LoaiTaiSan.Enabled = true;
                     dateEdit_Nam.Enabled = true;
                     ucComboBoxDonVi_ChonDonVi.Enabled = false;
+                    checkEdit_ChuaCoViTri.Enabled = true;
                     checkedComboBoxEdit_ChonCoSo.Enabled = true;
                     break;
                 case 2:
@@ -81,6 +83,7 @@ namespace TSCD_GUI.ReportTSCD
                     ucComboBoxLoaiTS_LoaiTaiSan.Enabled = false;
                     dateEdit_Nam.Enabled = true;
                     ucComboBoxDonVi_ChonDonVi.Enabled = true;
+                    checkEdit_ChuaCoViTri.Enabled = false;
                     checkedComboBoxEdit_ChonCoSo.Enabled = false;
                     break;
                 case 3:
@@ -89,6 +92,7 @@ namespace TSCD_GUI.ReportTSCD
                     ucComboBoxLoaiTS_LoaiTaiSan.Enabled = false;
                     dateEdit_Nam.Enabled = false;
                     ucComboBoxDonVi_ChonDonVi.Enabled = true;
+                    checkEdit_ChuaCoViTri.Enabled = false;
                     checkedComboBoxEdit_ChonCoSo.Enabled = false;
                     break;
             }
@@ -197,15 +201,18 @@ namespace TSCD_GUI.ReportTSCD
                         return;
                     }
                     List<Guid> ListCoSo = CheckedComboBoxEditHelper.getCheckedValueArray(checkedComboBoxEdit_ChonCoSo);
-                    if (Object.Equals(ListCoSo, null))
+                    if (!checkEdit_ChuaCoViTri.Checked)
                     {
-                        XtraMessageBox.Show("Chưa chọn cơ sở cần thống kê", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
-                    if (!(ListCoSo.Count > 0))
-                    {
-                        XtraMessageBox.Show("Chưa chọn cơ sở cần thống kê", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
+                        if (Object.Equals(ListCoSo, null))
+                        {
+                            XtraMessageBox.Show("Chưa chọn cơ sở cần thống kê", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                        if (!(ListCoSo.Count > 0))
+                        {
+                            XtraMessageBox.Show("Chưa chọn cơ sở cần thống kê", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
                     }
                     if (checkEdit_XuatBaoCao.Checked)
                     {
@@ -226,7 +233,7 @@ namespace TSCD_GUI.ReportTSCD
                         UserLookAndFeel.Default.SetSkinStyle(TSCD.Global.local_setting.ApplicationSkinName);
                         DevExpress.Skins.SkinManager.EnableFormSkins();
 
-                        Object Data = GetData_SoTaiSanCoDinh(ListLoaiTaiSan, ListCoSo, dateEdit_Nam.DateTime.Year);
+                        Object Data = GetData_SoTaiSanCoDinh(ListLoaiTaiSan, ListCoSo, dateEdit_Nam.DateTime.Year, checkEdit_ChuaCoViTri.Checked);
 
                         TSCD_GUI.ReportTSCD.XtraReport_SoTaiSanCoDinh _XtraReport_SoTaiSanCoDinh = new ReportTSCD.XtraReport_SoTaiSanCoDinh(Data, dateEdit_Nam.DateTime.Year);
                         if (IsDesign)
@@ -483,7 +490,7 @@ namespace TSCD_GUI.ReportTSCD
             return Data;
         }
 
-        private Object GetData_SoTaiSanCoDinh(List<Guid> ListLoaiTaiSan, List<Guid> ListCoSo, int Year)
+        private Object GetData_SoTaiSanCoDinh(List<Guid> ListLoaiTaiSan, List<Guid> ListCoSo, int Year, Boolean ChuaCoViTri)
         {
             ResetDbContext();
             IQueryable<CTTaiSan> IQueryable = MyNewDbContext.CTTAISANS.AsQueryable<CTTaiSan>();
@@ -501,8 +508,10 @@ namespace TSCD_GUI.ReportTSCD
             if (ListCoSo != null && ListCoSo.Count > 0)
             {
                 List<Guid> ListPhong = Phong.getQuery().Where(x => ListCoSo.Contains(x.vitri.coso.id)).Select(c => c.id).ToList();
-                IQueryable = IQueryable.Where(x => ListCoSo.Contains(x.vitri.coso.id) || ListPhong.Contains(x.phong.id) || Object.Equals(x.vitri, null));
+                IQueryable = IQueryable.Where(x => ListCoSo.Contains(x.vitri.coso.id) || ListPhong.Contains(x.phong.id));
             }
+            if (ChuaCoViTri)
+                IQueryable = IQueryable.Where(x => Object.Equals(x.vitri, null) == true);
             //var DataFiltered_Groups = IQueryable.OrderByDescending(item => item.date_create).DistinctBy(item => new { item.taisan_id, item.tinhtrang_id }).GroupBy(item => item.taisan_id).ToList();
             var DataFiltered_Groups = IQueryable.OrderByDescending(item => item.date_create).GroupBy(item => item.taisan_id).ToList();
 
@@ -716,7 +725,7 @@ namespace TSCD_GUI.ReportTSCD
                         item.dongia_giam = (long?)_Group.ElementAt(0).taisan.dongia;
                         item.thanhtien_giam = (long?)intSoLuongGiam * _Group.ElementAt(0).taisan.dongia;
                     }
-                    
+
 
                     item.ghichu = _Group.ElementAt(0).tinhtrang.giam_taisan ? _Group.ElementAt(0).mota : "";
 
