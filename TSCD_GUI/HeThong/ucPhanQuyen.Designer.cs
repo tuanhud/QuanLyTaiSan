@@ -187,7 +187,6 @@
             // 
             // btnHuy
             // 
-            this.btnHuy.Image = ((System.Drawing.Image)(resources.GetObject("btnHuy.Image")));
             this.btnHuy.Location = new System.Drawing.Point(174, 311);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(75, 23);
@@ -344,7 +343,7 @@
             this.gridControlQTV.Location = new System.Drawing.Point(0, 0);
             this.gridControlQTV.MainView = this.gridViewQTV;
             this.gridControlQTV.Name = "gridControlQTV";
-            this.gridControlQTV.Size = new System.Drawing.Size(507, 352);
+            this.gridControlQTV.Size = new System.Drawing.Size(508, 352);
             this.gridControlQTV.TabIndex = 0;
             this.gridControlQTV.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewQTV});

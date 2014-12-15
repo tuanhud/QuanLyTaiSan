@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucQuanLyLoaiTS));
             this.rbnControlLoaiTS = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barBtnThemLoaiTS = new DevExpress.XtraBars.BarButtonItem();
@@ -73,7 +74,7 @@
             this.btnSua_r = new DevExpress.XtraEditors.SimpleButton();
             this.btnThem_r = new DevExpress.XtraEditors.SimpleButton();
             this.txtMoTa = new DevExpress.XtraEditors.MemoEdit();
-            this.dxErrorProviderInfo = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider();
+            this.dxErrorProviderInfo = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.rbnControlLoaiTS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControlMain)).BeginInit();
             this.splitContainerControlMain.SuspendLayout();
@@ -219,7 +220,7 @@
             this.treeListLoaiTS.OptionsView.ShowAutoFilterRow = true;
             this.treeListLoaiTS.OptionsView.ShowFilterPanelMode = DevExpress.XtraTreeList.ShowFilterPanelMode.Never;
             this.treeListLoaiTS.ParentFieldName = "parent_id";
-            this.treeListLoaiTS.Size = new System.Drawing.Size(447, 387);
+            this.treeListLoaiTS.Size = new System.Drawing.Size(448, 387);
             this.treeListLoaiTS.TabIndex = 0;
             this.treeListLoaiTS.FocusedNodeChanged += new DevExpress.XtraTreeList.FocusedNodeChangedEventHandler(this.treeListLoaiTS_FocusedNodeChanged);
             // 
@@ -411,7 +412,6 @@
             // 
             // btnHuy
             // 
-            this.btnHuy.Image = ((System.Drawing.Image)(resources.GetObject("btnHuy.Image")));
             this.btnHuy.Location = new System.Drawing.Point(168, 337);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(75, 23);

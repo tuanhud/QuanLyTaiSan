@@ -132,7 +132,8 @@
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(719, 14);
+            this.btnClear.Image = ((System.Drawing.Image)(resources.GetObject("btnClear.Image")));
+            this.btnClear.Location = new System.Drawing.Point(669, 29);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(75, 23);
             this.btnClear.TabIndex = 29;
@@ -142,7 +143,7 @@
             // btnTim
             // 
             this.btnTim.Image = ((System.Drawing.Image)(resources.GetObject("btnTim.Image")));
-            this.btnTim.Location = new System.Drawing.Point(638, 14);
+            this.btnTim.Location = new System.Drawing.Point(669, 4);
             this.btnTim.Name = "btnTim";
             this.btnTim.Size = new System.Drawing.Size(75, 23);
             this.btnTim.TabIndex = 28;
@@ -152,7 +153,7 @@
             // ucComboBoxViTri1
             // 
             this.ucComboBoxViTri1.EditValue = null;
-            this.ucComboBoxViTri1.Location = new System.Drawing.Point(380, 5);
+            this.ucComboBoxViTri1.Location = new System.Drawing.Point(411, 29);
             this.ucComboBoxViTri1.Name = "ucComboBoxViTri1";
             this.ucComboBoxViTri1.Phong = null;
             this.ucComboBoxViTri1.Size = new System.Drawing.Size(200, 20);
@@ -163,22 +164,22 @@
             // 
             this.ucComboBoxDonVi1.DonVi = null;
             this.ucComboBoxDonVi1.EditValue = null;
-            this.ucComboBoxDonVi1.Location = new System.Drawing.Point(380, 29);
+            this.ucComboBoxDonVi1.Location = new System.Drawing.Point(411, 5);
             this.ucComboBoxDonVi1.Name = "ucComboBoxDonVi1";
             this.ucComboBoxDonVi1.Size = new System.Drawing.Size(200, 20);
             this.ucComboBoxDonVi1.TabIndex = 4;
             // 
             // checkDonVi
             // 
-            this.checkDonVi.Location = new System.Drawing.Point(313, 31);
+            this.checkDonVi.Location = new System.Drawing.Point(313, 7);
             this.checkDonVi.Name = "checkDonVi";
-            this.checkDonVi.Properties.Caption = "Đơn vị:";
-            this.checkDonVi.Size = new System.Drawing.Size(59, 19);
+            this.checkDonVi.Properties.Caption = "Đơn vị quản lý:";
+            this.checkDonVi.Size = new System.Drawing.Size(96, 19);
             this.checkDonVi.TabIndex = 3;
             // 
             // checkViTri
             // 
-            this.checkViTri.Location = new System.Drawing.Point(313, 5);
+            this.checkViTri.Location = new System.Drawing.Point(313, 29);
             this.checkViTri.Name = "checkViTri";
             this.checkViTri.Properties.Caption = "Vị trí:";
             this.checkViTri.Size = new System.Drawing.Size(51, 19);

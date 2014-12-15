@@ -262,7 +262,7 @@
             // navBarGroupControlContainerViTri
             // 
             this.navBarGroupControlContainerViTri.Name = "navBarGroupControlContainerViTri";
-            this.navBarGroupControlContainerViTri.Size = new System.Drawing.Size(246, 273);
+            this.navBarGroupControlContainerViTri.Size = new System.Drawing.Size(244, 284);
             this.navBarGroupControlContainerViTri.TabIndex = 0;
             // 
             // splitContainerControlMain
@@ -287,7 +287,7 @@
             this.gridControlPhong.MainView = this.gridViewPhong;
             this.gridControlPhong.MenuManager = this.rbnControlPhong;
             this.gridControlPhong.Name = "gridControlPhong";
-            this.gridControlPhong.Size = new System.Drawing.Size(301, 376);
+            this.gridControlPhong.Size = new System.Drawing.Size(302, 376);
             this.gridControlPhong.TabIndex = 0;
             this.gridControlPhong.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewPhong});
@@ -444,7 +444,6 @@
             // 
             // btnHuy
             // 
-            this.btnHuy.Image = ((System.Drawing.Image)(resources.GetObject("btnHuy.Image")));
             this.btnHuy.Location = new System.Drawing.Point(149, 234);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(75, 23);

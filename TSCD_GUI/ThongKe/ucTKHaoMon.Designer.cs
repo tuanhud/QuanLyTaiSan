@@ -81,12 +81,12 @@
             // gridControlHaoMon
             // 
             this.gridControlHaoMon.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControlHaoMon.Location = new System.Drawing.Point(0, 82);
+            this.gridControlHaoMon.Location = new System.Drawing.Point(0, 58);
             this.gridControlHaoMon.MainView = this.gridViewHaoMon;
             this.gridControlHaoMon.Name = "gridControlHaoMon";
             this.gridControlHaoMon.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryMemoTen});
-            this.gridControlHaoMon.Size = new System.Drawing.Size(862, 446);
+            this.gridControlHaoMon.Size = new System.Drawing.Size(1000, 470);
             this.gridControlHaoMon.TabIndex = 0;
             this.gridControlHaoMon.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewHaoMon});
@@ -309,12 +309,12 @@
             this.panelSearch.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelSearch.Location = new System.Drawing.Point(0, 0);
             this.panelSearch.Name = "panelSearch";
-            this.panelSearch.Size = new System.Drawing.Size(862, 82);
+            this.panelSearch.Size = new System.Drawing.Size(1000, 58);
             this.panelSearch.TabIndex = 1;
             // 
             // checkTinhTrang
             // 
-            this.checkTinhTrang.Location = new System.Drawing.Point(5, 55);
+            this.checkTinhTrang.Location = new System.Drawing.Point(239, 29);
             this.checkTinhTrang.Name = "checkTinhTrang";
             this.checkTinhTrang.Properties.Caption = "Tình trạng:";
             this.checkTinhTrang.Size = new System.Drawing.Size(82, 19);
@@ -333,7 +333,7 @@
             // btnClear
             // 
             this.btnClear.Image = ((System.Drawing.Image)(resources.GetObject("btnClear.Image")));
-            this.btnClear.Location = new System.Drawing.Point(679, 29);
+            this.btnClear.Location = new System.Drawing.Point(811, 29);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(75, 23);
             this.btnClear.TabIndex = 15;
@@ -343,7 +343,7 @@
             // btnTim
             // 
             this.btnTim.Image = ((System.Drawing.Image)(resources.GetObject("btnTim.Image")));
-            this.btnTim.Location = new System.Drawing.Point(679, 3);
+            this.btnTim.Location = new System.Drawing.Point(811, 3);
             this.btnTim.Name = "btnTim";
             this.btnTim.Size = new System.Drawing.Size(75, 23);
             this.btnTim.TabIndex = 14;
@@ -353,7 +353,7 @@
             // ucComboBoxViTri1
             // 
             this.ucComboBoxViTri1.EditValue = null;
-            this.ucComboBoxViTri1.Location = new System.Drawing.Point(437, 31);
+            this.ucComboBoxViTri1.Location = new System.Drawing.Point(626, 31);
             this.ucComboBoxViTri1.Name = "ucComboBoxViTri1";
             this.ucComboBoxViTri1.Phong = null;
             this.ucComboBoxViTri1.Size = new System.Drawing.Size(160, 20);
@@ -364,14 +364,14 @@
             // 
             this.ucComboBoxLoaiTS1.EditValue = null;
             this.ucComboBoxLoaiTS1.LoaiTS = null;
-            this.ucComboBoxLoaiTS1.Location = new System.Drawing.Point(101, 32);
+            this.ucComboBoxLoaiTS1.Location = new System.Drawing.Point(335, 6);
             this.ucComboBoxLoaiTS1.Name = "ucComboBoxLoaiTS1";
             this.ucComboBoxLoaiTS1.Size = new System.Drawing.Size(160, 20);
             this.ucComboBoxLoaiTS1.TabIndex = 4;
             // 
             // checkViTri
             // 
-            this.checkViTri.Location = new System.Drawing.Point(341, 31);
+            this.checkViTri.Location = new System.Drawing.Point(530, 31);
             this.checkViTri.Name = "checkViTri";
             this.checkViTri.Properties.Caption = "Vị trí:";
             this.checkViTri.Size = new System.Drawing.Size(58, 19);
@@ -379,7 +379,7 @@
             // 
             // checkLoaiTS
             // 
-            this.checkLoaiTS.Location = new System.Drawing.Point(5, 31);
+            this.checkLoaiTS.Location = new System.Drawing.Point(239, 5);
             this.checkLoaiTS.Name = "checkLoaiTS";
             this.checkLoaiTS.Properties.Caption = "Loại tài sản:";
             this.checkLoaiTS.Size = new System.Drawing.Size(82, 19);
@@ -387,7 +387,7 @@
             // 
             // checkDonVi
             // 
-            this.checkDonVi.Location = new System.Drawing.Point(341, 5);
+            this.checkDonVi.Location = new System.Drawing.Point(530, 5);
             this.checkDonVi.Name = "checkDonVi";
             this.checkDonVi.Properties.Caption = "Đơn vị quản lý:";
             this.checkDonVi.Size = new System.Drawing.Size(93, 19);
@@ -395,7 +395,7 @@
             // 
             // checkedCbxTinhTrang
             // 
-            this.checkedCbxTinhTrang.Location = new System.Drawing.Point(101, 58);
+            this.checkedCbxTinhTrang.Location = new System.Drawing.Point(335, 32);
             this.checkedCbxTinhTrang.Name = "checkedCbxTinhTrang";
             this.checkedCbxTinhTrang.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -409,7 +409,7 @@
             // 
             this.ucComboBoxDonVi1.DonVi = null;
             this.ucComboBoxDonVi1.EditValue = null;
-            this.ucComboBoxDonVi1.Location = new System.Drawing.Point(437, 5);
+            this.ucComboBoxDonVi1.Location = new System.Drawing.Point(626, 5);
             this.ucComboBoxDonVi1.Name = "ucComboBoxDonVi1";
             this.ucComboBoxDonVi1.Size = new System.Drawing.Size(160, 20);
             this.ucComboBoxDonVi1.TabIndex = 8;
@@ -429,7 +429,7 @@
             this.dateNgayTK.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dateNgayTK.Properties.Mask.EditMask = "yyyy";
             this.dateNgayTK.Properties.VistaCalendarViewStyle = DevExpress.XtraEditors.VistaCalendarViewStyle.YearsGroupView;
-            this.dateNgayTK.Size = new System.Drawing.Size(160, 20);
+            this.dateNgayTK.Size = new System.Drawing.Size(100, 20);
             this.dateNgayTK.TabIndex = 2;
             // 
             // ucTKHaoMon
@@ -439,7 +439,7 @@
             this.Controls.Add(this.gridControlHaoMon);
             this.Controls.Add(this.panelSearch);
             this.Name = "ucTKHaoMon";
-            this.Size = new System.Drawing.Size(862, 528);
+            this.Size = new System.Drawing.Size(1000, 528);
             this.Leave += new System.EventHandler(this.ucTKHaoMon_Leave);
             ((System.ComponentModel.ISupportInitialize)(this.gridControlHaoMon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewHaoMon)).EndInit();
