@@ -168,9 +168,13 @@ namespace TSCD_GUI.ThongKe
 
                 ReportTSCD.frmReport _frmReport = new ReportTSCD.frmReport();
                 _frmReport._SendMessage = new ReportTSCD.frmReport.SendMessage(EnableXuatBaoCao);
-                Application.Run(_frmReport);
+                try
+                {
+                    Application.Run(_frmReport);
+                }
+                catch { }
             }));
-
+            _Thread.SetApartmentState(System.Threading.ApartmentState.STA);
             _Thread.Start();
         }
 
