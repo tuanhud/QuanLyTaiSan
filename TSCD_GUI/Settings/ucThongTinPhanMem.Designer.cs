@@ -69,6 +69,7 @@
             this.pictureEdit1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureEdit1.BackgroundImage = global::TSCD_GUI.Properties.Resources.backgroundthongtinphanmem;
+            this.pictureEdit1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureEdit1.EditValue = global::TSCD_GUI.Properties.Resources.logophanmem;
             this.pictureEdit1.Location = new System.Drawing.Point(6, 21);
             this.pictureEdit1.Name = "pictureEdit1";
