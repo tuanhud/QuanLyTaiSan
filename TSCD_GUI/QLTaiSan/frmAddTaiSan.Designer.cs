@@ -147,6 +147,8 @@
             // 
             // dateNgaySD
             // 
+            this.dateNgaySD.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dateNgaySD.EditValue = null;
             this.dateNgaySD.Location = new System.Drawing.Point(92, 12);
             this.dateNgaySD.Name = "dateNgaySD";
@@ -154,7 +156,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateNgaySD.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateNgaySD.Size = new System.Drawing.Size(270, 20);
+            this.dateNgaySD.Size = new System.Drawing.Size(295, 20);
             this.dateNgaySD.TabIndex = 0;
             // 
             // dateNgay_CT
@@ -376,7 +378,6 @@
             // btnOK
             // 
             this.btnOK.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnOK.Image = ((System.Drawing.Image)(resources.GetObject("btnOK.Image")));
             this.btnOK.Location = new System.Drawing.Point(154, 531);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
@@ -767,7 +768,7 @@
             this.xtraTabPageDonVi.Controls.Add(this.txtGhiChuDonVi);
             this.xtraTabPageDonVi.Controls.Add(this.spinSoLuongDonVi);
             this.xtraTabPageDonVi.Name = "xtraTabPageDonVi";
-            this.xtraTabPageDonVi.Size = new System.Drawing.Size(454, 162);
+            this.xtraTabPageDonVi.Size = new System.Drawing.Size(455, 165);
             this.xtraTabPageDonVi.Text = "Chuyển đơn vị";
             // 
             // lbltxtDonViTinh1
@@ -904,7 +905,7 @@
             this.xtraTabPageDonViNew.Controls.Add(this.ucComboBoxViTri_ViTriN);
             this.xtraTabPageDonViNew.Controls.Add(this.ucComboBoxViTri_PhongN);
             this.xtraTabPageDonViNew.Name = "xtraTabPageDonViNew";
-            this.xtraTabPageDonViNew.Size = new System.Drawing.Size(454, 162);
+            this.xtraTabPageDonViNew.Size = new System.Drawing.Size(455, 165);
             this.xtraTabPageDonViNew.Text = "Đơn vị";
             // 
             // labelControl1
@@ -977,7 +978,7 @@
             this.xtraTabPageTinhTrang.Controls.Add(this.labelControl7);
             this.xtraTabPageTinhTrang.Controls.Add(this.lookUpChuyenTinhTrang);
             this.xtraTabPageTinhTrang.Name = "xtraTabPageTinhTrang";
-            this.xtraTabPageTinhTrang.Size = new System.Drawing.Size(454, 162);
+            this.xtraTabPageTinhTrang.Size = new System.Drawing.Size(455, 165);
             this.xtraTabPageTinhTrang.Text = "Chuyển tình trạng";
             // 
             // btnTinhTrang1
