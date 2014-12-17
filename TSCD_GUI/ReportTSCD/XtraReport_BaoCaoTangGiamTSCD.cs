@@ -40,15 +40,23 @@ namespace TSCD_GUI.ReportTSCD
 
                 xrTableCell_SoLuongDauNam.DataBindings.Add("Text", null, "sodaunam_soluong", "{0:### ### ### ###}");
                 xrTableCell_NguyenGiaDauNam.DataBindings.Add("Text", null, "sodaunam_giatri", "{0:### ### ### ###}");
+                xrTableCell_SoLuongDauNam.XlsxFormatString = "### ### ### ###";
+                xrTableCell_NguyenGiaDauNam.XlsxFormatString = "### ### ### ###";
 
                 xrTableCell_SoLuongTangTrongNam.DataBindings.Add("Text", null, "tangtrongnam_soluong", "{0:### ### ### ###}");
                 xrTableCell_NguyenGiaTangTrongNam.DataBindings.Add("Text", null, "tangtrongnam_giatri", "{0:### ### ### ###}");
+                xrTableCell_SoLuongTangTrongNam.XlsxFormatString = "### ### ### ###";
+                xrTableCell_NguyenGiaTangTrongNam.XlsxFormatString = "### ### ### ###";
 
                 xrTableCell_SoLuongGiamTrongNam.DataBindings.Add("Text", null, "giamtrongnam_soluong", "{0:### ### ### ###}");
                 xrTableCell_NguyenGiaGiamTrongNam.DataBindings.Add("Text", null, "giamtrongnam_giatri", "{0:### ### ### ###}");
+                xrTableCell_SoLuongTangTrongNam.XlsxFormatString = "### ### ### ###";
+                xrTableCell_NguyenGiaTangTrongNam.XlsxFormatString = "### ### ### ###";
 
                 xrTableCell_SoLuongCuoiNam.DataBindings.Add("Text", null, "socuoinam_soluong", "{0:### ### ### ###}");
                 xrTableCell_NguyenGiaCuoiNam.DataBindings.Add("Text", null, "socuoinam_giatri", "{0:### ### ### ###}");
+                xrTableCell_SoLuongTangTrongNam.XlsxFormatString = "### ### ### ###";
+                xrTableCell_NguyenGiaTangTrongNam.XlsxFormatString = "### ### ### ###";
 
                 IntSUM();
             }
@@ -121,6 +129,7 @@ namespace TSCD_GUI.ReportTSCD
             xrTableCell_SUM_SoDauNam.Summary.Func = SummaryFunc.Sum;
             xrTableCell_SUM_SoDauNam.Summary.Running = SummaryRunning.Report;
             xrTableCell_SUM_SoDauNam.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+            xrTableCell_SUM_SoDauNam.XlsxFormatString = "### ### ### ###";
 
             xrTableCell_SUM_TangTrongNam.DataBindings.Add("Text", this.DataSource, "tangtrongnam_giatri");
             xrTableCell_SUM_TangTrongNam.Summary.FormatString = "{0:### ### ### ### ### ###}";
@@ -128,6 +137,7 @@ namespace TSCD_GUI.ReportTSCD
             xrTableCell_SUM_TangTrongNam.Summary.Func = SummaryFunc.Sum;
             xrTableCell_SUM_TangTrongNam.Summary.Running = SummaryRunning.Report;
             xrTableCell_SUM_TangTrongNam.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+            xrTableCell_SUM_TangTrongNam.XlsxFormatString = "### ### ### ###";
 
             xrTableCell_SUM_GiamTrongNam.DataBindings.Add("Text", this.DataSource, "giamtrongnam_giatri");
             xrTableCell_SUM_GiamTrongNam.Summary.FormatString = "{0:### ### ### ### ### ###}";
@@ -135,6 +145,7 @@ namespace TSCD_GUI.ReportTSCD
             xrTableCell_SUM_GiamTrongNam.Summary.Func = SummaryFunc.Sum;
             xrTableCell_SUM_GiamTrongNam.Summary.Running = SummaryRunning.Report;
             xrTableCell_SUM_GiamTrongNam.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+            xrTableCell_SUM_GiamTrongNam.XlsxFormatString = "### ### ### ###";
 
             xrTableCell_SUM_SoCuoiNam.DataBindings.Add("Text", this.DataSource, "socuoinam_giatri");
             xrTableCell_SUM_SoCuoiNam.Summary.FormatString = "{0:### ### ### ### ### ###}";
@@ -142,6 +153,7 @@ namespace TSCD_GUI.ReportTSCD
             xrTableCell_SUM_SoCuoiNam.Summary.Func = SummaryFunc.Sum;
             xrTableCell_SUM_SoCuoiNam.Summary.Running = SummaryRunning.Report;
             xrTableCell_SUM_SoCuoiNam.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+            xrTableCell_SUM_SoCuoiNam.XlsxFormatString = "### ### ### ###";
         }
     }
 }

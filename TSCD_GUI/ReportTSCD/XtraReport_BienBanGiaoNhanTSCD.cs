@@ -41,6 +41,7 @@ namespace TSCD_GUI.ReportTSCD
                 xrTableCell_STTTSCD.Text = "1";
                 xrTableCell_TenKiHieuQuiCach.Text = objCTTaiSan.taisan != null ? objCTTaiSan.taisan.ten : "";
                 xrTableCell_SoLuongTSCD.Text = string.Format("{0:### ### ### ###}", objCTTaiSan.soluong);
+                xrTableCell_SoLuongTSCD.XlsxFormatString = "### ### ### ###";
                 xrTableCell_SoHieuTSCD.Text = objChungTu != null ? objChungTu.sohieu : "";
                 xrTableCell_NuocSanXuatTSCD.Text = objCTTaiSan.taisan != null ? objCTTaiSan.taisan.nuocsx : "";
                 xrTableCell_NamSanXuatTSCD.Text = "";
@@ -49,6 +50,7 @@ namespace TSCD_GUI.ReportTSCD
                 xrTableCell_CPCTTSCD.Text = "";
                 xrTableCell_CPVCTSCD.Text = "";
                 xrTableCell_NguyenGiaTSCD.Text = objCTTaiSan.taisan != null ? string.Format("{0:### ### ### ###}", objCTTaiSan.taisan.dongia) : "";
+                xrTableCell_NguyenGiaTSCD.XlsxFormatString = "### ### ### ###";
                 xrTableCell_TinhTrangTSCD.Text = objCTTaiSan.tinhtrang != null ? objCTTaiSan.tinhtrang.value : "";
 
                 IntSUM();
@@ -70,6 +72,7 @@ namespace TSCD_GUI.ReportTSCD
         private void IntSUM()
         {
             xrTableCell_SUM_NguyenGia.Text = objCTTaiSan.taisan != null ? string.Format("{0:### ### ### ###}", objCTTaiSan.taisan.dongia) : "";
+            xrTableCell_SUM_NguyenGia.XlsxFormatString = "### ### ### ###";
         }
 
         private void IntKemTheo()
@@ -99,6 +102,8 @@ namespace TSCD_GUI.ReportTSCD
                         xrTableCell_DonViTinhKEMTHEO.DataBindings.Add("Text", bind, "donvitinh");
                         xrTableCell_SoLuongKEMTHEO.DataBindings.Add("Text", bind, "soluong", "{0:### ### ### ###}");
                         xrTableCell_GiaTriKEMTHEO.DataBindings.Add("Text", bind, "giatri", "{0:### ### ### ###}");
+                        xrTableCell_SoLuongKEMTHEO.XlsxFormatString = "### ### ### ###";
+                        xrTableCell_GiaTriKEMTHEO.XlsxFormatString = "### ### ### ###";
                     }
                     else
                         XuliTable_PhuTungKemTheo();
