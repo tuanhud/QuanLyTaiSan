@@ -42,6 +42,7 @@ namespace TSCD_GUI.ReportTSCD
                 xrTableCell_NguyenGia.DataBindings.Add("Text", null, "dongia_tang", "{0:### ### ### ###}");
                 xrTableCell_TyLeHaoMon.DataBindings.Add("Text", null, "phantramhaomon_32", "{0:0.00}");
                 xrTableCell_SoTienHaoMon.DataBindings.Add("Text", null, "sotientrongmotnam", "{0:### ### ### ###}");
+                xrTableCell_NamSD.XlsxFormatString = "yyyy";
                 xrTableCell_NguyenGia.XlsxFormatString = "### ### ### ###";
                 xrTableCell_SoTienHaoMon.XlsxFormatString = "### ### ### ###";
 
