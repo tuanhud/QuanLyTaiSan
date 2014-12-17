@@ -42,7 +42,7 @@ namespace TSCD_GUI.HeThong
             gridControl_DSQuyen.DataSource = input;
 
             //load ds donvi
-            ucTreeDonVi1.DataSource = DonVi.getAll();
+            ucTreeDonVi1.DataSource = DonViHienThi.Convert(DonVi.getQuery());
         }
         /// <summary>
         /// Lấy ds quyền sau khi chỉnh sửa
