@@ -172,7 +172,7 @@ namespace TSCD_GUI.ReportTSCD
                             ReportCompeleted();
 
                             printTool.ShowPreviewDialog();
-                            
+
                             ShowAndHide(true);
                         }
                     });
@@ -651,6 +651,10 @@ namespace TSCD_GUI.ReportTSCD
                 haomonluyke = x.haomonluyke(Year),
                 haomonnamtruocchuyensang = x.haomonnamtruocchuyensang(Year),
                 haomon_1nam = x.sonamsudungconlai_final(Year) <= 0 ? 0 : x.haomon_1nam,
+
+                tenloaitaisan = Object.Equals(x.taisan.loaitaisan, null) ? x.taisan.loaitaisan.ten : "",
+                loaitaisan = Object.Equals(x.taisan.loaitaisan, null) ? x.taisan.loaitaisan.id : Guid.Empty,
+                loaitaisan_parent = Object.Equals(x.taisan.loaitaisan, null) ? Object.Equals(x.taisan.loaitaisan.parent, null) ? x.taisan.loaitaisan.parent_id : Guid.Empty : Guid.Empty
             }).OrderBy(item => item.ngay).ToList();
             return Data;
         }

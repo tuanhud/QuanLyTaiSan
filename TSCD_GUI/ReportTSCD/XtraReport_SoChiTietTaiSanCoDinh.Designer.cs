@@ -97,9 +97,37 @@
             this.xrControlStyle_Middle = new DevExpress.XtraReports.UI.XRControlStyle();
             this.xrControlStyle_Left = new DevExpress.XtraReports.UI.XRControlStyle();
             this.xrControlStyle_Right = new DevExpress.XtraReports.UI.XRControlStyle();
+            this.GroupHeader_Parent = new DevExpress.XtraReports.UI.GroupHeaderBand();
+            this.xrTable2 = new DevExpress.XtraReports.UI.XRTable();
+            this.xrTableRow1 = new DevExpress.XtraReports.UI.XRTableRow();
+            this.xrTableCell1 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrTableCell_GROUP_NguyenGiaParent = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrTableCell_GROUP_GiaTriConLaiParent = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrTableCell_GROUP_HaoMonTrongKyParent = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrTableCell_GROUP_HaoMonDauKyParent = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrTableCell10 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrTableCell27 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrTableCell33 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrTableCell_GROUP_NameParent = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrTableCell_GROUP_HaoMonLuyKeParent = new DevExpress.XtraReports.UI.XRTableCell();
+            this.GroupHeader_LoaiTaiSan = new DevExpress.XtraReports.UI.GroupHeaderBand();
+            this.xrTable3 = new DevExpress.XtraReports.UI.XRTable();
+            this.xrTableRow6 = new DevExpress.XtraReports.UI.XRTableRow();
+            this.xrTableCell2 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrTableCell_GROUP_Name = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrTableCell4 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrTableCell5 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrTableCell34 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrTableCell_GROUP_NguyenGia = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrTableCell_GROUP_HaoMonDauKy = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrTableCell_GROUP_HaoMonTrongKy = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrTableCell_GROUP_HaoMonLuyKe = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrTableCell_GROUP_GiaTriConLai = new DevExpress.XtraReports.UI.XRTableCell();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable_Detail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable_Header)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xrTable3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // Detail
@@ -698,6 +726,229 @@
             this.xrControlStyle_Right.Name = "xrControlStyle_Right";
             this.xrControlStyle_Right.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             // 
+            // GroupHeader_Parent
+            // 
+            this.GroupHeader_Parent.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.xrTable2});
+            this.GroupHeader_Parent.HeightF = 25F;
+            this.GroupHeader_Parent.Level = 1;
+            this.GroupHeader_Parent.Name = "GroupHeader_Parent";
+            // 
+            // xrTable2
+            // 
+            this.xrTable2.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
+            this.xrTable2.Name = "xrTable2";
+            this.xrTable2.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
+            this.xrTableRow1});
+            this.xrTable2.SizeF = new System.Drawing.SizeF(1050F, 25F);
+            // 
+            // xrTableRow1
+            // 
+            this.xrTableRow1.Cells.AddRange(new DevExpress.XtraReports.UI.XRTableCell[] {
+            this.xrTableCell33,
+            this.xrTableCell_GROUP_NameParent,
+            this.xrTableCell1,
+            this.xrTableCell10,
+            this.xrTableCell27,
+            this.xrTableCell_GROUP_NguyenGiaParent,
+            this.xrTableCell_GROUP_HaoMonDauKyParent,
+            this.xrTableCell_GROUP_HaoMonTrongKyParent,
+            this.xrTableCell_GROUP_HaoMonLuyKeParent,
+            this.xrTableCell_GROUP_GiaTriConLaiParent});
+            this.xrTableRow1.Name = "xrTableRow1";
+            this.xrTableRow1.Weight = 1D;
+            // 
+            // xrTableCell1
+            // 
+            this.xrTableCell1.Font = new System.Drawing.Font("Tahoma", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrTableCell1.Name = "xrTableCell1";
+            this.xrTableCell1.StyleName = "xrControlStyle_Left";
+            this.xrTableCell1.StylePriority.UseFont = false;
+            this.xrTableCell1.Weight = 0.21606693511859768D;
+            // 
+            // xrTableCell_GROUP_NguyenGiaParent
+            // 
+            this.xrTableCell_GROUP_NguyenGiaParent.Font = new System.Drawing.Font("Tahoma", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrTableCell_GROUP_NguyenGiaParent.Name = "xrTableCell_GROUP_NguyenGiaParent";
+            this.xrTableCell_GROUP_NguyenGiaParent.StyleName = "xrControlStyle_Right";
+            this.xrTableCell_GROUP_NguyenGiaParent.StylePriority.UseFont = false;
+            this.xrTableCell_GROUP_NguyenGiaParent.Weight = 0.29464245439396053D;
+            // 
+            // xrTableCell_GROUP_GiaTriConLaiParent
+            // 
+            this.xrTableCell_GROUP_GiaTriConLaiParent.Font = new System.Drawing.Font("Tahoma", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrTableCell_GROUP_GiaTriConLaiParent.Name = "xrTableCell_GROUP_GiaTriConLaiParent";
+            this.xrTableCell_GROUP_GiaTriConLaiParent.StyleName = "xrControlStyle_Right";
+            this.xrTableCell_GROUP_GiaTriConLaiParent.StylePriority.UseFont = false;
+            this.xrTableCell_GROUP_GiaTriConLaiParent.Weight = 0.32440542398381139D;
+            // 
+            // xrTableCell_GROUP_HaoMonTrongKyParent
+            // 
+            this.xrTableCell_GROUP_HaoMonTrongKyParent.Font = new System.Drawing.Font("Tahoma", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrTableCell_GROUP_HaoMonTrongKyParent.Name = "xrTableCell_GROUP_HaoMonTrongKyParent";
+            this.xrTableCell_GROUP_HaoMonTrongKyParent.StyleName = "xrControlStyle_Right";
+            this.xrTableCell_GROUP_HaoMonTrongKyParent.StylePriority.UseFont = false;
+            this.xrTableCell_GROUP_HaoMonTrongKyParent.Weight = 0.25058116354372129D;
+            // 
+            // xrTableCell_GROUP_HaoMonDauKyParent
+            // 
+            this.xrTableCell_GROUP_HaoMonDauKyParent.Font = new System.Drawing.Font("Tahoma", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrTableCell_GROUP_HaoMonDauKyParent.Name = "xrTableCell_GROUP_HaoMonDauKyParent";
+            this.xrTableCell_GROUP_HaoMonDauKyParent.StyleName = "xrControlStyle_Right";
+            this.xrTableCell_GROUP_HaoMonDauKyParent.StylePriority.UseFont = false;
+            this.xrTableCell_GROUP_HaoMonDauKyParent.Weight = 0.30059547337809861D;
+            // 
+            // xrTableCell10
+            // 
+            this.xrTableCell10.Font = new System.Drawing.Font("Tahoma", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrTableCell10.Name = "xrTableCell10";
+            this.xrTableCell10.StyleName = "xrControlStyle_Left";
+            this.xrTableCell10.StylePriority.UseFont = false;
+            this.xrTableCell10.Weight = 0.21130906414293524D;
+            // 
+            // xrTableCell27
+            // 
+            this.xrTableCell27.Font = new System.Drawing.Font("Tahoma", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrTableCell27.Name = "xrTableCell27";
+            this.xrTableCell27.StyleName = "xrControlStyle_Left";
+            this.xrTableCell27.StylePriority.UseFont = false;
+            this.xrTableCell27.Weight = 0.21726218848535422D;
+            // 
+            // xrTableCell33
+            // 
+            this.xrTableCell33.Font = new System.Drawing.Font("Tahoma", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrTableCell33.Name = "xrTableCell33";
+            this.xrTableCell33.StyleName = "xrControlStyle_Left";
+            this.xrTableCell33.StylePriority.UseFont = false;
+            this.xrTableCell33.Weight = 0.28261896010766363D;
+            // 
+            // xrTableCell_GROUP_NameParent
+            // 
+            this.xrTableCell_GROUP_NameParent.Font = new System.Drawing.Font("Tahoma", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrTableCell_GROUP_NameParent.Name = "xrTableCell_GROUP_NameParent";
+            this.xrTableCell_GROUP_NameParent.StyleName = "xrControlStyle_Left";
+            this.xrTableCell_GROUP_NameParent.StylePriority.UseFont = false;
+            this.xrTableCell_GROUP_NameParent.Weight = 0.6144092911413479D;
+            // 
+            // xrTableCell_GROUP_HaoMonLuyKeParent
+            // 
+            this.xrTableCell_GROUP_HaoMonLuyKeParent.Font = new System.Drawing.Font("Tahoma", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrTableCell_GROUP_HaoMonLuyKeParent.Name = "xrTableCell_GROUP_HaoMonLuyKeParent";
+            this.xrTableCell_GROUP_HaoMonLuyKeParent.StyleName = "xrControlStyle_Right";
+            this.xrTableCell_GROUP_HaoMonLuyKeParent.StylePriority.UseFont = false;
+            this.xrTableCell_GROUP_HaoMonLuyKeParent.Weight = 0.28810904570450951D;
+            // 
+            // GroupHeader_LoaiTaiSan
+            // 
+            this.GroupHeader_LoaiTaiSan.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.xrTable3});
+            this.GroupHeader_LoaiTaiSan.HeightF = 25F;
+            this.GroupHeader_LoaiTaiSan.Name = "GroupHeader_LoaiTaiSan";
+            // 
+            // xrTable3
+            // 
+            this.xrTable3.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
+            this.xrTable3.Name = "xrTable3";
+            this.xrTable3.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
+            this.xrTableRow6});
+            this.xrTable3.SizeF = new System.Drawing.SizeF(1050F, 25F);
+            // 
+            // xrTableRow6
+            // 
+            this.xrTableRow6.Cells.AddRange(new DevExpress.XtraReports.UI.XRTableCell[] {
+            this.xrTableCell2,
+            this.xrTableCell_GROUP_Name,
+            this.xrTableCell4,
+            this.xrTableCell5,
+            this.xrTableCell34,
+            this.xrTableCell_GROUP_NguyenGia,
+            this.xrTableCell_GROUP_HaoMonDauKy,
+            this.xrTableCell_GROUP_HaoMonTrongKy,
+            this.xrTableCell_GROUP_HaoMonLuyKe,
+            this.xrTableCell_GROUP_GiaTriConLai});
+            this.xrTableRow6.Name = "xrTableRow6";
+            this.xrTableRow6.Weight = 1D;
+            // 
+            // xrTableCell2
+            // 
+            this.xrTableCell2.Font = new System.Drawing.Font("Tahoma", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrTableCell2.Name = "xrTableCell2";
+            this.xrTableCell2.StyleName = "xrControlStyle_Left";
+            this.xrTableCell2.StylePriority.UseFont = false;
+            this.xrTableCell2.Weight = 0.28261896010766363D;
+            // 
+            // xrTableCell_GROUP_Name
+            // 
+            this.xrTableCell_GROUP_Name.Font = new System.Drawing.Font("Tahoma", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrTableCell_GROUP_Name.Name = "xrTableCell_GROUP_Name";
+            this.xrTableCell_GROUP_Name.StyleName = "xrControlStyle_Left";
+            this.xrTableCell_GROUP_Name.StylePriority.UseFont = false;
+            this.xrTableCell_GROUP_Name.Weight = 0.6144092911413479D;
+            // 
+            // xrTableCell4
+            // 
+            this.xrTableCell4.Font = new System.Drawing.Font("Tahoma", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrTableCell4.Name = "xrTableCell4";
+            this.xrTableCell4.StyleName = "xrControlStyle_Left";
+            this.xrTableCell4.StylePriority.UseFont = false;
+            this.xrTableCell4.Weight = 0.21606693511859768D;
+            // 
+            // xrTableCell5
+            // 
+            this.xrTableCell5.Font = new System.Drawing.Font("Tahoma", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrTableCell5.Name = "xrTableCell5";
+            this.xrTableCell5.StyleName = "xrControlStyle_Left";
+            this.xrTableCell5.StylePriority.UseFont = false;
+            this.xrTableCell5.Weight = 0.21130906414293524D;
+            // 
+            // xrTableCell34
+            // 
+            this.xrTableCell34.Font = new System.Drawing.Font("Tahoma", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrTableCell34.Name = "xrTableCell34";
+            this.xrTableCell34.StyleName = "xrControlStyle_Left";
+            this.xrTableCell34.StylePriority.UseFont = false;
+            this.xrTableCell34.Weight = 0.21726218848535422D;
+            // 
+            // xrTableCell_GROUP_NguyenGia
+            // 
+            this.xrTableCell_GROUP_NguyenGia.Font = new System.Drawing.Font("Tahoma", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrTableCell_GROUP_NguyenGia.Name = "xrTableCell_GROUP_NguyenGia";
+            this.xrTableCell_GROUP_NguyenGia.StyleName = "xrControlStyle_Right";
+            this.xrTableCell_GROUP_NguyenGia.StylePriority.UseFont = false;
+            this.xrTableCell_GROUP_NguyenGia.Weight = 0.29464245439396053D;
+            // 
+            // xrTableCell_GROUP_HaoMonDauKy
+            // 
+            this.xrTableCell_GROUP_HaoMonDauKy.Font = new System.Drawing.Font("Tahoma", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrTableCell_GROUP_HaoMonDauKy.Name = "xrTableCell_GROUP_HaoMonDauKy";
+            this.xrTableCell_GROUP_HaoMonDauKy.StyleName = "xrControlStyle_Right";
+            this.xrTableCell_GROUP_HaoMonDauKy.StylePriority.UseFont = false;
+            this.xrTableCell_GROUP_HaoMonDauKy.Weight = 0.30059547337809861D;
+            // 
+            // xrTableCell_GROUP_HaoMonTrongKy
+            // 
+            this.xrTableCell_GROUP_HaoMonTrongKy.Font = new System.Drawing.Font("Tahoma", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrTableCell_GROUP_HaoMonTrongKy.Name = "xrTableCell_GROUP_HaoMonTrongKy";
+            this.xrTableCell_GROUP_HaoMonTrongKy.StyleName = "xrControlStyle_Right";
+            this.xrTableCell_GROUP_HaoMonTrongKy.StylePriority.UseFont = false;
+            this.xrTableCell_GROUP_HaoMonTrongKy.Weight = 0.25058116354372129D;
+            // 
+            // xrTableCell_GROUP_HaoMonLuyKe
+            // 
+            this.xrTableCell_GROUP_HaoMonLuyKe.Font = new System.Drawing.Font("Tahoma", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrTableCell_GROUP_HaoMonLuyKe.Name = "xrTableCell_GROUP_HaoMonLuyKe";
+            this.xrTableCell_GROUP_HaoMonLuyKe.StyleName = "xrControlStyle_Right";
+            this.xrTableCell_GROUP_HaoMonLuyKe.StylePriority.UseFont = false;
+            this.xrTableCell_GROUP_HaoMonLuyKe.Weight = 0.28810904570450951D;
+            // 
+            // xrTableCell_GROUP_GiaTriConLai
+            // 
+            this.xrTableCell_GROUP_GiaTriConLai.Font = new System.Drawing.Font("Tahoma", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrTableCell_GROUP_GiaTriConLai.Name = "xrTableCell_GROUP_GiaTriConLai";
+            this.xrTableCell_GROUP_GiaTriConLai.StyleName = "xrControlStyle_Right";
+            this.xrTableCell_GROUP_GiaTriConLai.StylePriority.UseFont = false;
+            this.xrTableCell_GROUP_GiaTriConLai.Weight = 0.32440542398381139D;
+            // 
             // XtraReport_SoChiTietTaiSanCoDinh
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -707,7 +958,9 @@
             this.PageHeader,
             this.ReportFooter,
             this.ReportHeader,
-            this.PageFooter});
+            this.PageFooter,
+            this.GroupHeader_Parent,
+            this.GroupHeader_LoaiTaiSan});
             this.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Landscape = true;
             this.Margins = new System.Drawing.Printing.Margins(25, 25, 50, 25);
@@ -722,6 +975,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.xrTable_Detail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable_Header)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xrTable3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
         }
@@ -797,5 +1052,31 @@
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell_SUM_GiaTriHMLuyKe;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell_SUM_GiaTriConLai;
         private DevExpress.XtraReports.UI.XRLabel xrLabel_Nam;
+        private DevExpress.XtraReports.UI.GroupHeaderBand GroupHeader_Parent;
+        private DevExpress.XtraReports.UI.XRTable xrTable2;
+        private DevExpress.XtraReports.UI.XRTableRow xrTableRow1;
+        private DevExpress.XtraReports.UI.XRTableCell xrTableCell33;
+        private DevExpress.XtraReports.UI.XRTableCell xrTableCell_GROUP_NameParent;
+        private DevExpress.XtraReports.UI.XRTableCell xrTableCell1;
+        private DevExpress.XtraReports.UI.XRTableCell xrTableCell10;
+        private DevExpress.XtraReports.UI.XRTableCell xrTableCell27;
+        private DevExpress.XtraReports.UI.XRTableCell xrTableCell_GROUP_NguyenGiaParent;
+        private DevExpress.XtraReports.UI.XRTableCell xrTableCell_GROUP_HaoMonDauKyParent;
+        private DevExpress.XtraReports.UI.XRTableCell xrTableCell_GROUP_HaoMonTrongKyParent;
+        private DevExpress.XtraReports.UI.XRTableCell xrTableCell_GROUP_HaoMonLuyKeParent;
+        private DevExpress.XtraReports.UI.XRTableCell xrTableCell_GROUP_GiaTriConLaiParent;
+        private DevExpress.XtraReports.UI.GroupHeaderBand GroupHeader_LoaiTaiSan;
+        private DevExpress.XtraReports.UI.XRTable xrTable3;
+        private DevExpress.XtraReports.UI.XRTableRow xrTableRow6;
+        private DevExpress.XtraReports.UI.XRTableCell xrTableCell2;
+        private DevExpress.XtraReports.UI.XRTableCell xrTableCell_GROUP_Name;
+        private DevExpress.XtraReports.UI.XRTableCell xrTableCell4;
+        private DevExpress.XtraReports.UI.XRTableCell xrTableCell5;
+        private DevExpress.XtraReports.UI.XRTableCell xrTableCell34;
+        private DevExpress.XtraReports.UI.XRTableCell xrTableCell_GROUP_NguyenGia;
+        private DevExpress.XtraReports.UI.XRTableCell xrTableCell_GROUP_HaoMonDauKy;
+        private DevExpress.XtraReports.UI.XRTableCell xrTableCell_GROUP_HaoMonTrongKy;
+        private DevExpress.XtraReports.UI.XRTableCell xrTableCell_GROUP_HaoMonLuyKe;
+        private DevExpress.XtraReports.UI.XRTableCell xrTableCell_GROUP_GiaTriConLai;
     }
 }
