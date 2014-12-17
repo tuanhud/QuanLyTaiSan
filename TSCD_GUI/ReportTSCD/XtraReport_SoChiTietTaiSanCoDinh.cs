@@ -11,6 +11,8 @@ namespace TSCD_GUI.ReportTSCD
 {
     public partial class XtraReport_SoChiTietTaiSanCoDinh : DevExpress.XtraReports.UI.XtraReport
     {
+        const int padding = 5;
+
         public XtraReport_SoChiTietTaiSanCoDinh()
         {
             InitializeComponent();
@@ -42,15 +44,10 @@ namespace TSCD_GUI.ReportTSCD
         {
             if (!Object.Equals(this.DataSource, null))
             {
-                xrTableCell_TenTSCD.Padding = 5;
-                xrTableCell_NuocSanXuat.Padding = 5;
-                xrTableCell_NgaySuDung.Padding = 5;
-                xrTableCell_NguyenGia.Padding = 5;
-                xrTableCell_TyLeHM.Padding = 5;
-                xrTableCell_GiaTriHMDauKi.Padding = 5;
-                xrTableCell_SoHMTrongKi.Padding = 5;
-                xrTableCell_GiaTriHMLuyKe.Padding = 5;
-                xrTableCell_GiaTriConLai.Padding = 5;
+                xrTable_Detail.Padding = padding;
+                xrTable1.Padding = padding;
+                xrTable2.Padding = padding;
+                xrTable3.Padding = padding;
 
                 xrTableCell_TenTSCD.DataBindings.Add("Text", null, "ten");
                 xrTableCell_NuocSanXuat.DataBindings.Add("Text", null, "nuocsx");
@@ -173,12 +170,6 @@ namespace TSCD_GUI.ReportTSCD
 
         private void IntSUM()
         {
-            xrTableCell_SUM_NguyenGia.Padding = 5;
-            xrTableCell_SUM_GiaTriHMDauKi.Padding = 5;
-            xrTableCell_SUM_SoHaoMonTrongKy.Padding = 5;
-            xrTableCell_SUM_GiaTriHMLuyKe.Padding = 5;
-            xrTableCell_SUM_GiaTriConLai.Padding = 5;
-
             xrTableCell_SUM_NguyenGia.DataBindings.Add("Text", this.DataSource, "dongia");
             xrTableCell_SUM_NguyenGia.Summary.FormatString = "{0:### ### ### ### ### ###}";
             xrTableCell_SUM_NguyenGia.Summary.IgnoreNullValues = true;
