@@ -40,12 +40,11 @@ namespace TSCD_GUI.QLTaiSan
         {
             try
             {
-                List<DonVi> list = DonVi.getQuery().OrderBy(c => c.parent_id).ThenBy(c => c.ten).ToList();
-                DonVi objNULL = new DonVi();
+                List<DonViHienThi> list = DonViHienThi.Convert(DonVi.getQuery().OrderBy(c => c.parent_id).ThenBy(c => c.ten));
+                DonViHienThi objNULL = new DonViHienThi();
                 objNULL.id = Guid.Empty;
                 objNULL.ten = "[Không có đơn vị]";
-                objNULL.parent = null;
-                list.Insert(0, objNULL);
+                list.Add(objNULL);
                 ucTreeDonVi1.DataSource = list;
                 //ucTreeDonVi1.DataSource = DonVi.getQuery().OrderBy(c => c.parent_id).ThenBy(c => c.ten).ToList();
                 if (donvi != null)

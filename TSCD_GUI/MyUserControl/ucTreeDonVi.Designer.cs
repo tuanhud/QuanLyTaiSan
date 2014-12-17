@@ -71,7 +71,7 @@
             // colloai
             // 
             this.colloai.Caption = "Loại đơn vị";
-            this.colloai.FieldName = "loaidonvi.ten";
+            this.colloai.FieldName = "loaidonvi";
             this.colloai.Name = "colloai";
             this.colloai.Visible = true;
             this.colloai.VisibleIndex = 1;

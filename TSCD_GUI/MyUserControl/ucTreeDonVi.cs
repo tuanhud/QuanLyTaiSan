@@ -12,6 +12,7 @@ using TSCD.Entities;
 using DevExpress.XtraTreeList.Nodes;
 using DevExpress.XtraTreeList;
 using DevExpress.XtraTreeList.Columns;
+using TSCD.DataFilter;
 
 namespace TSCD_GUI.MyUserControl
 {
@@ -55,9 +56,15 @@ namespace TSCD_GUI.MyUserControl
                 try
                 {
                     TreeListNode node = treeListDonVi.FocusedNode;
+                    //if (node != null && treeListDonVi.GetDataRecordByNode(node) != null)
+                    //{
+                    //    return treeListDonVi.GetDataRecordByNode(node) as DonVi;
+                    //}
                     if (node != null && treeListDonVi.GetDataRecordByNode(node) != null)
                     {
-                        return treeListDonVi.GetDataRecordByNode(node) as DonVi;
+                        DonViHienThi obj = treeListDonVi.GetDataRecordByNode(node) as DonViHienThi;
+                        if (obj != null && obj.obj != null)
+                            return obj.obj;
                     }
                     return null;
                 }

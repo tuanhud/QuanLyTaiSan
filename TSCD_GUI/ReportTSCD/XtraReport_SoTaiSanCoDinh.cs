@@ -27,6 +27,23 @@ namespace TSCD_GUI.ReportTSCD
         {
             if (!Object.Equals(this.DataSource, null))
             {
+                xrTableCell_SoHieuTang.Padding = 5;
+                xrTableCell_NgayThangTang.Padding = 5;
+                xrTableCell_TenTSCD.Padding = 5;
+                xrTableCell_NuocSX.Padding = 5;
+                xrTableCell_NamSD.Padding = 5;
+                xrTableCell_SoHieuTSCD.Padding = 5;
+                xrTableCell_NguyenGia.Padding = 5;
+                xrTableCell_TyLeHaoMon.Padding = 5;
+                xrTableCell_SoTienHaoMon.Padding = 5;
+                xrTableCell_SoHMChuyenGiao.Padding = 5;
+                xrTableCell_SoHMNamNay.Padding = 5;
+                xrTableCell_SoHMLuyKe.Padding = 5;
+                xrTableCell_SoHieuGiam.Padding = 5;
+                xrTableCell_NgayThangGiam.Padding = 5;
+                xrTableCell_LyDoGiam.Padding = 5;
+                xrTableCell_GiaTriConLai.Padding = 5;
+
                 xrTableCell_SoHieuTang.DataBindings.Add("Text", null, "sohieu_ct_tang");
                 xrTableCell_NgayThangTang.DataBindings.Add("Text", null, "ngay_ct_tang", "{0:dd/MM/yyyy}");
                 xrTableCell_TenTSCD.DataBindings.Add("Text", null, "ten");
@@ -52,6 +69,13 @@ namespace TSCD_GUI.ReportTSCD
 
         private void IntSUM()
         {
+            xrTableCell_SUM_NguyenGiaTang.Padding = 5;
+            xrTableCell_SUM_SoTienHM.Padding = 5;
+            xrTableCell_SUM_SoHMNam.Padding = 5;
+            xrTableCell_SUM_SoHaoMonNamNay.Padding = 5;
+            xrTableCell_SUM_SoHMLuyKe.Padding = 5;
+            xrTableCell_SUM_GiaTriConLai.Padding = 5;
+
             xrTableCell_SUM_NguyenGiaTang.DataBindings.Add("Text", this.DataSource, "dongia_tang");
             xrTableCell_SUM_NguyenGiaTang.Summary.FormatString = "{0:### ### ### ### ### ###}";
             xrTableCell_SUM_NguyenGiaTang.Summary.IgnoreNullValues = true;

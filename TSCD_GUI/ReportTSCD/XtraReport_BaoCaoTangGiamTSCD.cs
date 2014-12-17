@@ -31,6 +31,17 @@ namespace TSCD_GUI.ReportTSCD
             {
                 //IntGROUP();
 
+                xrTableCell_LoaiTaiSanNhomTaiSan.Padding = 5;
+                xrTableCell_DonViTinh.Padding = 5;
+                xrTableCell_SoLuongDauNam.Padding = 5;
+                xrTableCell_NguyenGiaDauNam.Padding = 5;
+                xrTableCell_SoLuongTangTrongNam.Padding = 5;
+                xrTableCell_NguyenGiaTangTrongNam.Padding = 5;
+                xrTableCell_SoLuongGiamTrongNam.Padding = 5;
+                xrTableCell_NguyenGiaGiamTrongNam.Padding = 5;
+                xrTableCell_SoLuongCuoiNam.Padding = 5;
+                xrTableCell_NguyenGiaCuoiNam.Padding = 5;
+
                 xrTableCell_LoaiTaiSanNhomTaiSan.DataBindings.Add("Text", null, "tenloai");
                 xrTableCell_DonViTinh.DataBindings.Add("Text", null, "donvitinh");
 
@@ -111,6 +122,11 @@ namespace TSCD_GUI.ReportTSCD
 
         private void IntSUM()
         {
+            xrTableCell_SUM_SoDauNam.Padding = 5;
+            xrTableCell_SUM_TangTrongNam.Padding = 5;
+            xrTableCell_SUM_GiamTrongNam.Padding = 5;
+            xrTableCell_SUM_SoCuoiNam.Padding = 5;
+
             xrTableCell_SUM_SoDauNam.DataBindings.Add("Text", this.DataSource, "sodaunam_giatri");
             xrTableCell_SUM_SoDauNam.Summary.FormatString = "{0:### ### ### ### ### ###}";
             xrTableCell_SUM_SoDauNam.Summary.IgnoreNullValues = true;

@@ -33,6 +33,19 @@ namespace TSCD_GUI.ReportTSCD
         {
             if (!Object.Equals(this.objCTTaiSan, null))
             {
+                xrTableCell_STTTSCD.Padding = 5;
+                xrTableCell_TenKiHieuQuiCach.Padding = 5;
+                xrTableCell_SoLuongTSCD.Padding = 5;
+                xrTableCell_SoHieuTSCD.Padding = 5;
+                xrTableCell_NuocSanXuatTSCD.Padding = 5;
+                xrTableCell_NamSanXuatTSCD.Padding = 5;
+                xrTableCell_CongSuatTSCD.Padding = 5;
+                xrTableCell_GiaMuaTSCD.Padding = 5;
+                xrTableCell_CPCTTSCD.Padding = 5;
+                xrTableCell_CPVCTSCD.Padding = 5;
+                xrTableCell_NguyenGiaTSCD.Padding = 5;
+                xrTableCell_TinhTrangTSCD.Padding = 5;
+
                 xrTableCell_STTTSCD.Text = "1";
                 xrTableCell_TenKiHieuQuiCach.Text = objCTTaiSan.taisan != null ? objCTTaiSan.taisan.ten : "";
                 xrTableCell_SoLuongTSCD.Text = string.Format("{0:### ### ### ###}", objCTTaiSan.soluong);
@@ -84,6 +97,11 @@ namespace TSCD_GUI.ReportTSCD
                             giatri = a.taisan != null ? a.taisan.dongia : 0
                         }).ToList();
 
+                        xrTableCell_STTKEMTHEO.Padding = 5;
+                        xrTableCell_TenQuiCachKEMTHEO.Padding = 5;
+                        xrTableCell_DonViTinhKEMTHEO.Padding = 5;
+                        xrTableCell_SoLuongKEMTHEO.Padding = 5;
+                        xrTableCell_GiaTriKEMTHEO.Padding = 5;
 
                         xrTableCell_STTKEMTHEO.DataBindings.Add("Text", bind, "id");
                         xrTableCell_STTKEMTHEO.Summary.IgnoreNullValues = true;
