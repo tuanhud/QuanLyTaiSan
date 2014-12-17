@@ -88,6 +88,7 @@ namespace TSCD_GUI.HeThong
             {
                 SetTextGroupControl("Sửa quản trị viên", Color.Red);
                 enableEdit(true);
+                txtTaiKhoanQuanTriVien.Properties.ReadOnly = true;
                 txtMaQuanTriVien.Focus();
             }
         }

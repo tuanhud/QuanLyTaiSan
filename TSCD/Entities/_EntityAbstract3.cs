@@ -95,6 +95,7 @@ namespace TSCD.Entities
 
             //đổi pass
             newPass = hashPassword(newPass);
+            this.password = newPass;
             return 1;
         }
         /// <summary>
