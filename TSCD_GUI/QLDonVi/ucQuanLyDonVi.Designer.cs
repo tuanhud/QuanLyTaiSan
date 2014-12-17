@@ -232,7 +232,6 @@
             // 
             this.groupControlInfo.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupControlInfo.AppearanceCaption.Options.UseFont = true;
-            this.groupControlInfo.Controls.Add(this.btnThemTS);
             this.groupControlInfo.Controls.Add(this.panelControlParent);
             this.groupControlInfo.Controls.Add(this.btnLoaiDonVi);
             this.groupControlInfo.Controls.Add(this.btnHuy);
@@ -249,6 +248,7 @@
             this.groupControlInfo.Controls.Add(this.txtTen);
             this.groupControlInfo.Controls.Add(this.txtMa);
             this.groupControlInfo.Controls.Add(this.txtMoTa);
+            this.groupControlInfo.Controls.Add(this.btnThemTS);
             this.groupControlInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControlInfo.Location = new System.Drawing.Point(0, 0);
             this.groupControlInfo.Name = "groupControlInfo";
@@ -298,7 +298,6 @@
             // 
             // btnOK
             // 
-            this.btnOK.Image = ((System.Drawing.Image)(resources.GetObject("btnOK.Image")));
             this.btnOK.Location = new System.Drawing.Point(100, 210);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);

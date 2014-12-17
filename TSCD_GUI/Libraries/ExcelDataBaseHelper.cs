@@ -1105,7 +1105,7 @@ namespace TSCD_GUI.Libraries
                 const int MAPHONG = 1;
                 const int TENPHONG = 2;
                 const int LOAIPHONG = 3;
-                const int SOCHONGOI = 4;
+                //const int SOCHONGOI = 4;
                 const int MOTA = 5;
                 const int COSO = 6;
                 const int DAY = 7;
@@ -1901,7 +1901,7 @@ namespace TSCD_GUI.Libraries
                 int line = 0;
                 System.Data.DataTable dt = new System.Data.DataTable();
 
-                const int ID = 0;
+                //const int ID = 0;
                 const int TEN = 6;
                 const int NSX = 24;
 

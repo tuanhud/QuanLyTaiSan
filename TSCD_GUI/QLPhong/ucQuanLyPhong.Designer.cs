@@ -64,7 +64,6 @@
             this.panelControlViTri = new DevExpress.XtraEditors.PanelControl();
             this.btnLoaiPhong = new DevExpress.XtraEditors.SimpleButton();
             this.btnHuy = new DevExpress.XtraEditors.SimpleButton();
-            this.btnOK = new DevExpress.XtraEditors.SimpleButton();
             this.lblMoTa = new DevExpress.XtraEditors.LabelControl();
             this.lblLoaiPhong = new DevExpress.XtraEditors.LabelControl();
             this.lblTen = new DevExpress.XtraEditors.LabelControl();
@@ -77,6 +76,7 @@
             this.btnThem_r = new DevExpress.XtraEditors.SimpleButton();
             this.txtMoTa = new DevExpress.XtraEditors.MemoEdit();
             this.txtSoChoNgoi = new DevExpress.XtraEditors.SpinEdit();
+            this.btnOK = new DevExpress.XtraEditors.SimpleButton();
             this.dxErrorProviderInfo = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.rbnControlPhong)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControlLeft)).BeginInit();
@@ -371,13 +371,11 @@
             // 
             this.groupControlInfo.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupControlInfo.AppearanceCaption.Options.UseFont = true;
-            this.groupControlInfo.Controls.Add(this.btnXemTaiSan);
             this.groupControlInfo.Controls.Add(this.lblSoChoNgoi);
             this.groupControlInfo.Controls.Add(this.lblViTri);
             this.groupControlInfo.Controls.Add(this.panelControlViTri);
             this.groupControlInfo.Controls.Add(this.btnLoaiPhong);
             this.groupControlInfo.Controls.Add(this.btnHuy);
-            this.groupControlInfo.Controls.Add(this.btnOK);
             this.groupControlInfo.Controls.Add(this.lblMoTa);
             this.groupControlInfo.Controls.Add(this.lblLoaiPhong);
             this.groupControlInfo.Controls.Add(this.lblTen);
@@ -388,6 +386,8 @@
             this.groupControlInfo.Controls.Add(this.btnThem_r);
             this.groupControlInfo.Controls.Add(this.txtMoTa);
             this.groupControlInfo.Controls.Add(this.txtSoChoNgoi);
+            this.groupControlInfo.Controls.Add(this.btnOK);
+            this.groupControlInfo.Controls.Add(this.btnXemTaiSan);
             this.groupControlInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControlInfo.Location = new System.Drawing.Point(0, 0);
             this.groupControlInfo.Name = "groupControlInfo";
@@ -451,16 +451,6 @@
             this.btnHuy.Text = "Hủy";
             this.btnHuy.VisibleChanged += new System.EventHandler(this.btnHuy_VisibleChanged);
             this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
-            // 
-            // btnOK
-            // 
-            this.btnOK.Image = ((System.Drawing.Image)(resources.GetObject("btnOK.Image")));
-            this.btnOK.Location = new System.Drawing.Point(68, 234);
-            this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(75, 23);
-            this.btnOK.TabIndex = 10;
-            this.btnOK.Text = "OK";
-            this.btnOK.Click += new System.EventHandler(this.btnOk_Click);
             // 
             // lblMoTa
             // 
@@ -597,6 +587,15 @@
             0});
             this.txtSoChoNgoi.Size = new System.Drawing.Size(221, 20);
             this.txtSoChoNgoi.TabIndex = 8;
+            // 
+            // btnOK
+            // 
+            this.btnOK.Location = new System.Drawing.Point(68, 234);
+            this.btnOK.Name = "btnOK";
+            this.btnOK.Size = new System.Drawing.Size(75, 23);
+            this.btnOK.TabIndex = 10;
+            this.btnOK.Text = "OK";
+            this.btnOK.Click += new System.EventHandler(this.btnOk_Click);
             // 
             // dxErrorProviderInfo
             // 
