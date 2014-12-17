@@ -70,59 +70,11 @@ namespace TSCD_GUI.ReportTSCD
         private void IntGROUP()
         {
             #region Padding
-            xrTableCell_GROUP_NguyenGiaParent.Padding = 5;
-            xrTableCell_GROUP_HaoMonDauKyParent.Padding = 5;
-            xrTableCell_GROUP_HaoMonTrongKyParent.Padding = 5;
-            xrTableCell_GROUP_HaoMonLuyKeParent.Padding = 5;
-            xrTableCell_GROUP_GiaTriConLaiParent.Padding = 5;
-
             xrTableCell_GROUP_NguyenGia.Padding = 5;
             xrTableCell_GROUP_HaoMonDauKy.Padding = 5;
             xrTableCell_GROUP_HaoMonTrongKy.Padding = 5;
             xrTableCell_GROUP_HaoMonLuyKe.Padding = 5;
             xrTableCell_GROUP_GiaTriConLai.Padding = 5;
-            #endregion
-
-            #region Loai tai san parent
-            GroupField _GroupField = new GroupField("loaitaisan_parent");
-            GroupHeader_Parent.GroupFields.Add(_GroupField);
-
-            xrTableCell_GROUP_NameParent.DataBindings.Add("Text", this.DataSource, "tenloaitaisan");
-
-            xrTableCell_GROUP_NguyenGiaParent.DataBindings.Add("Text", this.DataSource, "dongia");
-            xrTableCell_GROUP_NguyenGiaParent.Summary.FormatString = "{0:### ### ### ### ### ###}";
-            xrTableCell_GROUP_NguyenGiaParent.Summary.IgnoreNullValues = true;
-            xrTableCell_GROUP_NguyenGiaParent.Summary.Func = SummaryFunc.Sum;
-            xrTableCell_GROUP_NguyenGiaParent.Summary.Running = SummaryRunning.Group;
-            xrTableCell_GROUP_NguyenGiaParent.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
-
-            xrTableCell_GROUP_HaoMonDauKyParent.DataBindings.Add("Text", this.DataSource, "haomonnamtruocchuyensang");
-            xrTableCell_GROUP_HaoMonDauKyParent.Summary.FormatString = "{0:### ### ### ### ### ###}";
-            xrTableCell_GROUP_HaoMonDauKyParent.Summary.IgnoreNullValues = true;
-            xrTableCell_GROUP_HaoMonDauKyParent.Summary.Func = SummaryFunc.Sum;
-            xrTableCell_GROUP_HaoMonDauKyParent.Summary.Running = SummaryRunning.Group;
-            xrTableCell_GROUP_HaoMonDauKyParent.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
-
-            xrTableCell_GROUP_HaoMonTrongKyParent.DataBindings.Add("Text", this.DataSource, "haomon_1nam");
-            xrTableCell_GROUP_HaoMonTrongKyParent.Summary.FormatString = "{0:### ### ### ### ### ###}";
-            xrTableCell_GROUP_HaoMonTrongKyParent.Summary.IgnoreNullValues = true;
-            xrTableCell_GROUP_HaoMonTrongKyParent.Summary.Func = SummaryFunc.Sum;
-            xrTableCell_GROUP_HaoMonTrongKyParent.Summary.Running = SummaryRunning.Group;
-            xrTableCell_GROUP_HaoMonTrongKyParent.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
-
-            xrTableCell_GROUP_HaoMonLuyKeParent.DataBindings.Add("Text", this.DataSource, "haomonluyke");
-            xrTableCell_GROUP_HaoMonLuyKeParent.Summary.FormatString = "{0:### ### ### ### ### ###}";
-            xrTableCell_GROUP_HaoMonLuyKeParent.Summary.IgnoreNullValues = true;
-            xrTableCell_GROUP_HaoMonLuyKeParent.Summary.Func = SummaryFunc.Sum;
-            xrTableCell_GROUP_HaoMonLuyKeParent.Summary.Running = SummaryRunning.Group;
-            xrTableCell_GROUP_HaoMonLuyKeParent.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
-
-            xrTableCell_GROUP_GiaTriConLaiParent.DataBindings.Add("Text", this.DataSource, "giatriconlai_final");
-            xrTableCell_GROUP_GiaTriConLaiParent.Summary.FormatString = "{0:### ### ### ### ### ###}";
-            xrTableCell_GROUP_GiaTriConLaiParent.Summary.IgnoreNullValues = true;
-            xrTableCell_GROUP_GiaTriConLaiParent.Summary.Func = SummaryFunc.Sum;
-            xrTableCell_GROUP_GiaTriConLaiParent.Summary.Running = SummaryRunning.Group;
-            xrTableCell_GROUP_GiaTriConLaiParent.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             #endregion
 
             #region Loai tai san
