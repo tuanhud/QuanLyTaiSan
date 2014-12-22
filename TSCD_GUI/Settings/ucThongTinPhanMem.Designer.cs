@@ -189,7 +189,7 @@
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(17, 13);
             this.labelControl2.TabIndex = 1;
-            this.labelControl2.Text = "1.0";
+            this.labelControl2.Text = "1.1";
             // 
             // labelControl1
             // 

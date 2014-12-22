@@ -358,7 +358,7 @@
             this.Ribbon = this.ribbonMain;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.StatusBar = this.ribbonStatusBar;
-            this.Text = "Quản lý Tài sản cố định v1.0";
+            this.Text = "Quản lý Tài sản cố định phiên bản 1.1";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).EndInit();
             this.backstageViewControl.ResumeLayout(false);

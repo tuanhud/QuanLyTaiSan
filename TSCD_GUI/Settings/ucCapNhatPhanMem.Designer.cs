@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucCapNhatPhanMem));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.panelControlCapNhatPhanMem = new DevExpress.XtraEditors.PanelControl();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
@@ -38,13 +39,12 @@
             this.btnCapNhatPhanMem = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControlCapNhatPhanMem)).BeginInit();
             this.panelControlCapNhatPhanMem.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -63,6 +63,21 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Cập nhật phần mềm";
+            // 
+            // pictureEdit1
+            // 
+            this.pictureEdit1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureEdit1.BackgroundImage = global::TSCD_GUI.Properties.Resources.backgroundthongtinphanmem;
+            this.pictureEdit1.EditValue = global::TSCD_GUI.Properties.Resources.logophanmem;
+            this.pictureEdit1.Location = new System.Drawing.Point(6, 21);
+            this.pictureEdit1.Name = "pictureEdit1";
+            this.pictureEdit1.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.pictureEdit1.Properties.Appearance.Options.UseBackColor = true;
+            this.pictureEdit1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.pictureEdit1.Properties.PictureAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pictureEdit1.Size = new System.Drawing.Size(650, 112);
+            this.pictureEdit1.TabIndex = 5;
             // 
             // groupControl1
             // 
@@ -122,7 +137,7 @@
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(17, 13);
             this.labelControl4.TabIndex = 1;
-            this.labelControl4.Text = "1.0";
+            this.labelControl4.Text = "1.1";
             // 
             // btnCapNhatPhanMem
             // 
@@ -142,7 +157,7 @@
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(17, 13);
             this.labelControl2.TabIndex = 1;
-            this.labelControl2.Text = "1.0";
+            this.labelControl2.Text = "1.1";
             // 
             // labelControl1
             // 
@@ -154,21 +169,6 @@
             this.labelControl1.TabIndex = 0;
             this.labelControl1.Text = "Phiên bản hiện tại:";
             // 
-            // pictureEdit1
-            // 
-            this.pictureEdit1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureEdit1.BackgroundImage = global::TSCD_GUI.Properties.Resources.backgroundthongtinphanmem;
-            this.pictureEdit1.EditValue = global::TSCD_GUI.Properties.Resources.logophanmem;
-            this.pictureEdit1.Location = new System.Drawing.Point(6, 21);
-            this.pictureEdit1.Name = "pictureEdit1";
-            this.pictureEdit1.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.pictureEdit1.Properties.Appearance.Options.UseBackColor = true;
-            this.pictureEdit1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.pictureEdit1.Properties.PictureAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.pictureEdit1.Size = new System.Drawing.Size(650, 112);
-            this.pictureEdit1.TabIndex = 5;
-            // 
             // ucCapNhatPhanMem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -178,13 +178,13 @@
             this.Name = "ucCapNhatPhanMem";
             this.Size = new System.Drawing.Size(804, 400);
             this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControlCapNhatPhanMem)).EndInit();
             this.panelControlCapNhatPhanMem.ResumeLayout(false);
             this.panelControlCapNhatPhanMem.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
