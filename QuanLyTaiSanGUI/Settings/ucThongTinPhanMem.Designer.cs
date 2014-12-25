@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
@@ -40,11 +41,10 @@
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.lblThongTinPhanMem = new DevExpress.XtraEditors.LabelControl();
-            this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -63,6 +63,21 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin phần mềm";
+            // 
+            // pictureEdit1
+            // 
+            this.pictureEdit1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureEdit1.BackgroundImage = global::PTB_GUI.Properties.Resources.backgroundthongtinphanmem;
+            this.pictureEdit1.EditValue = global::PTB_GUI.Properties.Resources.thongtinphanmem;
+            this.pictureEdit1.Location = new System.Drawing.Point(6, 21);
+            this.pictureEdit1.Name = "pictureEdit1";
+            this.pictureEdit1.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.pictureEdit1.Properties.Appearance.Options.UseBackColor = true;
+            this.pictureEdit1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.pictureEdit1.Properties.PictureAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pictureEdit1.Size = new System.Drawing.Size(634, 112);
+            this.pictureEdit1.TabIndex = 4;
             // 
             // groupControl1
             // 
@@ -173,7 +188,7 @@
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(17, 13);
             this.labelControl2.TabIndex = 1;
-            this.labelControl2.Text = "1.0";
+            this.labelControl2.Text = "1.2";
             // 
             // labelControl1
             // 
@@ -195,21 +210,6 @@
             this.lblThongTinPhanMem.TabIndex = 0;
             this.lblThongTinPhanMem.Text = "Được phát triển bởi:";
             // 
-            // pictureEdit1
-            // 
-            this.pictureEdit1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureEdit1.BackgroundImage = global::PTB_GUI.Properties.Resources.backgroundthongtinphanmem;
-            this.pictureEdit1.EditValue = global::PTB_GUI.Properties.Resources.thongtinphanmem;
-            this.pictureEdit1.Location = new System.Drawing.Point(6, 21);
-            this.pictureEdit1.Name = "pictureEdit1";
-            this.pictureEdit1.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.pictureEdit1.Properties.Appearance.Options.UseBackColor = true;
-            this.pictureEdit1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.pictureEdit1.Properties.PictureAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.pictureEdit1.Size = new System.Drawing.Size(634, 112);
-            this.pictureEdit1.TabIndex = 4;
-            // 
             // ucThongTinPhanMem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -219,10 +219,10 @@
             this.Name = "ucThongTinPhanMem";
             this.Size = new System.Drawing.Size(804, 400);
             this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

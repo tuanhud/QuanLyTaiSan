@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>PTB_GUI</RootNamespace>
-    <AssemblyName>PTB_GUI</AssemblyName>
+    <AssemblyName>Quan ly thiet bi</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>true</IsWebBootstrapper>
@@ -85,10 +85,13 @@
     <ManifestKeyFile>QuanLyTaiSanGUI_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
-    <GenerateManifests>true</GenerateManifests>
+    <GenerateManifests>false</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
     <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.BonusSkins.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
@@ -612,6 +615,7 @@
     <EmbeddedResource Include="PhanCongQTV\ucPhanCongQTV.resx">
       <DependentUpon>ucPhanCongQTV.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="QLLoaiThietBi\ucQuanLyLoaiTB.resx">
       <DependentUpon>ucQuanLyLoaiTB.cs</DependentUpon>
     </EmbeddedResource>
@@ -718,6 +722,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.manifest">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
     <None Include="Resources\forward.png" />
   </ItemGroup>
@@ -785,7 +792,6 @@
     <None Include="Resources\plus_2_24.png" />
     <None Include="Resources\fs-view-icon.png" />
     <None Include="Resources\check-64.png" />
-    <Content Include="favicon.ico" />
     <None Include="Resources\Devices-video-projector-icon.png" />
     <None Include="Resources\Apps-preferences-system-power-management-icon.png" />
     <None Include="Resources\add1.png" />
@@ -800,6 +806,7 @@
     <None Include="Resources\check.png" />
     <None Include="Resources\delete_19.png" />
     <None Include="Resources\delete_32.png" />
+    <Content Include="favicon.ico" />
     <Content Include="Resources\login.ico" />
     <Content Include="Resources\login.png" />
     <None Include="Resources\Status-media-playlist-repeat-icon.png" />

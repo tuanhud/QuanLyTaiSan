@@ -32,13 +32,13 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.btnCapNhatPhanMem = new DevExpress.XtraEditors.SimpleButton();
+            this.panelControlCapNhatPhanMem = new DevExpress.XtraEditors.PanelControl();
+            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
-            this.panelControlCapNhatPhanMem = new DevExpress.XtraEditors.PanelControl();
+            this.btnCapNhatPhanMem = new DevExpress.XtraEditors.SimpleButton();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
@@ -95,35 +95,28 @@
             this.groupControl1.TabIndex = 1;
             this.groupControl1.Text = "Phần mềm Quản lý phòng học";
             // 
-            // labelControl2
+            // panelControlCapNhatPhanMem
             // 
-            this.labelControl2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.labelControl2.Location = new System.Drawing.Point(171, 36);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(17, 13);
-            this.labelControl2.TabIndex = 1;
-            this.labelControl2.Text = "1.0";
+            this.panelControlCapNhatPhanMem.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.panelControlCapNhatPhanMem.Appearance.Options.UseBackColor = true;
+            this.panelControlCapNhatPhanMem.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControlCapNhatPhanMem.Controls.Add(this.labelControl5);
+            this.panelControlCapNhatPhanMem.Controls.Add(this.labelControl3);
+            this.panelControlCapNhatPhanMem.Controls.Add(this.labelControl4);
+            this.panelControlCapNhatPhanMem.Location = new System.Drawing.Point(16, 60);
+            this.panelControlCapNhatPhanMem.Name = "panelControlCapNhatPhanMem";
+            this.panelControlCapNhatPhanMem.Size = new System.Drawing.Size(240, 58);
+            this.panelControlCapNhatPhanMem.TabIndex = 3;
             // 
-            // labelControl1
+            // labelControl5
             // 
-            this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.labelControl1.Appearance.ForeColor = System.Drawing.Color.Blue;
-            this.labelControl1.Location = new System.Drawing.Point(25, 36);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(103, 13);
-            this.labelControl1.TabIndex = 0;
-            this.labelControl1.Text = "Phiên bản hiện tại:";
-            // 
-            // btnCapNhatPhanMem
-            // 
-            this.btnCapNhatPhanMem.Image = ((System.Drawing.Image)(resources.GetObject("btnCapNhatPhanMem.Image")));
-            this.btnCapNhatPhanMem.Location = new System.Drawing.Point(203, 31);
-            this.btnCapNhatPhanMem.Name = "btnCapNhatPhanMem";
-            this.btnCapNhatPhanMem.Size = new System.Drawing.Size(24, 23);
-            this.btnCapNhatPhanMem.TabIndex = 2;
-            this.btnCapNhatPhanMem.Click += new System.EventHandler(this.btnCapNhatPhanMem_Click);
+            this.labelControl5.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.labelControl5.Appearance.ForeColor = System.Drawing.Color.Fuchsia;
+            this.labelControl5.Location = new System.Drawing.Point(9, 31);
+            this.labelControl5.Name = "labelControl5";
+            this.labelControl5.Size = new System.Drawing.Size(214, 13);
+            this.labelControl5.TabIndex = 0;
+            this.labelControl5.Text = "Bạn đang sử dụng phiên bản mới nhất.";
             // 
             // labelControl3
             // 
@@ -144,29 +137,37 @@
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(17, 13);
             this.labelControl4.TabIndex = 1;
-            this.labelControl4.Text = "1.0";
+            this.labelControl4.Text = "1.2";
             // 
-            // labelControl5
+            // btnCapNhatPhanMem
             // 
-            this.labelControl5.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.labelControl5.Appearance.ForeColor = System.Drawing.Color.Fuchsia;
-            this.labelControl5.Location = new System.Drawing.Point(9, 31);
-            this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(214, 13);
-            this.labelControl5.TabIndex = 0;
-            this.labelControl5.Text = "Bạn đang sử dụng phiên bản mới nhất.";
+            this.btnCapNhatPhanMem.Image = ((System.Drawing.Image)(resources.GetObject("btnCapNhatPhanMem.Image")));
+            this.btnCapNhatPhanMem.Location = new System.Drawing.Point(203, 31);
+            this.btnCapNhatPhanMem.Name = "btnCapNhatPhanMem";
+            this.btnCapNhatPhanMem.Size = new System.Drawing.Size(24, 23);
+            this.btnCapNhatPhanMem.TabIndex = 2;
+            this.btnCapNhatPhanMem.Click += new System.EventHandler(this.btnCapNhatPhanMem_Click);
             // 
-            // panelControlCapNhatPhanMem
+            // labelControl2
             // 
-            this.panelControlCapNhatPhanMem.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.panelControlCapNhatPhanMem.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.panelControlCapNhatPhanMem.Controls.Add(this.labelControl5);
-            this.panelControlCapNhatPhanMem.Controls.Add(this.labelControl3);
-            this.panelControlCapNhatPhanMem.Controls.Add(this.labelControl4);
-            this.panelControlCapNhatPhanMem.Location = new System.Drawing.Point(16, 60);
-            this.panelControlCapNhatPhanMem.Name = "panelControlCapNhatPhanMem";
-            this.panelControlCapNhatPhanMem.Size = new System.Drawing.Size(240, 58);
-            this.panelControlCapNhatPhanMem.TabIndex = 3;
+            this.labelControl2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.labelControl2.Location = new System.Drawing.Point(171, 36);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(17, 13);
+            this.labelControl2.TabIndex = 1;
+            this.labelControl2.Text = "1.2";
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.labelControl1.Appearance.ForeColor = System.Drawing.Color.Blue;
+            this.labelControl1.Location = new System.Drawing.Point(25, 36);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(103, 13);
+            this.labelControl1.TabIndex = 0;
+            this.labelControl1.Text = "Phiên bản hiện tại:";
             // 
             // ucCapNhatPhanMem
             // 

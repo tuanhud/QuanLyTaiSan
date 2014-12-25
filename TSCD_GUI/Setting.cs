@@ -28,6 +28,8 @@ namespace TSCD_GUI
 
         public Setting()
         {
+            DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitFormLoad), true, true, false);
+            DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang khởi chạy...");
             InitializeComponent();
             //Check kết nối tới CSDL nếu OK thì gọi login ngay lập tức
             /*_passed = Global.working_database.isReady() > 0;
@@ -40,12 +42,15 @@ namespace TSCD_GUI
                 //register event
                 ucCauHinh1.viewCauHinhLocal1._btnSaveLocal.Click += new EventHandler(this.checkPoint);
                 //load uc data
+                //Gây chậm khi cấu hình sai nên phải dùng waitform
                 ucCauHinh1.reLoad();
             }*/
             //register event
             ucCauHinh1.viewCauHinhLocal._btnSaveLocal.Click += new EventHandler(this.checkPoint);
             //load uc data
+            //Gây chậm khi cấu hình sai nên phải dùng waitform
             ucCauHinh1.reLoad();
+            DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
         }
 
         private void checkPoint(object sender, EventArgs e)
