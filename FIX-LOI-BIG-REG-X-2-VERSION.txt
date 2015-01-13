@@ -1,7 +1,7 @@
 ﻿Thay đổi DevExpress.XtraEditors.XtraForm -> Thành Form trong các Form dưới đây
-frmAddTaiSan.cs
-frmAddTaiSanExist.cs
-frmChuyenTinhTrang.cs
-frmFileChungTu.cs
-frmInputViTri_DonVi.cs
+QLTaiSan\frmAddTaiSan.cs
+QLTaiSan\frmAddTaiSanExist.cs
+QLTaiSan\frmChuyenTinhTrang.cs
+QLTaiSan\frmFileChungTu.cs
+QLTaiSan\frmInputViTri_DonVi.cs
 

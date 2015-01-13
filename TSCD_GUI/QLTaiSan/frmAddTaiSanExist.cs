@@ -13,7 +13,7 @@ using SHARED.Libraries;
 
 namespace TSCD_GUI.QLTaiSan
 {
-    public partial class frmAddTaiSanExist : DevExpress.XtraEditors.XtraForm
+    public partial class frmAddTaiSanExist : Form
     {
         //ucQuanLyTaiSan
         DonVi objDonVi = null;

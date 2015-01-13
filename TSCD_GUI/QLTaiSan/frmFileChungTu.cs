@@ -15,7 +15,7 @@ using System.IO;
 
 namespace TSCD_GUI.QLTaiSan
 {
-    public partial class frmFileChungTu : DevExpress.XtraEditors.XtraForm
+    public partial class frmFileChungTu : Form
     {
         bool save = false;
         Attachment objAttachment = null;

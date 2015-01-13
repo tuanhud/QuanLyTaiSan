@@ -14,7 +14,7 @@ using DevExpress.XtraReports.UI;
 
 namespace TSCD_GUI.QLTaiSan
 {
-    public partial class frmInputViTri_DonVi : DevExpress.XtraEditors.XtraForm
+    public partial class frmInputViTri_DonVi : Form
     {
         CTTaiSan objCTTaiSan = null;
         //ChungTu objChungTu = null;

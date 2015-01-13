@@ -13,7 +13,7 @@ using TSCD.DataFilter;
 
 namespace TSCD_GUI.QLTaiSan
 {
-    public partial class frmAddTaiSan : DevExpress.XtraEditors.XtraForm
+    public partial class frmAddTaiSan : Form
     {
         List<TinhTrang> listTinhTrang = null;
         List<LoaiTaiSan> listLoaiTaiSan = null;

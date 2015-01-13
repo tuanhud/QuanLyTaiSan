@@ -1,1 +1,4 @@
 thêm mới loại tài sản đã có -> fails => fails hết. thêm lại ko đc, phải renew DB mới đc
+
+
+làm hướng dẫn chi tiết cho chức năng thêm moới tài sản và nghiệp vụ thống kê

@@ -12,7 +12,7 @@ using SHARED.Libraries;
 
 namespace TSCD_GUI.QLTaiSan
 {
-    public partial class frmChuyenTinhTrang : DevExpress.XtraEditors.XtraForm
+    public partial class frmChuyenTinhTrang : Form
     {
         CTTaiSan objCTTaiSan = null;
         //ChungTu objChungTu = null;
